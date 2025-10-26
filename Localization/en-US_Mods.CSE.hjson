@@ -1,0 +1,695 @@
+EModeBalance: {
+	CrossBalance: "Cross-mod Balance: "
+	DamageUpGeneric: Damage increased by {0}%
+	DamageDownGeneric: Damage decreased by {0}%
+	Homing: "[c/00A36C:Cross-mod Balance: ]Weapon projectiles home in on enemies"
+	Unnerf: "[c/00A36C:Cross-mod Balance: ]Reverted DLC nerf"
+	PostND: "[c/FF0000:Cross-mod Balance:] Can be only used after defeating the Nameless Deity"
+	PostMutant: "[c/FF0000:Cross-mod Balance:] Can be only used after defeating Mutant"
+	WhiteDwarfNerf: "[c/FF0000:Cross-mod Balance:] Ivory flare has 3 seconds cooldown"
+	InfernoNone: "[c/ffff00:Cross-mod Balance:] No nerfs in effect"
+	InfernoDamage: "[c/FF0000:Cross-mod Balance:] Vastly reduced base damage, improves by defeating: "
+	MalevolenceGrenadeNerf: "[c/FF0000:Cross-mod Balance:] Grenades deal 80% less damage"
+	DesperatioColumnNerf: "[c/FF0000:Cross-mod Balance:] Fire column deal 50% less damage"
+}
+
+TrueEternityRevDifficulty: {
+	Name: True-Eternity-Revengeance
+	ShortDescription: "[c/00FFFF:A challenging mode from Fargo's Mods that includes] [c/880808:Revengeance Mode] and [c/FF00B7:True Mode] [c/00FFFF:changes.]"
+	ExpandedDescription:
+		'''
+		Enables [c/00FFFF:Eternity Mode], [c/880808:Revengeance Mode], [c/FF00B7:True Mode] and enables Master Mode drops.
+
+		By default, [c/00FFFF:Eternity Mode] behaviour takes priority. This can be changed in the configs.
+		{$Mods.FargowiltasSouls.UI.ExpandedFeatures}
+		[i:1612][c/00ff00:Recommended to use Fargo's Mutant Mod Debuff Display (in config)]
+		'''
+	Activation: True-Eternity-Revengeance Mode has activated!
+	Deactivation: True-Eternity-Revengeance Mode has deactivated.
+}
+
+TrueEternityDeathDifficulty: {
+	Name: True-Eternity-Death
+	ShortDescription: "[c/00FFFF:A challenging mode from Fargo's Mods that includes] [c/880808:Death Mode] and [c/FF00B7:True Mode] [c/00FFFF:changes.]"
+	ExpandedDescription:
+		'''
+		Enables [c/00FFFF:Eternity Mode], [c/880808:Death Mode], [c/FF00B7:True Mode] and enables Master Mode drops.
+
+		Eternity-Death only: Expands behavior for vanilla [c/00FFFF:Eternity Mode] bosses, including parts of Calamity behavior or new Calamity-inspired behavior.
+		{$Mods.FargowiltasSouls.UI.ExpandedFeatures}
+		[i:1612][c/00ff00:Recommended to use Fargo's Mutant Mod Debuff Display (in config)]
+		'''
+	Activation: True-Eternity-Death Mode has activated!
+	Deactivation: True-Eternity-Death Mode has deactivated.
+}
+
+StatSheet: {
+	Accuracy: Accuracy
+	LifeShield: Life Shield
+	BossDamage: Boss Damage
+	HealerDamage: Radiant Damage
+	HealerCrit: Radiant Critical Chance
+	ThrowerDamage: Throwing Damage
+	ThrowerCrit: Throwing Critical Chance
+	HealerAddHeal: Bonus Healing
+	BardDamage: Symphonic Damage
+	BardCrit: Symphonic Critical Chance
+	BardResource: Max Inspriration
+	BardResourceRegen: Inspriration Regeneration
+}
+
+ActiveSkills: {
+	SpaceJunkEffect: {
+		DisplayName: Falling Satellite
+		Tooltip: Sends a falling satellite from sky that explodes into multiple damaging shrapnels
+	}
+
+	DreadfireEffect: {
+		Tooltip: Inflict Dreadfire buff on yourself
+		DisplayName: Dreadfire
+	}
+
+	MarstechEffect: {
+		DisplayName: Marstech Probe
+		Tooltip: Ssends out a homing martian probe that explodes into multiple damaging shrapnels
+	}
+
+	CosmicCommanderEffect: {
+		DisplayName: Sniper's state
+		Tooltip: Activate Sniper's State
+	}
+
+	CommonGuardEffect: {
+		DisplayName: Guard breaking
+		Tooltip: Halves guard points for every enemy on screen with short cooldown
+	}
+
+	XenomiteEffect: {
+		DisplayName: Xenomite Clouds
+		Tooltips: Unleash toxic gas in a radius around the player, inflicting Burning Acid
+	}
+}
+
+Toggler: {
+	//soa Enchant
+	FrostburnForceHeader: Force of Frostburn
+	FoundationsForceHeader: Force of Foundations
+	SyranForceHeader: Force of Syran
+	AsthraltiteEffect: Hypercrits
+	ExitumLuxEffect: Relic Boost
+	SpaceJunkEffect: Space Junk on hit
+	VoidWardenEffect: Nightmare Bubbles
+	LapisDefenseEffect: Lapis defense
+	VulcanReaperEffect: Reaper Streak
+	FlariumEffect: Flarium Geysers
+	BlightboneEffect: Blightbone Support
+	LapisSpeedEffect: Lapis Speed
+	EerieEffect: Eerie Pulses
+	PrairieEffect: Wind Speed
+	FrosthunterEffect: Frost Explosions
+	GenerationsForceHeader: Force of Generations
+	SoranForceHeader: Force of Soran
+	UnrelentingRivalEffect: Rival Streak
+	FallenPrinceEffect: Energy Blades
+	SavingGraceEffect: Nebulous Flames
+	GravityEffect: Gravity Area
+	SupernovaEffect: Supernova On Death
+	QuasarEffect: WIP
+	BismuthEffect: Bismuth Crystal
+	DreadfireEffect: Dreadfire Aura
+	CairoCrusaderEffect: Eternal Oasis Minion
+	SpiritMediumEffect: WIP
+	//soa
+	LunarRingEffect: Lunar Ring
+	InfAmmoEffect: Double magazine
+	FloraFistEffect: Fist of Flora
+	DreadflameEmblemEffect: Dreadflame Emblem
+	StarstreamVeilEffect: Stardust Explosions
+	NubasBlessingEffect: Nuba's Blessing
+	StoneOfResonanceEffect: Stone of Resonance
+	ReflectionsEffect: Shield of Reflections
+	HeartOfThePloughEffect: Heart of the Plough
+	MilinticaDashEffect: Shield of Reflections
+	//thorium
+	ThrowerSoulEffect: Exhaustion removal
+	PiratesPurseEffect: Pirate's Purse
+	LifeQuartzEffect: Life Quartz Shield
+	MotDEHeader: Mark of the Dream Eater
+	DefenderEffect: Terrarium Defender
+	WarheadEffect: Concussive Warhead
+	BlastShieldEffect: Blast Shield
+	PhylacteryEffect: Lich's Phylactery
+	TheOmegaCoreEffect: The Omega Core
+	CapeoftheSurvivorEffect: Cape of the Survivor
+	PlasmaGeneratorEffect: Plasma Generator
+	InfernoLordsFocusEffect: Inferno Lord's Focus
+	//thorium Enchant
+	GeodeEffect: Ore Duplication
+	//HWJ
+	CommandersGauntletEffect: Gauntlet of Commander
+	GodlyTouchEffect: Divine Touch
+	WalnutOnFireEffect: Walnut on Fire
+	StarQuiverEffect: Star Quiver
+	PhilosophersStoneEffect: Philosopher's Stone
+	EruditeBookmarkEffect: Erudite Bookmark
+	DivineNecklaceEffect: Divine Necklace
+	TheBatterEffect: The Batter
+	OneGiantLeapEffect: Moonwalk
+	HourHandEffect: Hour Hand
+	EdgewalkerEffect: Edgewalker
+	MasterShieldEffect: Master Shield
+	//redemption
+	XeniumEffect: Rocket Launcher Minion
+	ElderWoodEffect: Elemental damage
+	AdvancementHeader: Force of Advancement
+	HardlightEffect: Drone Minion
+	InfectionShieldEffect: Infected Thornshield Dash
+	PocketShieldGeneratorEffect: Pocket Shield Generator
+	HEVEffect: H.E.V Suit
+	//cal
+	RampartEffect: Rampart of Deities
+	PhantomicArtifactEffect: Phantomic Soul Artifact
+}
+
+Tiles: {
+	SyranCraftingStationTile.MapEntry: Syran Crafting Station
+	MutantsForgeTile.MapEntry: Mutant's Forge
+	DemonshadeWorkbenchTile.MapEntry: Demonshade Workbench
+	DreamersForgeTile.MapEntry: Dreamers Forge Tile
+	XeniumFabricatorTile.MapEntry: Xenium Fabricator Tile
+}
+
+AddedEffects: {
+	ThoriumWorldshaper: "[i:CSE/GeodeEnchant] When mining ore blocks you get x2 ore"
+	SoAArchWizard: "[i:SacredTools/NubasBlessing] Magic critical strikes absorb mana"
+	SoABerserker: "[i:SacredTools/FloraFist] Melee attacks inflict enemies with toxic and fire energy fists"
+	SoAConjurist: "[i:SacredTools/StarstreamVeil] Minion attacks inflict Ichor and cause stardust explosions"
+	SoAColossus: "[i:SacredTools/ReflectionShield] Has a 10% chance to block hostile projectile"
+	RedColossus: "[i:Redemption/HEVSuit] Protects from most enviromental hazards"
+	RedColossus2: "[i:Redemption/PocketShieldGenerator] Summons bubble shield that can protect user from a high amount of damage before breaking"
+	SoAThrower: "[i:SacredTools/DreadflameEmblem] Dealing damage with thrower weapons has a chance to release flaming embers"
+	ThoriumThrower: "[i:ThoriumMod/PiratesPurse] Enemies killed by thrower damage release a spread of damaging coins"
+	SoARampart: "[i:SacredTools/ReflectionShield] Has a 10% chance to block hostile projectile"
+	SoASniper: Reloadable weapons do not require reloading
+	Aeolus: "[i:FargowiltasSouls/AeolusBoots] Effects of Aeolus Boots"
+	Zephyr: "[i:FargowiltasSouls/ZephyrBoots] Effects of Zephyr Boots"
+	ThoriumColossus1: "[i:ThoriumMod/Phylactery] Taking fatal damage will instead return you with 25% life every 4 minutes"
+	ThoriumColossus2: "[i:ThoriumMod/TerrariumDefender] When below 25% life you will rapidly regenerate life and gain increased defense"
+	ThoriumColossus3: "[i:ThoriumMod/TerrariumDefender] When below 25% life you will rapidly regenerate life and gain increased defense"
+	ThoriumColossus4: "[i:CSE/CorruptedWarShield] While standing still, gain 5 defense, 2 life recovery, steadily generate a 20 life shield"
+	HWJBlessing: "[i:ContinentOfJourney/AncientBlessing] Reduces cooldown of healing potions by 25%"
+	HWJColossus: "[i:ContinentOfJourney/VanguardBreastpiece] Keep you at 1 HP upon reciving a fatal hit (10 minutes cooldown)"
+	HWJColossus2: "[i:ContinentOfJourney/MasterShield] Negates damage every 45 seconds"
+	HWJRampart: "[i:ContinentOfJourney/VanguardBreastpiece] Keep you at 1 HP upon reciving a fatal hit (10 minutes cooldown)"
+	ThoriumSupersonic: "[i:ThoriumMod/TheOmegaCore] Increases movement speed beyond comprehension"
+	SoASupersonic: "[i:SacredTools/HeartOfThePlough] Increases your movement speed the lower your health gets"
+	SoAWorldshaper: "[i:SacredTools/LunarRing] Ability to carry 50 asthraltite shards"
+	HWJBerserker: "[i:ContinentOfJourney/PhilosophersStone] Hitting enemies with melee weapons fills up their exhaustion"
+	HWJSniper: "[i:ContinentOfJourney/StarQuiver] Turn wooden arrows into holy arrows"
+	HWJConjurist: "[i:ContinentOfJourney/CommandersGaunlet] Tag enemies with whips, Player who tagged enemy are overall buffed"
+	ThoriumSniper: "[i:ThoriumMod/ConcussiveWarhead] Increases rocket damage by 100% and ranged damage briefly stun enemies"
+}
+
+Items: {
+	CorruptedWarShield: {
+		Tooltip:
+			'''
+			Damage taken reduced by 5%
+			You steadily generate a 20 life shield
+			While standing still, gain 5 defense, 2 life recovery, and knockback immunity
+			'''
+		DisplayName: Corrupted War Shield
+	}
+
+	MutantsForgeItem: {
+		DisplayName: Cosmic Quantum Computer
+		Tooltip:
+			'''
+			Counts as every possible crafting station.
+			Allows you to summon any boss
+			'''
+	}
+
+	SyranCraftingStationItem: {
+		DisplayName: Syran Crafting Station
+		Tooltip: Counts as every crafting station from Shadows of Abaddon
+	}
+
+	CyclonicFin: {
+		DisplayName: Cyclonic Fin
+		Tooltip:
+			'''
+			Grants immunity to Curse of the Moon and Oceanic Maul
+			Your attacks inflict Curse of the Moon and Oceanic Maul
+			Spectral Fishron periodically manifests to support your critical hits
+			Spectral Fishron also inflicts Mutant Nibble, disabling enemy healing
+			Upgrades Cute Fishron to Cute Fishron EX
+			'The wind is howling'
+			'''
+	}
+
+	TruffleWormEX: {
+		DisplayName: Truffle Worm EX
+		Tooltip: ""
+	}
+
+	DemonshadeWorkbenchItem: {
+		DisplayName: Demonshade Workbench
+		Tooltip: Counts as every crafting station from Calamity Mod
+	}
+
+	DreamersForgeItem: {
+		Tooltip: Counts as every crafting station from Thorium Mod
+		DisplayName: Dreamers Forge Item
+	}
+
+	DreamEssence: {
+		DisplayName: Dream Essence
+		Tooltip: ""
+	}
+
+	XeniumFabricator: {
+		DisplayName: Xenium Fabricator
+		Tooltip: Counts as every crafting station from Mod of Redemption
+	}
+
+	BardSoul: {
+		DisplayName: Elite Musician's Soul
+		Tooltip:
+			'''
+			25% increased symphonic damage
+			20% increased playing speed
+			10% increased symphonic critical strike chance
+			Increases your maximum inspiration by 100
+			[i:ThoriumMod/TerrariumSurroundSound] You and nearby allies can elementally backleash enemies when attacked
+			[i:ThoriumMod/DigitalTuner][i:ThoriumMod/EpicMouthpiece][i:ThoriumMod/GuitarPickClaw][i:ThoriumMod/StraightMute] Effects of each instrument type accessory
+			'Every note you produce births a new world'
+			'''
+	}
+
+	GuardianAngelsSoul: {
+		DisplayName: Guardian Angel's Soul
+		Tooltip:
+			'''
+			25% increased radiant damage
+			20% increased playing speed
+			10% increased radiant critical strike chance
+			Healing spells will heal an additional 5 life
+			[i:ThoriumMod/SavingGrace] Healing an ally increase their life regeneration and defense
+			[i:ThoriumMod/SupportSash] Healing an ally increase your movement and healing speed
+			[i:ThoriumMod/SupportSash] Upon drinking a healing potion, all nearby allies recover 25 health and 50 mana
+			'Divine Intervention'
+			'''
+	}
+
+	EternalScale: {
+		DisplayName: Eternal Scale
+		Tooltip: ""
+	}
+
+	tModLoadiumBar: {
+		DisplayName: Eternal Matter
+		Tooltip: ""
+	}
+
+	AsthraltiteEnchant: {
+		DisplayName: Asthraltite Enchantment
+		Tooltip:
+			'''
+			Allows crits, and super crits to have a 50% chance to ignore any type of defense
+			All attacks inflict Draconic Blaze
+			'Asph-... Asthath-... How are you meant to pronounce this?'
+			'''
+	}
+
+	BismuthEnchant: {
+		DisplayName: Bismuth Enchantment
+		Tooltip:
+			'''
+			While standing you will form bismuth crystals that can absorb 10% of damage from enemies, and 5% from bosses 
+			It takes 5 seconds to form and has three stages that can only absorb up to 90 damage
+			'It takes every color to make a rainbow'
+			'''
+	}
+
+	UnrelentingRivalEnchant: {
+		DisplayName: Unrelenting Rival Enchantment
+		Tooltip:
+			'''
+			Killing enemies creates a kill streak
+			The more enemies you kill increases damage by 30% 
+			Maximum streak is limited by 5
+			'Your spirit ignites like the brightest flame. Soon, your enemies will too'
+			'''
+	}
+
+	BlightboneEnchant: {
+		DisplayName: Blightbone Enchantment
+		Tooltip:
+			'''
+			Adds a 10% chance for a blightbone to be thrown out alongside your thrown weapon, applying �On Fire!� for 2 seconds
+			Empowers bone type weapons, making them apply the �On Fire!� debuff for 5 seconds.
+			'Your spooks and scares will send shivers down your enemies' spines'
+			'''
+	}
+
+	SoranForcesEnchant: {
+		DisplayName: Soran Forces Enchantment
+		Tooltip:
+			'''
+			Makes enemies less likely to hit you
+			You deal 125% more damage but your defense is reduced by 25% in sniper state
+			This state lasts for 15 seconds and after you will deal 25% less damage but with 30% increased defense 
+			Getting hit while in sniper state will instantly end it
+			'Make Soran great again'
+			'''
+	}
+
+	DreadfireEnchant: {
+		DisplayName: Dreadfire Enchantment
+		Tooltip:
+			'''
+			Surrounds player with Dreadfire Aura that inflicts Dreadfire buff
+			For players: Dreadfire buff increases damage by 20%
+			For enemies: Lose 5 life each second
+			'Ralnek's spirit guides you'
+			'''
+	}
+
+	EerieEnchant: {
+		DisplayName: Eerie Enchantment
+		Tooltip:
+			'''
+			After taking damage create pulses that grants a damage buff to minions, sentries, and nearby players
+			The strength of the buff depends on the user's health 
+			'Creeper? Aw man�'
+			'''
+	}
+
+	ExitumLuxEnchant: {
+		DisplayName: Exitum Lux Enchantment
+		Tooltip:
+			'''
+			Using relic weapons multiply most of stats by 1.1
+			'Does something soon'TM
+			'''
+	}
+
+	FallenPrinceEnchant: {
+		DisplayName: Fallen Prince Enchantment
+		Tooltip:
+			'''
+			Before death you will explode into a supernova
+			'Give up your heritage, gain power'
+			'''
+	}
+
+	FlariumEnchant: {
+		DisplayName: Flarium Enchantment
+		Tooltip:
+			'''
+			Projectiles that hit the ground have a chance to create spurring flame tornado
+			Tornados lasts for 5 seconds 
+			Only 5 tornados can exist at the same time
+			'Raze your enemies with Araghur's flames'
+			'''
+	}
+
+	FrosthunterEnchant: {
+		DisplayName: Frosthunter Enchantment
+		Tooltip:
+			'''
+			When shooting an enemy, cause a small frost explosion that damages enemies in a radius
+			With a 2 second cooldown, the frost explosion becomes a cluster explosion, causing multiple small frost explosions to come after it
+			'The hunter now hunted, the prey now predator'
+			'''
+	}
+
+	LapisEnchant: {
+		DisplayName: Lapis Enchantment
+		Tooltip:
+			'''
+			15% increased movement speed
+			Additional 25% movement speed for 2 seconds after being damaged
+			Every 5 attacks, give the Lapis Shield, increasing your defense by 3/6/9, depending on how many stacks you have
+			'Gotta go fast'
+			'''
+	}
+
+	MarstechEnchant: {
+		DisplayName: Marstech Enchantment
+		Tooltip:
+			'''
+			Shrapnels stay on grounds/platforms and disappear after a few seconds
+			When being damaged, there is a 50% chance for 2-4 shrapnels to fall off your armor
+			'Who needs magic when you have technology?'
+			'''
+	}
+
+	SavingGraceEnchant: {
+		DisplayName: Saving Grace Enchantment
+		Tooltip:
+			'''
+			Attacking enemies release buff wisps which can be picked up for different stacking buffs
+			'Nuba would be proud'
+			'''
+	}
+
+	PrairieEnchant: {
+		DisplayName: Prairie Enchantment
+		Tooltip:
+			'''
+			Depending on the wind speed all speed stats are increased by 5%-20%
+			'Subdued Serenity'
+			'''
+	}
+
+	QuasarEnchant: {
+		DisplayName: Quasar Enchantment
+		Tooltip:
+			'''
+			WIP
+			'It's time to shine'
+			'''
+	}
+
+	SpaceJunkEnchant: {
+		DisplayName: Space Junk Enchantment
+		Tooltip:
+			'''
+			Shrapnels stay on ground/platforms and disappear after a few seconds
+			When being damaged, there is a 33% chance for 1-2 shrapnels to fall off your armor
+			'I'm da spaceman!'
+			'''
+	}
+
+	SpiritMediumEnchant: {
+		DisplayName: Spirit Medium Enchantment
+		Tooltip:
+			'''
+			WIP
+			'Stand proud'
+			'''
+	}
+
+	VoidWardenEnchant: {
+		DisplayName: Void Warden Enchantment
+		Tooltip:
+			'''
+			The player's movement generates nightmare bubbles that when hitting a boss decrease their aggression by 15% 
+			Hitting enemies gives them the �fear� debuff causing them to hit other enemies 
+			'The ride never ends'
+			'''
+	}
+
+	VulcanReaperEnchant: {
+		DisplayName: Vulcan Reaper Enchantment
+		Tooltip:
+			'''
+			Allows the player to increase Boss Damage by killing enemies near the boss which increases damage by 10% for 2 seconds per enemies defeated.
+			Provides immunity to Flarium Inferno and Obsidian Curse
+			'Reap the rewards of your near-endless grind'
+			'''
+	}
+
+	FoundationsForce: {
+		DisplayName: Force of Foundations
+		Tooltip:
+			'''
+			[i:CSE/BismuthEnchant] While standing you will form bismuth crystals that can absorb damage
+			[i:CSE/LapisEnchant] Attaking grants lapis speed and defense buffs
+			':HeyMF:'
+			'''
+	}
+
+	GenerationsForce: {
+		DisplayName: Force of Generations
+		Tooltip:
+			'''
+			[i:CSE/VulcanReaperEnchant] Allows the player to increase Boss Damage by killing enemies near the boss
+			[i:CSE/EerieEnchant] On hit you will release eerie pulses that buff minions and allies
+			[i:CSE/CairoCrusaderEnchant] Enevelop player in blizzard that can ignore attack
+			'Through all this world's years, none have seen anything quite like you'
+			'''
+	}
+
+	FrostburnForce: {
+		DisplayName: Force of Frostburn
+		Tooltip:
+			'''
+			[i:CSE/FlariumEnchant] Your attacks sometimes spur abyssal flame tornados
+			[i:CSE/ExitumLuxEnchant] Attacking with relic weapon grants 20% damage buff
+			[i:CSE/BlightboneEnchant] Chance for a frosted bone to support your attack
+			[i:CSE/FrosthunterEnchant] Bones explode into frost explosion and freeze enemies
+			''
+			'''
+	}
+
+	SoranForce: {
+		DisplayName: Force of Soran
+		Tooltip:
+			'''
+			[i:CSE/SoranForcesEnchant] In sniper state you deal 300% more damage but defense is reduced by 15%
+			[i:CSE/UnrelentingRivalEnchant] Every time you kill an enemy in sniper state you gain a 75% increase this stacks up to 5 times
+			[i:CSE/QuasarEnchant] [i:CSE/FallenPrinceEnchant] Hitting enemies have chance to reate quasar that pull weak enemies
+			[i:CSE/FallenPrinceEnchant] Upon death you will be revived in supernova explosion
+			[i:CSE/SavingGraceEnchant] Attacking enemies release buff wisps which can be picked up for different stacking buffs
+			'The true power of the Soraniti'
+			'''
+	}
+
+	SyranForce: {
+		DisplayName: Force of Syrus
+		Tooltip:
+			'''
+			[i:CSE/VoidWardenEnchant] [i:CSE/AsthraltiteEnchant] Grants ring of void lanterns that decrease agression and shoot enemies
+			[i:CSE/VoidWardenEnchant] Hitting enemy inflict Fear that makes them attack other enemies
+			[i:CSE/DreadfireEnchant] You have aura that inflict dreadfire on nearby enemies and allies
+			'Dragon Rage empowers you, and encourages you to go on'
+			'''
+	}
+
+	SoulOfTwoRealms: {
+		DisplayName: Soul of Two Realms
+		TooltipOld:
+			'''
+			[i:CSE/FrostburnForce] Blightbone support, frost explosions and flarium tornados on hit, relic boost
+			[i:CSE/SyranForce] Gain void lanterns ring that can spur gaysers, inflict enemies with Fear, Dreadfire aura
+			[i:CSE/SoranForce] Creates quasars when hitting enemy, supernova revival on death, increase rival streak when killing enemies
+			[i:CSE/SoranForce] Release buff wisps whan attacking, minions summon starstream worms
+			[i:CSE/GenerationsForce] Increase reaper streak when killing enemies, eerie pulses on hit, enevelop in blizzard, ignoring attack
+			[i:CSE/FoundationsForce] Bismuth crystals formation, attaking grants lapis speed and defense buffs
+			'Two worlds, now embodied as one'
+			'''
+		Tooltip:
+			'''
+			[i:CSE/FrostburnForce][i:CSE/SyranForce][i:CSE/SoranForce][i:CSE/GenerationsForce][i:CSE/FoundationsForce] Grants effects of all forcess
+			'Two worlds, now embodied as one'
+			'''
+	}
+
+	CairoCrusaderEnchant: {
+		DisplayName: Cairo Crusader Enchant
+		Tooltip: ""
+	}
+
+	SpiritsMediumEnchant: {
+		DisplayName: Spirits Medium Enchant
+		Tooltip: ""
+	}
+
+	MacroverseSoul: {
+		Tooltip: ""
+		DisplayName: Macroverse Soul
+
+		Extra: {
+			Effects: Grants following effects:
+			StartsWithFilter: "'"
+			ContainsFilter: Following effects|Grants togglable
+			Flavor: Power of Multiverse in your hands
+		}
+	}
+
+	GeodeEnchant: {
+		DisplayName: Geode Enchant
+		Tooltip: Mined ore blocks drop x2 ore
+	}
+
+	MotDE: {
+		DisplayName: Mark of The Dream Eater
+		Tooltip:
+			'''
+			[i:ThoriumMod/CapeoftheSurvivor] You gain up to 20% damage reduction over time
+			[i:ThoriumMod/CapeoftheSurvivor] Getting hit briefly reduces that bonus to -10% damage reduction
+			[i:ThoriumMod/PlasmaGenerator] Generates fiery barrier that burns incoming hostile projectile every 10 seconds
+			[i:ThoriumMod/InfernoLordsFocus] Critical strikes release a burst of damaging sparks
+			[i:ThoriumMod/AbyssalShell] Pressing the "Encase" key will briefly place you in an impenetrable shell
+			[i:ThoriumMod/TheRing] +2 flat damage and armor penetration, +4% crit chance and damage
+			'''
+	}
+
+	AccessoriesSoul: {
+		DisplayName: Accessories Soul
+		Tooltip: ""
+	}
+
+	XeniumFabricatorItem: {
+		DisplayName: Xenium Fabricator Item
+		Tooltip: ""
+	}
+}
+
+Projectiles: {
+	CuteFishronRitual.DisplayName: Cute Fishron Ritual
+	MutantYap.DisplayName: Mutant Yap
+	SpectralFishron.DisplayName: Spectral Fishron
+	Blightbone.DisplayName: Blightbone
+	DreadfireAuraProj.DisplayName: Dreadfire Aura Proj
+	EeriePulse.DisplayName: Eerie Pulse
+	FlariumTornado.DisplayName: Flarium Tornado
+	FrosthunterExplosion.DisplayName: Frosthunter Explosion
+	MartianProbe.DisplayName: Martian Probe
+	NightmareBubble.DisplayName: Nightmare Bubble
+	SatelliteShard.DisplayName: Satellite Shard
+	Shrapnel.DisplayName: Shrapnel
+	SpaceJunkProj.DisplayName: Space Junk Proj
+}
+
+Buffs: {
+	DreadflameAura: {
+		DisplayName: Dreadflame Aura
+		Description: Mods.CSE.Buffs.DreadflameAura.Description
+	}
+
+	DreadflameAuraCD: {
+		DisplayName: Dreadflame Aura C D
+		Description: Mods.CSE.Buffs.DreadflameAuraCD.Description
+	}
+
+	FearBuff: {
+		DisplayName: Fear Buff
+		Description: Mods.CSE.Buffs.FearBuff.Description
+	}
+
+	NihilityPresenceBuff: {
+		DisplayName: Nihility Presence Buff
+		Description: Mods.CSE.Buffs.NihilityPresenceBuff.Description
+	}
+
+	RivalBuff: {
+		DisplayName: Rival Buff
+		Description: Mods.CSE.Buffs.RivalBuff.Description
+	}
+
+	SniperBuff: {
+		DisplayName: Sniper Buff
+		Description: Mods.CSE.Buffs.SniperBuff.Description
+	}
+
+	SniperCooldownBuff: {
+		DisplayName: Sniper Cooldown Buff
+		Description: Mods.CSE.Buffs.SniperCooldownBuff.Description
+	}
+}
+
+Conditions.AbaddonDowned: Mods.CSE.Conditions.AbaddonDowned

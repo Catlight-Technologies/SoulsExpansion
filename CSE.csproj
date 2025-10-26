@@ -1,0 +1,54 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<!-- Import tModLoader mod properties -->
+	<Import Project="..\tModLoader.targets" />
+
+	<!-- General -->
+	<PropertyGroup>
+		
+	</PropertyGroup>
+	<ItemGroup>
+	  <AdditionalFiles Remove="Core\Crossmod\f\**" />
+	  <Compile Remove="Core\Crossmod\f\**" />
+	  <EmbeddedResource Remove="Core\Crossmod\f\**" />
+	  <None Remove="Core\Crossmod\f\**" />
+	</ItemGroup>
+	<ItemGroup>
+	  <Reference Include="CalamityMod">
+	    <HintPath>..\..\ModReader\CalamityMod\CalamityMod.dll</HintPath>
+	  </Reference>
+	  <Reference Include="ContinentOfJourney">
+	    <HintPath>..\..\ModReader\ContinentOfJourney\ContinentOfJourney.dll</HintPath>
+	  </Reference>
+	  <Reference Include="Daybreak">
+	    <HintPath>..\..\ModReader\Daybreak\Daybreak.dll</HintPath>
+	  </Reference>
+	  <Reference Include="FargoSeeds">
+	    <HintPath>..\..\ModReader\FargoSeeds\FargoSeeds.dll</HintPath>
+	  </Reference>
+	  <Reference Include="Fargowiltas">
+	    <HintPath>..\..\ModReader\Fargowiltas\Fargowiltas.dll</HintPath>
+	  </Reference>
+	  <Reference Include="FargowiltasCrossmod">
+	    <HintPath>..\..\ModReader\FargowiltasCrossmod\FargowiltasCrossmod.dll</HintPath>
+	  </Reference>
+	  <Reference Include="FargowiltasSouls">
+	    <HintPath>..\..\ModReader\FargowiltasSouls\FargowiltasSouls.dll</HintPath>
+	  </Reference>
+	  <Reference Include="Luminance">
+	    <HintPath>..\..\ModReader\Luminance\Luminance.dll</HintPath>
+	  </Reference>
+	  <Reference Include="Redemption">
+	    <HintPath>..\..\ModReader\Redemption\Redemption.dll</HintPath>
+	  </Reference>
+	  <Reference Include="SacredTools">
+	    <HintPath>..\..\ModReader\SacredTools\SacredTools.dll</HintPath>
+	  </Reference>
+	  <Reference Include="ThoriumMod">
+	    <HintPath>..\..\ModReader\ThoriumMod\ThoriumMod.dll</HintPath>
+	  </Reference>
+	</ItemGroup>
+
+	<!-- References -->
+
+</Project>

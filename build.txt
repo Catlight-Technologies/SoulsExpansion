@@ -1,0 +1,9 @@
+displayName = Souls Expansion: Remastered
+author = CSE Dev Team
+version = 0.0.0.1
+homepage = https://discord.gg/frUcz2dQAy
+buildIgnore = *.csproj, *.user, obj\*, bin\*, .vs\*, .git\*, *.dll
+modReferences = Fargowiltas, FargowiltasSouls, Luminance, Daybreak, ThrowerUnification
+weakReferences = Redemption, ThoriumMod, SacredTools, CalamityMod, FargowiltasCrossmod, ContinentOfJourney, NoxusBoss
+includePDB = true
+includeSource = true
