@@ -13,7 +13,6 @@ using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
-using ThoriumMod.Items.BasicAccessories;
 
 namespace CSE.Core.SoA.ModSystems
 {

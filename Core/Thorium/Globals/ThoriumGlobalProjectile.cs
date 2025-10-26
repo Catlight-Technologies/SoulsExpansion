@@ -12,6 +12,8 @@ namespace CSE.Core.Thorium.Globals
     [JITWhenModsEnabled(ModCompatibility.Thorium.Name)]
     public class ThoriumGlobalProjectile : GlobalProjectile
     {
+        public override bool InstancePerEntity => true;
+        public bool immuneToCD;
         public override void OnSpawn(Projectile projectile, IEntitySource source)
         {
             if (projectile.type == ModContent.ProjectileType<WhiteFlare>())
@@ -24,11 +26,12 @@ namespace CSE.Core.Thorium.Globals
                     projectile.netUpdate = true;
                 }
             }
-            if (projectile.type == ModContent.ProjectileType<InfernoLordsFocusPro>() && projectile.owner.ToPlayer().GetModPlayer<ThoriumPlayer>().infernoLordCD < 0)
+            if (projectile.type == ModContent.ProjectileType<InfernoLordsFocusPro>() && projectile.owner.ToPlayer().GetModPlayer<ThoriumPlayer>().infernoLordCD < 1)
             {
-                projectile.owner.ToPlayer().GetModPlayer<ThoriumPlayer>().infernoLordCD = 10;
+                immuneToCD = true;
+                projectile.owner.ToPlayer().GetModPlayer<ThoriumPlayer>().infernoLordCD = 5;
             }
-            if (projectile.type == ModContent.ProjectileType<InfernoLordsFocusPro>() && projectile.owner.ToPlayer().GetModPlayer<ThoriumPlayer>().infernoLordCD > 0)
+            if (projectile.type == ModContent.ProjectileType<InfernoLordsFocusPro>() && projectile.owner.ToPlayer().GetModPlayer<ThoriumPlayer>().infernoLordCD > 0 && !immuneToCD)
             {
                 projectile.damage = 0;
                 projectile.hide = true;
@@ -51,17 +54,17 @@ namespace CSE.Core.Thorium.Globals
         //}
         public override void SetDefaults(Projectile projectile)
         {
-            if (projectile.type == ModContent.ProjectileType<InfernoLordsFocusPro>() && !ModCompatibility.Calamity.Loaded)
-            {
-                if (!WorldSavingSystem.DownedAbom && WorldSavingSystem.DownedBoss[8])
-                {
-                    projectile.damage = (int)(projectile.damage * 0.75f);
-                }
-                if (!WorldSavingSystem.DownedBoss[8])
-                {
-                    projectile.damage = (int)(projectile.damage * 0.5f);
-                }
-            }
+            //if (projectile.type == ModContent.ProjectileType<InfernoLordsFocusPro>() && !ModCompatibility.Calamity.Loaded)
+            //{
+            //    if (!WorldSavingSystem.DownedAbom && WorldSavingSystem.DownedBoss[8])
+            //    {
+            //        projectile.damage = (int)(projectile.damage * 0.75f);
+            //    }
+            //    if (!WorldSavingSystem.DownedBoss[8])
+            //    {
+            //        projectile.damage = (int)(projectile.damage * 0.5f);
+            //    }
+            //}
             //if (projectile.type == ModContent.ProjectileType<TerrariansLastKnifePro>())
              //   projectile.scale = 1.5f;
             //ts doubles my spear dps

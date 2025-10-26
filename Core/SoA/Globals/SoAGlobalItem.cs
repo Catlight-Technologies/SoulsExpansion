@@ -39,14 +39,14 @@ namespace CSE.Core.SoA.Globals
             if (item.type == ItemType<BloodKunai>()) return 1f;
             // Ranged
             if (item.type == ItemType<NeedlerRelic>()) return 1f;
-            if (item.type == ItemType<Desperatio>()) return ModCompatibility.Calamity.Loaded ? 1.6f : 1.2f;
+            if (item.type == ItemType<Desperatio>()) return ModCompatibility.Calamity.Loaded ? 1.7f : 1.3f;
             if (item.type == ItemType<Malevolence>()) return 1f;
             if (item.type == ItemType<QueenSwarm>()) return 1f;
             if (item.type == ItemType<Avalanche>()) return 1f;
             if (item.type == ItemType<Sharpshooter>()) return 1f;
             if (item.type == ItemType<Gunblade>()) return 1f;
             // Magic
-            if (item.type == ItemType<Tenebris>()) return ModCompatibility.Calamity.Loaded ? 0.9f : 0.8f;
+            if (item.type == ItemType<Tenebris>()) return ModCompatibility.Calamity.Loaded ? 1f : 0.9f;
             if (item.type == ItemType<PaleRuin>()) return 1f;
             if (item.type == ItemType<LampOfCinders>()) return 1f;
             if (item.type == ItemType<FatesLament>()) return 1f;

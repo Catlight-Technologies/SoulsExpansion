@@ -48,7 +48,7 @@ namespace CSE
             List<TitleLinkButton> titleLinks = CSETitleLinks;
             titleLinks.Add(MakeSimpleButton("TitleLinks.Discord", "https://discord.gg/frUcz2dQAy", 0));
             titleLinks.Add(MakeSimpleButton("TitleLinks.Wiki", "https://terrariamods.wiki.gg/wiki/Community_Souls_Expansion", 1));
-            titleLinks.Add(MakeSimpleButton("Mods.FargowiltasSouls.UI.TitleLinks.Github", "https://github.com/Shtuks/StarlightsSouls", 3));
+            titleLinks.Add(MakeSimpleButton("Mods.FargowiltasSouls.UI.TitleLinks.Github", "https://github.com/Catlight-Technologies/SoulsExpansion", 3));
 
             //FargowiltasSouls.BossChecklistValues["MutantBoss"] = int.MaxValue - 1;
             //BossChecklistValues["AbomBoss"] = ModCompatibility.CatTech.Loaded ? 50 : 22.9f;

@@ -7,10 +7,9 @@ EModeBalance: {
 	PostND: "[c/FF0000:Cross-mod Balance:] Can be only used after defeating the Nameless Deity"
 	PostMutant: "[c/FF0000:Cross-mod Balance:] Can be only used after defeating Mutant"
 	WhiteDwarfNerf: "[c/FF0000:Cross-mod Balance:] Ivory flare has 3 seconds cooldown"
-	InfernoNone: "[c/ffff00:Cross-mod Balance:] No nerfs in effect"
-	InfernoDamage: "[c/FF0000:Cross-mod Balance:] Vastly reduced base damage, improves by defeating: "
+	InfernoNerf: "[c/FF0000:Cross-mod Balance:] Reduced density of bursts"
 	MalevolenceGrenadeNerf: "[c/FF0000:Cross-mod Balance:] Grenades deal 80% less damage"
-	DesperatioColumnNerf: "[c/FF0000:Cross-mod Balance:] Fire column deal 50% less damage"
+	DesperatioColumnNerf: "[c/FF0000:Cross-mod Balance:] Flame column deal 50% less damage"
 }
 
 TrueEternityRevDifficulty: {
@@ -110,7 +109,7 @@ Toggler: {
 	GenerationsForceHeader: Force of Generations
 	SoranForceHeader: Force of Soran
 	UnrelentingRivalEffect: Rival Streak
-	FallenPrinceEffect: Energy Blades
+	FallenPrinceEffect: Supernova on Death
 	SavingGraceEffect: Nebulous Flames
 	GravityEffect: Gravity Area
 	SupernovaEffect: Supernova On Death
@@ -143,6 +142,17 @@ Toggler: {
 	CapeoftheSurvivorEffect: Cape of the Survivor
 	PlasmaGeneratorEffect: Plasma Generator
 	InfernoLordsFocusEffect: Inferno Lord's Focus
+	AirWalkersEffect: Air Walkers
+	SurvivalistBootsEffect: Survivalist Boots
+	CrashBootsEffect: Crash Boots
+	JetBootsEffect: Jet Boots
+	SlagStompersEffect: Slag Stompers
+	WeightedWingletsEffect: Weighted Winglets
+	BeeBootiesEffect: Bee Booties
+	TravelersBootsEffect: Travelers Boots
+	SpartanSandlesEffect: Spartan Sandles
+	SpringStepsEffect: Spring Steps
+	OgreSandalEffect: Ogre Sandal
 	//thorium Enchant
 	GeodeEffect: Ore Duplication
 	//HWJ
@@ -634,8 +644,26 @@ Items: {
 	}
 
 	XeniumFabricatorItem: {
-		DisplayName: Xenium Fabricator Item
+		DisplayName: Xenium Fabricator
 		Tooltip: ""
+	}
+
+	OmegaTreads: {
+		DisplayName: Omega Treads
+		Tooltip:
+			'''
+			50% increased movement speed 
+			Permanently gives the shine shoes buff
+			[i:ThoriumMod/SurvivalistBoots] While running life, mana, inspiration, and technique point generation are increased by 10%
+			[i:ThoriumMod/BeeBooties] Bees will generate while running and attack enemies 
+			[i:ThoriumMod/CrashBoots] Running can build up momentum and crashing into an enemy will knock them back
+			[i:ThoriumMod/WeightedWinglets] Allows for the control of the speed of falling by pressing [up] or [down]
+			[i:ThoriumMod/SlagStompers] Damaging slag will fall from your Boots
+			[i:ThoriumMod/AirWalker] Allows for walking and jumping on air for a few seconds 
+			[i:ThoriumMod/JetBoots] Allows for boosting forward while in mid air 4 times
+			[i:ThoriumMod/TravelersBoots] Dashes will reach their peak faster 
+			'The Cobblers Ultimate Shoe'
+			'''
 	}
 }
 

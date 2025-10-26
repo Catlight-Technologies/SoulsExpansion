@@ -85,7 +85,6 @@ namespace CSE.Core.Thorium.Globals
                 item.type == ModContent.ItemType<ValadiumSpear>())
             {
                 tooltips.Add(new TooltipLine(Mod, "BalanceUP", Language.GetTextValue($"{Language.GetText($"Mods.FargowiltasSouls.EModeBalance.SpearRework")}")));
-
             }
 
             //if (item.type == ModContent.ItemType<TerrariansLastKnife>())
@@ -95,21 +94,22 @@ namespace CSE.Core.Thorium.Globals
 
             if (item.type == ModContent.ItemType<InfernoLordsFocus>())
             {
-                if (WorldSavingSystem.DownedAbom || ModCompatibility.Calamity.Loaded)
-                {
-                    tooltips.Add(new TooltipLine(Mod, "BalanceUP", Language.GetTextValue($"{Language.GetText("Mods.CSE.EModeBalance.InfernoNone")}")));
-                }
-                else
-                {
-                    string bossesToKill = "";
-                    if (!WorldSavingSystem.DownedBoss[8])
-                    {
-                        bossesToKill += $"{Language.GetTextValue("Mods.FargowiltasSouls.NPCs.CosmosChampion.DisplayName")}, ";
-                    }
-                    bossesToKill += $"{Language.GetTextValue("Mods.FargowiltasSouls.NPCs.AbomBoss.DisplayName")}";
+                tooltips.Add(new TooltipLine(Mod, "BalanceDOWN", Language.GetTextValue($"{Language.GetText("Mods.CSE.EModeBalance.InfernoNerf")}")));
+                //if (WorldSavingSystem.DownedAbom || ModCompatibility.Calamity.Loaded)
+                //{
+                //    tooltips.Add(new TooltipLine(Mod, "BalanceUP", Language.GetTextValue($"{Language.GetText("Mods.CSE.EModeBalance.InfernoNone")}")));
+                //}
+                //else
+                //{
+                //    string bossesToKill = "";
+                //    if (!WorldSavingSystem.DownedBoss[8])
+                //    {
+                //        bossesToKill += $"{Language.GetTextValue("Mods.FargowiltasSouls.NPCs.CosmosChampion.DisplayName")}, ";
+                //    }
+                //    bossesToKill += $"{Language.GetTextValue("Mods.FargowiltasSouls.NPCs.AbomBoss.DisplayName")}";
 
-                    tooltips.Add(new TooltipLine(Mod, "BalanceUP", Language.GetTextValue($"{Language.GetText("Mods.CSE.EModeBalance.InfernoDamage") + bossesToKill}")));
-                }
+                //    tooltips.Add(new TooltipLine(Mod, "BalanceUP", Language.GetTextValue($"{Language.GetText("Mods.CSE.EModeBalance.InfernoDamage") + bossesToKill}")));
+                //}
             }
 
             static string BalanceTooltips(string key) => Language.GetTextValue($"Mods.CSE.EModeBalance.{key}");

@@ -7,16 +7,15 @@ namespace CSE.Core.Common.ModSystems
 {
     public class CSEPostSetupContent : ModSystem
     {
+        public static List<(int, float)> changes = new List<(int, float)>
+        {
+            (ModContent.NPCType<MutantBoss>(), 9999f),
+            (ModContent.NPCType<AbomBoss>(), 22.9f)
+        };
         public override void PostSetupContent()
         {
             if (ModLoader.TryGetMod("BossChecklist", out Mod bossChecklist))
             {
-                var changes = new List<(int, float)>
-                {
-                    (ModContent.NPCType<MutantBoss>(), 9999f),
-                    (ModContent.NPCType<AbomBoss>(), 22.9f)
-                };
-
                 CSEUtils.ChangeBossProgressions(changes.ToArray());
             }
         }

@@ -4,6 +4,7 @@ using ThoriumMod.Items.NPCItems;
 using ThoriumMod.Items.ArcaneArmor;
 using Terraria.ID;
 using CSE.Core;
+using ThoriumMod.Items.BardItems;
 
 namespace CSE.Content.Thorium.Accessories.Other
 {
@@ -24,6 +25,7 @@ namespace CSE.Content.Thorium.Accessories.Other
         {
             ModContent.GetInstance<GoblinWarshield>().UpdateAccessory(player, hideVisual);
             ModContent.GetInstance<AstroBeetleHusk>().UpdateAccessory(player, hideVisual);
+            ModContent.GetInstance<BloomingShield>().UpdateAccessory(player, hideVisual);
         }
 
         public override void AddRecipes()
@@ -31,6 +33,7 @@ namespace CSE.Content.Thorium.Accessories.Other
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient<GoblinWarshield>();
             recipe.AddIngredient<AstroBeetleHusk>();
+            recipe.AddIngredient<BloomingShield>();
 
             recipe.AddTile(TileID.TinkerersWorkbench);
 

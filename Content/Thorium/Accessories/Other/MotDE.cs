@@ -58,9 +58,6 @@ namespace CSE.Content.Thorium.Accessories.Other
 
             recipe.Register();
         }
-
-        [JITWhenModsEnabled(ModCompatibility.Thorium.Name)]
-        [ExtendsFromMod(ModCompatibility.Thorium.Name)]
         public class InfernoLordsFocusEffect : AccessoryEffect
         {
             public override int ToggleItemType => ModContent.ItemType<InfernoLordsFocus>();

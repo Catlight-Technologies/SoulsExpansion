@@ -1,9 +1,6 @@
-﻿using CalamityMod.Items.Placeables.Furniture;
-using Fargowiltas;
-using Fargowiltas.Content.Items.CaughtNPCs;
+﻿using CSE.Core.Common.ModSystems;
 using FargowiltasSouls.Content.Items;
 using FargowiltasSouls.Content.Projectiles.Weapons;
-using Luminance.Common.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,8 +11,8 @@ using ThoriumMod;
 using ThoriumMod.Items.BardItems;
 using ThoriumMod.Items.HealerItems;
 using ThoriumMod.Items.NPCItems;
-using ThoriumMod.Items.Terrarium;
 using ThoriumMod.Items.Thorium;
+using ThoriumMod.NPCs.BossThePrimordials;
 using ThoriumMod.Projectiles;
 using ThoriumMod.Utilities;
 
@@ -25,6 +22,10 @@ namespace CSE.Core.Thorium.ModSystems
     [JITWhenModsEnabled(ModCompatibility.Thorium.Name)]
     public class ThoriumPostSetupContent : ModSystem
     {
+        public override void Load()
+        {
+            CSEPostSetupContent.changes.Add((ModContent.NPCType<DreamEater>(), 21.1f));
+        }
         public override void PostSetupContent()
         {
             //if (ModCompatibility.BossChecklist.Loaded)

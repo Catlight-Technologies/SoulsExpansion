@@ -72,7 +72,7 @@ namespace CSE.Content.SoA.Accessories.Enchantments
                         ModContent.ProjectileType<NubaFlameSpeed>()
                     };
                     Projectile.NewProjectile(target.GetSource_OnHurt(player), target.Center.X, target.Center.Y, num2, num3, player.ForceEffect<SavingGraceEffect>() ? array[Main.rand.Next(5)] : array0[Main.rand.Next(3)], 0, 0f, projectile.owner);
-                    cd += 10;
+                    cd += 5;
                 }
             }
         }

@@ -47,7 +47,7 @@ namespace CSE.Core.Crossmod.ModSystems
                     recipe.RemoveIngredient(ModContent.ItemType<BrandoftheBrimstoneWitch>());
                 }
 
-                if (recipe.HasIngredient<AbominationnVoodooDoll>())
+                if (recipe.HasResult<AbominationnVoodooDoll>() && !recipe.HasIngredient<ShadowspecBar>())
                 {
                     recipe.RemoveIngredient(ModContent.ItemType<AbomEnergy>());
                     recipe.AddIngredient<ShadowspecBar>(5);
