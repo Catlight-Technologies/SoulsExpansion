@@ -83,6 +83,10 @@ namespace CSE.Core.SoA.ModSystems
                     recipe.RemoveIngredient(ItemID.GreedyRing);
                     recipe.RemoveIngredient(ItemID.CelestialShell);
                 }
+                if (recipe.HasResult<SupersonicSoul>())
+                {
+                    recipe.AddIngredient<HeartOfThePlough>();
+                }
                 if (recipe.HasResult<FlightMasterySoul>() && !recipe.HasIngredient<GrandWings>())
                 {
                     recipe.AddIngredient<GrandWings>();

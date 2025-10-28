@@ -24,6 +24,10 @@ namespace CSE
         public static List<TitleLinkButton> CSETitleLinks = new List<TitleLinkButton>();
         public static void AddNPC(string internalName, int id)
         {
+            if (Instance == null)
+            {
+                Instance = ModContent.GetInstance<CSE>();
+            }
             CaughtNPCItem item = new(internalName, id);
             Instance.AddContent(item);
             FieldInfo info = typeof(CaughtNPCItem).GetField("CaughtTownies", Utilities.UniversalBindingFlags);

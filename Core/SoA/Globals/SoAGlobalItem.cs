@@ -42,7 +42,7 @@ namespace CSE.Core.SoA.Globals
             if (item.type == ItemType<BloodKunai>()) return ModCompatibility.Calamity.Loaded ? 1.3f : 1f;
             // Ranged
             if (item.type == ItemType<NeedlerRelic>()) return ModCompatibility.Calamity.Loaded ? 1.3f : 1f;
-            if (item.type == ItemType<Desperatio>()) return ModCompatibility.Calamity.Loaded ? 1.9f : 1.2f;
+            if (item.type == ItemType<Desperatio>()) return ModCompatibility.Calamity.Loaded ? 1.7f : 1f;
             if (item.type == ItemType<Malevolence>()) return ModCompatibility.Calamity.Loaded ? 1.3f : 1f;
             if (item.type == ItemType<QueenSwarm>()) return ModCompatibility.Calamity.Loaded ? 1.3f : 1f;
             if (item.type == ItemType<Avalanche>()) return ModCompatibility.Calamity.Loaded ? 1.3f : 1f;
