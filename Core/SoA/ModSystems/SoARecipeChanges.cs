@@ -2,6 +2,7 @@ using FargowiltasSouls.Content.Items.Accessories.Forces;
 using FargowiltasSouls.Content.Items.Accessories.Souls;
 using FargowiltasSouls.Content.Items.Materials;
 using SacredTools.Content.Items.Accessories;
+using SacredTools.Content.Items.Accessories.Sigils;
 using SacredTools.Content.Items.Accessories.Wings;
 using SacredTools.Content.Items.Armor.Asthraltite;
 using SacredTools.Content.Items.Armor.Dragon;
@@ -9,6 +10,8 @@ using SacredTools.Content.Items.Armor.Oblivion;
 using SacredTools.Content.Items.Materials;
 using SacredTools.Content.Items.Placeable.Obelisks;
 using SacredTools.Content.Items.Weapons.Relic;
+using SacredTools.Items.Weapons;
+using SacredTools.Items.Weapons.Lunatic;
 using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
@@ -35,11 +38,59 @@ namespace CSE.Core.SoA.ModSystems
             {
                 Recipe recipe = Main.recipe[i];
 
+                #region souls
+                if (recipe.HasResult<BerserkerSoul>())
+                {
+                    //gauntlet replacement
+                    if (!ModCompatibility.Calamity.Loaded && !ModCompatibility.Homeward.Loaded)
+                    {
+                        recipe.RemoveIngredient(ItemID.FireGauntlet);
+                        recipe.AddIngredient<FloraFist>();
+                    }
+
+                    recipe.AddIngredient<TrueMoonEdgedPandolarra>();
+
+                    recipe.AddIngredient<SolarSigil>();
+                }
+                if (recipe.HasResult<SnipersSoul>())
+                {
+                    recipe.AddIngredient<DolphinGun>();
+                    recipe.RemoveIngredient(ItemID.Megashark);
+
+                    recipe.AddIngredient<VortexSigil>();
+                }
+                if (recipe.HasResult<ArchWizardsSoul>())
+                {
+                    recipe.AddIngredient<NubasBlessing>();
+
+                    recipe.AddIngredient<LunaticBurstStaff>();
+
+                    recipe.AddIngredient<NebulaSigil>();
+                }
+                if (recipe.HasResult<ConjuristsSoul>())
+                {
+                    recipe.RemoveRecipeGroup(RecipeGroup.recipeGroupIDs["FargowiltasSouls:AnySentryAccessory"]);
+                    recipe.AddIngredient<StarstreamVeil>();
+
+                    recipe.AddIngredient<GalaxyScepter>();
+
+                    recipe.AddIngredient<StardustSigil>();
+                }
                 if (recipe.HasResult<TrawlerSoul>())
                 {
+                    recipe.AddIngredient<DecreeCharm>();
                     recipe.AddIngredient<LunarRing>();
                     recipe.RemoveIngredient(ItemID.GreedyRing);
+                    recipe.RemoveIngredient(ItemID.CelestialShell);
                 }
+                if (recipe.HasResult<FlightMasterySoul>() && !recipe.HasIngredient<GrandWings>())
+                {
+                    recipe.AddIngredient<GrandWings>();
+                    recipe.AddIngredient<DespairBoosters>();
+                    recipe.AddIngredient<AuroraWings>();
+                    recipe.AddIngredient<FlariumWings>();
+                }
+                #endregion
 
                 if (recipe.HasResult<CosmoForce>() && !recipe.HasIngredient<LuminousEnergy>())
                 {
@@ -49,14 +100,6 @@ namespace CSE.Core.SoA.ModSystems
                 if (recipe.HasResult<NihilusObelisk>() && !recipe.HasIngredient<AbomEnergy>())
                 {
                     recipe.AddIngredient<AbomEnergy>(5);
-                }
-
-                if (recipe.HasResult<FlightMasterySoul>() && !recipe.HasIngredient<GrandWings>())
-                {
-                    recipe.AddIngredient<GrandWings>();
-                    recipe.AddIngredient<DespairBoosters>();
-                    recipe.AddIngredient<AuroraWings>();
-                    recipe.AddIngredient<FlariumWings>();
                 }
 
                 if (recipe.createItem.ModItem is BaseForce)
@@ -71,6 +114,12 @@ namespace CSE.Core.SoA.ModSystems
                     {
                         recipe.AddIngredient<EmberOfOmen>(5);
                     }
+                }
+
+                if (recipe.HasIngredient<CelestialShield>() && ModCompatibility.Homeward.Loaded)
+                {
+                    recipe.RemoveIngredient(ItemID.CelestialShell);
+                    recipe.AddIngredient(ModContent.Find<ModItem>(ModCompatibility.Homeward.Name, "AncientBlessing"));
                 }
 
                 if ((recipe.HasResult<PaleRuin>() ||
@@ -92,16 +141,29 @@ namespace CSE.Core.SoA.ModSystems
                     }
                 }
 
-                //if ((recipe.HasResult<AsthraltiteHelmetRevenant>() ||
-                //    recipe.HasResult<AsthralRanged>() ||
-                //    recipe.HasResult<AsthralMelee>() ||
-                //    recipe.HasResult<AsthralChest>() ||
-                //    recipe.HasResult<AsthralMage>() ||
-                //    recipe.HasResult<AsthralLegs>() ||
-                //    recipe.HasResult<AsthralSummon>()) && !recipe.HasIngredient<AbomEnergy>())
-                //{
-                //    recipe.AddIngredient<AbomEnergy>(5);
-                //}
+                if (ModCompatibility.Redemption.Loaded)
+                {
+                    if (recipe.HasResult<NebulaSigil>())
+                    {
+                        recipe.RemoveIngredient(ItemID.SorcererEmblem);
+                        recipe.AddIngredient(ModContent.Find<ModItem>(ModCompatibility.Redemption.Name, "MutagenMagic"));
+                    }
+                    if (recipe.HasResult<SolarSigil>())
+                    {
+                        recipe.RemoveIngredient(ItemID.WarriorEmblem);
+                        recipe.AddIngredient(ModContent.Find<ModItem>(ModCompatibility.Redemption.Name, "MutagenMelee"));
+                    }
+                    if (recipe.HasResult<StardustSigil>())
+                    {
+                        recipe.RemoveIngredient(ItemID.SummonerEmblem);
+                        recipe.AddIngredient(ModContent.Find<ModItem>(ModCompatibility.Redemption.Name, "MutagenSummon"));
+                    }
+                    if (recipe.HasResult<VortexSigil>())
+                    {
+                        recipe.RemoveIngredient(ItemID.SorcererEmblem);
+                        recipe.AddIngredient(ModContent.Find<ModItem>(ModCompatibility.Redemption.Name, "MutagenRanged"));
+                    }
+                }
             }
         }
     }

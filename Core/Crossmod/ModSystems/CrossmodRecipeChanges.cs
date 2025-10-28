@@ -65,7 +65,7 @@ namespace CSE.Core.Crossmod.ModSystems
                     }
                 }
 
-                if (recipe.HasResult(ModContent.ItemType<ShadowspecBar>()) && recipe.HasIngredient<EternalEnergy>())
+                if (recipe.HasResult(ModContent.ItemType<ShadowspecBar>()))
                 {
                     if (ModCompatibility.Homeward.Loaded)
                     {

@@ -107,7 +107,7 @@ namespace CSE.Content.Thorium.Accessories.Other
         }
         public class WeightedWingletsEffect : AccessoryEffect
         {
-            public override int ToggleItemType => ModContent.ItemType<SurvivalistBoots>();
+            public override int ToggleItemType => ModContent.ItemType<WeightedWinglets>();
 
             public override Header ToggleHeader => Header.GetHeader<OmegaTreadsHeader>();
         }

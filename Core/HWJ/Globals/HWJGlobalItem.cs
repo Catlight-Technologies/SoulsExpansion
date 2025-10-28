@@ -6,6 +6,16 @@ using System;
 using Terraria;
 using Terraria.Localization;
 using Terraria.ModLoader;
+using ContinentOfJourney.Items.Accessories.Bookmarks;
+using FargowiltasSouls.Core.AccessoryEffectSystem;
+using FargowiltasSouls.Core.Toggler.Content;
+using FargowiltasSouls.Core.Toggler;
+using ContinentOfJourney.Items.Accessories.MeleeExpansion;
+using ContinentOfJourney;
+using FargowiltasSouls.Content.Bosses.MutantBoss;
+using static Terraria.ModLoader.ModContent;
+using ContinentOfJourney.Items.Accessories.SummonerRings;
+using ContinentOfJourney.Items.Accessories;
 
 namespace CSE.Core.HWJ.Globals
 {
@@ -19,46 +29,46 @@ namespace CSE.Core.HWJ.Globals
             //defense bloat removal
             if (
                 //equilibrium
-                entity.type == ModContent.ItemType<EquilibriumBreastplate>()
-                || entity.type == ModContent.ItemType<EquilibriumLeggings>()
-                || entity.type == ModContent.ItemType<EquilibriumMask>()
+                entity.type == ItemType<EquilibriumBreastplate>()
+                || entity.type == ItemType<EquilibriumLeggings>()
+                || entity.type == ItemType<EquilibriumMask>()
                 //biologic
-                || entity.type == ModContent.ItemType<BiologicalBreastplate>()
-                || entity.type == ModContent.ItemType<BiologicalHelmet>()
-                || entity.type == ModContent.ItemType<BiologicalLeggings>()
+                || entity.type == ItemType<BiologicalBreastplate>()
+                || entity.type == ItemType<BiologicalHelmet>()
+                || entity.type == ItemType<BiologicalLeggings>()
                 //chrono
-                || entity.type == ModContent.ItemType<PerpetualHelmet>()
-                || entity.type == ModContent.ItemType<PerpetualLeggings>()
-                || entity.type == ModContent.ItemType<PerpetualPlate>()
+                || entity.type == ItemType<PerpetualHelmet>()
+                || entity.type == ItemType<PerpetualLeggings>()
+                || entity.type == ItemType<PerpetualPlate>()
                 //chrono
-                || entity.type == ModContent.ItemType<HeliologyHelmet>()
-                || entity.type == ModContent.ItemType<HeliologyLeggings>()
-                || entity.type == ModContent.ItemType<HeliologyPlate>()
+                || entity.type == ItemType<HeliologyHelmet>()
+                || entity.type == ItemType<HeliologyLeggings>()
+                || entity.type == ItemType<HeliologyPlate>()
                 //sun
-                || entity.type == ModContent.ItemType<SunlightBreastplate>()
-                || entity.type == ModContent.ItemType<SunlightHelmet>()
-                || entity.type == ModContent.ItemType<SunlightLegging>()
+                || entity.type == ItemType<SunlightBreastplate>()
+                || entity.type == ItemType<SunlightHelmet>()
+                || entity.type == ItemType<SunlightLegging>()
                 )
             {
                 entity.defense = entity.defense / 2;
             }
             if (
                 //aurora
-                entity.type == ModContent.ItemType<AuroraBoots>()
-                || entity.type == ModContent.ItemType<AuroraHeadwear>()
-                || entity.type == ModContent.ItemType<AuroraRobe>()
+                entity.type == ItemType<AuroraBoots>()
+                || entity.type == ItemType<AuroraHeadwear>()
+                || entity.type == ItemType<AuroraRobe>()
                 //watchman
-                || entity.type == ModContent.ItemType<WatchmanDress>()
-                || entity.type == ModContent.ItemType<WatchmanHat>()
-                || entity.type == ModContent.ItemType<WatchmanShirt>()
+                || entity.type == ItemType<WatchmanDress>()
+                || entity.type == ItemType<WatchmanHat>()
+                || entity.type == ItemType<WatchmanShirt>()
                 //forest
-                || entity.type == ModContent.ItemType<ForestBreastplate>()
-                || entity.type == ModContent.ItemType<ForestHelmet>()
-                || entity.type == ModContent.ItemType<ForestLeggings>()
+                || entity.type == ItemType<ForestBreastplate>()
+                || entity.type == ItemType<ForestHelmet>()
+                || entity.type == ItemType<ForestLeggings>()
                 //reflector
-                || entity.type == ModContent.ItemType<ReflectorBreastplate>()
-                || entity.type == ModContent.ItemType<ReflectorHelmet>()
-                || entity.type == ModContent.ItemType<ReflectorLeggings>()
+                || entity.type == ItemType<ReflectorBreastplate>()
+                || entity.type == ItemType<ReflectorHelmet>()
+                || entity.type == ItemType<ReflectorLeggings>()
                 )
             {
                 entity.defense = entity.defense / 3 * 2;
@@ -81,10 +91,52 @@ namespace CSE.Core.HWJ.Globals
             return 1;
         }
 
+        public override void UpdateAccessory(Item item, Player player, bool hideVisual)
+        {
+            if (item.type == ItemType<ColossusSoul>() || item.type == ItemType<DimensionSoul>() || item.type == ItemType<EternitySoul>())
+            {
+                ModCompatibility.Homeward.Mod.Find<ModItem>("MasterShield").UpdateAccessory(player, true);
+                ModCompatibility.Homeward.Mod.Find<ModItem>("VanguardBreastpiece").UpdateAccessory(player, true);
+            }
+
+            if (item.type == ItemType<SnipersSoul>() || item.type == ItemType<UniverseSoul>() || item.type == ItemType<EternitySoul>())
+            {
+                ModCompatibility.Homeward.Mod.Find<ModItem>("TheBatter").UpdateAccessory(player, true);
+            }
+            if (item.type == ItemType<ArchWizardsSoul>() || item.type == ItemType<UniverseSoul>() || item.type == ItemType<EternitySoul>())
+            {
+                ModCompatibility.Homeward.Mod.Find<ModItem>("EruditeBookmark").UpdateAccessory(player, true);
+            }
+            if (item.type == ItemType<ConjuristsSoul>() || item.type == ItemType<UniverseSoul>() || item.type == ItemType<EternitySoul>())
+            {
+                ModCompatibility.Homeward.Mod.Find<ModItem>("DivineEmblem").UpdateAccessory(player, true);
+                ModCompatibility.Homeward.Mod.Find<ModItem>("CommandersGaunlet").UpdateAccessory(player, true);
+            }
+            if (item.type == ItemType<BerserkerSoul>() || item.type == ItemType<UniverseSoul>() || item.type == ItemType<EternitySoul>())
+            {
+                ModCompatibility.Homeward.Mod.Find<ModItem>("DivineEmblem").UpdateAccessory(player, true);
+                player.AddEffect<PhilosophersStoneEffect>(item);
+            }
+        }
+        public class PhilosophersStoneEffect : AccessoryEffect
+        {
+            public override Header ToggleHeader => Header.GetHeader<UniverseHeader>();
+            public override int ToggleItemType => ItemType<PhilosophersStone>();
+            public override bool MutantsPresenceAffects => true;
+            public override void PostUpdateEquips(Player player)
+            {
+                if (!NPC.AnyNPCs(NPCType<MutantBoss>()))
+                {
+                    TemplatePlayer modPlayer = player.GetModPlayer<TemplatePlayer>();
+                    modPlayer.GrindStone_Type = 4;
+                    modPlayer.GrindStone_Time = 480;
+                }
+            }
+        }
         public override void ModifyTooltips(Item item, List<TooltipLine> tooltips)
         {
             int tt0 = tooltips.FindIndex(line => line.Name == "Tooltip0");
-            if (item.type == ModContent.ItemType<UniverseSoul>())
+            if (item.type == ItemType<UniverseSoul>())
             {
                 if (SoulsItem.IsNotRuminating(item))
                 {
@@ -94,6 +146,19 @@ namespace CSE.Core.HWJ.Globals
                     tooltips[extraeff].Text = tooltips[extraeff].Text.Replace(conjurists, conjurists + "[i:CSE/GuardianAngelsSoul]" + "[i:CSE/BardSoul]");
                 }
             }
+
+            if (item.type == ItemType<ColossusSoul>()){
+                tooltips.Insert(5, new TooltipLine(Mod, "mayo2", Language.GetTextValue("Mods.CSE.AddedEffects.HWJColossus")));
+                tooltips.Insert(5, new TooltipLine(Mod, "mayo2", Language.GetTextValue("Mods.CSE.AddedEffects.HWJColossus2")));}
+
+            if (item.type == ItemType<SnipersSoul>())
+                tooltips.Insert(5, new TooltipLine(Mod, "mayo2", Language.GetTextValue("Mods.CSE.AddedEffects.HWJSniper")));
+            if (item.type == ItemType<ArchWizardsSoul>())
+                tooltips.Insert(5, new TooltipLine(Mod, "mayo2", Language.GetTextValue("Mods.CSE.AddedEffects.HWJArchWizard")));
+            if (item.type == ItemType<ConjuristsSoul>())
+                tooltips.Insert(5, new TooltipLine(Mod, "mayo2", Language.GetTextValue("Mods.CSE.AddedEffects.HWJConjurist")));
+            if (item.type == ItemType<BerserkerSoul>())
+                tooltips.Insert(5, new TooltipLine(Mod, "mayo2", Language.GetTextValue("Mods.CSE.AddedEffects.HWJBerserker")));
 
             string BalanceLine = Language.GetTextValue($"Mods.CSE.EModeBalance.CrossBalance");
 

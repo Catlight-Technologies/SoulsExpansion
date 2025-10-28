@@ -54,13 +54,13 @@ namespace CSE.Core.SoA.Globals
 
         public override bool PreAI(Projectile projectile)
         {
-            if (projectile.type == ModContent.ProjectileType<DesperatioFlame>() && Main.rand.NextBool())
-            {
-                projectile.damage = 0;
-                projectile.hide = true;
-                projectile.timeLeft = 0;
-                projectile.netUpdate = true;
-            }
+            //if (projectile.type == ModContent.ProjectileType<DesperatioFlame>() && Main.rand.NextBool())
+            //{
+            //    projectile.damage = 0;
+            //    projectile.hide = true;
+            //    projectile.timeLeft = 0;
+            //    projectile.netUpdate = true;
+            //}
             return base.PreAI(projectile);
         }
         public override void SetDefaults(Projectile projectile)
@@ -68,7 +68,7 @@ namespace CSE.Core.SoA.Globals
             if (projectile.type == ModContent.ProjectileType<MalevolenceGrenadeMode>())
                 projectile.damage = (int)(projectile.damage * 0.2f);
             if (projectile.type == ModContent.ProjectileType<DesperatioFlame>())
-                projectile.damage = (int)(projectile.damage * 0.5f);
+                projectile.damage = (int)(projectile.damage * 0.7f);
         }
         public override bool OnTileCollide(Projectile projectile, Vector2 oldVelocity)
         {

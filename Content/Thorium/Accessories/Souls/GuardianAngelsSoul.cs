@@ -88,10 +88,7 @@ namespace CSE.Content.Thorium.Accessories.Souls
             {
                 recipe.AddIngredient<SupportSash>();
                 recipe.AddIngredient<SavingGrace>();
-                //recipe.AddIngredient<SoulGuard>();
-                recipe.AddIngredient<ArchDemonCurse>();
-                recipe.AddIngredient<ArchangelHeart>();
-                //recipe.AddIngredient<MedicalBag>();
+                recipe.AddRecipeGroup("CSE:AnyIdolUpgrade");
                 recipe.AddIngredient<TeslaDefibrillator>();
                 recipe.AddIngredient<MoonlightStaff>();
                 recipe.AddIngredient<TerrariumHolyScythe>();
@@ -105,7 +102,6 @@ namespace CSE.Content.Thorium.Accessories.Souls
                 recipe.AddIngredient(ModContent.Find<ModItem>("CalamityBardHealer", "ElementalBloom"));
                 recipe.AddIngredient<SupportSash>();
                 recipe.AddIngredient<SavingGrace>();
-                recipe.AddIngredient<MedicalBag>();
                 recipe.AddIngredient<UnboundFantasy>();
                 recipe.AddIngredient(ModContent.Find<ModItem>("CalamityBardHealer", "BloomingSaintessDevotion"));
                 recipe.AddIngredient(ModContent.Find<ModItem>("CalamityBardHealer", "SavingGrace"));

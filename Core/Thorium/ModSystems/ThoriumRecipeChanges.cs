@@ -30,6 +30,11 @@ using ThoriumMod.Items.Donate;
 using ThoriumMod.Items.Thorium;
 using ThoriumMod.Items.TransformItems;
 using ThoriumMod.Items.BasicAccessories;
+using ThoriumMod.Items.MagicItems;
+using CSE.Content.Thorium.Accessories.Enchantments;
+using CSE.Content.Thorium.Accessories.Other;
+using ThoriumMod.Items.SummonItems;
+using ThoriumMod.Items.BossLich;
 
 namespace CSE.Core.Thorium.ModSystems
 {
@@ -57,6 +62,9 @@ namespace CSE.Core.Thorium.ModSystems
             // assassin
             group = new RecipeGroup(() => Lang.misc[37] + " Assassin Helmet", ModContent.ItemType<MasterMarksmansScouter>(), ModContent.ItemType<MasterArbalestHood>());
             RecipeGroup.RegisterGroup("CSE:AnyAssassinHelmet", group);
+            // seraph idols
+            group = new RecipeGroup(() => Lang.misc[37] + " Seraphim Idol Upgrade", ModContent.ItemType<ArchDemonCurse>(), ModContent.ItemType<ArchangelHeart>());
+            RecipeGroup.RegisterGroup("CSE:AnyIdolUpgrade", group);
         }
 
         public override void AddRecipes()
@@ -106,14 +114,83 @@ namespace CSE.Core.Thorium.ModSystems
             {
                 Recipe recipe = Main.recipe[i];
 
+                #region souls
+                if (recipe.HasResult<BerserkerSoul>())
+                {
+                    recipe.AddIngredient<BlizzardPouch>();
+
+                    if (ModCompatibility.Calamity.Loaded) { recipe.AddIngredient<TerrariansLastKnife>(); }
+                    recipe.AddIngredient<TerrariumSaber>();
+                }
+                if (recipe.HasResult<SnipersSoul>())
+                {
+                    recipe.AddIngredient<ConcussiveWarhead>();
+
+                    if (ModCompatibility.Calamity.Loaded) { recipe.AddIngredient<QuasarsFlare>(); }
+                    recipe.AddIngredient<TerrariumPulseRifle>();
+                }
+                if (recipe.HasResult<ArchWizardsSoul>())
+                {
+                    recipe.AddIngredient<MurkyCatalyst>();
+
+                    if (ModCompatibility.Calamity.Loaded) { recipe.AddIngredient<NorthernLight>(); }
+                    recipe.AddIngredient<TerrariumSageStaff>();
+                }
+                if (recipe.HasResult<ConjuristsSoul>())
+                {
+                    recipe.AddIngredient<NecroticSkull>();
+                    if (recipe.HasIngredient(ItemID.PygmyNecklace)){recipe.RemoveIngredient(ItemID.PygmyNecklace);}
+
+                    recipe.AddIngredient<TerrariumEnigmaStaff>();
+                }
+                if (recipe.HasResult<TrawlerSoul>())
+                {
+                    recipe.RemoveIngredient(ItemID.SporeSac);
+                    recipe.AddIngredient<HeartOfTheJungle>();
+                    if (!ModCompatibility.SacredTools.Loaded)
+                    {
+                        recipe.AddIngredient<GreedyGoblet>();
+                        recipe.RemoveIngredient(ItemID.GreedyRing);
+                    }
+                }
+                if (recipe.HasResult<WorldShaperSoul>())
+                {
+                    recipe.AddIngredient<GeodeEnchant>();
+                }
+                if (recipe.HasResult<ColossusSoul>())
+                {
+                    recipe.AddIngredient<Phylactery>();
+
+                    if (!ModCompatibility.Calamity.Loaded && !ModCompatibility.Homeward.Loaded && !ModCompatibility.SacredTools.Loaded)
+                    {
+                        recipe.RemoveIngredient(ModContent.ItemType<Devilshield>());
+                        recipe.RemoveIngredient(ItemID.AnkhShield);
+                        recipe.AddIngredient<TerrariumDefender>();
+                    }
+                }
+                #endregion
+
+                if (recipe.HasResult<TerrariumDefender>())
+                {
+                    recipe.AddIngredient<CorruptedWarShield>();
+                    if (!ModCompatibility.Calamity.Loaded && !ModCompatibility.Homeward.Loaded && !ModCompatibility.SacredTools.Loaded)
+                    {
+                        recipe.AddIngredient<Devilshield>();
+                        recipe.RemoveIngredient(ModContent.ItemType<HolyAegis>());
+                        recipe.RemoveIngredient(ItemID.FrozenTurtleShell);
+                    }
+                }
+
                 if ((recipe.HasResult<BerserkerSoul>()
                     || recipe.HasResult<ArchWizardsSoul>()
                     || recipe.HasResult<SnipersSoul>()
                     || recipe.HasResult<ConjuristsSoul>()
+
+                    //you NEED them in post ml
                     //|| recipe.HasResult<SupersonicSoul>()
                     //|| recipe.HasResult<FlightMasterySoul>()
 
-                    //they do not benefit in combat but.... uhhhh...
+                    //they do not benefit in combat butt.... uhhhh...
                     || recipe.HasResult<TrawlerSoul>()
                     || recipe.HasResult<WorldShaperSoul>()
                     ) && !recipe.HasIngredient<DreamEssence>())
@@ -130,12 +207,6 @@ namespace CSE.Core.Thorium.ModSystems
                 if (recipe.HasResult<AbomsCurse>())
                 {
                     recipe.AddIngredient<DreamEssence>(2);
-                }
-
-                if (recipe.HasResult<TrawlerSoul>() && !ModCompatibility.SacredTools.Loaded)
-                {
-                    recipe.AddIngredient<GreedyGoblet>();
-                    recipe.RemoveIngredient(ItemID.GreedyRing);
                 }
 
                 if (recipe.HasResult<HallowedPendant>() && !recipe.HasIngredient<SweetVengeance>())
@@ -183,16 +254,6 @@ namespace CSE.Core.Thorium.ModSystems
                     recipe.AddIngredient(ModContent.ItemType<HolyKnightsAlloy>(), 9);
                     recipe.AddIngredient(ModContent.ItemType<DarkMatter>(), 9);
                     recipe.AddIngredient(ModContent.ItemType<BloomWeave>(), 9);
-                }
-
-                if ((recipe.HasResult<ColossusSoul>() ||
-                    recipe.HasResult<FlightMasterySoul>() ||
-                    recipe.HasResult<ArchWizardsSoul>() ||
-                    recipe.HasResult<BerserkerSoul>() ||
-                    recipe.HasResult<SnipersSoul>() ||
-                    recipe.HasResult<ConjuristsSoul>()) && !recipe.HasIngredient<OceanEssence>())
-                {
-                    recipe.AddIngredient<DreamEssence>(5);
                 }
 
                 if (recipe.HasResult(ItemID.DrillContainmentUnit) && !recipe.HasIngredient<TerrariumCore>())

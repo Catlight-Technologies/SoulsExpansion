@@ -60,7 +60,7 @@ namespace CSE.Content.Common.Accessories.Souls
         {
             ModContent.Find<ModItem>(ModCompatibility.Souls.Name, "MasochistSoul").UpdateAccessory(player, false);
 
-            if (ModCompatibility.Calamity.Loaded && ModCompatibility.Crossmod.Loaded)
+            if (ModCompatibility.Crossmod.Loaded)
             {
                 ModContent.Find<ModItem>(ModCompatibility.Crossmod.Mod.Name, "BrandoftheBrimstoneWitch").UpdateAccessory(player, false);
             }
@@ -72,10 +72,10 @@ namespace CSE.Content.Common.Accessories.Souls
             //{
             //    ModContent.Find<ModItem>(Mod.Name, "SoulOfTrueRedemption").UpdateAccessory(player, false);
             //}
-            //if (ModCompatibility.SacredTools.Loaded)
-            //{
-            //    ModContent.Find<ModItem>(Mod.Name, "SoulOfTwoRealms").UpdateAccessory(player, false);
-            //}
+            if (ModCompatibility.SacredTools.Loaded)
+            {
+                ModContent.Find<ModItem>(ModCompatibility.SacredTools.Mod.Name, "YataMirror").UpdateAccessory(player, false);
+            }
             if (ModCompatibility.Thorium.Loaded)
             {
                 ModContent.Find<ModItem>(Mod.Name, "MotDE").UpdateAccessory(player, false);
@@ -114,10 +114,10 @@ namespace CSE.Content.Common.Accessories.Souls
             //{
             //    recipe.AddIngredient(Mod.Find<ModItem>("SoulOfTrueRedemption"), 1);
             //}
-            //if (ModCompatibility.SacredTools.Loaded)
-            //{
-            //    recipe.AddIngredient(Mod.Find<ModItem>("SoulOfTwoRealms"), 1);
-            //}
+            if (ModCompatibility.SacredTools.Loaded)
+            {
+                recipe.AddIngredient(ModCompatibility.SacredTools.Mod.Find<ModItem>("YataMirror"), 1);
+            }
 
             recipe.AddTile(ModContent.TileType<CrucibleCosmosSheet>());
             recipe.Register();

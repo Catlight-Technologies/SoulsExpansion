@@ -29,7 +29,7 @@ namespace CSE.Core.Thorium.Globals
             if (projectile.type == ModContent.ProjectileType<InfernoLordsFocusPro>() && projectile.owner.ToPlayer().GetModPlayer<ThoriumPlayer>().infernoLordCD < 1)
             {
                 immuneToCD = true;
-                projectile.owner.ToPlayer().GetModPlayer<ThoriumPlayer>().infernoLordCD = 5;
+                projectile.owner.ToPlayer().GetModPlayer<ThoriumPlayer>().infernoLordCD = 1;
             }
             if (projectile.type == ModContent.ProjectileType<InfernoLordsFocusPro>() && projectile.owner.ToPlayer().GetModPlayer<ThoriumPlayer>().infernoLordCD > 0 && !immuneToCD)
             {

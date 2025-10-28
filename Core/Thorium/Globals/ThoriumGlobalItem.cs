@@ -29,6 +29,10 @@ using ThoriumMod.Items.Sandstone;
 using ThoriumMod.Items.BossThePrimordials.Rhapsodist;
 using ThoriumMod.Items.BossThePrimordials.Dream;
 using ThoriumMod.Items.BossThePrimordials.Aqua;
+using FargowiltasSouls.Core.AccessoryEffectSystem;
+using FargowiltasSouls.Core.Toggler.Content;
+using FargowiltasSouls.Core.Toggler;
+using static Terraria.ModLoader.ModContent;
 
 namespace CSE.Core.Thorium.Globals
 {
@@ -40,7 +44,7 @@ namespace CSE.Core.Thorium.Globals
         public override void ModifyTooltips(Item item, List<TooltipLine> tooltips)
         {
             int tt0 = tooltips.FindIndex(line => line.Name == "Tooltip0");
-            if (item.type == ModContent.ItemType<UniverseSoul>())
+            if (item.type == ItemType<UniverseSoul>())
             {
                 if (SoulsItem.IsNotRuminating(item))
                 {
@@ -57,42 +61,58 @@ namespace CSE.Core.Thorium.Globals
             string BalanceUpLine = $"[c/00A36C:{BalanceLine}]";
             string BalanceDownLine = $"[c/FF0000:{BalanceLine}]";
 
-            if (item.type == ModContent.ItemType<WhiteDwarfMask>() ||
-                item.type == ModContent.ItemType<WhiteDwarfGreaves>() ||
-                item.type == ModContent.ItemType<WhiteDwarfGuard>())
+            if (item.type == ItemType<WhiteDwarfMask>() ||
+                item.type == ItemType<WhiteDwarfGreaves>() ||
+                item.type == ItemType<WhiteDwarfGuard>())
             {
                 tooltips.Add(new TooltipLine(Mod, "BalanceDown", Language.GetTextValue($"{Language.GetText($"Mods.CSE.EModeBalance.WhiteDwarfNerf")}")));
             }
 
-            if (item.type == ModContent.ItemType<CoralPolearm>() ||
-                item.type == ModContent.ItemType<DemonBloodSpear>() ||
-                item.type == ModContent.ItemType<DragonTooth>() ||
-                item.type == ModContent.ItemType<EnergyStormPartisan>() ||
-                item.type == ModContent.ItemType<FleshSkewer>() ||
-                item.type == ModContent.ItemType<Fork>() ||
-                item.type == ModContent.ItemType<HarpyTalon>() ||
-                item.type == ModContent.ItemType<HellishHalberd>() ||
-                item.type == ModContent.ItemType<IceLance>() ||
-                item.type == ModContent.ItemType<IllumiteSpear>() ||
-                item.type == ModContent.ItemType<Moonlight>() ||
-                item.type == ModContent.ItemType<PearlPike>() ||
-                item.type == ModContent.ItemType<PollenPike>() ||
-                item.type == ModContent.ItemType<PoseidonCharge>() ||
-                item.type == ModContent.ItemType<RifleSpear>() ||
-                item.type == ModContent.ItemType<fSandStoneSpear>() ||
-                item.type == ModContent.ItemType<TerrariumSpear>() ||
-                item.type == ModContent.ItemType<ThoriumSpear>() ||
-                item.type == ModContent.ItemType<ValadiumSpear>())
+            if (item.type == ItemType<ColossusSoul>())
+            {
+                tooltips.Insert(5, new TooltipLine(Mod, "mayo2", Language.GetTextValue("Mods.CSE.AddedEffects.ThoriumColossus1")));
+                tooltips.Insert(5, new TooltipLine(Mod, "mayo2", Language.GetTextValue("Mods.CSE.AddedEffects.ThoriumColossus2")));
+                tooltips.Insert(5, new TooltipLine(Mod, "mayo2", Language.GetTextValue("Mods.CSE.AddedEffects.ThoriumColossus4")));
+            }
+
+            if (item.type == ItemType<SnipersSoul>())
+                tooltips.Insert(5, new TooltipLine(Mod, "mayo2", Language.GetTextValue("Mods.CSE.AddedEffects.ThoriumSniper")));
+            if (item.type == ItemType<ArchWizardsSoul>())
+                tooltips.Insert(5, new TooltipLine(Mod, "mayo2", Language.GetTextValue("Mods.CSE.AddedEffects.ThoriumArchWizard")));
+            //if (item.type == ItemType<ConjuristsSoul>())
+                //tooltips.Insert(5, new TooltipLine(Mod, "mayo2", Language.GetTextValue("Mods.CSE.AddedEffects.ThoriumConjurist")));
+            if (item.type == ItemType<BerserkerSoul>())
+                tooltips.Insert(5, new TooltipLine(Mod, "mayo2", Language.GetTextValue("Mods.CSE.AddedEffects.ThoriumBerserker")));
+
+            if (item.type == ItemType<CoralPolearm>() ||
+                item.type == ItemType<DemonBloodSpear>() ||
+                item.type == ItemType<DragonTooth>() ||
+                item.type == ItemType<EnergyStormPartisan>() ||
+                item.type == ItemType<FleshSkewer>() ||
+                item.type == ItemType<Fork>() ||
+                item.type == ItemType<HarpyTalon>() ||
+                item.type == ItemType<HellishHalberd>() ||
+                item.type == ItemType<IceLance>() ||
+                item.type == ItemType<IllumiteSpear>() ||
+                item.type == ItemType<Moonlight>() ||
+                item.type == ItemType<PearlPike>() ||
+                item.type == ItemType<PollenPike>() ||
+                item.type == ItemType<PoseidonCharge>() ||
+                item.type == ItemType<RifleSpear>() ||
+                item.type == ItemType<fSandStoneSpear>() ||
+                item.type == ItemType<TerrariumSpear>() ||
+                item.type == ItemType<ThoriumSpear>() ||
+                item.type == ItemType<ValadiumSpear>())
             {
                 tooltips.Add(new TooltipLine(Mod, "BalanceUP", Language.GetTextValue($"{Language.GetText($"Mods.FargowiltasSouls.EModeBalance.SpearRework")}")));
             }
 
-            //if (item.type == ModContent.ItemType<TerrariansLastKnife>())
+            //if (item.type == ItemType<TerrariansLastKnife>())
             //{
             //    tooltips.Add(new TooltipLine(Mod, "BalanceUP", Language.GetTextValue($"{Language.GetText($"Mods.FargowiltasSouls.EModeBalance.ScalePositive").Format(30)}")));
             //}
 
-            if (item.type == ModContent.ItemType<InfernoLordsFocus>())
+            if (item.type == ItemType<InfernoLordsFocus>())
             {
                 tooltips.Add(new TooltipLine(Mod, "BalanceDOWN", Language.GetTextValue($"{Language.GetText("Mods.CSE.EModeBalance.InfernoNerf")}")));
                 //if (WorldSavingSystem.DownedAbom || ModCompatibility.Calamity.Loaded)
@@ -125,26 +145,26 @@ namespace CSE.Core.Thorium.Globals
         public static float BalanceChange(Item item)
         {
             // Melee
-            if (item.type == ModContent.ItemType<TerrariansLastKnife>()) return 1.1f;
+            if (item.type == ItemType<TerrariansLastKnife>()) return 1.1f;
 
             // Ranged
-            if (item.type == ModContent.ItemType<TheJavelin>()) return 0.9f;
-            if (item.type == ModContent.ItemType<OmniBow>()) return 1.2f;
+            if (item.type == ItemType<TheJavelin>()) return 0.9f;
+            if (item.type == ItemType<OmniBow>()) return 1.2f;
 
             // Thrower
-            if (item.type == ModContent.ItemType<TidalWave>()) return 1.2f;
+            if (item.type == ItemType<TidalWave>()) return 1.2f;
 
             // Bard
-            if (item.type == ModContent.ItemType<Holophonor>()) return 1.2f;
-            if (item.type == ModContent.ItemType<TheSet>()) return 1.2f;
-            if (item.type == ModContent.ItemType<Sousaphone>()) return 1.2f;
-            if (item.type == ModContent.ItemType<BlackMIDI>()) return 0.9f;
+            if (item.type == ItemType<Holophonor>()) return 1.2f;
+            if (item.type == ItemType<TheSet>()) return 1.2f;
+            if (item.type == ItemType<Sousaphone>()) return 1.2f;
+            if (item.type == ItemType<BlackMIDI>()) return 0.9f;
 
             // Healer
-            if (item.type == ModContent.ItemType<Lucidity>()) return 1.1f;
+            if (item.type == ItemType<Lucidity>()) return 1.1f;
 
             // Other
-            if (item.type == ModContent.ItemType<CrystalSpearTip>()) return 0.5f;
+            if (item.type == ItemType<CrystalSpearTip>()) return 0.5f;
             if (CSESets.GetValue(CSESets.Items.AbomTierFargoWeapon, item.type))
                 return ModCompatibility.Crossmod.Loaded || ModCompatibility.SacredTools.Loaded || ModCompatibility.Homeward.Loaded ? 1f : 1.4f;
 
@@ -160,9 +180,45 @@ namespace CSE.Core.Thorium.Globals
                     item.damage = (int)(item.damage * balance);
                 }
             }
-            if(item.type == ModContent.ItemType<TerrariumDefender>())
+            if(item.type == ItemType<TerrariumDefender>())
             {
                 item.defense = 8;
+            }
+        }
+
+        public override void UpdateAccessory(Item item, Player player, bool hideVisual)
+        {
+            if (item.type == ItemType<ColossusSoul>() || item.type == ItemType<DimensionSoul>() || item.type == ItemType<EternitySoul>())
+            {
+                ModCompatibility.Thorium.Mod.Find<ModItem>("Phylactery").UpdateAccessory(player, true);
+                ModCompatibility.Thorium.Mod.Find<ModItem>("TerrariumDefender").UpdateAccessory(player, true);
+            }
+
+            if (item.type == ItemType<SnipersSoul>() || item.type == ItemType<UniverseSoul>() || item.type == ItemType<EternitySoul>())
+            {
+                player.AddEffect<WarheadEffect>(item);
+            }
+            if (item.type == ItemType<ArchWizardsSoul>()|| item.type == ItemType<UniverseSoul>() || item.type == ItemType<EternitySoul>())
+            {
+                ModCompatibility.Thorium.Mod.Find<ModItem>("MurkyCatalyst").UpdateAccessory(player, true);
+            }
+            if (item.type == ItemType<ConjuristsSoul>() || item.type == ItemType<UniverseSoul>() || item.type == ItemType<EternitySoul>())
+            {
+
+            }
+            if (item.type == ItemType<BerserkerSoul>() || item.type == ItemType<UniverseSoul>() || item.type == ItemType<EternitySoul>())
+            {
+                ModCompatibility.Thorium.Mod.Find<ModItem>("FrostburnPouch").UpdateAccessory(player, true);
+            }
+        }
+        public class WarheadEffect : AccessoryEffect
+        {
+            public override Header ToggleHeader => Header.GetHeader<UniverseHeader>();
+            public override int ToggleItemType => ItemType<ConcussiveWarhead>();
+
+            public override void PostUpdateEquips(Player player)
+            {
+                ModCompatibility.Thorium.Mod.Find<ModItem>("ConcussiveWarhead").UpdateAccessory(player, true);
             }
         }
     }

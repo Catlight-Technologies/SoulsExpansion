@@ -88,8 +88,8 @@ namespace CSE.Core.Common.Globals
                 {
                 new ModMultiplier { ModName = "CalamityMod", DamageMultiplier = 1f, HealthMultiplier = 2f },
                 new ModMultiplier { ModName = "SacredTools", DamageMultiplier = 0.25f, HealthMultiplier = 0.5f },
-                new ModMultiplier { ModName = "ThoriumMod", DamageMultiplier = 0.25f, HealthMultiplier = 0.75f },
-                new ModMultiplier { ModName = "ContinentOfJourney", DamageMultiplier = 0.25f, HealthMultiplier = 0.25f }
+                new ModMultiplier { ModName = "ThoriumMod", DamageMultiplier = 0.25f, HealthMultiplier = 0.5f },
+                new ModMultiplier { ModName = "ContinentOfJourney", DamageMultiplier = 0.25f, HealthMultiplier = 0.5f }
                 }
             );
 

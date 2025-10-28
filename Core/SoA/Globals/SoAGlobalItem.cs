@@ -4,7 +4,6 @@ using Terraria.Localization;
 using Terraria;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
-using SacredTools.Common.Types;
 using SacredTools.Content.Items.Weapons.Dreamscape.Nihilus;
 using SacredTools.Content.Items.Weapons.Relic;
 using SacredTools.Items.Weapons.Relic;
@@ -14,8 +13,12 @@ using System.Text.RegularExpressions;
 using FargowiltasSouls.Content.Items;
 using System.Linq;
 using FargowiltasSouls.Core.AccessoryEffectSystem;
-using static CSE.Core.SoulsRecipes.SniperSoulEffects;
-using static CSE.Core.SoulsRecipes.WorldShaperSoulEffects;
+using FargowiltasSouls.Core.Toggler.Content;
+using SacredTools.Content.Items.Accessories;
+using FargowiltasSouls.Core.Toggler;
+using SacredTools;
+//using static CSE.Core.SoulsRecipes.SniperSoulEffects;
+//using static CSE.Core.SoulsRecipes.WorldShaperSoulEffects;
 
 namespace CSE.Core.SoA.Globals
 {
@@ -32,56 +35,122 @@ namespace CSE.Core.SoA.Globals
                 return ModCompatibility.Crossmod.Loaded ? 1f : 2f;
 
             // Melee
-            if (item.type == ItemType<FlamesOfCondemnation>()) return ModCompatibility.Calamity.Loaded ? 3f : 2f;
-            if (item.type == ItemType<SwordOfGreed>()) return 1.5f;
-            if (item.type == ItemType<Devilsknife>()) return 1f;
-            if (item.type == ItemType<CeruleanCyclone>()) return 1f;
-            if (item.type == ItemType<BloodKunai>()) return 1f;
+            if (item.type == ItemType<FlamesOfCondemnation>()) return ModCompatibility.Calamity.Loaded ? 3.5f : 2f;
+            if (item.type == ItemType<SwordOfGreed>()) return ModCompatibility.Calamity.Loaded ? 2f : 1.5f;
+            if (item.type == ItemType<Devilsknife>()) return ModCompatibility.Calamity.Loaded ? 1.3f : 1f;
+            if (item.type == ItemType<CeruleanCyclone>()) return ModCompatibility.Calamity.Loaded ? 1.3f : 1f;
+            if (item.type == ItemType<BloodKunai>()) return ModCompatibility.Calamity.Loaded ? 1.3f : 1f;
             // Ranged
-            if (item.type == ItemType<NeedlerRelic>()) return 1f;
-            if (item.type == ItemType<Desperatio>()) return ModCompatibility.Calamity.Loaded ? 1.7f : 1.3f;
-            if (item.type == ItemType<Malevolence>()) return 1f;
-            if (item.type == ItemType<QueenSwarm>()) return 1f;
-            if (item.type == ItemType<Avalanche>()) return 1f;
-            if (item.type == ItemType<Sharpshooter>()) return 1f;
-            if (item.type == ItemType<Gunblade>()) return 1f;
+            if (item.type == ItemType<NeedlerRelic>()) return ModCompatibility.Calamity.Loaded ? 1.3f : 1f;
+            if (item.type == ItemType<Desperatio>()) return ModCompatibility.Calamity.Loaded ? 1.9f : 1.2f;
+            if (item.type == ItemType<Malevolence>()) return ModCompatibility.Calamity.Loaded ? 1.3f : 1f;
+            if (item.type == ItemType<QueenSwarm>()) return ModCompatibility.Calamity.Loaded ? 1.3f : 1f;
+            if (item.type == ItemType<Avalanche>()) return ModCompatibility.Calamity.Loaded ? 1.3f : 1f;
+            if (item.type == ItemType<Sharpshooter>()) return ModCompatibility.Calamity.Loaded ? 1.3f : 1f;
+            if (item.type == ItemType<Gunblade>()) return ModCompatibility.Calamity.Loaded ? 1.3f : 1f;
             // Magic
-            if (item.type == ItemType<Tenebris>()) return ModCompatibility.Calamity.Loaded ? 1f : 0.9f;
-            if (item.type == ItemType<PaleRuin>()) return 1f;
-            if (item.type == ItemType<LampOfCinders>()) return 1f;
-            if (item.type == ItemType<FatesLament>()) return 1f;
-            if (item.type == ItemType<MightyTorch>()) return 1f;
+            if (item.type == ItemType<Tenebris>()) return ModCompatibility.Calamity.Loaded ? 1.1f : 0.9f;
+            if (item.type == ItemType<PaleRuin>()) return ModCompatibility.Calamity.Loaded ? 1.3f : 1f;
+            if (item.type == ItemType<LampOfCinders>()) return ModCompatibility.Calamity.Loaded ? 1.3f : 1f;
+            if (item.type == ItemType<FatesLament>()) return ModCompatibility.Calamity.Loaded ? 1.3f : 1f;
+            if (item.type == ItemType<MightyTorch>()) return ModCompatibility.Calamity.Loaded ? 1.3f : 1f;
             // Summoner
-            if (item.type == ItemType<AshenWake>()) return 1f;
-            if (item.type == ItemType<Malice>()) return ModCompatibility.Calamity.Loaded ? 2f : 1.5f;
-            if (item.type == ItemType<MaxDesertStaff>()) return 1f;
+            if (item.type == ItemType<AshenWake>()) return ModCompatibility.Calamity.Loaded ? 1.3f : 1f;
+            if (item.type == ItemType<Malice>()) return ModCompatibility.Calamity.Loaded ? 2.1f : 1.5f;
+            if (item.type == ItemType<MaxDesertStaff>()) return ModCompatibility.Calamity.Loaded ? 1.3f : 1f;
             // Thrower
-            if (item.type == ItemType<RogueWave>()) return 1f;
-            if (item.type == ItemType<DimensionalCrusher>()) return 1f;
-            if (item.type == ItemType<BlindJusticeMK2>()) return 1f;
-            if (item.type == ItemType<Eschaton>()) return ModCompatibility.Calamity.Loaded ? 1.6f : 1.2f;
+            if (item.type == ItemType<RogueWave>()) return ModCompatibility.Calamity.Loaded ? 1.3f : 1f;
+            if (item.type == ItemType<DimensionalCrusher>()) return ModCompatibility.Calamity.Loaded ? 1.3f : 1f;
+            if (item.type == ItemType<BlindJusticeMK2>()) return ModCompatibility.Calamity.Loaded ? 1.3f : 1f;
+            if (item.type == ItemType<Eschaton>()) return ModCompatibility.Calamity.Loaded ? 1.9f : 1.2f;
 
             return 1;
         }
 
         public override void UpdateAccessory(Item item, Player player, bool hideVisual)
         {
-            if (item.type == ItemType<ColossusSoul>())
+            if (item.type == ItemType<ColossusSoul>() || item.type == ItemType<DimensionSoul>() || item.type == ItemType<EternitySoul>())
             {
+                ModCompatibility.SacredTools.Mod.Find<ModItem>("ReflectionShield").UpdateAccessory(player, true);
                 player.statLifeMax2 += 50;
             }
-            if (item.type == ItemType<TrawlerSoul>())
+            if (item.type == ItemType<TrawlerSoul>() || item.type == ItemType<DimensionSoul>() || item.type == ItemType<EternitySoul>())
             {
                 player.AddEffect<LunarRingEffect>(item);
+            }
+
+            if (item.type == ItemType<SnipersSoul>() || item.type == ItemType<UniverseSoul>() || item.type == ItemType<EternitySoul>())
+            {
+                // :(
+            }
+            if (item.type == ItemType<ArchWizardsSoul>() || item.type == ItemType<UniverseSoul>() || item.type == ItemType<EternitySoul>())
+            {
+                ModCompatibility.SacredTools.Mod.Find<ModItem>("NubasBlessing").UpdateAccessory(player, true);
+            }
+            if (item.type == ItemType<ConjuristsSoul>() || item.type == ItemType<UniverseSoul>() || item.type == ItemType<EternitySoul>())
+            {
+                player.AddEffect<StarstreamVeilEffect>(item);
+            }
+            if (item.type == ItemType<BerserkerSoul>() || item.type == ItemType<UniverseSoul>() || item.type == ItemType<EternitySoul>())
+            {
+                player.AddEffect<FloraFistEffect>(item);
+            }
+            if (item.type == ItemType<SupersonicSoul>() || item.type == ItemType<UniverseSoul>() || item.type == ItemType<EternitySoul>())
+            {
+                player.AddEffect<HeartOfThePloughEffect>(item);
+            }
+        }
+
+        public class LunarRingEffect : AccessoryEffect
+        {
+            public override Header ToggleHeader => Header.GetHeader<TrawlerHeader>();
+            public override int ToggleItemType => ItemType<LunarRing>();
+
+            public override void PostUpdateEquips(Player player)
+            {
+                ModCompatibility.SacredTools.Mod.Find<ModItem>("LunarRing").UpdateAccessory(player, true);
+            }
+        }
+        public class HeartOfThePloughEffect : AccessoryEffect
+        {
+            public override Header ToggleHeader => Header.GetHeader<SupersonicHeader>();
+            public override int ToggleItemType => ItemType<HeartOfThePlough>();
+
+            public override void PostUpdateEquips(Player player)
+            {
+                ModCompatibility.SacredTools.Mod.Find<ModItem>("HeartOfThePlough").UpdateAccessory(player, true);
+            }
+        }
+        public class FloraFistEffect : AccessoryEffect
+        {
+            public override Header ToggleHeader => Header.GetHeader<UniverseHeader>();
+            public override int ToggleItemType => ItemType<FloraFist>();
+            public override void PostUpdateEquips(Player player)
+            {
+                //nooooo
+                ModCompatibility.SacredTools.Mod.Find<ModItem>("FloraFist").UpdateAccessory(player, true);
+                player.GetDamage(DamageClass.Melee) -= 0.12f;
+                player.GetAttackSpeed(DamageClass.Melee) -= 0.12f;
+                player.GetKnockback(DamageClass.Melee) -= 0.9f;
+            }
+        }
+        public class StarstreamVeilEffect : AccessoryEffect
+        {
+            public override Header ToggleHeader => Header.GetHeader<UniverseHeader>();
+            public override int ToggleItemType => ItemType<StarstreamVeil>();
+            public override void PostUpdateEquips(Player player)
+            {
+                player.GetModPlayer<ModdedPlayer>().DefendersBulwark = true;
+                player.GetModPlayer<ModdedPlayer>().StarstreamVeil = true;
             }
         }
         public override void UpdateInventory(Item item, Player player)
         {
-            if (item.ModItem is ReloadWeapon reloadWeapon && player.HasEffect<InfAmmoEffect>())
-            {
+            //if (item.ModItem is ReloadWeapon reloadWeapon && player.HasEffect<InfAmmoEffect>())
+            //{
                 //reloadWeapon.MaxMagazine *= 3;
-                reloadWeapon.RefillMagazine(player);
-            }
+                //reloadWeapon.RefillMagazine(player);
+            //}
         }
         public override void SetDefaults(Item item)
         {
@@ -125,10 +194,22 @@ namespace CSE.Core.SoA.Globals
             if (item.type == ItemType<Eschaton>())
                 ItemBalance(tooltips, EModeChanges.Homing);
 
-            if (item.type == ItemType<TrawlerSoul>())
-            {
-                tooltips.Insert(5, new TooltipLine(Mod, "mayo2", Language.GetTextValue("Mods.CSE.AddedEffects.SoAWorldshaper")));
-            }
+            if (item.type == ItemType<TrawlerSoul>()){
+                tooltips.Insert(5, new TooltipLine(Mod, "mayo2", Language.GetTextValue("Mods.CSE.AddedEffects.SoATrawler")));
+                tooltips.Insert(5, new TooltipLine(Mod, "mayo2", Language.GetTextValue("Mods.CSE.AddedEffects.SoAWorldshaper")));}
+            if (item.type == ItemType<ColossusSoul>())
+                tooltips.Insert(5, new TooltipLine(Mod, "mayo2", Language.GetTextValue("Mods.CSE.AddedEffects.SoAColossus")));
+            if (item.type == ItemType<SupersonicSoul>())
+                tooltips.Insert(5, new TooltipLine(Mod, "mayo2", Language.GetTextValue("Mods.CSE.AddedEffects.SoASupersonic")));
+
+            if (item.type == ItemType<SnipersSoul>())
+                tooltips.Insert(5, new TooltipLine(Mod, "mayo2", Language.GetTextValue("Mods.CSE.AddedEffects.SoASniper")));
+            if (item.type == ItemType<ArchWizardsSoul>())
+                tooltips.Insert(5, new TooltipLine(Mod, "mayo2", Language.GetTextValue("Mods.CSE.AddedEffects.SoAArchWizard")));
+            if (item.type == ItemType<ConjuristsSoul>())
+                tooltips.Insert(5, new TooltipLine(Mod, "mayo2", Language.GetTextValue("Mods.CSE.AddedEffects.SoAConjurist")));
+            if (item.type == ItemType<BerserkerSoul>())
+                tooltips.Insert(5, new TooltipLine(Mod, "mayo2", Language.GetTextValue("Mods.CSE.AddedEffects.SoABerserker")));
 
             if (item.type == ItemType<Malevolence>())
             {

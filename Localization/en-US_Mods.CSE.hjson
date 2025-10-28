@@ -9,7 +9,7 @@ EModeBalance: {
 	WhiteDwarfNerf: "[c/FF0000:Cross-mod Balance:] Ivory flare has 3 seconds cooldown"
 	InfernoNerf: "[c/FF0000:Cross-mod Balance:] Reduced density of bursts"
 	MalevolenceGrenadeNerf: "[c/FF0000:Cross-mod Balance:] Grenades deal 80% less damage"
-	DesperatioColumnNerf: "[c/FF0000:Cross-mod Balance:] Flame column deal 50% less damage"
+	DesperatioColumnNerf: "[c/FF0000:Cross-mod Balance:] Flame column deal 30% less damage"
 }
 
 TrueEternityRevDifficulty: {
@@ -200,6 +200,7 @@ AddedEffects: {
 	SoAThrower: "[i:SacredTools/DreadflameEmblem] Dealing damage with thrower weapons has a chance to release flaming embers"
 	ThoriumThrower: "[i:ThoriumMod/PiratesPurse] Enemies killed by thrower damage release a spread of damaging coins"
 	SoARampart: "[i:SacredTools/ReflectionShield] Has a 10% chance to block hostile projectile"
+	SoATrawler: "[i:SacredTools/DecreeCharm] Turns the holder into humanoid Decree when in snow biome"
 	SoASniper: Reloadable weapons do not require reloading
 	Aeolus: "[i:FargowiltasSouls/AeolusBoots] Effects of Aeolus Boots"
 	Zephyr: "[i:FargowiltasSouls/ZephyrBoots] Effects of Zephyr Boots"
@@ -213,11 +214,14 @@ AddedEffects: {
 	HWJRampart: "[i:ContinentOfJourney/VanguardBreastpiece] Keep you at 1 HP upon reciving a fatal hit (10 minutes cooldown)"
 	ThoriumSupersonic: "[i:ThoriumMod/TheOmegaCore] Increases movement speed beyond comprehension"
 	SoASupersonic: "[i:SacredTools/HeartOfThePlough] Increases your movement speed the lower your health gets"
-	SoAWorldshaper: "[i:SacredTools/LunarRing] Ability to carry 50 asthraltite shards"
+	SoAWorldshaper: "[i:SacredTools/LunarRing] Gives an additional chance of obtaining lunidium coins on enemy kills"
 	HWJBerserker: "[i:ContinentOfJourney/PhilosophersStone] Hitting enemies with melee weapons fills up their exhaustion"
 	HWJSniper: "[i:ContinentOfJourney/StarQuiver] Turn wooden arrows into holy arrows"
+	HWJArchWizard: "[i:ContinentOfJourney/EruditeBookmark] When equipped, you can insert 5 spell pages at most"
 	HWJConjurist: "[i:ContinentOfJourney/CommandersGaunlet] Tag enemies with whips, Player who tagged enemy are overall buffed"
 	ThoriumSniper: "[i:ThoriumMod/ConcussiveWarhead] Increases rocket damage by 100% and ranged damage briefly stun enemies"
+	ThoriumArchWizard: "[i:ThoriumMod/MurkyCatalyst] Every sixth magic cast is free and grants you the mana cost"
+	ThoriumBerserker: "[i:ThoriumMod/BlizzardPouch] Your yoyo damage freeze enemies and grants you 10% damage reduction until you take damage"
 }
 
 Items: {
@@ -641,6 +645,13 @@ Items: {
 	AccessoriesSoul: {
 		DisplayName: Accessories Soul
 		Tooltip: ""
+
+		Extra: {
+			Effects: Grants following effects:
+			StartsWithFilter: "'"
+			ContainsFilter: Following effects|Grants togglable
+			Flavor: Power of Multiverse in your hands
+		}
 	}
 
 	XeniumFabricatorItem: {
@@ -649,7 +660,7 @@ Items: {
 	}
 
 	OmegaTreads: {
-		DisplayName: Omega Treads
+		DisplayName: Dream Striders
 		Tooltip:
 			'''
 			50% increased movement speed 
@@ -659,7 +670,7 @@ Items: {
 			[i:ThoriumMod/CrashBoots] Running can build up momentum and crashing into an enemy will knock them back
 			[i:ThoriumMod/WeightedWinglets] Allows for the control of the speed of falling by pressing [up] or [down]
 			[i:ThoriumMod/SlagStompers] Damaging slag will fall from your Boots
-			[i:ThoriumMod/AirWalker] Allows for walking and jumping on air for a few seconds 
+			[i:ThoriumMod/AirWalkers] Allows for walking and jumping on air for a few seconds 
 			[i:ThoriumMod/JetBoots] Allows for boosting forward while in mid air 4 times
 			[i:ThoriumMod/TravelersBoots] Dashes will reach their peak faster 
 			'The Cobblers Ultimate Shoe'
@@ -672,7 +683,7 @@ Projectiles: {
 	MutantYap.DisplayName: Mutant Yap
 	SpectralFishron.DisplayName: Spectral Fishron
 	Blightbone.DisplayName: Blightbone
-	DreadfireAuraProj.DisplayName: Dreadfire Aura Proj
+	DreadfireAuraProj.DisplayName: Dreadfire Aura
 	EeriePulse.DisplayName: Eerie Pulse
 	FlariumTornado.DisplayName: Flarium Tornado
 	FrosthunterExplosion.DisplayName: Frosthunter Explosion
@@ -680,7 +691,7 @@ Projectiles: {
 	NightmareBubble.DisplayName: Nightmare Bubble
 	SatelliteShard.DisplayName: Satellite Shard
 	Shrapnel.DisplayName: Shrapnel
-	SpaceJunkProj.DisplayName: Space Junk Proj
+	SpaceJunkProj.DisplayName: Space Junk
 }
 
 Buffs: {
@@ -690,34 +701,34 @@ Buffs: {
 	}
 
 	DreadflameAuraCD: {
-		DisplayName: Dreadflame Aura C D
-		Description: Mods.CSE.Buffs.DreadflameAuraCD.Description
+		DisplayName: Dreadflame Aura
+		Description: You can not use Dreadflame Imbue again
 	}
 
 	FearBuff: {
 		DisplayName: Fear Buff
-		Description: Mods.CSE.Buffs.FearBuff.Description
+		Description: You not supposed to see that
 	}
 
 	NihilityPresenceBuff: {
-		DisplayName: Nihility Presence Buff
-		Description: Mods.CSE.Buffs.NihilityPresenceBuff.Description
+		DisplayName: Nihility Presence
+		Description: Disables most of souls effects
 	}
 
 	RivalBuff: {
 		DisplayName: Rival Buff
-		Description: Mods.CSE.Buffs.RivalBuff.Description
+		Description: You not supposed to see that
 	}
 
 	SniperBuff: {
-		DisplayName: Sniper Buff
-		Description: Mods.CSE.Buffs.SniperBuff.Description
+		DisplayName: Sniper Focus
+		Description: +125% damage, -25% defense, reduced enemy attention
 	}
 
 	SniperCooldownBuff: {
-		DisplayName: Sniper Cooldown Buff
-		Description: Mods.CSE.Buffs.SniperCooldownBuff.Description
+		DisplayName: Sniper Fatigue
+		Description: +30% defense, -25% damage
 	}
 }
 
-Conditions.AbaddonDowned: Mods.CSE.Conditions.AbaddonDowned
+Conditions.AbaddonDowned: Abaddon the Source of Affliction downed
