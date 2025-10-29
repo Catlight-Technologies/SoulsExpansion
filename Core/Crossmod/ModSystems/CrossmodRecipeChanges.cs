@@ -11,6 +11,8 @@ using CSE.Content.Common.CraftingStation;
 using CSE.Content.Common.Materials;
 using FargowiltasSouls.Content.Items.Summons;
 using FargowiltasCrossmod.Content.Calamity.Items.Accessories;
+using FargowiltasSouls.Content.Items.Armor.Styx;
+using CalamityMod.Items.Accessories.Wings;
 
 namespace CSE.Core.Crossmod.ModSystems
 {
@@ -47,6 +49,11 @@ namespace CSE.Core.Crossmod.ModSystems
                     recipe.RemoveIngredient(ModContent.ItemType<BrandoftheBrimstoneWitch>());
                 }
 
+                if (recipe.HasResult<TracersCelestial>())
+                {
+                    recipe.DisableRecipe();
+                }
+
                 if (recipe.HasResult<AbominationnVoodooDoll>() && !recipe.HasIngredient<ShadowspecBar>())
                 {
                     recipe.RemoveIngredient(ModContent.ItemType<AbomEnergy>());
@@ -69,16 +76,16 @@ namespace CSE.Core.Crossmod.ModSystems
                 {
                     if (ModCompatibility.Homeward.Loaded)
                     {
-                        recipe.AddIngredient(ModCompatibility.Homeward.Mod.Find<ModItem>("EssenceOfBright"), 1);
+                        recipe.AddIngredient(ModCompatibility.Homeward.Mod.Find<ModItem>("EssenceofBright"), 1);
                     }
                     if (ModCompatibility.Redemption.Loaded)
                     {
                         recipe.AddIngredient(ModCompatibility.Redemption.Mod.Find<ModItem>("LifeFragment"), 1);
                     }
-                    if (ModCompatibility.Thorium.Loaded)
-                    {
-                        recipe.AddIngredient(Mod.Find<ModItem>("DreamEssence"), 1);
-                    }
+                    //if (ModCompatibility.Thorium.Loaded)
+                    //{
+                    //    recipe.AddIngredient(Mod.Find<ModItem>("DreamEssence"), 1);
+                    //}
 
                     recipe.AddIngredient<AbomEnergy>();
                     recipe.RemoveIngredient(ModContent.ItemType<EternalEnergy>());
@@ -94,13 +101,18 @@ namespace CSE.Core.Crossmod.ModSystems
 
                 if (recipe.HasResult(ModContent.ItemType<ShadowspecBar>()) && recipe.HasIngredient<tModLoadiumBar>())
                 {
-                    recipe.AddIngredient<AbomEnergy>();
                     recipe.RemoveIngredient(ModContent.ItemType<tModLoadiumBar>());
                 }
 
                 if (recipe.HasResult<FargoArrow>() || recipe.HasResult<FargoBullet>())
                 {
                     recipe.RemoveIngredient(ModContent.ItemType<Rock>());
+                }
+
+                if (recipe.HasResult<StyxChestplate>() || recipe.HasResult<StyxCrown>() || recipe.HasResult<StyxLeggings>())
+                {
+                    recipe.AddIngredient<AuricBar>(5);
+                    recipe.RemoveIngredient(ItemID.LunarBar);
                 }
 
                 if (recipe.HasResult(ItemID.DrillContainmentUnit) && !recipe.HasIngredient<AerialiteBar>())

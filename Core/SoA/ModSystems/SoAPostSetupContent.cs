@@ -32,6 +32,8 @@ namespace CSE.Core.SoA.ModSystems
     {
         public override void Load()
         {
+            //nihilus and his shit
+            //no FargowiltasSouls because scaling happens in ApplyDifficultyAndPlayerScaling()
             AddBossConfig(
                 bossType: NPCType<Nihilus>(),
                 affectingMods: new List<ModMultiplier>

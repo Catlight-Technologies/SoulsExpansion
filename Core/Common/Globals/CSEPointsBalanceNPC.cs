@@ -86,7 +86,7 @@ namespace CSE.Core.Common.Globals
                 bossType: ModContent.NPCType<AbomBoss>(),
                 affectingMods: new List<ModMultiplier>
                 {
-                new ModMultiplier { ModName = "CalamityMod", DamageMultiplier = 1f, HealthMultiplier = 2f },
+                new ModMultiplier { ModName = "CalamityMod", DamageMultiplier = 0.5f, HealthMultiplier = 2f },
                 new ModMultiplier { ModName = "SacredTools", DamageMultiplier = 0.25f, HealthMultiplier = 0.5f },
                 new ModMultiplier { ModName = "ThoriumMod", DamageMultiplier = 0.25f, HealthMultiplier = 0.5f },
                 new ModMultiplier { ModName = "ContinentOfJourney", DamageMultiplier = 0.25f, HealthMultiplier = 0.5f }

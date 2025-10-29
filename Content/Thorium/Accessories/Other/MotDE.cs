@@ -9,6 +9,7 @@ using Terraria;
 using Terraria.ModLoader;
 using ThoriumMod.Items.BasicAccessories;
 using ThoriumMod.Items.BossForgottenOne;
+using ThoriumMod.Items.BossThePrimordials;
 using ThoriumMod.Items.Donate;
 
 namespace CSE.Content.Thorium.Accessories.Other
@@ -32,6 +33,8 @@ namespace CSE.Content.Thorium.Accessories.Other
                 ModContent.GetInstance<PlasmaGenerator>().UpdateAccessory(player, hideVisual);
             if (player.AddEffect<CapeoftheSurvivorEffect>(Item))
                 ModContent.GetInstance<CapeoftheSurvivor>().UpdateAccessory(player, hideVisual);
+            if (player.AddEffect<TheOmegaCoreEffect>(Item))
+                ModContent.GetInstance<TheOmegaCore>().UpdateAccessory(player, hideVisual);
 
             ModContent.GetInstance<TheRing>().UpdateAccessory(player, hideVisual);
             if (!player.FargoSouls().MutantPresence)
@@ -49,6 +52,7 @@ namespace CSE.Content.Thorium.Accessories.Other
             recipe.AddIngredient<InfernoLordsFocus>();
             recipe.AddIngredient<CapeoftheSurvivor>();
             recipe.AddIngredient<AbyssalShell>();
+            recipe.AddIngredient<TheOmegaCore>();
             recipe.AddIngredient<TheRing>();
             //recipe.AddIngredient<TheShield>();
 
@@ -74,6 +78,13 @@ namespace CSE.Content.Thorium.Accessories.Other
             public override int ToggleItemType => ModContent.ItemType<PlasmaGenerator>();
 
             public override Header ToggleHeader => Header.GetHeader<MotDEHeader>();
+            public override bool MutantsPresenceAffects => true;
+        }
+        public class TheOmegaCoreEffect : AccessoryEffect
+        {
+            public override int ToggleItemType => ModContent.ItemType<TheOmegaCore>();
+            public override Header ToggleHeader => Header.GetHeader<MotDEHeader>();
+
             public override bool MutantsPresenceAffects => true;
         }
     }

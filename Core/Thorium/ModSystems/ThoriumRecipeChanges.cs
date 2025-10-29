@@ -35,6 +35,7 @@ using CSE.Content.Thorium.Accessories.Enchantments;
 using CSE.Content.Thorium.Accessories.Other;
 using ThoriumMod.Items.SummonItems;
 using ThoriumMod.Items.BossLich;
+using FargowiltasSouls.Content.Items.Accessories.Eternity;
 
 namespace CSE.Core.Thorium.ModSystems
 {
@@ -65,6 +66,9 @@ namespace CSE.Core.Thorium.ModSystems
             // seraph idols
             group = new RecipeGroup(() => Lang.misc[37] + " Seraphim Idol Upgrade", ModContent.ItemType<ArchDemonCurse>(), ModContent.ItemType<ArchangelHeart>());
             RecipeGroup.RegisterGroup("CSE:AnyIdolUpgrade", group);
+            // bard accessories
+            group = new RecipeGroup(() => Lang.misc[37] + " Instrument Type Accessory", ModContent.ItemType<DigitalTuner>(), ModContent.ItemType<EpicMouthpiece>(), ModContent.ItemType<StraightMute>(), ModContent.ItemType<GuitarPickClaw>());
+            RecipeGroup.RegisterGroup("CSE:AnyInstrumentTypeAccessory", group);
         }
 
         public override void AddRecipes()
@@ -168,6 +172,14 @@ namespace CSE.Core.Thorium.ModSystems
                         recipe.AddIngredient<TerrariumDefender>();
                     }
                 }
+                if (recipe.HasResult<SupersonicSoul>())
+                {
+                    if (!ModCompatibility.Homeward.Loaded && !ModCompatibility.SacredTools.Loaded)
+                    {
+                        recipe.RemoveIngredient(ModContent.ItemType<AeolusBoots>());
+                        recipe.AddIngredient<TerrariumParticleSprinters>();
+                    }
+                }
                 #endregion
 
                 if (recipe.HasResult<TerrariumDefender>())
@@ -179,6 +191,12 @@ namespace CSE.Core.Thorium.ModSystems
                         recipe.RemoveIngredient(ModContent.ItemType<HolyAegis>());
                         recipe.RemoveIngredient(ItemID.FrozenTurtleShell);
                     }
+                }
+
+                if (recipe.HasResult<TerrariumParticleSprinters>())
+                {
+                    recipe.AddIngredient<AeolusBoots>();
+                    recipe.RemoveIngredient(ItemID.TerrasparkBoots);
                 }
 
                 if ((recipe.HasResult<BerserkerSoul>()

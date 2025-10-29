@@ -28,7 +28,7 @@ namespace CSE.Core.MoR.Globals
 
         public class PocketShieldGeneratorEffect : AccessoryEffect
         {
-            public override Header ToggleHeader => Header.GetHeader<TrawlerHeader>();
+            public override Header ToggleHeader => Header.GetHeader<ColossusHeader>();
             public override int ToggleItemType => ItemType<PocketShieldGenerator>();
 
             public override void PostUpdateEquips(Player player)

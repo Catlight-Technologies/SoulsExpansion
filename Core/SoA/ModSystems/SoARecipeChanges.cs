@@ -1,3 +1,4 @@
+using FargowiltasSouls.Content.Items.Accessories.Eternity;
 using FargowiltasSouls.Content.Items.Accessories.Forces;
 using FargowiltasSouls.Content.Items.Accessories.Souls;
 using FargowiltasSouls.Content.Items.Materials;
@@ -86,6 +87,11 @@ namespace CSE.Core.SoA.ModSystems
                 if (recipe.HasResult<SupersonicSoul>())
                 {
                     recipe.AddIngredient<HeartOfThePlough>();
+                    if (!ModCompatibility.Homeward.Loaded)
+                    {
+                        recipe.RemoveIngredient(ModContent.ItemType<AeolusBoots>());
+                        recipe.AddIngredient<VoidSpurs>();
+                    }
                 }
                 if (recipe.HasResult<FlightMasterySoul>() && !recipe.HasIngredient<GrandWings>())
                 {
@@ -99,6 +105,47 @@ namespace CSE.Core.SoA.ModSystems
                 if (recipe.HasResult<CosmoForce>() && !recipe.HasIngredient<LuminousEnergy>())
                 {
                     recipe.AddIngredient<LuminousEnergy>(5);
+                }
+
+                if (recipe.HasResult<VoidSpurs>())
+                {
+                    if (ModCompatibility.Thorium.Loaded)
+                    {
+                        recipe.RemoveIngredient(ModContent.ItemType<RoyalRunners>());
+                        recipe.AddIngredient(ModContent.Find<ModItem>(ModCompatibility.Thorium.Name, "TerrariumParticleSprinters"));
+                    }
+                    else
+                    {
+                        recipe.AddIngredient<AeolusBoots>();
+                        recipe.RemoveIngredient(ModContent.ItemType<RoyalRunners>());
+                    }
+                }
+
+                if (recipe.HasResult<AeolusBoots>())
+                {
+                    recipe.AddIngredient<RoyalRunners>();
+                    if (!ModCompatibility.Calamity.Loaded)
+                    {
+                        recipe.RemoveIngredient(ModContent.ItemType<ZephyrBoots>());
+                    }
+                    else
+                    {
+                        recipe.RemoveIngredient(ModContent.Find<ModItem>(ModCompatibility.Calamity.Name, "AngelTreads").Type);
+                    }
+                }
+
+                if (recipe.HasResult<RoyalRunners>())
+                {
+                    if (ModCompatibility.Calamity.Loaded)
+                    {
+                        recipe.AddIngredient(ModContent.Find<ModItem>(ModCompatibility.Calamity.Name, "AngelTreads"));
+                        recipe.RemoveIngredient(ItemID.TerrasparkBoots);
+                    }
+                    else
+                    {
+                        recipe.RemoveIngredient(ItemID.TerrasparkBoots);
+                        recipe.AddIngredient<ZephyrBoots>();
+                    }
                 }
 
                 if (recipe.HasResult<NihilusObelisk>() && !recipe.HasIngredient<AbomEnergy>())

@@ -633,6 +633,7 @@ Items: {
 		DisplayName: Mark of The Dream Eater
 		Tooltip:
 			'''
+			[i:ThoriumMod/TheOmegaCore] Increases movement speed beyond comprehension
 			[i:ThoriumMod/CapeoftheSurvivor] You gain up to 20% damage reduction over time
 			[i:ThoriumMod/CapeoftheSurvivor] Getting hit briefly reduces that bonus to -10% damage reduction
 			[i:ThoriumMod/PlasmaGenerator] Generates fiery barrier that burns incoming hostile projectile every 10 seconds

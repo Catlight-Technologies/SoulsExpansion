@@ -1,13 +1,11 @@
 using CSE.Content.SoA.Projectiles;
 using FargowiltasSouls.Core.AccessoryEffectSystem;
 using Microsoft.Xna.Framework;
-using SacredTools.Content.Items.Weapons.Relic;
 using SacredTools.Content.Projectiles.Weapons.Dreamscape.Nihilus;
 using SacredTools.Content.Projectiles.Weapons.Relic;
 using SacredTools.Projectiles.Dreamscape;
 using Terraria;
 using Terraria.ModLoader;
-using ThoriumMod.Projectiles;
 using static CSE.Content.SoA.Accessories.Enchantments.FlariumEnchant;
 
 namespace CSE.Core.SoA.Globals

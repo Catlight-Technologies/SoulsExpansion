@@ -1,4 +1,5 @@
 using CalamityMod.CalPlayer;
+using FargowiltasCrossmod.Core;
 using FargowiltasSouls.Content.Items;
 using FargowiltasSouls.Content.Items.Accessories.Souls;
 using FargowiltasSouls.Content.Items.Armor.Styx;
@@ -49,6 +50,23 @@ namespace CSE.Core.Common.Globals
                 entity.defense = 15;
             }
 
+            if(ModCompatibility.SacredTools.Loaded || ModCompatibility.Calamity.Loaded)
+            {
+                //+35 defence
+                if (entity.type == ItemType<StyxCrown>())
+                {
+                    entity.defense = 30;
+                }
+                if (entity.type == ItemType<StyxChestplate>())
+                {
+                    entity.defense = 45;
+                }
+                if (entity.type == ItemType<StyxLeggings>())
+                {
+                    entity.defense = 30;
+                }
+            }
+
             //helll naaaaah
             if (entity.CountsAsClass(DamageClass.Melee) && entity.damage > 0 && entity.pick == 0 && entity.axe == 0 && entity.hammer == 0 && entity.useStyle == 1 && !entity.noMelee && !entity.noUseGraphic)
             {
@@ -79,13 +97,13 @@ namespace CSE.Core.Common.Globals
 
         public override void UpdateEquip(Item item, Player player)
         {
-            if (item.type == ItemType<StyxChestplate>() && (ModCompatibility.SacredTools.Loaded || ModCompatibility.Homeward.Loaded || ModCompatibility.Thorium.Loaded) && !ModCompatibility.Calamity.Loaded)
+            if (item.type == ItemType<StyxChestplate>() && (ModCompatibility.Thorium.Loaded) && !ModCompatibility.Calamity.Loaded && !ModCompatibility.SacredTools.Loaded && !ModCompatibility.Homeward.Loaded)
             {
                 player.GetDamage<GenericDamageClass>() += 0.05f;
             }
-            if (item.type == ItemType<StyxChestplate>() && ModCompatibility.Calamity.Loaded)
+            if (item.type == ItemType<StyxChestplate>() && (ModCompatibility.Homeward.Loaded || ModCompatibility.SacredTools.Loaded || ModCompatibility.Calamity.Loaded))
             {
-                player.GetDamage<GenericDamageClass>() += 0.1f;
+                player.GetDamage<GenericDamageClass>() += 0.15f;
             }
         }
         void ItemBalance(List<TooltipLine> tooltips, EModeChanges change, string mod = "CSE")

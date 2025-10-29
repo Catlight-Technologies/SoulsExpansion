@@ -21,7 +21,6 @@ namespace CSE.Core.Crossmod.Globals
                 player.GetDamage<ThrowingDamageClass>() += 0.03f;
             }
         }
-
         public override void ModifyTooltips(Item item, List<TooltipLine> tooltips)
         {
             if (ModLoader.HasMod("NoxusBoss"))

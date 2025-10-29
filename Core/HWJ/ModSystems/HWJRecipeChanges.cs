@@ -162,6 +162,11 @@ namespace CSE.Core.HWJ.ModSystems
                         recipe.AddIngredient<VanguardBreastpiece>();
                     }
                 }
+                if (recipe.HasResult<SupersonicSoul>())
+                {
+                    recipe.AddIngredient<Horizon>();
+                    recipe.RemoveIngredient(ModContent.ItemType<AeolusBoots>());
+                }
                 #endregion
             }
         }

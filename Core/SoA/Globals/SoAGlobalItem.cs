@@ -49,7 +49,7 @@ namespace CSE.Core.SoA.Globals
             if (item.type == ItemType<Sharpshooter>()) return ModCompatibility.Calamity.Loaded ? 1.3f : 1f;
             if (item.type == ItemType<Gunblade>()) return ModCompatibility.Calamity.Loaded ? 1.3f : 1f;
             // Magic
-            if (item.type == ItemType<Tenebris>()) return ModCompatibility.Calamity.Loaded ? 1.1f : 0.9f;
+            if (item.type == ItemType<Tenebris>()) return ModCompatibility.Calamity.Loaded ? 1.0f : 0.8f;
             if (item.type == ItemType<PaleRuin>()) return ModCompatibility.Calamity.Loaded ? 1.3f : 1f;
             if (item.type == ItemType<LampOfCinders>()) return ModCompatibility.Calamity.Loaded ? 1.3f : 1f;
             if (item.type == ItemType<FatesLament>()) return ModCompatibility.Calamity.Loaded ? 1.3f : 1f;

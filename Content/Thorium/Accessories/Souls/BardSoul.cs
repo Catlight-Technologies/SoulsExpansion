@@ -60,32 +60,33 @@ namespace CSE.Content.Thorium.Accessories.Souls
         {
             Recipe recipe = CreateRecipe();
 
-            if (ModCompatibility.Calamity.Loaded) { recipe.AddIngredient<AbomEnergy>(10); }
-
             if (!ModLoader.HasMod("CalamityBardHealer"))
             {
+                recipe.AddIngredient<TerrariumSurroundSound>();
+                recipe.AddRecipeGroup("CSE:AnyInstrumentTypeAccessory");
                 recipe.AddIngredient<HauntingBassDrum>();
                 recipe.AddIngredient<HellBell>();
                 recipe.AddIngredient<JingleBells>();
                 recipe.AddIngredient<CallofCthulhu>();
-                recipe.AddIngredient<TerrariumSurroundSound>();
-                recipe.AddIngredient<DigitalTuner>();
-                recipe.AddIngredient<EpicMouthpiece>();
+                //recipe.AddIngredient<DigitalTuner>();
+                //recipe.AddIngredient<EpicMouthpiece>();
                 recipe.AddIngredient<BlackMIDI>();
-                recipe.AddIngredient<GuitarPickClaw>();
-                recipe.AddIngredient<StraightMute>();
+                //recipe.AddIngredient<GuitarPickClaw>();
+                //recipe.AddIngredient<StraightMute>();
                 recipe.AddIngredient<BandKit>();
                 recipe.AddIngredient<Fishbone>();
                 recipe.AddIngredient<SonicAmplifier>();
             }
             else
             {
-                recipe.AddIngredient<GuitarPickClaw>();
-                recipe.AddIngredient<EpicMouthpiece>();
-                recipe.AddIngredient<StraightMute>();
-                recipe.AddIngredient<DigitalTuner>();
+                recipe.AddRecipeGroup("CSE:AnyInstrumentTypeAccessory");
+                //recipe.AddIngredient<GuitarPickClaw>();
+                //recipe.AddIngredient<EpicMouthpiece>();
+                //recipe.AddIngredient<StraightMute>();
+                //recipe.AddIngredient<DigitalTuner>();
                 recipe.AddIngredient(ModContent.Find<ModItem>("CalamityBardHealer", "OmniSpeaker"));
                 recipe.AddIngredient<BlackMIDI>();
+                recipe.AddIngredient<TerrariumAutoharp>();
                 recipe.AddIngredient(ModContent.Find<ModItem>("CalamityBardHealer", "TreeWhisperersHarp"));
                 recipe.AddIngredient(ModContent.Find<ModItem>("CalamityBardHealer", "FeralKeytar"));
                 recipe.AddIngredient(ModContent.Find<ModItem>("CalamityBardHealer", "FaceMelter"));
@@ -98,6 +99,7 @@ namespace CSE.Content.Thorium.Accessories.Souls
                 recipe.AddIngredient(ModContent.Find<ModItem>("ThoriumRework", "FanDonations"));
             }
 
+            if (ModCompatibility.Calamity.Loaded) { recipe.AddIngredient<AbomEnergy>(10); }
             if (ModCompatibility.Homeward.Loaded)
             {
                 recipe.AddIngredient(ModContent.Find<ModItem>(ModCompatibility.Homeward.Name, "FinalBar"), 5);
