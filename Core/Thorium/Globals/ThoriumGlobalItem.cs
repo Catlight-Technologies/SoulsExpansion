@@ -74,6 +74,8 @@ namespace CSE.Core.Thorium.Globals
                 tooltips.Insert(5, new TooltipLine(Mod, "mayo2", Language.GetTextValue("Mods.CSE.AddedEffects.ThoriumColossus2")));
                 tooltips.Insert(5, new TooltipLine(Mod, "mayo2", Language.GetTextValue("Mods.CSE.AddedEffects.ThoriumColossus4")));
             }
+            if (item.type == ItemType<WorldShaperSoul>())
+                tooltips.Insert(5, new TooltipLine(Mod, "mayo2", Language.GetTextValue("Mods.CSE.AddedEffects.ThoriumWorldshaper")));
 
             if (item.type == ItemType<SnipersSoul>())
                 tooltips.Insert(5, new TooltipLine(Mod, "mayo2", Language.GetTextValue("Mods.CSE.AddedEffects.ThoriumSniper")));

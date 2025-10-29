@@ -202,8 +202,8 @@ namespace CSE.Core.SoA.Globals
             if (item.type == ItemType<SupersonicSoul>())
                 tooltips.Insert(5, new TooltipLine(Mod, "mayo2", Language.GetTextValue("Mods.CSE.AddedEffects.SoASupersonic")));
 
-            if (item.type == ItemType<SnipersSoul>())
-                tooltips.Insert(5, new TooltipLine(Mod, "mayo2", Language.GetTextValue("Mods.CSE.AddedEffects.SoASniper")));
+            //if (item.type == ItemType<SnipersSoul>())
+            //    tooltips.Insert(5, new TooltipLine(Mod, "mayo2", Language.GetTextValue("Mods.CSE.AddedEffects.SoASniper")));
             if (item.type == ItemType<ArchWizardsSoul>())
                 tooltips.Insert(5, new TooltipLine(Mod, "mayo2", Language.GetTextValue("Mods.CSE.AddedEffects.SoAArchWizard")));
             if (item.type == ItemType<ConjuristsSoul>())

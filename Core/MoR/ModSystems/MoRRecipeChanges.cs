@@ -90,6 +90,11 @@ namespace CSE.Core.MoR.ModSystems
                     recipe.AddIngredient<HEVSuit>();
                     recipe.AddIngredient<PocketShieldGenerator>();
                 }
+                if (recipe.HasResult<SupersonicSoul>())
+                {
+                    recipe.RemoveIngredient(ItemID.EoCShield);
+                    recipe.AddIngredient<InfectionShield>();
+                }
                 #endregion
             }
         }

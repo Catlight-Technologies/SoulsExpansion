@@ -9,6 +9,7 @@ using ThoriumMod.Items.BossThePrimordials.Rhapsodist;
 using CSE.Core;
 using CSE.Content.Thorium.Materials;
 using Fargowiltas.Content.Items.Tiles;
+using Microsoft.Xna.Framework;
 
 namespace CSE.Content.Thorium.Accessories.Souls
 {
@@ -16,6 +17,7 @@ namespace CSE.Content.Thorium.Accessories.Souls
     [JITWhenModsEnabled(ModCompatibility.Thorium.Name)]
     public class BardSoul : BaseSoul
     {
+        public static readonly Color ItemColor = new(255, 0, 0);
         public override void SetDefaults()
         {
             Item.width = 20;
@@ -62,6 +64,7 @@ namespace CSE.Content.Thorium.Accessories.Souls
 
             if (!ModLoader.HasMod("CalamityBardHealer"))
             {
+                recipe.AddIngredient<BandKit>();
                 recipe.AddIngredient<TerrariumSurroundSound>();
                 recipe.AddRecipeGroup("CSE:AnyInstrumentTypeAccessory");
                 recipe.AddIngredient<HauntingBassDrum>();
@@ -73,7 +76,6 @@ namespace CSE.Content.Thorium.Accessories.Souls
                 recipe.AddIngredient<BlackMIDI>();
                 //recipe.AddIngredient<GuitarPickClaw>();
                 //recipe.AddIngredient<StraightMute>();
-                recipe.AddIngredient<BandKit>();
                 recipe.AddIngredient<Fishbone>();
                 recipe.AddIngredient<SonicAmplifier>();
             }

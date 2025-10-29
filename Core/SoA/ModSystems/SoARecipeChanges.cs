@@ -70,6 +70,10 @@ namespace CSE.Core.SoA.ModSystems
                 }
                 if (recipe.HasResult<ConjuristsSoul>())
                 {
+                    recipe.RemoveIngredient(ItemID.MonkBelt);
+                    recipe.RemoveIngredient(ItemID.SquireShield);
+                    recipe.RemoveIngredient(ItemID.HuntressBuckler);
+                    recipe.RemoveIngredient(ItemID.ApprenticeScarf);
                     recipe.RemoveRecipeGroup(RecipeGroup.recipeGroupIDs["FargowiltasSouls:AnySentryAccessory"]);
                     recipe.AddIngredient<StarstreamVeil>();
 

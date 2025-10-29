@@ -12,6 +12,7 @@ using CSE.Core;
 using FargowiltasSouls.Core.Toggler;
 using CSE.Content.Thorium.Materials;
 using Fargowiltas.Content.Items.Tiles;
+using Microsoft.Xna.Framework;
 
 namespace CSE.Content.Thorium.Accessories.Souls
 {
@@ -19,7 +20,7 @@ namespace CSE.Content.Thorium.Accessories.Souls
     [JITWhenModsEnabled(ModCompatibility.Thorium.Name)]
     public class GuardianAngelsSoul : BaseSoul
     {
-        private readonly Mod thorium = ModLoader.GetMod("ThoriumMod");
+        public static readonly Color ItemColor = new(128, 128, 0);
 
         public override void SetDefaults()
         {
@@ -58,7 +59,7 @@ namespace CSE.Content.Thorium.Accessories.Souls
 
             if (player.AddEffect<GuardianEffect>(Item))
             {
-                ModContent.Find<ModItem>(this.thorium.Name, "MedicalBag").UpdateAccessory(player, true);
+                ModContent.Find<ModItem>(ModCompatibility.Thorium.Name, "MedicalBag").UpdateAccessory(player, true);
             }
 
             if (ModLoader.HasMod("CalamityBardHealer"))
@@ -81,8 +82,6 @@ namespace CSE.Content.Thorium.Accessories.Souls
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-
-            if (ModCompatibility.Calamity.Loaded) { recipe.AddIngredient<AbomEnergy>(10); }
 
             if (!ModLoader.HasMod("CalamityBardHealer"))
             {
@@ -118,6 +117,8 @@ namespace CSE.Content.Thorium.Accessories.Souls
             {
                 recipe.AddIngredient(ModContent.Find<ModItem>(ModCompatibility.Homeward.Name, "FinalBar"), 5);
             }
+
+            if (ModCompatibility.Calamity.Loaded) { recipe.AddIngredient<AbomEnergy>(10); }
 
             recipe.AddIngredient<DreamEssence>(5);
             recipe.AddTile<CrucibleCosmosSheet>();

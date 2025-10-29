@@ -69,6 +69,9 @@ namespace CSE.Core.Thorium.ModSystems
             // bard accessories
             group = new RecipeGroup(() => Lang.misc[37] + " Instrument Type Accessory", ModContent.ItemType<DigitalTuner>(), ModContent.ItemType<EpicMouthpiece>(), ModContent.ItemType<StraightMute>(), ModContent.ItemType<GuitarPickClaw>());
             RecipeGroup.RegisterGroup("CSE:AnyInstrumentTypeAccessory", group);
+            // evil wings
+            group = new RecipeGroup(() => Lang.misc[37] + " Evil Wings", ModContent.ItemType<DragonWings>(), ModContent.ItemType<FleshWings>());
+            RecipeGroup.RegisterGroup("CSE:EvilWings", group);
         }
 
         public override void AddRecipes()
@@ -174,6 +177,8 @@ namespace CSE.Core.Thorium.ModSystems
                 }
                 if (recipe.HasResult<SupersonicSoul>())
                 {
+                    recipe.RemoveIngredient(ItemID.SweetheartNecklace);
+                    recipe.RemoveIngredient(ItemID.PanicNecklace);
                     if (!ModCompatibility.Homeward.Loaded && !ModCompatibility.SacredTools.Loaded)
                     {
                         recipe.RemoveIngredient(ModContent.ItemType<AeolusBoots>());
@@ -235,8 +240,7 @@ namespace CSE.Core.Thorium.ModSystems
                 if (recipe.HasResult<FlightMasterySoul>() && !recipe.HasIngredient<TerrariumWings>())
                 {
                     recipe.AddIngredient<TerrariumWings>();
-                    recipe.AddIngredient<DragonWings>();
-                    recipe.AddIngredient<FleshWings>();
+                    recipe.AddRecipeGroup("CSE:EvilWings");
                 }
 
                 if (recipe.HasResult<StyxCrown>() && recipe.HasIngredient(549))
