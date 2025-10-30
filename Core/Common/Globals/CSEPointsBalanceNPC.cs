@@ -76,7 +76,7 @@ namespace CSE.Core.Common.Globals
                 new ModMultiplier { ModName = "CalLegacy", DamageMultiplier = 10f, HealthMultiplier = 100f }, //ech
                 new ModMultiplier { ModName = "HeavenlyArsenal", DamageMultiplier = 10f, HealthMultiplier = 100f }, //ech
                 new ModMultiplier { ModName = "CalamityMod", DamageMultiplier = 1f, HealthMultiplier = 2.5f },
-                new ModMultiplier { ModName = "SacredTools", DamageMultiplier = 0.5f, HealthMultiplier = 1f },
+                new ModMultiplier { ModName = "SacredTools", DamageMultiplier = 0.5f, HealthMultiplier = 0.75f },
                 new ModMultiplier { ModName = "ThoriumMod", DamageMultiplier = 0.3f, HealthMultiplier = 0.5f },
                 new ModMultiplier { ModName = "ContinentOfJourney", DamageMultiplier = 0.3f, HealthMultiplier = 0.5f }
                 }
@@ -88,7 +88,7 @@ namespace CSE.Core.Common.Globals
                 {
                 new ModMultiplier { ModName = "CalamityMod", DamageMultiplier = 0.5f, HealthMultiplier = 2f },
                 new ModMultiplier { ModName = "SacredTools", DamageMultiplier = 0.25f, HealthMultiplier = 0.5f },
-                new ModMultiplier { ModName = "ThoriumMod", DamageMultiplier = 0.25f, HealthMultiplier = 0.5f },
+                new ModMultiplier { ModName = "ThoriumMod", DamageMultiplier = 0.25f, HealthMultiplier = 0.4f },
                 new ModMultiplier { ModName = "ContinentOfJourney", DamageMultiplier = 0.25f, HealthMultiplier = 0.5f }
                 }
             );

@@ -18,6 +18,8 @@ using ContinentOfJourney.Items;
 using ContinentOfJourney.Items.Flamethrowers;
 using ContinentOfJourney.Items.FielderSentries;
 using FargowiltasSouls.Core.Systems;
+using FargowiltasSouls.Content.Bosses.Champions.Cosmos;
+using FargowiltasSouls.Content.Bosses.AbomBoss;
 
 namespace CSE.Core.HWJ.Globals
 {
@@ -88,7 +90,7 @@ namespace CSE.Core.HWJ.Globals
 
         public override bool CanUseItem(Item item, Player player)
         {
-            if(item.type == ItemType<SunsHeart>())
+            if (item.type == ItemType<SunsHeart>())
             {
                 return WorldSavingSystem.DownedAbom;
             }
@@ -169,12 +171,12 @@ namespace CSE.Core.HWJ.Globals
             public override bool MutantsPresenceAffects => true;
             public override void PostUpdateEquips(Player player)
             {
-                if (!NPC.AnyNPCs(NPCType<MutantBoss>()))
-                {
+                //if (!NPC.AnyNPCs(NPCType<MutantBoss>()))
+                //{
                     TemplatePlayer modPlayer = player.GetModPlayer<TemplatePlayer>();
                     modPlayer.GrindStone_Type = 4;
                     modPlayer.GrindStone_Time = 480;
-                }
+                //}
             }
         }
         public override void ModifyTooltips(Item item, List<TooltipLine> tooltips)
@@ -253,6 +255,13 @@ namespace CSE.Core.HWJ.Globals
                 )
             {
                 tooltips.Add(new TooltipLine(Mod, "BalanceDown", Language.GetTextValue($"{Language.GetText($"Mods.CSE.EModeBalance.HWJDefenseNerf2")}")));
+            }
+
+            if (item.type == ItemType<PhilosophersStone>()
+                || item.type == ItemType<RadiativeStone>()
+                || item.type == ItemType<RunedStone>())
+            {
+                tooltips.Add(new TooltipLine(Mod, "BalanceDown", Language.GetTextValue($"{Language.GetText($"Mods.CSE.EModeBalance.HWJStunImmunity")}")));
             }
 
             string BalanceLine = Language.GetTextValue($"Mods.CSE.EModeBalance.CrossBalance");

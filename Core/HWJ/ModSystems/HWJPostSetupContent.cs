@@ -11,6 +11,13 @@ using ContinentOfJourney.Items.Flamethrowers;
 using ContinentOfJourney.Items.Rockets;
 using ContinentOfJourney.Items.ThrowerWeapons;
 using ContinentOfJourney.Items.Whips;
+using CSE.Core.Common.ModSystems;
+using ContinentOfJourney.NPCs.Boss_TheMaterealizer;
+using ContinentOfJourney.NPCs.Boss_TheOverwatcher;
+using ContinentOfJourney.NPCs.Boss_SlimeGod;
+using ContinentOfJourney.NPCs.Boss_WorldsEndEverlastingFallingWhale;
+using ContinentOfJourney.NPCs.Boss_ScarabBelief;
+using ContinentOfJourney.NPCs.Trial;
 
 namespace CSE.Core.HWJ.ModSystems
 {
@@ -30,6 +37,17 @@ namespace CSE.Core.HWJ.ModSystems
                 new ModMultiplier { ModName = "ContinentOfJourney", DamageMultiplier = 0.1f, HealthMultiplier = 0.5f }
                 }
             );
+
+            CSEPostSetupContent.changes.Add((NPCType<TheMaterealizer>(), 19.46f));
+            CSEPostSetupContent.changes.Add((ModCompatibility.Homeward.Mod.Find<ModNPC>("TheLifebringer").Type, 19.47f));
+            CSEPostSetupContent.changes.Add((NPCType<TheOverwatcher>(), 19.47f));
+            CSEPostSetupContent.changes.Add((NPCType<SlimeGod>(), 19.48f));
+
+
+            CSEPostSetupContent.changes.Add((NPCType<Trial_Hallow>(), 21.97f));
+
+            CSEPostSetupContent.changes.Add((NPCType<ScarabBelief>(), 21.98f));
+            CSEPostSetupContent.changes.Add((NPCType<WorldsEndEverlastingFallingWhale>(), 21.99f));
         }
 
         public override void PostSetupContent()

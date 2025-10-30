@@ -13,6 +13,7 @@ EModeBalance: {
 	DesperatioColumnNerf: "[c/FF0000:Cross-mod Balance:] Flame column deal 30% less damage"
 	HWJDefenseNerf1: "[c/FF0000:Cross-mod Balance:] Defense reduced by 50%"
 	HWJDefenseNerf2: "[c/FF0000:Cross-mod Balance:] Defense reduced by 66%"
+	HWJStunImmunity: "[c/FF0000:Cross-mod Balance:] Souls Mod bosses are not affected by exhaustion"
 }
 
 TrueEternityRevDifficulty: {

@@ -23,6 +23,9 @@ using static Terraria.ModLoader.ModContent;
 using static CSE.Core.Common.Globals.CSEPointsBalanceNPC;
 using System.Collections.Generic;
 using SacredTools.NPCs.Boss.Obelisk.Nihilus;
+using CSE.Core.Common.ModSystems;
+using ThoriumMod.NPCs.BossThePrimordials;
+using SacredTools.NPCs.Boss.Erazor;
 
 namespace CSE.Core.SoA.ModSystems
 {
@@ -70,6 +73,9 @@ namespace CSE.Core.SoA.ModSystems
                 new ModMultiplier { ModName = "ContinentOfJourney", DamageMultiplier = 0, HealthMultiplier = 0.2f }
                 }
             );
+
+            CSEPostSetupContent.changes.Add((NPCType<Nihilus2>(), 26.99f));
+            CSEPostSetupContent.changes.Add((NPCType<ErazorBoss>(), 22.8f));
         }
         public override void PostSetupContent()
         {

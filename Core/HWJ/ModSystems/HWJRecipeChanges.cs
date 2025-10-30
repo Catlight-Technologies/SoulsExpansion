@@ -8,6 +8,7 @@ using Fargowiltas.Content.Items.Tiles;
 using FargowiltasSouls.Content.Items.Accessories.Eternity;
 using FargowiltasSouls.Content.Items.Accessories.Forces;
 using FargowiltasSouls.Content.Items.Accessories.Souls;
+using FargowiltasSouls.Content.Items.Materials;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -84,6 +85,11 @@ namespace CSE.Core.HWJ.ModSystems
                     {
                         recipe.AddIngredient<EssenceofBright>(5);
                     }
+                }
+
+                if (recipe.HasResult<FinalBar>())
+                {
+                    recipe.AddIngredient<Eridanium>();
                 }
 
                 if (recipe.HasResult<VanguardBreastpiece>())
@@ -207,6 +213,7 @@ namespace CSE.Core.HWJ.ModSystems
                 .AddIngredient<EternalBar>()
                 .AddIngredient<LivingBar>()
                 .AddIngredient<CubistBar>()
+                .AddIngredient<Eridanium>()
                 .Register();
             }
             if (!ModCompatibility.Thorium.Loaded && !ModCompatibility.SacredTools.Loaded)

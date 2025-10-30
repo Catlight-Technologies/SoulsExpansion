@@ -147,7 +147,8 @@ namespace CSE.Core.Thorium.Globals
         public static float BalanceChange(Item item)
         {
             // Melee
-            if (item.type == ItemType<TerrariansLastKnife>()) return 1.1f;
+            //if (item.type == ItemType<TerrariansLastKnife>()) return 1.1f;
+            if (item.type == ItemType<TerrariumSaber>()) return 1.2f;
 
             // Ranged
             if (item.type == ItemType<TheJavelin>()) return 0.9f;

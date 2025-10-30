@@ -17,6 +17,7 @@ using FargowiltasSouls.Core.Toggler.Content;
 using SacredTools.Content.Items.Accessories;
 using FargowiltasSouls.Core.Toggler;
 using SacredTools;
+using SacredTools.Content.Items.Weapons.Asthraltite;
 //using static CSE.Core.SoulsRecipes.SniperSoulEffects;
 //using static CSE.Core.SoulsRecipes.WorldShaperSoulEffects;
 
@@ -40,6 +41,8 @@ namespace CSE.Core.SoA.Globals
             if (item.type == ItemType<Devilsknife>()) return ModCompatibility.Calamity.Loaded ? 1.3f : 1f;
             if (item.type == ItemType<CeruleanCyclone>()) return ModCompatibility.Calamity.Loaded ? 1.3f : 1f;
             if (item.type == ItemType<BloodKunai>()) return ModCompatibility.Calamity.Loaded ? 1.3f : 1f;
+
+            if (item.type == ItemType<AsthralYoyo>()) return 0.7f; //60k dps on abom without nerf
             // Ranged
             if (item.type == ItemType<NeedlerRelic>()) return ModCompatibility.Calamity.Loaded ? 1.3f : 1f;
             if (item.type == ItemType<Desperatio>()) return ModCompatibility.Calamity.Loaded ? 1.7f : 1f;

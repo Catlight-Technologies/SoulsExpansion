@@ -1,3 +1,5 @@
+using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace CSE.Core.HWJ.Globals
@@ -6,6 +8,5 @@ namespace CSE.Core.HWJ.Globals
     [JITWhenModsEnabled(ModCompatibility.Homeward.Name)]
     public class HWJGlobalNPC : GlobalNPC
     {
-
     }
 }
