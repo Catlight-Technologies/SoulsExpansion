@@ -39,7 +39,8 @@ namespace CSE.Core.HWJ.ModSystems
             );
 
             CSEPostSetupContent.changes.Add((NPCType<TheMaterealizer>(), 19.46f));
-            CSEPostSetupContent.changes.Add((ModCompatibility.Homeward.Mod.Find<ModNPC>("TheLifebringer").Type, 19.47f));
+            //AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+            //CSEPostSetupContent.changes.Add((ModCompatibility.Homeward.Mod.Find<ModNPC>("TheLifebringer").Type, 19.47f));
             CSEPostSetupContent.changes.Add((NPCType<TheOverwatcher>(), 19.47f));
             CSEPostSetupContent.changes.Add((NPCType<SlimeGod>(), 19.48f));
 

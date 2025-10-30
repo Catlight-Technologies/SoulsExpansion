@@ -1,3 +1,4 @@
+using ContinentOfJourney.Items.Accessories;
 using FargowiltasSouls.Content.Items.Accessories.Eternity;
 using FargowiltasSouls.Content.Items.Accessories.Forces;
 using FargowiltasSouls.Content.Items.Accessories.Souls;
@@ -218,29 +219,59 @@ namespace CSE.Core.SoA.ModSystems
                     }
                 }
 
-                if (ModCompatibility.Redemption.Loaded)
+                if (recipe.HasResult<NebulaSigil>())
                 {
-                    if (recipe.HasResult<NebulaSigil>())
+                    if (ModCompatibility.Redemption.Loaded)
                     {
                         recipe.RemoveIngredient(ItemID.SorcererEmblem);
                         recipe.AddIngredient(ModContent.Find<ModItem>(ModCompatibility.Redemption.Name, "MutagenMagic"));
                     }
-                    if (recipe.HasResult<SolarSigil>())
+                    if (ModCompatibility.Homeward.Loaded)
+                    {
+                        recipe.RemoveIngredient(ItemID.SorcererEmblem);
+                        recipe.AddIngredient(ModContent.Find<ModItem>(ModCompatibility.Homeward.Name, "ArchmageBadge"));
+                    }
+                }
+                if (recipe.HasResult<SolarSigil>())
+                {
+                    if (ModCompatibility.Redemption.Loaded)
                     {
                         recipe.RemoveIngredient(ItemID.WarriorEmblem);
                         recipe.AddIngredient(ModContent.Find<ModItem>(ModCompatibility.Redemption.Name, "MutagenMelee"));
                     }
-                    if (recipe.HasResult<StardustSigil>())
+                    if (ModCompatibility.Homeward.Loaded)
+                    {
+                        recipe.RemoveIngredient(ItemID.SorcererEmblem);
+                        recipe.AddIngredient(ModContent.Find<ModItem>(ModCompatibility.Homeward.Name, "SwordmasterBadge"));
+                    }
+                }
+                if (recipe.HasResult<StardustSigil>())
+                {
+                    if (ModCompatibility.Redemption.Loaded)
                     {
                         recipe.RemoveIngredient(ItemID.SummonerEmblem);
                         recipe.AddIngredient(ModContent.Find<ModItem>(ModCompatibility.Redemption.Name, "MutagenSummon"));
                     }
-                    if (recipe.HasResult<VortexSigil>())
+                    if (ModCompatibility.Homeward.Loaded)
                     {
                         recipe.RemoveIngredient(ItemID.SorcererEmblem);
-                        recipe.AddIngredient(ModContent.Find<ModItem>(ModCompatibility.Redemption.Name, "MutagenRanged"));
+                        recipe.AddIngredient(ModContent.Find<ModItem>(ModCompatibility.Homeward.Name, "CounsellorBadge"));
                     }
                 }
+                if (recipe.HasResult<VortexSigil>())
+                {
+                    if (ModCompatibility.Redemption.Loaded)
+                    {
+                        recipe.RemoveIngredient(ItemID.SorcererEmblem);
+                        recipe.AddIngredient(ModContent.Find<ModItem>(ModCompatibility.Redemption.Name, "BullseyeBadge"));
+                    }
+                    if (ModCompatibility.Homeward.Loaded)
+                    {
+                        recipe.RemoveIngredient(ItemID.SorcererEmblem);
+                        recipe.AddIngredient(ModContent.Find<ModItem>(ModCompatibility.Homeward.Name, "SwordmasterBadge"));
+                    }
+                }
+
             }
         }
     }

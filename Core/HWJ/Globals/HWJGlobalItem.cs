@@ -11,15 +11,12 @@ using FargowiltasSouls.Core.Toggler.Content;
 using FargowiltasSouls.Core.Toggler;
 using ContinentOfJourney.Items.Accessories.MeleeExpansion;
 using ContinentOfJourney;
-using FargowiltasSouls.Content.Bosses.MutantBoss;
 using static Terraria.ModLoader.ModContent;
 using ContinentOfJourney.Items.Accessories;
 using ContinentOfJourney.Items;
 using ContinentOfJourney.Items.Flamethrowers;
 using ContinentOfJourney.Items.FielderSentries;
 using FargowiltasSouls.Core.Systems;
-using FargowiltasSouls.Content.Bosses.Champions.Cosmos;
-using FargowiltasSouls.Content.Bosses.AbomBoss;
 
 namespace CSE.Core.HWJ.Globals
 {
@@ -207,7 +204,7 @@ namespace CSE.Core.HWJ.Globals
                 tooltips.Insert(5, new TooltipLine(Mod, "mayo2", Language.GetTextValue("Mods.CSE.AddedEffects.HWJBerserker")));
 
             if (item.type == ItemType<SunsHeart>())
-                tooltips.Insert(5, new TooltipLine(Mod, "mayo2", Language.GetTextValue("Mods.CSE.EModeBalance.PostAbomSlot")));
+                tooltips.Add(new TooltipLine(Mod, "mayo2", Language.GetTextValue("Mods.CSE.EModeBalance.PostAbomSlot")));
 
             if (
                 //equilibrium

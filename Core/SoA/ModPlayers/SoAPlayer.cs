@@ -33,9 +33,12 @@ namespace CSE.Core.SoA.ModPlayers
         {
             if (Player.HasBuff<NihilityPresenceBuff>())
             {
-                Player.buffImmune[ModContent.Find<ModBuff>("CalamityMod", "Enraged").Type] = true;
-                //Player.buffImmune[ModContent.Find<ModBuff>("CalamityMod", "RageMode").Type] = true;
-                //Player.buffImmune[ModContent.Find<ModBuff>("CalamityMod", "AdrenalineMode").Type] = true;
+                if (ModCompatibility.Calamity.Loaded)
+                {
+                    Player.buffImmune[ModContent.Find<ModBuff>("CalamityMod", "Enraged").Type] = true;
+                    //Player.buffImmune[ModContent.Find<ModBuff>("CalamityMod", "RageMode").Type] = true;
+                    //Player.buffImmune[ModContent.Find<ModBuff>("CalamityMod", "AdrenalineMode").Type] = true;
+                }
             }
         }
         public override void OnHitNPCWithProj(Projectile proj, NPC target, NPC.HitInfo hit, int damageDone)
