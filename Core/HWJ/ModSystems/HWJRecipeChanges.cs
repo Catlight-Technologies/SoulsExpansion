@@ -1,5 +1,6 @@
 using ContinentOfJourney.Items;
 using ContinentOfJourney.Items.Accessories;
+using ContinentOfJourney.Items.Accessories.Bookmarks;
 using ContinentOfJourney.Items.Accessories.MeleeExpansion;
 using ContinentOfJourney.Items.Accessories.SummonerRings;
 using ContinentOfJourney.Items.Material;
@@ -68,11 +69,34 @@ namespace CSE.Core.HWJ.ModSystems
                     recipe.RemoveIngredient(ModContent.ItemType<EssenceofBright>());
                 }
 
+                if (ModCompatibility.SacredTools.Loaded)
+                {
+                    if (recipe.HasResult<DivineTouch>())
+                    {
+                        recipe.RemoveIngredient(ItemID.FireGauntlet);
+                        recipe.AddIngredient(ModCompatibility.SacredTools.Mod.Find<ModItem>("FloraFist"));
+                    }
+                }
+
                 if (!ModCompatibility.Calamity.Loaded)
                 {
                     if ((recipe.HasResult<UniverseSoul>() || recipe.HasResult<TerrariaSoul>() || recipe.HasResult<MasochistSoul>() || recipe.HasResult<DimensionSoul>()) && !recipe.HasIngredient<EssenceofBright>())
                     {
                         recipe.AddIngredient<EssenceofBright>(5);
+                    }
+                }
+
+                if (recipe.HasResult<VanguardBreastpiece>())
+                {
+                    if (ModCompatibility.SacredTools.Loaded)
+                    {
+                        recipe.AddIngredient(ModContent.Find<ModItem>(ModCompatibility.SacredTools.Name, "CelestialShield"));
+                        recipe.RemoveIngredient(ItemID.AnkhShield);
+                    }
+                    if (ModCompatibility.Thorium.Loaded && !ModCompatibility.SacredTools.Loaded)
+                    {
+                        recipe.AddIngredient(ModContent.Find<ModItem>(ModCompatibility.Thorium.Name, "TerrariumDefender"));
+                        recipe.RemoveIngredient(ItemID.AnkhShield);
                     }
                 }
 
@@ -88,6 +112,9 @@ namespace CSE.Core.HWJ.ModSystems
 
                     //final bar weapon
                     recipe.AddIngredient<Blackout>();
+
+                    //other
+                    recipe.AddIngredient<EruditeBookmark>();
                 }
                 if (recipe.HasResult<SnipersSoul>())
                 {
@@ -143,20 +170,20 @@ namespace CSE.Core.HWJ.ModSystems
                 }
                 if (recipe.HasResult<WorldShaperSoul>())
                 {
-                    recipe.AddIngredient<TimelessMiner>();
+                    recipe.AddIngredient<Deconstructor>();
                 }
                 if (recipe.HasResult<TrawlerSoul>())
                 {
                     if (!ModCompatibility.SacredTools.Loaded)
                     {
-                        recipe.AddIngredient(ItemID.CelestialShell);
+                        recipe.RemoveIngredient(ItemID.CelestialShell);
                         recipe.AddIngredient<AncientBlessing>();
                     }
                 }
                 if (recipe.HasResult<ColossusSoul>())
                 {
                     recipe.AddIngredient<MasterShield>();
-                    if (!ModCompatibility.Calamity.Loaded && !ModCompatibility.SacredTools.Loaded)
+                    if (!ModCompatibility.SacredTools.Loaded)
                     {
                         recipe.RemoveIngredient(ItemID.AnkhShield);
                         recipe.AddIngredient<VanguardBreastpiece>();

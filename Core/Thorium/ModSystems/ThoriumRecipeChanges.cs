@@ -209,6 +209,8 @@ namespace CSE.Core.Thorium.ModSystems
                     || recipe.HasResult<SnipersSoul>()
                     || recipe.HasResult<ConjuristsSoul>()
 
+                    || recipe.HasResult<ColossusSoul>()
+
                     //you NEED them in post ml
                     //|| recipe.HasResult<SupersonicSoul>()
                     //|| recipe.HasResult<FlightMasterySoul>()

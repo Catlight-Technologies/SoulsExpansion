@@ -1,4 +1,5 @@
 ﻿using CSE.Content.Thorium.Headers;
+using CSE.Core;
 using Fargowiltas.Content.Items.Tiles;
 using FargowiltasSouls.Content.Items.Materials;
 using FargowiltasSouls.Core.AccessoryEffectSystem;
@@ -7,7 +8,6 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using ThoriumMod.Items.BasicAccessories;
-using ThoriumMod.Items.BossThePrimordials;
 using ThoriumMod.Items.DD;
 using ThoriumMod.Items.Donate;
 using ThoriumMod.Items.Misc;
@@ -15,6 +15,8 @@ using ThoriumMod.Items.ThrownItems;
 
 namespace CSE.Content.Thorium.Accessories.Other
 {
+    [ExtendsFromMod(ModCompatibility.Thorium.Name)]
+    [JITWhenModsEnabled(ModCompatibility.Thorium.Name)]
     public class OmegaTreads : ModItem
     {
         public override string Texture => "ThoriumMod/Items/BossThePrimordials/TheOmegaCore";

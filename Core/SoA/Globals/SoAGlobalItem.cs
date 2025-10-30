@@ -99,6 +99,21 @@ namespace CSE.Core.SoA.Globals
             {
                 player.AddEffect<HeartOfThePloughEffect>(item);
             }
+
+            if (ModCompatibility.Thorium.Loaded)
+            {
+                if (item.type == ItemType<ReflectionShield>())
+                {
+                    ModCompatibility.Thorium.Mod.Find<ModItem>("TerrariumDefender").UpdateAccessory(player, true);
+                }
+            }
+            if (ModCompatibility.Homeward.Loaded)
+            {
+                if (item.type == ItemType<ReflectionShield>())
+                {
+                    ModCompatibility.Homeward.Mod.Find<ModItem>("VanguardBreastpiece").UpdateAccessory(player, true);
+                }
+            }
         }
 
         public class LunarRingEffect : AccessoryEffect

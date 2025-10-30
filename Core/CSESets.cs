@@ -20,6 +20,8 @@ namespace CSE.Core
             public static bool[] AbomTierFargoWeapon;
             public static bool[] MutantTierFargoWeapon;
             public static bool[] SiblingsTierFargoWeapon;
+
+            public static bool[] HWJFinalBarWeapon;
         }
 
         public override void PostSetupContent()

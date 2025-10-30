@@ -50,7 +50,7 @@ namespace CSE.Core.Common.Globals
                 entity.defense = 15;
             }
 
-            if(ModCompatibility.SacredTools.Loaded || ModCompatibility.Calamity.Loaded)
+            if(ModCompatibility.SacredTools.Loaded || ModCompatibility.Calamity.Loaded || ModCompatibility.Homeward.Loaded)
             {
                 //+35 defence
                 if (entity.type == ItemType<StyxCrown>())
@@ -97,13 +97,17 @@ namespace CSE.Core.Common.Globals
 
         public override void UpdateEquip(Item item, Player player)
         {
-            if (item.type == ItemType<StyxChestplate>() && (ModCompatibility.Thorium.Loaded) && !ModCompatibility.Calamity.Loaded && !ModCompatibility.SacredTools.Loaded && !ModCompatibility.Homeward.Loaded)
+            if (item.type == ItemType<StyxChestplate>() && (ModCompatibility.Homeward.Loaded || ModCompatibility.SacredTools.Loaded || ModCompatibility.Calamity.Loaded || ModCompatibility.Homeward.Loaded))
+            {
+                player.GetDamage<GenericDamageClass>() += 0.1f;
+            }
+            if (item.type == ItemType<StyxCrown>() && (ModCompatibility.Homeward.Loaded || ModCompatibility.SacredTools.Loaded || ModCompatibility.Calamity.Loaded))
             {
                 player.GetDamage<GenericDamageClass>() += 0.05f;
             }
-            if (item.type == ItemType<StyxChestplate>() && (ModCompatibility.Homeward.Loaded || ModCompatibility.SacredTools.Loaded || ModCompatibility.Calamity.Loaded))
+            if (item.type == ItemType<StyxLeggings>() && (ModCompatibility.Homeward.Loaded || ModCompatibility.SacredTools.Loaded || ModCompatibility.Calamity.Loaded))
             {
-                player.GetDamage<GenericDamageClass>() += 0.15f;
+                player.GetDamage<GenericDamageClass>() += 0.05f;
             }
         }
         void ItemBalance(List<TooltipLine> tooltips, EModeChanges change, string mod = "CSE")

@@ -97,6 +97,10 @@ namespace CSE.Core.SoA.ModSystems
                         recipe.AddIngredient<VoidSpurs>();
                     }
                 }
+                if (recipe.HasResult<ColossusSoul>())
+                {
+                    recipe.AddIngredient<ReflectionShield>();
+                }
                 if (recipe.HasResult<FlightMasterySoul>() && !recipe.HasIngredient<GrandWings>())
                 {
                     recipe.AddIngredient<GrandWings>();
@@ -171,20 +175,38 @@ namespace CSE.Core.SoA.ModSystems
                     }
                 }
 
-                if (recipe.HasIngredient<CelestialShield>() && ModCompatibility.Homeward.Loaded)
+                if (recipe.HasResult<CelestialShield>())
                 {
-                    recipe.RemoveIngredient(ItemID.CelestialShell);
-                    recipe.AddIngredient(ModContent.Find<ModItem>(ModCompatibility.Homeward.Name, "AncientBlessing"));
+                    if (ModCompatibility.Homeward.Loaded)
+                    {
+                        recipe.AddIngredient(ModContent.Find<ModItem>(ModCompatibility.Homeward.Name, "AncientBlessing"));
+                        recipe.RemoveIngredient(ItemID.CelestialShell);
+                    }
+                    if (ModCompatibility.Thorium.Loaded)
+                    {
+                        recipe.AddIngredient(ModContent.Find<ModItem>(ModCompatibility.Thorium.Name, "TerrariumDefender"));
+                        recipe.RemoveIngredient(ItemID.AnkhShield);
+                        recipe.RemoveIngredient(ItemID.PaladinsShield);
+                    }
+                }
+
+                if (recipe.HasResult<ReflectionShield>())
+                {
+                    if (ModCompatibility.Homeward.Loaded)
+                    {
+                        recipe.AddIngredient(ModContent.Find<ModItem>(ModCompatibility.Homeward.Name, "VanguardBreastpiece"));
+                        recipe.RemoveIngredient(ModContent.ItemType<CelestialShield>());
+                    }
                 }
 
                 if ((recipe.HasResult<PaleRuin>() ||
-                    recipe.HasResult<AshenWake>() ||
-                    recipe.HasResult<CeruleanCyclone>() ||
-                    recipe.HasResult<Malevolence>() ||
-                    recipe.HasResult<NightTerror>() ||
-                    recipe.HasResult<RogueWave>() ||
-                    recipe.HasResult<Sharpshooter>() ||
-                    recipe.HasResult<SwordOfGreed>()) && !recipe.HasIngredient<AbomEnergy>())
+                recipe.HasResult<AshenWake>() ||
+                recipe.HasResult<CeruleanCyclone>() ||
+                recipe.HasResult<Malevolence>() ||
+                recipe.HasResult<NightTerror>() ||
+                recipe.HasResult<RogueWave>() ||
+                recipe.HasResult<Sharpshooter>() ||
+                recipe.HasResult<SwordOfGreed>()) && !recipe.HasIngredient<AbomEnergy>())
                 {
                     if (!ModCompatibility.Calamity.Loaded)
                     {

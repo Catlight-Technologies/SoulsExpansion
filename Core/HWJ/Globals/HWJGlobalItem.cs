@@ -6,7 +6,6 @@ using System;
 using Terraria;
 using Terraria.Localization;
 using Terraria.ModLoader;
-using ContinentOfJourney.Items.Accessories.Bookmarks;
 using FargowiltasSouls.Core.AccessoryEffectSystem;
 using FargowiltasSouls.Core.Toggler.Content;
 using FargowiltasSouls.Core.Toggler;
@@ -14,8 +13,11 @@ using ContinentOfJourney.Items.Accessories.MeleeExpansion;
 using ContinentOfJourney;
 using FargowiltasSouls.Content.Bosses.MutantBoss;
 using static Terraria.ModLoader.ModContent;
-using ContinentOfJourney.Items.Accessories.SummonerRings;
 using ContinentOfJourney.Items.Accessories;
+using ContinentOfJourney.Items;
+using ContinentOfJourney.Items.Flamethrowers;
+using ContinentOfJourney.Items.FielderSentries;
+using FargowiltasSouls.Core.Systems;
 
 namespace CSE.Core.HWJ.Globals
 {
@@ -40,7 +42,7 @@ namespace CSE.Core.HWJ.Globals
                 || entity.type == ItemType<PerpetualHelmet>()
                 || entity.type == ItemType<PerpetualLeggings>()
                 || entity.type == ItemType<PerpetualPlate>()
-                //chrono
+                //helio
                 || entity.type == ItemType<HeliologyHelmet>()
                 || entity.type == ItemType<HeliologyLeggings>()
                 || entity.type == ItemType<HeliologyPlate>()
@@ -83,10 +85,37 @@ namespace CSE.Core.HWJ.Globals
                 }
             }
         }
+
+        public override bool CanUseItem(Item item, Player player)
+        {
+            if(item.type == ItemType<SunsHeart>())
+            {
+                return WorldSavingSystem.DownedAbom;
+            }
+            return base.CanUseItem(item, player);
+        }
         public static float BalanceChange(Item item)
         {
             if (CSESets.GetValue(CSESets.Items.AbomTierFargoWeapon, item.type))
-                return ModCompatibility.Crossmod.Loaded || ModCompatibility.SacredTools.Loaded ? 1f : 1.7f;
+                return ModCompatibility.Crossmod.Loaded || ModCompatibility.SacredTools.Loaded ? 1f : 2f;
+
+            //...
+            if (CSESets.GetValue(CSESets.Items.HWJFinalBarWeapon, item.type))
+                return 0.9f;
+
+            //melee
+            if (item.type == ItemType<CosmicBoardsword>()) return 1.1f;
+
+            //magic
+            if (item.type == ItemType<SurpriseEnding>()) return 1f;
+            if (item.type == ItemType<DoublePlot>()) return 0.7f;
+
+            //ranged
+            if (item.type == ItemType<FT13Phlogistinator>()) return 1f;
+
+            //summoner
+            if (item.type == ItemType<StaffDramaticIrony>()) return 1f;
+            if (item.type == ItemType<PhantomStaff>()) return 1.1f;
 
             return 1;
         }
@@ -116,6 +145,21 @@ namespace CSE.Core.HWJ.Globals
             {
                 ModCompatibility.Homeward.Mod.Find<ModItem>("DivineEmblem").UpdateAccessory(player, true);
                 player.AddEffect<PhilosophersStoneEffect>(item);
+            }
+
+            if (ModCompatibility.Thorium.Loaded)
+            {
+                if (item.type == ItemType<VanguardBreastpiece>())
+                {
+                    ModCompatibility.Thorium.Mod.Find<ModItem>("TerrariumDefender").UpdateAccessory(player, true);
+                }
+            }
+            if (ModCompatibility.SacredTools.Loaded)
+            {
+                if (item.type == ItemType<VanguardBreastpiece>())
+                {
+                    ModCompatibility.SacredTools.Mod.Find<ModItem>("CelestialShield").UpdateAccessory(player, true);
+                }
             }
         }
         public class PhilosophersStoneEffect : AccessoryEffect
@@ -147,9 +191,9 @@ namespace CSE.Core.HWJ.Globals
                 }
             }
 
-            if (item.type == ItemType<ColossusSoul>()){
+            if (item.type == ItemType<ColossusSoul>()) {
                 tooltips.Insert(5, new TooltipLine(Mod, "mayo2", Language.GetTextValue("Mods.CSE.AddedEffects.HWJColossus")));
-                tooltips.Insert(5, new TooltipLine(Mod, "mayo2", Language.GetTextValue("Mods.CSE.AddedEffects.HWJColossus2")));}
+                tooltips.Insert(5, new TooltipLine(Mod, "mayo2", Language.GetTextValue("Mods.CSE.AddedEffects.HWJColossus2"))); }
 
             if (item.type == ItemType<SnipersSoul>())
                 tooltips.Insert(5, new TooltipLine(Mod, "mayo2", Language.GetTextValue("Mods.CSE.AddedEffects.HWJSniper")));
@@ -159,6 +203,57 @@ namespace CSE.Core.HWJ.Globals
                 tooltips.Insert(5, new TooltipLine(Mod, "mayo2", Language.GetTextValue("Mods.CSE.AddedEffects.HWJConjurist")));
             if (item.type == ItemType<BerserkerSoul>())
                 tooltips.Insert(5, new TooltipLine(Mod, "mayo2", Language.GetTextValue("Mods.CSE.AddedEffects.HWJBerserker")));
+
+            if (item.type == ItemType<SunsHeart>())
+                tooltips.Insert(5, new TooltipLine(Mod, "mayo2", Language.GetTextValue("Mods.CSE.EModeBalance.PostAbomSlot")));
+
+            if (
+                //equilibrium
+                item.type == ItemType<EquilibriumBreastplate>()
+                || item.type == ItemType<EquilibriumLeggings>()
+                || item.type == ItemType<EquilibriumMask>()
+                //biologic
+                || item.type == ItemType<BiologicalBreastplate>()
+                || item.type == ItemType<BiologicalHelmet>()
+                || item.type == ItemType<BiologicalLeggings>()
+                //chrono
+                || item.type == ItemType<PerpetualHelmet>()
+                || item.type == ItemType<PerpetualLeggings>()
+                || item.type == ItemType<PerpetualPlate>()
+                //helio
+                || item.type == ItemType<HeliologyHelmet>()
+                || item.type == ItemType<HeliologyLeggings>()
+                || item.type == ItemType<HeliologyPlate>()
+                //sun
+                || item.type == ItemType<SunlightBreastplate>()
+                || item.type == ItemType<SunlightHelmet>()
+                || item.type == ItemType<SunlightLegging>()
+                )
+            {
+                tooltips.Add(new TooltipLine(Mod, "BalanceDown", Language.GetTextValue($"{Language.GetText($"Mods.CSE.EModeBalance.HWJDefenseNerf1")}")));
+            }
+
+            if (
+                //aurora
+                item.type == ItemType<AuroraBoots>()
+                || item.type == ItemType<AuroraHeadwear>()
+                || item.type == ItemType<AuroraRobe>()
+                //watchman
+                || item.type == ItemType<WatchmanDress>()
+                || item.type == ItemType<WatchmanHat>()
+                || item.type == ItemType<WatchmanShirt>()
+                //forest
+                || item.type == ItemType<ForestBreastplate>()
+                || item.type == ItemType<ForestHelmet>()
+                || item.type == ItemType<ForestLeggings>()
+                //reflector
+                || item.type == ItemType<ReflectorBreastplate>()
+                || item.type == ItemType<ReflectorHelmet>()
+                || item.type == ItemType<ReflectorLeggings>()
+                )
+            {
+                tooltips.Add(new TooltipLine(Mod, "BalanceDown", Language.GetTextValue($"{Language.GetText($"Mods.CSE.EModeBalance.HWJDefenseNerf2")}")));
+            }
 
             string BalanceLine = Language.GetTextValue($"Mods.CSE.EModeBalance.CrossBalance");
 

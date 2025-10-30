@@ -13,6 +13,7 @@ using FargowiltasSouls.Content.Items.Summons;
 using FargowiltasCrossmod.Content.Calamity.Items.Accessories;
 using FargowiltasSouls.Content.Items.Armor.Styx;
 using CalamityMod.Items.Accessories.Wings;
+using CalamityMod.Items.Accessories;
 
 namespace CSE.Core.Crossmod.ModSystems
 {
@@ -47,6 +48,20 @@ namespace CSE.Core.Crossmod.ModSystems
                 if(recipe.HasIngredient<BrandoftheBrimstoneWitch>() && recipe.HasResult<EternitySoul>())
                 {
                     recipe.RemoveIngredient(ModContent.ItemType<BrandoftheBrimstoneWitch>());
+                }
+
+                if (recipe.HasResult<ElementalGauntlet>())
+                {
+                    if (ModCompatibility.SacredTools.Loaded && !ModCompatibility.Homeward.Loaded)
+                    {
+                        recipe.RemoveIngredient(ItemID.FireGauntlet);
+                        recipe.AddIngredient(ModCompatibility.SacredTools.Mod.Find<ModItem>("FloraFist"));
+                    }
+                    else if (ModCompatibility.Homeward.Loaded)
+                    {
+                        recipe.RemoveIngredient(ItemID.FireGauntlet);
+                        recipe.AddIngredient(ModCompatibility.Homeward.Mod.Find<ModItem>("DivineTouch"));
+                    }
                 }
 
                 if (recipe.HasResult<TracersCelestial>())

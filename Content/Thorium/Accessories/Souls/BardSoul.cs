@@ -73,7 +73,7 @@ namespace CSE.Content.Thorium.Accessories.Souls
                 recipe.AddIngredient<CallofCthulhu>();
                 //recipe.AddIngredient<DigitalTuner>();
                 //recipe.AddIngredient<EpicMouthpiece>();
-                recipe.AddIngredient<BlackMIDI>();
+                if (ModCompatibility.Calamity.Loaded) { recipe.AddIngredient<BlackMIDI>(); }
                 //recipe.AddIngredient<GuitarPickClaw>();
                 //recipe.AddIngredient<StraightMute>();
                 recipe.AddIngredient<Fishbone>();

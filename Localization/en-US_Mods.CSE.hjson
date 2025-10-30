@@ -8,8 +8,11 @@ EModeBalance: {
 	PostMutant: "[c/FF0000:Cross-mod Balance:] Can be only used after defeating Mutant"
 	WhiteDwarfNerf: "[c/FF0000:Cross-mod Balance:] Ivory flare has 3 seconds cooldown"
 	InfernoNerf: "[c/FF0000:Cross-mod Balance:] Reduced density of bursts"
+	PostAbomSlot: "[c/FF0000:Cross-mod Balance:] Can only be used after defeating Abominationn"
 	MalevolenceGrenadeNerf: "[c/FF0000:Cross-mod Balance:] Grenades deal 80% less damage"
 	DesperatioColumnNerf: "[c/FF0000:Cross-mod Balance:] Flame column deal 30% less damage"
+	HWJDefenseNerf1: "[c/FF0000:Cross-mod Balance:] Defense reduced by 50%"
+	HWJDefenseNerf2: "[c/FF0000:Cross-mod Balance:] Defense reduced by 66%"
 }
 
 TrueEternityRevDifficulty: {
@@ -193,7 +196,7 @@ AddedEffects: {
 	ThoriumWorldshaper: "[i:CSE/GeodeEnchant] When mining ore blocks you get x2 ore"
 	SoAArchWizard: "[i:SacredTools/NubasBlessing] Magic critical strikes absorb mana"
 	SoABerserker: "[i:SacredTools/FloraFist] Melee attacks inflict enemies with toxic and fire energy fists"
-	SoAConjurist: "[i:SacredTools/StarstreamVeil] Minion attacks inflict Ichor and cause stardust explosions"
+	SoAConjurist: "[i:SacredTools/StarstreamVeil] Minion attacks inflict Ichor, Lunar Burn and cause stardust explosions"
 	SoAColossus: "[i:SacredTools/ReflectionShield] Has a 10% chance to block hostile projectile"
 	RedColossus: "[i:Redemption/HEVSuit] Protects from most enviromental hazards"
 	RedColossus2: "[i:Redemption/PocketShieldGenerator] Summons bubble shield that can protect user from a high amount of damage before breaking"

@@ -8,7 +8,6 @@ using FargowiltasSouls.Content.Projectiles.Weapons.BossWeapons;
 using FargowiltasSouls.Core.Globals;
 using FargowiltasSouls.Core.Systems;
 using Microsoft.Xna.Framework;
-using System.Runtime.Intrinsics.X86;
 using Terraria;
 using Terraria.Chat;
 using Terraria.DataStructures;
