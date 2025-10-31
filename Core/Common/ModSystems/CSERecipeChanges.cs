@@ -36,6 +36,15 @@ namespace CSE.Core.SoA.ModSystems
                         recipe.AddIngredient<AccessoriesSoul>();
                     }
                 }
+                if (ModCompatibility.Thorium.Loaded
+                || ModCompatibility.Calamity.Loaded
+                || ModCompatibility.SacredTools.Loaded)
+                {
+                    if (recipe.HasResult(ModContent.ItemType<UniverseSoul>()))
+                    {
+                        recipe.AddIngredient<OlympianSoul>();
+                    }
+                }
             }
         }
     }

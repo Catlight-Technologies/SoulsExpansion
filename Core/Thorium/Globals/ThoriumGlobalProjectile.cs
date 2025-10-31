@@ -3,6 +3,7 @@ using FargowiltasSouls.Core.Systems;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ModLoader;
+using ThoriumMod.Items.BossThePrimordials.Aqua;
 using ThoriumMod.Projectiles;
 using ThoriumMod.Projectiles.Thrower;
 
@@ -16,15 +17,28 @@ namespace CSE.Core.Thorium.Globals
         public bool immuneToCD;
         public override void OnSpawn(Projectile projectile, IEntitySource source)
         {
-            if (projectile.type == ModContent.ProjectileType<WhiteFlare>())
+            if (projectile.type == ModContent.ProjectileType<TideDagger>() && projectile.ai[3] != 1488)
             {
-                if (Main.player[projectile.owner].GetModPlayer<ThoriumPlayer>().ivoryFlameCD > 0)
+                projectile.damage = 0;
+                projectile.hide = true;
+                projectile.timeLeft = 0;
+                projectile.netUpdate = true;
+            }
+            if (projectile.type == ModContent.ProjectileType<WhiteFlare>() && projectile.owner.ToPlayer().GetModPlayer<ThoriumPlayer>().ivoryFlameCD < 1)
+            {
+                immuneToCD = true;
+                projectile.owner.ToPlayer().GetModPlayer<ThoriumPlayer>().ivoryFlameCD = 60;
+                if(projectile.damage > 3000)
                 {
-                    projectile.damage = 0;
-                    projectile.hide = true;
-                    projectile.timeLeft = 0;
-                    projectile.netUpdate = true;
+                    projectile.damage = 3000;
                 }
+            }
+            if (projectile.type == ModContent.ProjectileType<WhiteFlare>() && projectile.owner.ToPlayer().GetModPlayer<ThoriumPlayer>().ivoryFlameCD > 0 && !immuneToCD)
+            {
+                projectile.damage = 0;
+                projectile.hide = true;
+                projectile.timeLeft = 0;
+                projectile.netUpdate = true;
             }
             if (projectile.type == ModContent.ProjectileType<InfernoLordsFocusPro>() && projectile.owner.ToPlayer().GetModPlayer<ThoriumPlayer>().infernoLordCD < 1)
             {

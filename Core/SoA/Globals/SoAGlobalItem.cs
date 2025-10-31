@@ -18,6 +18,7 @@ using SacredTools.Content.Items.Accessories;
 using FargowiltasSouls.Core.Toggler;
 using SacredTools;
 using SacredTools.Content.Items.Weapons.Asthraltite;
+using SacredTools.Items.Weapons.Lunatic;
 //using static CSE.Core.SoulsRecipes.SniperSoulEffects;
 //using static CSE.Core.SoulsRecipes.WorldShaperSoulEffects;
 
@@ -57,6 +58,8 @@ namespace CSE.Core.SoA.Globals
             if (item.type == ItemType<LampOfCinders>()) return ModCompatibility.Calamity.Loaded ? 1.3f : 1f;
             if (item.type == ItemType<FatesLament>()) return ModCompatibility.Calamity.Loaded ? 1.3f : 1f;
             if (item.type == ItemType<MightyTorch>()) return ModCompatibility.Calamity.Loaded ? 1.3f : 1f;
+
+            if (item.type == ItemType<LunaticBurstStaff>()) return 0.8f;
             // Summoner
             if (item.type == ItemType<AshenWake>()) return ModCompatibility.Calamity.Loaded ? 1.3f : 1f;
             if (item.type == ItemType<Malice>()) return ModCompatibility.Calamity.Loaded ? 2.1f : 1.5f;

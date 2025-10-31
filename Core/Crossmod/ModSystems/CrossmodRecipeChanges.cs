@@ -14,6 +14,7 @@ using FargowiltasCrossmod.Content.Calamity.Items.Accessories;
 using FargowiltasSouls.Content.Items.Armor.Styx;
 using CalamityMod.Items.Accessories.Wings;
 using CalamityMod.Items.Accessories;
+using FargowiltasCrossmod.Content.Calamity.Items.Accessories.Souls;
 
 namespace CSE.Core.Crossmod.ModSystems
 {
@@ -67,6 +68,16 @@ namespace CSE.Core.Crossmod.ModSystems
                 if (recipe.HasResult<TracersCelestial>())
                 {
                     recipe.DisableRecipe();
+                }
+
+                if (recipe.HasResult<VagabondsSoul>())
+                {
+                    recipe.DisableRecipe();
+                }
+
+                if (recipe.HasIngredient<VagabondsSoul>())
+                {
+                    recipe.RemoveIngredient(ModContent.ItemType<VagabondsSoul>());
                 }
 
                 if (recipe.HasResult<AbominationnVoodooDoll>() && !recipe.HasIngredient<ShadowspecBar>())

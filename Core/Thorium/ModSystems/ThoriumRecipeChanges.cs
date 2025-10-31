@@ -36,6 +36,7 @@ using CSE.Content.Thorium.Accessories.Other;
 using ThoriumMod.Items.SummonItems;
 using ThoriumMod.Items.BossLich;
 using FargowiltasSouls.Content.Items.Accessories.Eternity;
+using ThoriumMod.Items.BossThePrimordials.Dream;
 
 namespace CSE.Core.Thorium.ModSystems
 {
@@ -60,9 +61,18 @@ namespace CSE.Core.Thorium.ModSystems
             // rhapsodist
             group = new RecipeGroup(() => Lang.misc[37] + " Rhapsodist Helmet", ModContent.ItemType<SoloistHat>(), ModContent.ItemType<InspiratorsHelmet>());
             RecipeGroup.RegisterGroup("CSE:AnyRhapsodistHelmet", group);
+            // tide turner
+            group = new RecipeGroup(() => Lang.misc[37] + " Tide Turner Helmet", ModContent.ItemType<TideTurnerHelmet>(), ModContent.ItemType<TideTurnersGaze>());
+            RecipeGroup.RegisterGroup("CSE:AnyTideTurnerHelmet", group);
+            // dream weaver
+            group = new RecipeGroup(() => Lang.misc[37] + " Dream Weaver Helmet", ModContent.ItemType<DreamWeaversHelmet>(), ModContent.ItemType<DreamWeaversHood>());
+            RecipeGroup.RegisterGroup("CSE:AnyDreamWeaversHelmet", group);
             // assassin
             group = new RecipeGroup(() => Lang.misc[37] + " Assassin Helmet", ModContent.ItemType<MasterMarksmansScouter>(), ModContent.ItemType<MasterArbalestHood>());
             RecipeGroup.RegisterGroup("CSE:AnyAssassinHelmet", group);
+            // pyromancer
+            group = new RecipeGroup(() => Lang.misc[37] + " Pyromancer Helmet", ModContent.ItemType<PyromancerCowl>(), ModContent.ItemType<PyromancerTabard>());
+            RecipeGroup.RegisterGroup("CSE:AnyPyromancerHelmet", group);
             // seraph idols
             group = new RecipeGroup(() => Lang.misc[37] + " Seraphim Idol Upgrade", ModContent.ItemType<ArchDemonCurse>(), ModContent.ItemType<ArchangelHeart>());
             RecipeGroup.RegisterGroup("CSE:AnyIdolUpgrade", group);
@@ -71,7 +81,7 @@ namespace CSE.Core.Thorium.ModSystems
             RecipeGroup.RegisterGroup("CSE:AnyInstrumentTypeAccessory", group);
             // evil wings
             group = new RecipeGroup(() => Lang.misc[37] + " Evil Wings", ModContent.ItemType<DragonWings>(), ModContent.ItemType<FleshWings>());
-            RecipeGroup.RegisterGroup("CSE:EvilWings", group);
+            RecipeGroup.RegisterGroup("CSE:AnyEvilWings", group);
         }
 
         public override void AddRecipes()
@@ -185,6 +195,12 @@ namespace CSE.Core.Thorium.ModSystems
                         recipe.AddIngredient<TerrariumParticleSprinters>();
                     }
                 }
+                if (recipe.HasResult<FlightMasterySoul>() && !recipe.HasIngredient<TerrariumWings>())
+                {
+                    recipe.AddIngredient<FlightEnchant>();
+                    recipe.AddIngredient<TerrariumWings>();
+                    recipe.AddRecipeGroup("CSE:AnyEvilWings");
+                }
                 #endregion
 
                 if (recipe.HasResult<TerrariumDefender>())
@@ -213,7 +229,7 @@ namespace CSE.Core.Thorium.ModSystems
 
                     //you NEED them in post ml
                     //|| recipe.HasResult<SupersonicSoul>()
-                    //|| recipe.HasResult<FlightMasterySoul>()
+                    || recipe.HasResult<FlightMasterySoul>() //well maybe not this one
 
                     //they do not benefit in combat butt.... uhhhh...
                     || recipe.HasResult<TrawlerSoul>()
@@ -237,12 +253,6 @@ namespace CSE.Core.Thorium.ModSystems
                 if (recipe.HasResult<HallowedPendant>() && !recipe.HasIngredient<SweetVengeance>())
                 {
                     recipe.DisableRecipe();
-                }
-
-                if (recipe.HasResult<FlightMasterySoul>() && !recipe.HasIngredient<TerrariumWings>())
-                {
-                    recipe.AddIngredient<TerrariumWings>();
-                    recipe.AddRecipeGroup("CSE:EvilWings");
                 }
 
                 if (recipe.HasResult<StyxCrown>() && recipe.HasIngredient(549))

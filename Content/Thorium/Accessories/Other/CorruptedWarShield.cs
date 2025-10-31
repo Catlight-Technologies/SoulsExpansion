@@ -17,7 +17,7 @@ namespace CSE.Content.Thorium.Accessories.Other
             Item.width = 20;
             Item.height = 20;
             Item.accessory = true;
-            Item.value = 1000000;
+            Item.value = 90000;
             Item.rare = 11;
         }
 

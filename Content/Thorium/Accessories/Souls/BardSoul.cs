@@ -18,20 +18,7 @@ namespace CSE.Content.Thorium.Accessories.Souls
     public class BardSoul : BaseSoul
     {
         public static readonly Color ItemColor = new(255, 0, 0);
-        public override void SetDefaults()
-        {
-            Item.width = 20;
-            Item.height = 20;
-            Item.accessory = true;
-            Item.value = 1000000;
-            Item.rare = 11;
-        }
         public override void UpdateAccessory(Player player, bool hideVisual)
-        {
-            Thorium(player);
-        }
-
-        private void Thorium(Player player)
         {
             player.GetDamage<BardDamage>() += 0.25f;
             player.GetCritChance<BardDamage>() += 0.10f;

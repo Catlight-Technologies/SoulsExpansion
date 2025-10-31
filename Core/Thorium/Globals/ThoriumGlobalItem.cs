@@ -33,6 +33,10 @@ using FargowiltasSouls.Core.AccessoryEffectSystem;
 using FargowiltasSouls.Core.Toggler.Content;
 using FargowiltasSouls.Core.Toggler;
 using static Terraria.ModLoader.ModContent;
+using static CSE.Content.Thorium.Accessories.Enchantments.FlightEnchant;
+using static CSE.Content.Thorium.Accessories.Enchantments.GeodeEnchant;
+using CSE.Content.Common.Accessories.Souls;
+using ThoriumMod.Utilities;
 
 namespace CSE.Core.Thorium.Globals
 {
@@ -66,6 +70,12 @@ namespace CSE.Core.Thorium.Globals
                 item.type == ItemType<WhiteDwarfGuard>())
             {
                 tooltips.Add(new TooltipLine(Mod, "BalanceDown", Language.GetTextValue($"{Language.GetText($"Mods.CSE.EModeBalance.WhiteDwarfNerf")}")));
+            }
+
+
+            if (item.type == ItemType<TideTurnersGaze>())
+            {
+                tooltips.Add(new TooltipLine(Mod, "BalanceDown", Language.GetTextValue($"{Language.GetText($"Mods.CSE.EModeBalance.TideDaggersNerf")}")));
             }
 
             if (item.type == ItemType<ColossusSoul>())
@@ -151,11 +161,12 @@ namespace CSE.Core.Thorium.Globals
             if (item.type == ItemType<TerrariumSaber>()) return 1.2f;
 
             // Ranged
-            if (item.type == ItemType<TheJavelin>()) return 0.9f;
-            if (item.type == ItemType<OmniBow>()) return 1.2f;
+            if (item.type == ItemType<TheJavelin>()) return 0.75f;
+            if (item.type == ItemType<OmniBow>()) return 1.3f;
 
             // Thrower
-            if (item.type == ItemType<TidalWave>()) return 1.2f;
+            if (item.type == ItemType<TidalWave>()) return 1.3f;
+            if (item.type == ItemType<DeitysTrefork>()) return 0.95f;
 
             // Bard
             if (item.type == ItemType<Holophonor>()) return 1.2f;
@@ -169,7 +180,7 @@ namespace CSE.Core.Thorium.Globals
             // Other
             if (item.type == ItemType<CrystalSpearTip>()) return 0.5f;
             if (CSESets.GetValue(CSESets.Items.AbomTierFargoWeapon, item.type))
-                return ModCompatibility.Crossmod.Loaded || ModCompatibility.SacredTools.Loaded || ModCompatibility.Homeward.Loaded ? 1f : 1.4f;
+                return ModCompatibility.Crossmod.Loaded || ModCompatibility.SacredTools.Loaded || ModCompatibility.Homeward.Loaded ? 1f : 1.5f;
 
             return 1;
         }
@@ -195,6 +206,19 @@ namespace CSE.Core.Thorium.Globals
             {
                 ModCompatibility.Thorium.Mod.Find<ModItem>("Phylactery").UpdateAccessory(player, true);
                 ModCompatibility.Thorium.Mod.Find<ModItem>("TerrariumDefender").UpdateAccessory(player, true);
+            }
+            if (item.type == ItemType<FlightMasterySoul>() || item.type == ItemType<DimensionSoul>() || item.type == ItemType<EternitySoul>())
+            {
+                player.AddEffect<FlightEffect>(item);
+            }
+            if (item.type == ItemType<WorldShaperSoul>() || item.type == ItemType<DimensionSoul>() || item.type == ItemType<EternitySoul>())
+            {
+                player.AddEffect<GeodeEffect>(item);
+            }
+
+            if (item.type == ItemType<OlympianSoul>() || item.type == ItemType<UniverseSoul>() || item.type == ItemType<EternitySoul>())
+            {
+                player.GetThoriumPlayer().throwerExhaustion = 0;
             }
 
             if (item.type == ItemType<SnipersSoul>() || item.type == ItemType<UniverseSoul>() || item.type == ItemType<EternitySoul>())

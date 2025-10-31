@@ -6,13 +6,14 @@ EModeBalance: {
 	Unnerf: "[c/00A36C:Cross-mod Balance: ]Reverted DLC nerf"
 	PostND: "[c/FF0000:Cross-mod Balance:] Can be only used after defeating the Nameless Deity"
 	PostMutant: "[c/FF0000:Cross-mod Balance:] Can be only used after defeating Mutant"
-	WhiteDwarfNerf: "[c/FF0000:Cross-mod Balance:] Ivory flare has 3 seconds cooldown"
+	WhiteDwarfNerf: "[c/FF0000:Cross-mod Balance:] Ivory flare has 1 second cooldown and damage cap (3000 damage)"
+	TideDaggersNerf: "[c/FF0000:Cross-mod Balance:] Reduced frequency of shooting tide dagger"
 	InfernoNerf: "[c/FF0000:Cross-mod Balance:] Reduced density of bursts"
 	PostAbomSlot: "[c/FF0000:Cross-mod Balance:] Can only be used after defeating Abominationn"
 	MalevolenceGrenadeNerf: "[c/FF0000:Cross-mod Balance:] Grenades deal 80% less damage"
 	DesperatioColumnNerf: "[c/FF0000:Cross-mod Balance:] Flame column deal 30% less damage"
 	HWJDefenseNerf1: "[c/FF0000:Cross-mod Balance:] Defense reduced by 50%"
-	HWJDefenseNerf2: "[c/FF0000:Cross-mod Balance:] Defense reduced by 66%"
+	HWJDefenseNerf2: "[c/FF0000:Cross-mod Balance:] Defense reduced by 33%"
 	HWJStunImmunity: "[c/FF0000:Cross-mod Balance:] Souls Mod bosses are not affected by exhaustion"
 }
 
@@ -194,6 +195,11 @@ Tiles: {
 }
 
 AddedEffects: {
+	ThoriumThrower: "[i:ThoriumMod/PlagueLordFlask] Using a thrower item has a 20% chance to unleash two Blight Daggers"
+	ThoriumThrower2: "[i:ThoriumMod/ThrowingGuideVolume3] 25% of your thrower damage is duplicated"
+	CalThrower: "[i:CalamityMod/Nanotech] Rogue projectiles create nanoblades as they travel"
+	CalThrower2: "[i:CalamityMod/Nanotech] Stealth strikes summon nanobeams and sparks on enemy hits, deal more damage and heal 2 hp"
+	CalThrower3: "[i:CalamityMod/Nanotech] Landing a stealth strike grants a 12% crit bonus to non-stealth strikes, decaying over 5s"
 	ThoriumWorldshaper: "[i:CSE/GeodeEnchant] When mining ore blocks you get x2 ore"
 	SoAArchWizard: "[i:SacredTools/NubasBlessing] Magic critical strikes absorb mana"
 	SoABerserker: "[i:SacredTools/FloraFist] Melee attacks inflict enemies with toxic and fire energy fists"
@@ -202,7 +208,6 @@ AddedEffects: {
 	RedColossus: "[i:Redemption/HEVSuit] Protects from most enviromental hazards"
 	RedColossus2: "[i:Redemption/PocketShieldGenerator] Summons bubble shield that can protect user from a high amount of damage before breaking"
 	SoAThrower: "[i:SacredTools/DreadflameEmblem] Dealing damage with thrower weapons has a chance to release flaming embers"
-	ThoriumThrower: "[i:ThoriumMod/PiratesPurse] Enemies killed by thrower damage release a spread of damaging coins"
 	SoARampart: "[i:SacredTools/ReflectionShield] Has a 10% chance to block hostile projectile"
 	SoATrawler: "[i:SacredTools/DecreeCharm] Turns the holder into humanoid Decree when in snow biome"
 	SoASniper: Reloadable weapons do not require reloading
@@ -630,7 +635,11 @@ Items: {
 
 	GeodeEnchant: {
 		DisplayName: Geode Enchant
-		Tooltip: Mined ore blocks drop x2 ore
+		Tooltip:
+			'''
+			Mining ores and other rare items will yield 2x more ore per ore block mined
+			'Made from the most luxurious of materials'
+			'''
 	}
 
 	MotDE: {
@@ -681,6 +690,113 @@ Items: {
 			'The Cobblers Ultimate Shoe'
 			'''
 	}
+
+	OlympianSoul: {
+		DisplayName: Olympian's Soul
+		Tooltip:
+			'''
+			25% increased thrower damage and 10% increased thrower critical chance
+			20% increased thrower projectile velocity
+			Consumable throwing items have 75% chance not to be consumed on use
+			''
+			'''
+	}
+
+	AssassinEnchant: {
+		DisplayName: Assassin Enchantment
+		Tooltip: "'Blacken the skies and cull the weak'"
+	}
+
+	DreamWeaverEnchant: {
+		DisplayName: Dream Weaver's Enchantment
+		Tooltip: "'Manifest your dearest dreams through your allies, Bind the enemies of your future in temporal agony'"
+	}
+
+	FlightEnchant: {
+		DisplayName: Flight Enchantment
+		Tooltip:
+			'''
+			You passively gain up to 10 feathers 
+			Getting hit releases all feathers towards the closest enemy
+			Increases wings flight time and speed by 10%
+			'The sky is your playing field'
+			'''
+	}
+
+	FungusEnchant: {
+		DisplayName: Fungus Enchantment
+		Tooltip:
+			'''
+			Every time you kill an enemy there is a 10% chance for a mushroom to appear
+			Picking up mushroom heals you for 10% of your max health, increases damage by 10% and reduces defense by 10 for 10 seconds
+			'There's a fungus among us'
+			'''
+	}
+
+	PyromancerEnchant: {
+		DisplayName: Pyromancer Enchantment
+		Tooltip: "'Your magma fortified army's molten gaze shall be feared'"
+	}
+
+	RhapsodistEnchant: {
+		DisplayName: Rhapsodist Enchantment
+		Tooltip: "'Allow your song to inspire an army, Prove to all that your talent is second to none'"
+	}
+
+	TideTurnerEnchant: {
+		DisplayName: Tide Turner's Enchantment
+		Tooltip: "'Become as unstoppable as the tides, Unleash aquatic wrath upon your foes'"
+	}
+
+	AlfheimForce: {
+		DisplayName: Force of Alfheim
+		Tooltip: "'Elven mysteries unfold before you...'"
+	}
+
+	AsgardForce: {
+		DisplayName: Force of Asgard
+		Tooltip: "'What's this about Ragnarok?'"
+	}
+
+	HelheimForce: {
+		DisplayName: Force of Helheim
+		Tooltip: "'From the halls of Hel, a vision of the end...'"
+	}
+
+	JotunheimForce: {
+		DisplayName: Force of Jotunheim
+		Tooltip: "'A bitter cold, the power of the Jotuns...'"
+	}
+
+	MidgardForce: {
+		DisplayName: Force of Midgard
+		Tooltip: "'Behold the power of Mankind...'"
+	}
+
+	MuspelheimForce: {
+		DisplayName: Force of Muspelheim
+		Tooltip: "'A blazing heat, the mark of Surtr...'"
+	}
+
+	VanaheimForce: {
+		Tooltip: "'Holds a glimpse of the future...'"
+		DisplayName: Force of Vanaheim
+	}
+
+	SvartalfheimForce: {
+		Tooltip: "'Behold the craftsmanship of the Dark Elves...'"
+		DisplayName: Force of Svartalfheim
+	}
+
+	NiflheimForce: {
+		Tooltip: "'A world of mist, a sign of the dead...'"
+		DisplayName: Force of Niflheim
+	}
+
+	SoulOfYggdrasil: {
+		DisplayName: Soul Of Yggdrasil
+		Tooltip: ""
+	}
 }
 
 Projectiles: {
@@ -697,6 +813,8 @@ Projectiles: {
 	SatelliteShard.DisplayName: Satellite Shard
 	Shrapnel.DisplayName: Shrapnel
 	SpaceJunkProj.DisplayName: Space Junk
+	MushroomProj.DisplayName: Mushroom Proj
+	FeatherProj.DisplayName: Feather Proj
 }
 
 Buffs: {
@@ -733,6 +851,11 @@ Buffs: {
 	SniperCooldownBuff: {
 		DisplayName: Sniper Fatigue
 		Description: +30% defense, -25% damage
+	}
+
+	MushroomBuff: {
+		DisplayName: Mushroom Buff
+		Description: Mods.CSE.Buffs.MushroomBuff.Description
 	}
 }
 

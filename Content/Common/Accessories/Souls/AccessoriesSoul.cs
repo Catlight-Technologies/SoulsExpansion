@@ -86,7 +86,6 @@ namespace CSE.Content.Common.Accessories.Souls
         {
             Recipe recipe = CreateRecipe(1);
             recipe.AddIngredient<EternalScale>(5);
-            recipe.AddIngredient<MasochistSoul>(1);
 
             if (ModLoader.HasMod("NoxusPort"))
             {
@@ -97,6 +96,8 @@ namespace CSE.Content.Common.Accessories.Souls
                 recipe.AddIngredient(ModLoader.GetMod("NoxusBoss").Find<ModItem>("MetallicChunk"), 5);
                 //recipe.AddIngredient<NDMaterialPlaceholder>(5);
             }
+
+            recipe.AddIngredient<MasochistSoul>(1);
 
             if (ModCompatibility.Crossmod.Loaded)
             {

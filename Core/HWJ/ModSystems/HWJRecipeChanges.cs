@@ -113,11 +113,12 @@ namespace CSE.Core.HWJ.ModSystems
                     recipe.RemoveIngredient(ItemID.ManaCloak);
                     recipe.RemoveIngredient(ItemID.MagnetFlower);
                     recipe.RemoveIngredient(ItemID.ArcaneFlower);
+
                     recipe.RemoveRecipeGroup(RecipeGroup.recipeGroupIDs["FargowiltasSouls:AnyManaFlower"]);
                     recipe.AddIngredient<Starflower>();
 
                     //final bar weapon
-                    recipe.AddIngredient<Blackout>();
+                    recipe.AddIngredient<QuartzObliterator>();
 
                     //other
                     recipe.AddIngredient<EruditeBookmark>();
@@ -137,7 +138,7 @@ namespace CSE.Core.HWJ.ModSystems
                     recipe.AddIngredient<CrossbowScope>();
 
                     //final bar weapon
-                    recipe.AddIngredient<QuartzObliterator>();
+                    recipe.AddIngredient<Blackout>();
                 }
                 if (recipe.HasResult<BerserkerSoul>())
                 {

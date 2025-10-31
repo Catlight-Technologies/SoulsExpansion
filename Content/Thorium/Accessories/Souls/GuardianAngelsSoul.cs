@@ -21,22 +21,7 @@ namespace CSE.Content.Thorium.Accessories.Souls
     public class GuardianAngelsSoul : BaseSoul
     {
         public static readonly Color ItemColor = new(128, 128, 0);
-
-        public override void SetDefaults()
-        {
-            Item.width = 20;
-            Item.height = 20;
-            Item.accessory = true;
-            Item.value = 750000;
-            Item.rare = 11;
-        }
-
         public override void UpdateAccessory(Player player, bool hideVisual)
-        {
-            Thorium(player);
-        }
-
-        private void Thorium(Player player)
         {
             ThoriumPlayer thoriumPlayer = player.GetModPlayer<ThoriumPlayer>();
 

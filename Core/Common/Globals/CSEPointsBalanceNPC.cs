@@ -86,9 +86,9 @@ namespace CSE.Core.Common.Globals
                 bossType: ModContent.NPCType<AbomBoss>(),
                 affectingMods: new List<ModMultiplier>
                 {
-                new ModMultiplier { ModName = "CalamityMod", DamageMultiplier = 0.5f, HealthMultiplier = 2f },
-                new ModMultiplier { ModName = "SacredTools", DamageMultiplier = 0.25f, HealthMultiplier = 0.5f },
-                new ModMultiplier { ModName = "ThoriumMod", DamageMultiplier = 0.25f, HealthMultiplier = 0.4f },
+                new ModMultiplier { ModName = "CalamityMod", DamageMultiplier = 0.5f, HealthMultiplier = 1.5f },
+                new ModMultiplier { ModName = "SacredTools", DamageMultiplier = 0.25f, HealthMultiplier = 0.75f },
+                new ModMultiplier { ModName = "ThoriumMod", DamageMultiplier = 0.25f, HealthMultiplier = 0.3f },
                 new ModMultiplier { ModName = "ContinentOfJourney", DamageMultiplier = 0.25f, HealthMultiplier = 0.5f }
                 }
             );
@@ -99,7 +99,7 @@ namespace CSE.Core.Common.Globals
                 {
                 new ModMultiplier { ModName = "CalamityMod", DamageMultiplier = 0.75f, HealthMultiplier = 1.5f },
                 new ModMultiplier { ModName = "SacredTools", DamageMultiplier = 0.25f, HealthMultiplier = 0.25f },
-                new ModMultiplier { ModName = "ThoriumMod", DamageMultiplier = 0f, HealthMultiplier = 1f },
+                new ModMultiplier { ModName = "ThoriumMod", DamageMultiplier = 0f, HealthMultiplier = 0f }, //no bosses before eridanus
                 new ModMultiplier { ModName = "ContinentOfJourney", DamageMultiplier = 0.25f, HealthMultiplier = 0.25f }
                 }
             );

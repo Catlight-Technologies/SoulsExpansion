@@ -1,10 +1,12 @@
 using CalamityMod.CalPlayer;
+using CSE.Core.Common.ModPlayers;
 using FargowiltasCrossmod.Core;
 using FargowiltasSouls.Content.Items;
 using FargowiltasSouls.Content.Items.Accessories.Souls;
 using FargowiltasSouls.Content.Items.Armor.Styx;
 using FargowiltasSouls.Content.Items.Weapons.FinalUpgrades;
 using FargowiltasSouls.Content.Items.Weapons.SwarmDrops;
+using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
@@ -52,7 +54,7 @@ namespace CSE.Core.Common.Globals
 
             if(ModCompatibility.SacredTools.Loaded || ModCompatibility.Calamity.Loaded || ModCompatibility.Homeward.Loaded)
             {
-                //+35 defence
+                //+35 defence from base
                 if (entity.type == ItemType<StyxCrown>())
                 {
                     entity.defense = 30;
@@ -108,6 +110,13 @@ namespace CSE.Core.Common.Globals
             if (item.type == ItemType<StyxLeggings>() && (ModCompatibility.Homeward.Loaded || ModCompatibility.SacredTools.Loaded || ModCompatibility.Calamity.Loaded))
             {
                 player.GetDamage<GenericDamageClass>() += 0.05f;
+            }
+        }
+        public override void ModifyShootStats(Item item, Player player, ref Vector2 position, ref Vector2 velocity, ref int type, ref int damage, ref float knockBack)
+        {
+            if (item.CountsAsClass<ThrowingDamageClass>())
+            {
+                velocity *= player.GetModPlayer<CSEPlayer>().throwerVelocity;
             }
         }
         void ItemBalance(List<TooltipLine> tooltips, EModeChanges change, string mod = "CSE")

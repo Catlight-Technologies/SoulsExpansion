@@ -28,6 +28,10 @@ using ThoriumMod.Items.Consumable;
 using ThoriumMod.Items.ThrownItems;
 using ThoriumMod.NPCs.Depths;
 using ThoriumMod.NPCs;
+using FargowiltasSouls.Core.AccessoryEffectSystem;
+using static CSE.Content.Thorium.Accessories.Enchantments.FungusEnchant;
+using Microsoft.Xna.Framework;
+using CSE.Content.Thorium.Projectiles;
 
 namespace CSE.Core.Thorium.Globals
 {
@@ -47,6 +51,25 @@ namespace CSE.Core.Thorium.Globals
             base.ModifyShop(shop);
         }
 
+        public override void OnKill(NPC npc)
+        {
+            if (npc.lastInteraction >= 0)
+            {
+                Player player = Main.player[npc.lastInteraction];
+
+                if (player.HasEffect<FungusEffect>() && Main.rand.NextFloat() < 0.10f)
+                {
+                    Projectile.NewProjectile(
+                        npc.GetSource_FromAI(),
+                        npc.Center,
+                        Vector2.Zero,
+                        ProjectileType<MushroomProj>(),
+                        0,
+                        0
+                    );
+                }
+            }
+        }
         public override void ModifyNPCLoot(NPC npc, NPCLoot npcLoot)
         {
             void TimsConcoctionDrop(IItemDropRule rule)

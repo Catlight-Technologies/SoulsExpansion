@@ -3,10 +3,8 @@ using Fargowiltas.Content.Items.Tiles;
 using FargowiltasSouls.Content.Items.Accessories.Souls;
 using Luminance.Core.Graphics;
 using Microsoft.Xna.Framework.Graphics;
-using System.Collections.Generic;
 using System;
 using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria;
 using CSE.Core;
@@ -77,16 +75,15 @@ namespace CSE.Content.Common.Accessories.Souls
             {
                 ModContent.Find<ModItem>(Mod.Name, "SoulOfTwoRealms").UpdateAccessory(player, false);
             }
-            //if (ModCompatibility.Thorium.Loaded)
-            //{
-            //    ModContent.Find<ModItem>(Mod.Name, "SoulOfYggdrasil").UpdateAccessory(player, false);
-            //}
+            if (ModCompatibility.Thorium.Loaded)
+            {
+                ModContent.Find<ModItem>(Mod.Name, "SoulOfYggdrasil").UpdateAccessory(player, false);
+            }
         }
 
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe(1);
-            recipe.AddIngredient<TerrariaSoul>(1);
             recipe.AddIngredient<EternalScale>(5);
 
             if (ModLoader.HasMod("NoxusPort"))
@@ -99,14 +96,16 @@ namespace CSE.Content.Common.Accessories.Souls
                 //recipe.AddIngredient<NDMaterialPlaceholder>(5);
             }
 
+            recipe.AddIngredient<TerrariaSoul>(1);
+
             //if (ModCompatibility.Crossmod.Loaded)
             //{
             //    recipe.AddIngredient(Mod.Find<ModItem>("CalamitySoul"), 1);
             //}
-            //if (ModCompatibility.Thorium.Loaded)
-            //{
-            //    recipe.AddIngredient(Mod.Find<ModItem>("SoulOfYggdrasil"), 1);
-            //}
+            if (ModCompatibility.Thorium.Loaded)
+            {
+                recipe.AddIngredient(Mod.Find<ModItem>("SoulOfYggdrasil"), 1);
+            }
             //if (ModCompatibility.Homeward.Loaded)
             //{
             //    recipe.AddIngredient(Mod.Find<ModItem>("SoulOfJourney"), 1);
