@@ -13,6 +13,7 @@ using ReLogic.Content;
 using System.Reflection;
 using Terraria.ModLoader;
 using System.Collections;
+using Fargowiltas.Utilities;
 
 namespace CSE.Core
 {
@@ -123,7 +124,34 @@ namespace CSE.Core
                 recipe.DisableDecraft();
                 recipe.Register();
             }
-        }        
+        }
+
+        public static void CreateBagRecipes(int input, int[] outputs)
+        {
+            for (int i = 0; i < outputs.Length; i++)
+            {
+                Recipe.Create(outputs[i]).AddIngredient(input).AddTile(TileID.Solidifier).DisableDecraft().Register();
+            }
+        }
+
+        public static void AddBannerToItemRecipe(int banner, int result, int bannerAmount = 1, int resultAmount = 1, int item2type = -1, int item2amount = 1, int tile = 220)
+        {
+            Recipe bannerRecipe1 = Recipe.Create(result, resultAmount);
+            bannerRecipe1.AddIngredient(banner, bannerAmount);
+            if (item2type > -1)
+            {
+                bannerRecipe1.AddIngredient(item2type, item2amount);
+            }
+            bannerRecipe1.DisableDecraft();
+            bannerRecipe1.AddTile(tile);
+            bannerRecipe1.Register();
+        }
+
+        public static void ConversionRecipe(int itemID, int otherItemID)
+        {
+            RecipeHelper.CreateSimpleRecipe(itemID, otherItemID, TileID.DemonAltar, disableDecraft: true);
+            RecipeHelper.CreateSimpleRecipe(otherItemID, itemID, TileID.DemonAltar, disableDecraft: true);
+        }
         public static float PlayerGetDistanceToNPC(Player player, NPC targetNPC)
         {
             if (targetNPC == null || !targetNPC.active)
