@@ -37,6 +37,14 @@ using ThoriumMod.Items.SummonItems;
 using ThoriumMod.Items.BossLich;
 using FargowiltasSouls.Content.Items.Accessories.Eternity;
 using ThoriumMod.Items.BossThePrimordials.Dream;
+using static Terraria.ModLoader.ModContent;
+using ThoriumMod.Items.BossTheGrandThunderBird;
+using ThoriumMod.Items.BossViscount;
+using ThoriumMod.Items.BossQueenJellyfish;
+using ThoriumMod.Items.BossStarScouter;
+using ThoriumMod.Items.BossBoreanStrider;
+using ThoriumMod.Items.BossForgottenOne;
+using ThoriumMod.Items.BossThePrimordials;
 
 namespace CSE.Core.Thorium.ModSystems
 {
@@ -47,83 +55,167 @@ namespace CSE.Core.Thorium.ModSystems
         public override void AddRecipeGroups()
         {
             //evil wood tambourine
-            RecipeGroup group = new RecipeGroup(() => Lang.misc[37] + " Evil Wood Tambourine", ModContent.ItemType<EbonWoodTambourine>(), ModContent.ItemType<ShadeWoodTambourine>());
+            RecipeGroup group = new RecipeGroup(() => Lang.misc[37] + " Evil Wood Tambourine", ItemType<EbonWoodTambourine>(), ItemType<ShadeWoodTambourine>());
             RecipeGroup.RegisterGroup("CSE:AnyTambourine", group);
             //bugle horn
-            group = new RecipeGroup(() => Lang.misc[37] + " Bugle Horn", ModContent.ItemType<GoldBugleHorn>(), ModContent.ItemType<PlatinumBugleHorn>());
+            group = new RecipeGroup(() => Lang.misc[37] + " Bugle Horn", ItemType<GoldBugleHorn>(), ItemType<PlatinumBugleHorn>());
             RecipeGroup.RegisterGroup("CSE:AnyBugleHorn", group);
             //titan 
-            group = new RecipeGroup(() => Lang.misc[37] + " Titan Headgear", ModContent.ItemType<TitanHelmet>(), ModContent.ItemType<TitanMask>(), ModContent.ItemType<TitanHeadgear>());
+            group = new RecipeGroup(() => Lang.misc[37] + " Titan Headgear", ItemType<TitanHelmet>(), ItemType<TitanMask>(), ItemType<TitanHeadgear>());
             RecipeGroup.RegisterGroup("CSE:AnyTitanHelmet", group);
             //any gem
-            group = new RecipeGroup(() => Lang.misc[37] + " Gem", ModContent.ItemType<Opal>(), ModContent.ItemType<Aquamarine>());
+            group = new RecipeGroup(() => Lang.misc[37] + " Gem", ItemType<Opal>(), ItemType<Aquamarine>());
             RecipeGroup.RegisterGroup("CSE:AnyThoriumGem", group);
             // rhapsodist
-            group = new RecipeGroup(() => Lang.misc[37] + " Rhapsodist Helmet", ModContent.ItemType<SoloistHat>(), ModContent.ItemType<InspiratorsHelmet>());
+            group = new RecipeGroup(() => Lang.misc[37] + " Rhapsodist Helmet", ItemType<SoloistHat>(), ItemType<InspiratorsHelmet>());
             RecipeGroup.RegisterGroup("CSE:AnyRhapsodistHelmet", group);
             // tide turner
-            group = new RecipeGroup(() => Lang.misc[37] + " Tide Turner Helmet", ModContent.ItemType<TideTurnerHelmet>(), ModContent.ItemType<TideTurnersGaze>());
+            group = new RecipeGroup(() => Lang.misc[37] + " Tide Turner Helmet", ItemType<TideTurnerHelmet>(), ItemType<TideTurnersGaze>());
             RecipeGroup.RegisterGroup("CSE:AnyTideTurnerHelmet", group);
             // dream weaver
-            group = new RecipeGroup(() => Lang.misc[37] + " Dream Weaver Helmet", ModContent.ItemType<DreamWeaversHelmet>(), ModContent.ItemType<DreamWeaversHood>());
+            group = new RecipeGroup(() => Lang.misc[37] + " Dream Weaver Helmet", ItemType<DreamWeaversHelmet>(), ItemType<DreamWeaversHood>());
             RecipeGroup.RegisterGroup("CSE:AnyDreamWeaversHelmet", group);
             // assassin
-            group = new RecipeGroup(() => Lang.misc[37] + " Assassin Helmet", ModContent.ItemType<MasterMarksmansScouter>(), ModContent.ItemType<MasterArbalestHood>());
+            group = new RecipeGroup(() => Lang.misc[37] + " Assassin Helmet", ItemType<MasterMarksmansScouter>(), ItemType<MasterArbalestHood>());
             RecipeGroup.RegisterGroup("CSE:AnyAssassinHelmet", group);
             // pyromancer
-            group = new RecipeGroup(() => Lang.misc[37] + " Pyromancer Helmet", ModContent.ItemType<PyromancerCowl>(), ModContent.ItemType<PyromancerTabard>());
+            group = new RecipeGroup(() => Lang.misc[37] + " Pyromancer Helmet", ItemType<PyromancerCowl>(), ItemType<PyromancerTabard>());
             RecipeGroup.RegisterGroup("CSE:AnyPyromancerHelmet", group);
             // seraph idols
-            group = new RecipeGroup(() => Lang.misc[37] + " Seraphim Idol Upgrade", ModContent.ItemType<ArchDemonCurse>(), ModContent.ItemType<ArchangelHeart>());
+            group = new RecipeGroup(() => Lang.misc[37] + " Seraphim Idol Upgrade", ItemType<ArchDemonCurse>(), ItemType<ArchangelHeart>());
             RecipeGroup.RegisterGroup("CSE:AnyIdolUpgrade", group);
             // bard accessories
-            group = new RecipeGroup(() => Lang.misc[37] + " Instrument Type Accessory", ModContent.ItemType<DigitalTuner>(), ModContent.ItemType<EpicMouthpiece>(), ModContent.ItemType<StraightMute>(), ModContent.ItemType<GuitarPickClaw>());
+            group = new RecipeGroup(() => Lang.misc[37] + " Instrument Type Accessory", ItemType<DigitalTuner>(), ItemType<EpicMouthpiece>(), ItemType<StraightMute>(), ItemType<GuitarPickClaw>());
             RecipeGroup.RegisterGroup("CSE:AnyInstrumentTypeAccessory", group);
             // evil wings
-            group = new RecipeGroup(() => Lang.misc[37] + " Evil Wings", ModContent.ItemType<DragonWings>(), ModContent.ItemType<FleshWings>());
+            group = new RecipeGroup(() => Lang.misc[37] + " Evil Wings", ItemType<DragonWings>(), ItemType<FleshWings>());
             RecipeGroup.RegisterGroup("CSE:AnyEvilWings", group);
         }
 
         public override void AddRecipes()
         {
-            Recipe.Create(ModContent.ItemType<CoffinSummon>())
+            Recipe.Create(ItemType<CoffinSummon>())
                 .AddIngredient(ItemID.ClayBlock, 15)
                 .AddIngredient(ItemID.FossilOre, 8)
                 .AddRecipeGroup("CSE:AnyThoriumGem", 4)
                 .AddTile(TileID.DemonAltar)
                 .Register();
-            Recipe.Create(ModContent.ItemType<HallowedPendant>())
+            Recipe.Create(ItemType<HallowedPendant>())
                 .AddIngredient<SweetVengeance>()
                 .AddIngredient(ItemID.HallowedBar, 5)
                 .AddTile(TileID.TinkerersWorkbench)
                 .Register();
+            Recipe.Create(ItemType<DraculaFang>(), 300)
+                .AddIngredient<ViscountTreasureBag>()
+                .AddTile(TileID.Solidifier)
+                .Register();
 
-            int depthsCrate = ModContent.ItemType<AquaticDepthsCrate>();
-            int depthsCrateHm = ModContent.ItemType<AbyssalCrate>();
+            #region crates
+            int depthsCrate = ItemType<AquaticDepthsCrate>();
+            int depthsCrateHm = ItemType<AbyssalCrate>();
 
-            //CSEUtils.CreateCrateRecipe(ModContent.ItemType<MagicConch>(), depthsCrate, 5, depthsCrateHm);
-            CSEUtils.CreateCrateRecipe(ModContent.ItemType<SeaTurtlesBulwark>(), depthsCrate, 5, depthsCrateHm);
-            CSEUtils.CreateCrateRecipe(ModContent.ItemType<AnglerBowl>(), depthsCrate, 5, depthsCrateHm);
-            CSEUtils.CreateCrateRecipe(ModContent.ItemType<RainStone>(), depthsCrate, 5, depthsCrateHm);
-            CSEUtils.CreateCrateRecipe(ModContent.ItemType<SteelDrum>(), depthsCrate, 5, depthsCrateHm);
+            //CSEUtils.CreateCrateRecipe(ItemType<MagicConch>(), depthsCrate, 5, depthsCrateHm);
+            CSEUtils.CreateCrateRecipe(ItemType<SeaTurtlesBulwark>(), depthsCrate, 5, depthsCrateHm);
+            CSEUtils.CreateCrateRecipe(ItemType<AnglerBowl>(), depthsCrate, 5, depthsCrateHm);
+            CSEUtils.CreateCrateRecipe(ItemType<RainStone>(), depthsCrate, 5, depthsCrateHm);
+            CSEUtils.CreateCrateRecipe(ItemType<SteelDrum>(), depthsCrate, 5, depthsCrateHm);
 
-            int scarletCrate = ModContent.ItemType<ScarletCrate>();
-            int scarletCrateHM = ModContent.ItemType<SinisterCrate>();
+            int scarletCrate = ItemType<ScarletCrate>();
+            int scarletCrateHM = ItemType<SinisterCrate>();
 
-            CSEUtils.CreateCrateRecipe(ModContent.ItemType<MixTape>(), scarletCrate, 5, scarletCrateHM);
-            CSEUtils.CreateCrateRecipe(ModContent.ItemType<LootRang>(), scarletCrate, 5, scarletCrateHM);
-            CSEUtils.CreateCrateRecipe(ModContent.ItemType<MagmaCharm>(), scarletCrate, 5, scarletCrateHM);
-            CSEUtils.CreateCrateRecipe(ModContent.ItemType<SpringSteps>(), scarletCrate, 5, scarletCrateHM);
-            CSEUtils.CreateCrateRecipe(ModContent.ItemType<DeepStaff>(), scarletCrate, 5, scarletCrateHM);
+            CSEUtils.CreateCrateRecipe(ItemType<MixTape>(), scarletCrate, 5, scarletCrateHM);
+            CSEUtils.CreateCrateRecipe(ItemType<LootRang>(), scarletCrate, 5, scarletCrateHM);
+            CSEUtils.CreateCrateRecipe(ItemType<MagmaCharm>(), scarletCrate, 5, scarletCrateHM);
+            CSEUtils.CreateCrateRecipe(ItemType<SpringSteps>(), scarletCrate, 5, scarletCrateHM);
+            CSEUtils.CreateCrateRecipe(ItemType<DeepStaff>(), scarletCrate, 5, scarletCrateHM);
             CSEUtils.CreateCrateRecipe(ItemID.LavaCharm, scarletCrate, 5, scarletCrateHM);
-            CSEUtils.CreateCrateRecipe(ModContent.ItemType<SpringHook>(), scarletCrate, 5, scarletCrateHM);
-            CSEUtils.CreateCrateRecipe(ModContent.ItemType<MagmaLocket>(), scarletCrate, 5, scarletCrateHM);
+            CSEUtils.CreateCrateRecipe(ItemType<SpringHook>(), scarletCrate, 5, scarletCrateHM);
+            CSEUtils.CreateCrateRecipe(ItemType<MagmaLocket>(), scarletCrate, 5, scarletCrateHM);
 
-            int strangeCrate = ModContent.ItemType<StrangeCrate>();
-            int strangeCrateHM = ModContent.ItemType<WondrousCrate>();
+            int strangeCrate = ItemType<StrangeCrate>();
+            int strangeCrateHM = ItemType<WondrousCrate>();
 
-            CSEUtils.CreateCrateRecipe(ModContent.ItemType<HightechSonarDevice>(), strangeCrate, 5, strangeCrateHM);
-            CSEUtils.CreateCrateRecipe(ModContent.ItemType<DrownedDoubloon>(), strangeCrate, 5, strangeCrateHM);
+            CSEUtils.CreateCrateRecipe(ItemType<HightechSonarDevice>(), strangeCrate, 5, strangeCrateHM);
+            CSEUtils.CreateCrateRecipe(ItemType<DrownedDoubloon>(), strangeCrate, 5, strangeCrateHM);
+            #endregion
+
+            #region boss bags
+            CSEUtils.CreateBagRecipes(ItemType<TheGrandThunderBirdTreasureBag>(),
+            [
+                ItemType<ThunderTalon>(),
+                ItemType<StormHatchlingStaff>(),
+                ItemType<Didgeridoo>(),
+                ItemType<TalonBurst>(),
+            ]);
+            CSEUtils.CreateBagRecipes(ItemType<ViscountTreasureBag>(),
+            [
+                ItemType<BatWing>(),
+                ItemType<GuanoGunner>(),
+                ItemType<VampireScepter>(),
+                ItemType<ViscountCane>(),
+                ItemType<BatScythe>(),
+                ItemType<SonarCannon>(),
+            ]);
+            CSEUtils.CreateBagRecipes(ItemType<QueenJellyfishTreasureBag>(),
+            [
+                ItemType<SparkingJellyBall>(),
+                ItemType<BuccaneerBlunderBuss>(),
+                ItemType<GiantGlowstick>(),
+                ItemType<JellyPondWand>(),
+                ItemType<ConchShell>(),
+            ]);
+            CSEUtils.CreateBagRecipes(ItemType<StarScouterTreasureBag>(),
+            [
+                ItemType<StarTrail>(),
+                ItemType<ParticleWhip>(),
+                ItemType<HitScanner>(),
+                ItemType<GaussFlinger>(),
+                ItemType<DistressCaller>(),
+                ItemType<StarRod>(),
+                ItemType<Roboboe>(),
+            ]);
+            CSEUtils.CreateBagRecipes(ItemType<BoreanStriderTreasureBag>(),
+            [
+                ItemType<GlacialSting>(),
+                ItemType<Glacier>(),
+                ItemType<BoreanFangStaff>(),
+                ItemType<FreezeRay>(),
+                ItemType<TheCryoFang>(),
+            ]);
+            CSEUtils.CreateBagRecipes(ItemType<BoreanStriderTreasureBag>(),
+            [
+                ItemType<GlacialSting>(),
+                ItemType<Glacier>(),
+                ItemType<BoreanFangStaff>(),
+                ItemType<FreezeRay>(),
+                ItemType<TheCryoFang>(),
+            ]);
+            CSEUtils.CreateBagRecipes(ItemType<LichTreasureBag>(),
+            [
+                ItemType<SoulRender>(),
+                ItemType<WitherStaff>(),
+                ItemType<SoulBomb>(),
+                ItemType<SoulCleaver>(),
+                ItemType<CadaverCornet>(),
+                ItemType<PhantomWand>(),
+            ]);
+            CSEUtils.CreateBagRecipes(ItemType<ForgottenOneTreasureBag>(),
+            [
+                ItemType<TheIncubator>(),
+                ItemType<MantisShrimpPunch>(),
+                ItemType<TrenchSpitter>(),
+                ItemType<OldGodsVision>(),
+                ItemType<SirensLyre>(),
+                ItemType<RlyehLostRod>(),
+                ItemType<WhisperingHood>(),
+                ItemType<WhisperingLeggings>(),
+                ItemType<WhisperingTabard>(),
+            ]);
+            CSEUtils.CreateBagRecipes(ItemType<ThePrimordialsTreasureBag>(),
+            [
+                ItemType<DormantHammer>(),
+            ]);
+            #endregion
         }
         public override void PostAddRecipes()
         {
@@ -180,7 +272,7 @@ namespace CSE.Core.Thorium.ModSystems
 
                     if (!ModCompatibility.Calamity.Loaded && !ModCompatibility.Homeward.Loaded && !ModCompatibility.SacredTools.Loaded)
                     {
-                        recipe.RemoveIngredient(ModContent.ItemType<Devilshield>());
+                        recipe.RemoveIngredient(ItemType<Devilshield>());
                         recipe.RemoveIngredient(ItemID.AnkhShield);
                         recipe.AddIngredient<TerrariumDefender>();
                     }
@@ -191,7 +283,7 @@ namespace CSE.Core.Thorium.ModSystems
                     recipe.RemoveIngredient(ItemID.PanicNecklace);
                     if (!ModCompatibility.Homeward.Loaded && !ModCompatibility.SacredTools.Loaded)
                     {
-                        recipe.RemoveIngredient(ModContent.ItemType<AeolusBoots>());
+                        recipe.RemoveIngredient(ItemType<AeolusBoots>());
                         recipe.AddIngredient<TerrariumParticleSprinters>();
                     }
                 }
@@ -209,7 +301,7 @@ namespace CSE.Core.Thorium.ModSystems
                     if (!ModCompatibility.Calamity.Loaded && !ModCompatibility.Homeward.Loaded && !ModCompatibility.SacredTools.Loaded)
                     {
                         recipe.AddIngredient<Devilshield>();
-                        recipe.RemoveIngredient(ModContent.ItemType<HolyAegis>());
+                        recipe.RemoveIngredient(ItemType<HolyAegis>());
                         recipe.RemoveIngredient(ItemID.FrozenTurtleShell);
                     }
                 }
@@ -258,36 +350,36 @@ namespace CSE.Core.Thorium.ModSystems
                 if (recipe.HasResult<StyxCrown>() && recipe.HasIngredient(549))
                 {
                     recipe.RemoveIngredient(549);
-                    recipe.AddIngredient(ModContent.ItemType<DeathEssence>(), 10);
+                    recipe.AddIngredient(ItemType<DeathEssence>(), 10);
                 }
                 if (recipe.HasResult<StyxLeggings>() && recipe.HasIngredient(547))
                 {
                     recipe.RemoveIngredient(547);
-                    recipe.AddIngredient(ModContent.ItemType<OceanEssence>(), 10);
+                    recipe.AddIngredient(ItemType<OceanEssence>(), 10);
                 }
                 if (recipe.HasResult<StyxChestplate>() && recipe.HasIngredient(548))
                 {
                     recipe.RemoveIngredient(548);
-                    recipe.AddIngredient(ModContent.ItemType<InfernoEssence>(), 10);
+                    recipe.AddIngredient(ItemType<InfernoEssence>(), 10);
                 }
 
                 if (recipe.HasResult<GaiaHelmet>() && !recipe.HasIngredient<DarkMatter>())
                 {
-                    recipe.AddIngredient(ModContent.ItemType<HolyKnightsAlloy>(), 6);
-                    recipe.AddIngredient(ModContent.ItemType<DarkMatter>(), 6);
-                    recipe.AddIngredient(ModContent.ItemType<BloomWeave>(), 6);
+                    recipe.AddIngredient(ItemType<HolyKnightsAlloy>(), 6);
+                    recipe.AddIngredient(ItemType<DarkMatter>(), 6);
+                    recipe.AddIngredient(ItemType<BloomWeave>(), 6);
                 }
                 if (recipe.HasResult<GaiaGreaves>() && !recipe.HasIngredient<DarkMatter>())
                 {
-                    recipe.AddIngredient(ModContent.ItemType<HolyKnightsAlloy>(), 6);
-                    recipe.AddIngredient(ModContent.ItemType<DarkMatter>(), 6);
-                    recipe.AddIngredient(ModContent.ItemType<BloomWeave>(), 6);
+                    recipe.AddIngredient(ItemType<HolyKnightsAlloy>(), 6);
+                    recipe.AddIngredient(ItemType<DarkMatter>(), 6);
+                    recipe.AddIngredient(ItemType<BloomWeave>(), 6);
                 }
                 if (recipe.HasResult<GaiaPlate>() && !recipe.HasIngredient<DarkMatter>())
                 {
-                    recipe.AddIngredient(ModContent.ItemType<HolyKnightsAlloy>(), 9);
-                    recipe.AddIngredient(ModContent.ItemType<DarkMatter>(), 9);
-                    recipe.AddIngredient(ModContent.ItemType<BloomWeave>(), 9);
+                    recipe.AddIngredient(ItemType<HolyKnightsAlloy>(), 9);
+                    recipe.AddIngredient(ItemType<DarkMatter>(), 9);
+                    recipe.AddIngredient(ItemType<BloomWeave>(), 9);
                 }
 
                 if (recipe.HasResult(ItemID.DrillContainmentUnit) && !recipe.HasIngredient<TerrariumCore>())
