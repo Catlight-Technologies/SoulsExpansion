@@ -37,6 +37,8 @@ using static CSE.Content.Thorium.Accessories.Enchantments.FlightEnchant;
 using static CSE.Content.Thorium.Accessories.Enchantments.GeodeEnchant;
 using CSE.Content.Common.Accessories.Souls;
 using ThoriumMod.Utilities;
+using Microsoft.Xna.Framework;
+using ThoriumMod.Items.BossThePrimordials.Slag;
 
 namespace CSE.Core.Thorium.Globals
 {
@@ -72,6 +74,10 @@ namespace CSE.Core.Thorium.Globals
                 tooltips.Add(new TooltipLine(Mod, "BalanceDown", Language.GetTextValue($"{Language.GetText($"Mods.CSE.EModeBalance.WhiteDwarfNerf")}")));
             }
 
+            if (item.type == ItemType<BlackMIDI>())
+            {
+                tooltips.Add(new TooltipLine(Mod, "BalanceDown", Language.GetTextValue($"{Language.GetText($"Mods.CSE.EModeBalance.MidiHealNerf")}")));
+            }
 
             if (item.type == ItemType<TideTurnersGaze>())
             {
@@ -159,6 +165,8 @@ namespace CSE.Core.Thorium.Globals
             // Melee
             //if (item.type == ItemType<TerrariansLastKnife>()) return 1.1f;
             if (item.type == ItemType<TerrariumSaber>()) return 1.2f;
+            if (item.type == ItemType<SevenSeasDevastator>()) return 1.3f;
+            if (item.type == ItemType<OceansJudgement>()) return 1.2f;
 
             // Ranged
             if (item.type == ItemType<TheJavelin>()) return 0.75f;
@@ -166,7 +174,7 @@ namespace CSE.Core.Thorium.Globals
 
             // Thrower
             if (item.type == ItemType<TidalWave>()) return 1.3f;
-            if (item.type == ItemType<DeitysTrefork>()) return 0.95f;
+            if (item.type == ItemType<DeitysTrefork>()) return 0.9f;
 
             // Bard
             if (item.type == ItemType<Holophonor>()) return 1.2f;
@@ -175,7 +183,14 @@ namespace CSE.Core.Thorium.Globals
             if (item.type == ItemType<BlackMIDI>()) return 0.9f;
 
             // Healer
-            if (item.type == ItemType<Lucidity>()) return 1.1f;
+            if (item.type == ItemType<Lucidity>()) return 1.4f;
+            if (item.type == ItemType<RealitySlasher>()) return 1.1f;
+
+            // Magic
+            if (item.type == ItemType<DevilsClaw>()) return 0.9f;
+
+            // Summon
+            if (item.type == ItemType<EmberStaff>()) return 1.1f;
 
             // Other
             if (item.type == ItemType<CrystalSpearTip>()) return 0.5f;
@@ -199,7 +214,11 @@ namespace CSE.Core.Thorium.Globals
                 item.defense = 8;
             }
         }
-
+        public override void ModifyShootStats(Item item, Player player, ref Vector2 position, ref Vector2 velocity, ref int type, ref int damage, ref float knockBack)
+        {
+            if (item.type == ItemType<OceansJudgement>())
+                velocity *= 1.5f;
+        }
         public override void UpdateAccessory(Item item, Player player, bool hideVisual)
         {
             if (item.type == ItemType<ColossusSoul>() || item.type == ItemType<DimensionSoul>() || item.type == ItemType<EternitySoul>())

@@ -5,6 +5,7 @@ using Terraria.DataStructures;
 using Terraria.ModLoader;
 using ThoriumMod.Items.BossThePrimordials.Aqua;
 using ThoriumMod.Projectiles;
+using ThoriumMod.Projectiles.Bard;
 using ThoriumMod.Projectiles.Thrower;
 
 namespace CSE.Core.Thorium.Globals
@@ -17,7 +18,7 @@ namespace CSE.Core.Thorium.Globals
         public bool immuneToCD;
         public override void OnSpawn(Projectile projectile, IEntitySource source)
         {
-            if (projectile.type == ModContent.ProjectileType<TideDagger>() && projectile.ai[3] != 1488)
+            if (projectile.type == ModContent.ProjectileType<TideDagger>() && projectile.ai[0] != 1488)
             {
                 projectile.damage = 0;
                 projectile.hide = true;
@@ -27,7 +28,7 @@ namespace CSE.Core.Thorium.Globals
             if (projectile.type == ModContent.ProjectileType<WhiteFlare>() && projectile.owner.ToPlayer().GetModPlayer<ThoriumPlayer>().ivoryFlameCD < 1)
             {
                 immuneToCD = true;
-                projectile.owner.ToPlayer().GetModPlayer<ThoriumPlayer>().ivoryFlameCD = 60;
+                projectile.owner.ToPlayer().GetModPlayer<ThoriumPlayer>().ivoryFlameCD = 120;
                 if(projectile.damage > 3000)
                 {
                     projectile.damage = 3000;
@@ -51,6 +52,18 @@ namespace CSE.Core.Thorium.Globals
                 projectile.hide = true;
                 projectile.timeLeft = 0;
                 projectile.netUpdate = true;
+            }
+            if(projectile.type == ModContent.ProjectileType<OceansJudgementPro2>())
+            {
+                projectile.velocity *= 1.5f;
+            }
+        }
+
+        public override void OnHitNPC(Projectile projectile, NPC target, NPC.HitInfo hit, int damageDone)
+        {
+            if(projectile.type == ModContent.ProjectileType<BlackMIDIPro>())
+            {
+                Main.player[projectile.owner].statLife -= (int)(damageDone * 0.1f);
             }
         }
 

@@ -6,8 +6,8 @@ EModeBalance: {
 	Unnerf: "[c/00A36C:Cross-mod Balance: ]Reverted DLC nerf"
 	PostND: "[c/FF0000:Cross-mod Balance:] Can be only used after defeating the Nameless Deity"
 	PostMutant: "[c/FF0000:Cross-mod Balance:] Can be only used after defeating Mutant"
-	WhiteDwarfNerf: "[c/FF0000:Cross-mod Balance:] Ivory flare has 1 second cooldown and damage cap (3000 damage)"
-	TideDaggersNerf: "[c/FF0000:Cross-mod Balance:] Reduced frequency of shooting tide dagger"
+	WhiteDwarfNerf: "[c/FF0000:Cross-mod Balance:] Ivory flare has 2 seconds cooldown and damage cap (3000 damage)"
+	TideDaggersNerf: "[c/FF0000:Cross-mod Balance:] Reduced frequency and damage of shooting tide dagger"
 	InfernoNerf: "[c/FF0000:Cross-mod Balance:] Reduced density of bursts"
 	PostAbomSlot: "[c/FF0000:Cross-mod Balance:] Can only be used after defeating Abominationn"
 	MalevolenceGrenadeNerf: "[c/FF0000:Cross-mod Balance:] Grenades deal 80% less damage"
@@ -15,6 +15,7 @@ EModeBalance: {
 	HWJDefenseNerf1: "[c/FF0000:Cross-mod Balance:] Defense reduced by 50%"
 	HWJDefenseNerf2: "[c/FF0000:Cross-mod Balance:] Defense reduced by 33%"
 	HWJStunImmunity: "[c/FF0000:Cross-mod Balance:] Souls Mod bosses are not affected by exhaustion"
+	MidiHealNerf: "[c/FF0000:Cross-mod Balance:] Healing is canceled"
 }
 
 TrueEternityRevDifficulty: {
