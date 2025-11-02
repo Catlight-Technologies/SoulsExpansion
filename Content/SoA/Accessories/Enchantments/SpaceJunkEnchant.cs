@@ -20,6 +20,10 @@ using FargowiltasSouls.Core.Toggler;
 using CSE.Content.SoA.Headers;
 using CSE.Content.SoA.Projectiles;
 using static CSE.Content.SoA.Accessories.Forces.FoundationsForce;
+using Fargowiltas.Content.Items.Tiles;
+using static CSE.Content.SoA.Accessories.Forces.FrostburnForce;
+using static CSE.Content.SoA.Accessories.Souls.SoulOfTwoRealms;
+using static CSE.Content.SoA.Accessories.Enchantments.FrosthunterEnchant;
 
 namespace CSE.Content.SoA.Accessories.Enchantments
 {
@@ -72,8 +76,24 @@ namespace CSE.Content.SoA.Accessories.Enchantments
                     }
                 }
             }
-        }
 
+            public static int BaseDamage(Player player)
+            {
+                int dmg = 100;
+                if (player.HasEffect<FoundationsEffect>() && !player.HasEffect<TwoRealmsEffect>())
+                    dmg = 1000;
+                if (player.HasEffect<TwoRealmsEffect>())
+                    dmg = 10000;
+                return (int)(dmg * player.ActualClassDamage(DamageClass.Throwing));
+            }
+        }
+        public override int DamageTooltip(out DamageClass damageClass, out Color? tooltipColor, out int? scaling)
+        {
+            damageClass = DamageClass.Throwing;
+            tooltipColor = null;
+            scaling = null;
+            return FrosthunterEffect.BaseDamage(Main.LocalPlayer);
+        }
         public class SpaceJunkAbilityEffect : AccessoryEffect
         {
             public override Header ToggleHeader => null;
@@ -143,7 +163,7 @@ namespace CSE.Content.SoA.Accessories.Enchantments
             recipe.AddIngredient<OrbFlayer>();
             recipe.AddIngredient<HornetNeedle>();
             recipe.AddIngredient<GoldDoorHandle>();
-            recipe.AddTile(125);
+            recipe.AddTile<EnchantedTreeSheet>();
             recipe.Register();
         }
     }

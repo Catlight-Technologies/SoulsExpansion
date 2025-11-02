@@ -11,6 +11,13 @@ using SacredTools.Items.Mount;
 using CSE.Core;
 using FargowiltasSouls.Core.Toggler;
 using CSE.Content.SoA.Headers;
+using Fargowiltas.Content.Items.Tiles;
+using static CSE.Content.Thorium.Accessories.Enchantments.YewWoodEnchant;
+using FargowiltasSouls;
+using static CSE.Content.Thorium.Accessories.Souls.SoulOfYggdrasil;
+using static CSE.Content.Thorium.Forces.VanaheimForce;
+using static CSE.Content.SoA.Accessories.Forces.FrostburnForce;
+using static CSE.Content.SoA.Accessories.Souls.SoulOfTwoRealms;
 
 namespace CSE.Content.SoA.Accessories.Enchantments
 {
@@ -39,6 +46,24 @@ namespace CSE.Content.SoA.Accessories.Enchantments
         {
             public override Header ToggleHeader => Header.GetHeader<FrostburnForceHeader>();
             public override int ToggleItemType => ModContent.ItemType<FlariumEnchant>();
+
+            public static int BaseDamage(Player player)
+            {
+                int dmg = 100;
+                if (player.HasEffect<FrostburnEffect>() && !player.HasEffect<TwoRealmsEffect>())
+                    dmg = 150;
+                if (player.HasEffect<TwoRealmsEffect>())
+                    dmg = 300;
+                return (int)(dmg * player.ActualClassDamage(DamageClass.Generic));
+            }
+        }
+
+        public override int DamageTooltip(out DamageClass damageClass, out Color? tooltipColor, out int? scaling)
+        {
+            damageClass = DamageClass.Generic;
+            tooltipColor = null;
+            scaling = null;
+            return FlariumEffect.BaseDamage(Main.LocalPlayer);
         }
         public override void AddRecipes()
         {
@@ -49,7 +74,7 @@ namespace CSE.Content.SoA.Accessories.Enchantments
             recipe.AddIngredient<FlariumRocketLauncher>();
             recipe.AddIngredient<SolusKatana>();
             recipe.AddIngredient<SerpentSceptre>();
-            recipe.AddTile(412);
+            recipe.AddTile<EnchantedTreeSheet>();
             recipe.Register();
         }
     }

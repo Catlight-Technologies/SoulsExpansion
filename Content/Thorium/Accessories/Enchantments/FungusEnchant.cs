@@ -9,6 +9,7 @@ using FargowiltasSouls.Core.AccessoryEffectSystem;
 using CSE.Core;
 using FargowiltasSouls.Core.Toggler;
 using CSE.Content.Thorium.Headers;
+using Fargowiltas.Content.Items.Tiles;
 
 namespace CSE.Content.Thorium.Accessories.Enchantments
 {
@@ -50,7 +51,7 @@ namespace CSE.Content.Thorium.Accessories.Enchantments
             recipe.AddIngredient(ModContent.ItemType<SwampSpike>());
             recipe.AddIngredient(ModContent.ItemType<SporeCoatingItem>(), 10);
 
-            recipe.AddTile(TileID.CrystalBall);
+            recipe.AddTile<EnchantedTreeSheet>();
             recipe.Register();
         }
     }

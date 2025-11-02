@@ -12,6 +12,7 @@ using FargowiltasSouls.Core.Toggler;
 using CSE.Core.SoA.ModPlayers;
 using CSE.Content.SoA.Headers;
 using CSE.Content.SoA.Buffs;
+using Fargowiltas.Content.Items.Tiles;
 
 namespace CSE.Content.SoA.Accessories.Enchantments
 {
@@ -102,7 +103,7 @@ namespace CSE.Content.SoA.Accessories.Enchantments
             recipe.AddIngredient<Nyanmere>();
             recipe.AddIngredient<StarShower>();
             recipe.AddIngredient<AsteroidShower>();
-            recipe.AddTile(412);
+            recipe.AddTile<EnchantedTreeSheet>();
             recipe.Register();
         }
     }

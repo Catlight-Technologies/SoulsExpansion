@@ -14,6 +14,10 @@ using CSE.Content.Thorium.Projectiles;
 using FargowiltasSouls;
 using CSE.Content.Thorium.Headers;
 using ThoriumMod.Items.BossBuriedChampion;
+using static CSE.Content.Thorium.Accessories.Enchantments.YewWoodEnchant;
+using static CSE.Content.Thorium.Forces.VanaheimForce;
+using static CSE.Content.Thorium.Accessories.Souls.SoulOfYggdrasil;
+using Fargowiltas.Content.Items.Tiles;
 
 namespace CSE.Content.Thorium.Accessories.Enchantments
 {
@@ -58,14 +62,30 @@ namespace CSE.Content.Thorium.Accessories.Enchantments
                     featherTimer = 0;
                 }
             }
+
+            public static int BaseDamage(Player player)
+            {
+                int dmg = 15;
+                if (player.HasEffect<frostburnEffect>())
+                    dmg = 300;
+                return (int)(dmg * player.ActualClassDamage(DamageClass.Throwing));
+            }
             public override void OnHitByEither(Player player, NPC npc, Projectile proj)
             {
                 for (int i = 0; i < featherCount; i++)
                 {
                     Vector2 velocity = Vector2.Zero;
-                    Projectile.NewProjectile(player.GetSource_FromThis(), player.Center, velocity.RotatedBy(2 * Math.PI / 10 * i), ModContent.ProjectileType<FeatherProj>(), (int)player.GetDamage(DamageClass.Generic).ApplyTo(player.FargoSouls().FlightMasterySoul ? 300 : 30), 0);
+                    Projectile.NewProjectile(player.GetSource_FromThis(), player.Center, velocity.RotatedBy(2 * Math.PI / 10 * i), ModContent.ProjectileType<FeatherProj>(), BaseDamage(player), 0);
                 }
             }
+        }
+
+        public override int DamageTooltip(out DamageClass damageClass, out Color? tooltipColor, out int? scaling)
+        {
+            damageClass = DamageClass.Throwing;
+            tooltipColor = null;
+            scaling = null;
+            return FlightEffect.BaseDamage(Main.LocalPlayer);
         }
         public override void AddRecipes()
         {
@@ -78,7 +98,7 @@ namespace CSE.Content.Thorium.Accessories.Enchantments
             //recipe.AddIngredient(ModContent.ItemType<Flight>());
             recipe.AddIngredient(ModContent.ItemType<Bolas>(), 300);
 
-            recipe.AddTile(TileID.DemonAltar);
+            recipe.AddTile<EnchantedTreeSheet>();
             recipe.Register();
         }
     }

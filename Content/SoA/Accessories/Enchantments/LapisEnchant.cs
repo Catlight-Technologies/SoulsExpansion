@@ -15,6 +15,7 @@ using CSE.Content.SoA.Headers;
 using CSE.Core;
 using SacredTools.Common.Types;
 using System;
+using Fargowiltas.Content.Items.Tiles;
 
 namespace CSE.Content.SoA.Accessories.Enchantments
 {
@@ -90,7 +91,7 @@ namespace CSE.Content.SoA.Accessories.Enchantments
             recipe.AddIngredient<LapisPendant>();
             recipe.AddIngredient<LapisStaff>();
             recipe.AddIngredient<Haven>();
-            recipe.AddTile(26);
+            recipe.AddTile<EnchantedTreeSheet>();
             recipe.Register();
         }
     }

@@ -11,6 +11,7 @@ using FargowiltasSouls.Core.Toggler;
 using CSE.Content.Thorium.Headers;
 using FargowiltasSouls;
 using static CSE.Content.Thorium.Forces.SvartalfheimForce;
+using Fargowiltas.Content.Items.Tiles;
 
 namespace CSE.Content.Thorium.Accessories.Enchantments
 {
@@ -77,7 +78,7 @@ namespace CSE.Content.Thorium.Accessories.Enchantments
             //recipe.AddIngredient(ModContent.ItemType<DrownedDoubloon>());
             //recipe.AddIngredient(ModContent.ItemType<MagicConch>());
 
-            recipe.AddTile(TileID.DemonAltar);
+            recipe.AddTile<EnchantedTreeSheet>();
             recipe.Register();
         }
     }

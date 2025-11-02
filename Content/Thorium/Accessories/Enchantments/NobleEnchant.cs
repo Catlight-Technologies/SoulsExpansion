@@ -10,6 +10,7 @@ using FargowiltasSouls.Core.AccessoryEffectSystem;
 using FargowiltasSouls.Core.Toggler;
 using CSE.Content.Thorium.Headers;
 using CSE.Content.Thorium.Buffs;
+using Fargowiltas.Content.Items.Tiles;
 
 namespace CSE.Content.Thorium.Accessories.Enchantments
 {
@@ -68,7 +69,7 @@ namespace CSE.Content.Thorium.Accessories.Enchantments
             recipe.AddIngredient(ModContent.ItemType<BrassCap>());
             recipe.AddIngredient(ModContent.ItemType<WaxyRosin>());
 
-            recipe.AddTile(TileID.DemonAltar);
+            recipe.AddTile<EnchantedTreeSheet>();
             recipe.Register();
         }
     }

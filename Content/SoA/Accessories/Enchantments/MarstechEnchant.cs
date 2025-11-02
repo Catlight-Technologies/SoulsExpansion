@@ -13,6 +13,7 @@ using CSE.Core;
 using FargowiltasSouls.Core.Toggler;
 using CSE.Content.SoA.Projectiles;
 using static CSE.Content.SoA.Accessories.Enchantments.SpaceJunkEnchant;
+using Fargowiltas.Content.Items.Tiles;
 
 namespace CSE.Content.SoA.Accessories.Enchantments
 {
@@ -85,7 +86,7 @@ namespace CSE.Content.SoA.Accessories.Enchantments
             recipe.AddIngredient<MarstechPlate>();
             recipe.AddIngredient<MarstechLegs>();
             recipe.AddIngredient<SpaceJunkEnchant>();
-            recipe.AddTile(125);
+            recipe.AddTile<EnchantedTreeSheet>();
             recipe.Register();
         }
     }

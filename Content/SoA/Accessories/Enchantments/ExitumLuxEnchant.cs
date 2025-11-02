@@ -11,6 +11,7 @@ using SacredTools.Common.GlobalItems;
 using CSE.Core;
 using FargowiltasSouls.Core.Toggler;
 using CSE.Content.SoA.Headers;
+using Fargowiltas.Content.Items.Tiles;
 
 namespace CSE.Content.SoA.Accessories.Enchantments
 {
@@ -59,7 +60,7 @@ namespace CSE.Content.SoA.Accessories.Enchantments
             recipe.AddIngredient<ExodusLegs>();
             recipe.AddIngredient<LuxDustThrown>();
             recipe.AddIngredient<Claymarine>();
-            recipe.AddTile(412);
+            recipe.AddTile<EnchantedTreeSheet>();
             recipe.Register();
         }
     }

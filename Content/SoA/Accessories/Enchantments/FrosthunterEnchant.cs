@@ -14,6 +14,9 @@ using CSE.Content.SoA.Projectiles;
 using FargowiltasSouls.Core.Toggler;
 using CSE.Content.SoA.Headers;
 using static CSE.Content.SoA.Accessories.Forces.FrostburnForce;
+using Fargowiltas.Content.Items.Tiles;
+using static CSE.Content.SoA.Accessories.Souls.SoulOfTwoRealms;
+using static CSE.Content.SoA.Accessories.Enchantments.BlightboneEnchant;
 
 namespace CSE.Content.SoA.Accessories.Enchantments
 {
@@ -44,7 +47,7 @@ namespace CSE.Content.SoA.Accessories.Enchantments
             public void CreateFrostExplosion(Vector2 pos, bool isCluster, Projectile proj, Player player)
             {
                 float radius = isCluster ? 100f : 150f;
-                int damage = (int)(player.GetDamage(DamageClass.Generic).ApplyTo(player.HasEffect<FrostburnEffect>() ? 150 : 15));
+                int damage = (int)(BaseDamage(player) * 1.5f);
                 float knockback = 3f;
 
                 for (int i = 0; i < Main.maxNPCs; i++)
@@ -71,7 +74,7 @@ namespace CSE.Content.SoA.Accessories.Enchantments
             public void CreateSmallFrostExplosion(Vector2 pos, Projectile proj, Player player)
             {
                 float radius = 60f;
-                int damage = (int)(player.GetDamage(DamageClass.Generic).ApplyTo(player.HasEffect<FrostburnEffect>() ? 100 : 10));
+                int damage = BaseDamage(player);
                 float knockback = 1.5f;
 
                 for (int i = 0; i < Main.maxNPCs; i++)
@@ -99,6 +102,15 @@ namespace CSE.Content.SoA.Accessories.Enchantments
                 }
             }
 
+            public static int BaseDamage(Player player)
+            {
+                int dmg = 10;
+                if (player.HasEffect<FrostburnEffect>() && !player.HasEffect<TwoRealmsEffect>())
+                    dmg = 100;
+                if (player.HasEffect<TwoRealmsEffect>())
+                    dmg = 300;
+                return (int)(dmg * player.ActualClassDamage(DamageClass.Ranged));
+            }
             public override void PostUpdateEquips(Player player)
             {
                 if (frosthunterCooldown > 0)
@@ -111,6 +123,13 @@ namespace CSE.Content.SoA.Accessories.Enchantments
             public override bool ExtraAttackEffect => true;
         }
 
+        public override int DamageTooltip(out DamageClass damageClass, out Color? tooltipColor, out int? scaling)
+        {
+            damageClass = DamageClass.Ranged;
+            tooltipColor = null;
+            scaling = null;
+            return FrosthunterEffect.BaseDamage(Main.LocalPlayer);
+        }
         public override void AddRecipes()
         {
             Recipe recipe = this.CreateRecipe();
@@ -120,7 +139,7 @@ namespace CSE.Content.SoA.Accessories.Enchantments
             recipe.AddIngredient<DecreeCharm>();
             recipe.AddIngredient<FrostGlobeStaff>();
             recipe.AddIngredient<FrostBeam>();
-            recipe.AddTile(26);
+            recipe.AddTile<EnchantedTreeSheet>();
             recipe.Register();
         }
     }

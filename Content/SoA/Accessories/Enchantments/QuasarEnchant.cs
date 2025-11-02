@@ -10,6 +10,7 @@ using SacredTools.Items.Weapons.Primordia;
 using CSE.Core;
 using FargowiltasSouls.Core.Toggler;
 using CSE.Content.SoA.Headers;
+using Fargowiltas.Content.Items.Tiles;
 
 namespace CSE.Content.SoA.Accessories.Enchantments
 {
@@ -49,7 +50,7 @@ namespace CSE.Content.SoA.Accessories.Enchantments
             recipe.AddIngredient<Ainfijarnar>();
             recipe.AddIngredient<NovaknifePack>();
             recipe.AddIngredient<NovaLance>();
-            recipe.AddTile(412);
+            recipe.AddTile<EnchantedTreeSheet>();
             recipe.Register();
         }
     }

@@ -12,6 +12,7 @@ using CSE.Core;
 using FargowiltasSouls.Core.Toggler;
 using CSE.Content.Thorium.Headers;
 using CSE.Content.Thorium.Buffs;
+using Fargowiltas.Content.Items.Tiles;
 
 namespace CSE.Content.Thorium.Accessories.Enchantments
 {
@@ -62,7 +63,7 @@ namespace CSE.Content.Thorium.Accessories.Enchantments
             recipe.AddIngredient(ModContent.ItemType<WoodenWhistle>());
             recipe.AddRecipeGroup("CSE:AnyBugleHorn");
 
-            recipe.AddTile(TileID.DemonAltar);
+            recipe.AddTile<EnchantedTreeSheet>();
             recipe.Register();
         }
     }

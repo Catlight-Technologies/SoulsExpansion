@@ -10,6 +10,7 @@ using CSE.Core;
 using FargowiltasSouls.Core.Toggler;
 using CSE.Content.SoA.Headers;
 using static CSE.Content.SoA.Accessories.Enchantments.QuasarEnchant;
+using Fargowiltas.Content.Items.Tiles;
 
 namespace CSE.Content.SoA.Accessories.Enchantments
 {
@@ -51,7 +52,7 @@ namespace CSE.Content.SoA.Accessories.Enchantments
             recipe.AddIngredient<QuasarEnchant>();
             recipe.AddIngredient<CosmicDesolation>();
             recipe.AddIngredient<LunaticsGamble>();
-            recipe.AddTile(412);
+            recipe.AddTile<EnchantedTreeSheet>();
             recipe.Register();
         }
     }

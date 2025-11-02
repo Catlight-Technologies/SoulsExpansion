@@ -11,6 +11,7 @@ using SacredTools.NPCs;
 using CSE.Core;
 using FargowiltasSouls.Core.Toggler;
 using CSE.Content.SoA.Headers;
+using Fargowiltas.Content.Items.Tiles;
 
 namespace CSE.Content.SoA.Accessories.Enchantments
 {
@@ -59,7 +60,7 @@ namespace CSE.Content.SoA.Accessories.Enchantments
             recipe.AddIngredient<AsthralRing>();
             recipe.AddIngredient<AsthralSaber>();
             recipe.AddIngredient<AsthralBlade>();
-            recipe.AddTile(412);
+            recipe.AddTile<EnchantedTreeSheet>();
             recipe.Register();
         }
     }

@@ -12,6 +12,7 @@ using FargowiltasSouls;
 using FargowiltasSouls.Core.Toggler;
 using CSE.Core;
 using CSE.Content.SoA.Headers;
+using Fargowiltas.Content.Items.Tiles;
 
 namespace CSE.Content.SoA.Accessories.Enchantments
 {
@@ -86,7 +87,7 @@ namespace CSE.Content.SoA.Accessories.Enchantments
             //recipe.AddIngredient<NubasBlessing>();
             recipe.AddIngredient<LunaticBurstStaff>();
             recipe.AddIngredient<AsthralStaff>();
-            recipe.AddTile(412);
+            recipe.AddTile<EnchantedTreeSheet>();
             recipe.Register();
         }
     }

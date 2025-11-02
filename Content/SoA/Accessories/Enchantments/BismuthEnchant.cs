@@ -13,6 +13,7 @@ using CSE.Core;
 using CSE.Content.SoA.Headers;
 using FargowiltasSouls.Core.Toggler;
 using static CSE.Content.SoA.Accessories.Forces.FoundationsForce;
+using Fargowiltas.Content.Items.Tiles;
 
 namespace CSE.Content.SoA.Accessories.Enchantments
 {
@@ -100,7 +101,7 @@ namespace CSE.Content.SoA.Accessories.Enchantments
             recipe.AddIngredient<VenomiteStaff>();
             recipe.AddIngredient<DeathsGarden>();
             recipe.AddIngredient<GospelOfDismay>();
-            recipe.AddTile(26);
+            recipe.AddTile<EnchantedTreeSheet>();
             recipe.Register();
         }
     }

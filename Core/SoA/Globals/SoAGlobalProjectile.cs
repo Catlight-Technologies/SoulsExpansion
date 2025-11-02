@@ -80,7 +80,7 @@ namespace CSE.Core.SoA.Globals
                         spawnPosition,
                         Vector2.Zero,
                         ModContent.ProjectileType<FlariumTornado>(),
-                        100,
+                        FlariumEffect.BaseDamage(projectile.owner.ToPlayer()),
                         0,
                         projectile.owner
                     );

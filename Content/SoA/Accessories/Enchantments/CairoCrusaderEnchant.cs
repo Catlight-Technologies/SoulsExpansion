@@ -14,6 +14,7 @@ using CSE.Core;
 using FargowiltasSouls.Core.Toggler;
 using CSE.Content.SoA.Headers;
 using static CSE.Content.SoA.Accessories.Forces.GenerationsForce;
+using Fargowiltas.Content.Items.Tiles;
 
 namespace CSE.Content.SoA.Accessories.Enchantments
 {
@@ -63,7 +64,7 @@ namespace CSE.Content.SoA.Accessories.Enchantments
             recipe.AddIngredient<DesertStaff>();
             recipe.AddIngredient<SandstormMedallion>();
             recipe.AddIngredient<ElementalFlinger>();
-            recipe.AddTile(26);
+            recipe.AddTile<EnchantedTreeSheet>();
             recipe.Register();
         }
     }

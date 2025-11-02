@@ -11,6 +11,11 @@ using FargowiltasSouls.Core.AccessoryEffectSystem;
 using CSE.Core;
 using FargowiltasSouls.Core.Toggler;
 using CSE.Content.Thorium.Headers;
+using FargowiltasSouls;
+using static CSE.Content.Thorium.Accessories.Souls.SoulOfYggdrasil;
+using static CSE.Content.Thorium.Forces.VanaheimForce;
+using static CSE.Content.Thorium.Accessories.Enchantments.YewWoodEnchant;
+using Fargowiltas.Content.Items.Tiles;
 
 namespace CSE.Content.Thorium.Accessories.Enchantments
 {
@@ -47,14 +52,22 @@ namespace CSE.Content.Thorium.Accessories.Enchantments
             recipe.AddIngredient(ModContent.ItemType<PlasmaGenerator>());
             recipe.AddIngredient(ModContent.ItemType<AncientFlame>());
             recipe.AddIngredient(ModContent.ItemType<AlmanacofAgony>());
-
-            recipe.AddTile(TileID.LunarCraftingStation);
+            recipe.AddTile<EnchantedTreeSheet>();
             recipe.Register();
         }
         public class PyromancerEffect : AccessoryEffect
         {
             public override Header ToggleHeader => Header.GetHeader<AsgardForceHeader>();
             public override int ToggleItemType => ModContent.ItemType<PyromancerEnchant>();
+
+            public static int BaseDamage(Player player)
+            {
+                int dmg = 260;
+                if (player.HasEffect<YggdrasilEffect>())
+                    dmg = 520;
+                return (int)(dmg * player.ActualClassDamage(DamageClass.Ranged));
+            }
+
             //public override bool ActiveSkill => true;
 
             //public int cd;
@@ -93,6 +106,14 @@ namespace CSE.Content.Thorium.Accessories.Enchantments
             //        }
             //    }
             //}
+        }
+
+        public override int DamageTooltip(out DamageClass damageClass, out Color? tooltipColor, out int? scaling)
+        {
+            damageClass = DamageClass.Magic;
+            tooltipColor = null;
+            scaling = null;
+            return YewWoodEffect.BaseDamage(Main.LocalPlayer);
         }
     }
 }

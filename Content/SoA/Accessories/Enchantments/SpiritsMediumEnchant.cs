@@ -11,6 +11,7 @@ using SacredTools.Items.Weapons.Oblivion;
 using CSE.Core;
 using FargowiltasSouls.Core.Toggler;
 using CSE.Content.SoA.Headers;
+using Fargowiltas.Content.Items.Tiles;
 
 
 namespace CSE.Content.SoA.Accessories.Enchantments
@@ -51,7 +52,7 @@ namespace CSE.Content.SoA.Accessories.Enchantments
             recipe.AddIngredient<GalaxyScepter>();
             recipe.AddIngredient<LunarCrystalStaff>();
             recipe.AddIngredient<OblivionRod>();
-            recipe.AddTile(412);
+            recipe.AddTile<EnchantedTreeSheet>();
             recipe.Register();
         }
     }

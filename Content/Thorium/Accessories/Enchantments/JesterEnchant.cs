@@ -9,6 +9,7 @@ using FargowiltasSouls.Core.Toggler;
 using CSE.Core;
 using CSE.Content.Thorium.Projectiles;
 using CSE.Content.Thorium.Headers;
+using Fargowiltas.Content.Items.Tiles;
 
 
 namespace CSE.Content.Thorium.Accessories.Enchantments
@@ -65,7 +66,7 @@ namespace CSE.Content.Thorium.Accessories.Enchantments
             recipe.AddRecipeGroup("CSE:AnyTambourine");
             recipe.AddIngredient(ModContent.ItemType<SkywareLute>());
 
-            recipe.AddTile(TileID.DemonAltar);
+            recipe.AddTile<EnchantedTreeSheet>();
             recipe.Register();
         }
     }

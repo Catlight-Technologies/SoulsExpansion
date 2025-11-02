@@ -227,24 +227,21 @@ namespace CSE.Core.Thorium.Globals
 
         public override bool Shoot(Item item, Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
-            if (player.GetModPlayer<ThoriumPlayer>().yewWoodCD < 0 && player.HasEffect<YewWoodEffect>())
+            if (player.GetModPlayer<ThoriumPlayer>().yewWoodCD <= 0 && player.HasEffect<YewWoodEffect>())
             {
-                Vector2 center = player.Center;
-                Vector2 vector = Vector2.Normalize(Main.MouseWorld - center);
-
-                if (Main.rand.Next(player.ForceEffect<YewWoodEffect>() ? 5 : 10) != 0)
+                if (Main.rand.NextBool(5))
                 {
                     Projectile.NewProjectile(
-                        player.GetSource_FromThis(),
+                        source,
                         player.Center,
-                        vector,
+                        velocity,
                         ProjectileType<VileArrow>(),
-                        5,
+                        YewWoodEffect.BaseDamage(player),
                         0f,
                         player.whoAmI
                     );
                     //0.5 sec
-                    player.GetModPlayer<ThoriumPlayer>().yewWoodCD += 30;
+                    player.GetModPlayer<ThoriumPlayer>().yewWoodCD = 30;
                 }
             }
             return base.Shoot(item, player, source, position, velocity, type, damage, knockback);

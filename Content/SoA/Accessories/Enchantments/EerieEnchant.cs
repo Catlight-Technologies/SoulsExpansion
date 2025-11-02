@@ -12,6 +12,7 @@ using CSE.Core;
 using FargowiltasSouls.Core.Toggler;
 using CSE.Content.SoA.Projectiles;
 using CSE.Content.SoA.Headers;
+using Fargowiltas.Content.Items.Tiles;
 
 namespace CSE.Content.SoA.Accessories.Enchantments
 {
@@ -80,7 +81,7 @@ namespace CSE.Content.SoA.Accessories.Enchantments
             recipe.AddIngredient<EerieLegs>();
             recipe.AddIngredient<EerieHelmet>();
             recipe.AddIngredient<EerieCane>();
-            recipe.AddTile(26);
+            recipe.AddTile<EnchantedTreeSheet>();
             recipe.Register();
         }
     }

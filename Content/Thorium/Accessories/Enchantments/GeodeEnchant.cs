@@ -8,6 +8,7 @@ using FargowiltasSouls.Core.AccessoryEffectSystem;
 using FargowiltasSouls.Core.Toggler.Content;
 using CSE.Core;
 using FargowiltasSouls.Core.Toggler;
+using Fargowiltas.Content.Items.Tiles;
 
 namespace CSE.Content.Thorium.Accessories.Enchantments
 {
@@ -48,7 +49,7 @@ namespace CSE.Content.Thorium.Accessories.Enchantments
             recipe.AddIngredient(ModContent.ItemType<GeodeHamaxe>());
             recipe.AddIngredient(ModContent.ItemType<GeodePickaxe>());
 
-            recipe.AddTile(TileID.CrystalBall);
+            recipe.AddTile<EnchantedTreeSheet>();
             recipe.Register();
         }
     }

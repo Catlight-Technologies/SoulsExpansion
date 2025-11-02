@@ -13,6 +13,7 @@ using SacredTools;
 using CSE.Core;
 using SacredTools.Common.Players;
 using static CSE.Content.SoA.Accessories.Forces.GenerationsForce;
+using Fargowiltas.Content.Items.Tiles;
 
 namespace CSE.Content.SoA.Accessories.Enchantments
 {
@@ -81,7 +82,7 @@ namespace CSE.Content.SoA.Accessories.Enchantments
             recipe.AddIngredient<WoodJavelin>(100);
             recipe.AddIngredient<GoldJavelin>(100);
             recipe.AddIngredient<PlatinumJavelin>(100);
-            recipe.AddTile(26);
+            recipe.AddTile<EnchantedTreeSheet>();
             recipe.Register();
         }
     }

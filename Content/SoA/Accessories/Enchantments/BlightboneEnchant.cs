@@ -13,6 +13,9 @@ using CSE.Core;
 using FargowiltasSouls.Core.Toggler;
 using CSE.Content.SoA.Headers;
 using CSE.Content.SoA.Projectiles;
+using Fargowiltas.Content.Items.Tiles;
+using static CSE.Content.SoA.Accessories.Forces.FrostburnForce;
+using static CSE.Content.SoA.Accessories.Souls.SoulOfTwoRealms;
 
 namespace CSE.Content.SoA.Accessories.Enchantments
 {
@@ -35,8 +38,6 @@ namespace CSE.Content.SoA.Accessories.Enchantments
 
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
-            ModContent.Find<ModItem>(ModCompatibility.SacredTools.Name, "FeatherHairpin").UpdateAccessory(player, false);
-
             player.AddEffect<BlightboneEffect>(Item);
         }
         public class BlightboneEffect : AccessoryEffect
@@ -53,13 +54,21 @@ namespace CSE.Content.SoA.Accessories.Enchantments
                 }
 
                 boneCD = 30;
-                float num = 50f;
                 Vector2 center = player.Center;
                 Vector2 vector = Vector2.Normalize(Main.MouseWorld - center);
                 for (int i = 0; i < (player.ForceEffect<BlightboneEffect>() ? 3 : 1); i++)
                 {
-                    Projectile.NewProjectile(GetSource_EffectItem(player), center, vector.RotatedByRandom(Math.PI / 6.0) * Main.rand.NextFloat(6f, 10f) * 2, ModContent.ProjectileType<Blightbone>(), (int)(num * player.ActualClassDamage(DamageClass.Throwing)), 9f, player.whoAmI);
+                    Projectile.NewProjectile(GetSource_EffectItem(player), center, vector.RotatedByRandom(Math.PI / 6.0) * Main.rand.NextFloat(6f, 10f) * 2, ModContent.ProjectileType<Blightbone>(), BaseDamage(player), 9f, player.whoAmI);
                 }
+            }
+            public static int BaseDamage(Player player)
+            {
+                int dmg = 30;
+                if (player.HasEffect<FrostburnEffect>() && !player.HasEffect<TwoRealmsEffect>())
+                    dmg = 90;
+                if (player.HasEffect<TwoRealmsEffect>())
+                    dmg = 130;
+                return (int)(dmg * player.ActualClassDamage(DamageClass.Throwing));
             }
             public override void PostUpdateEquips(Player player)
             {
@@ -70,6 +79,13 @@ namespace CSE.Content.SoA.Accessories.Enchantments
             }
         }
 
+        public override int DamageTooltip(out DamageClass damageClass, out Color? tooltipColor, out int? scaling)
+        {
+            damageClass = DamageClass.Throwing;
+            tooltipColor = null;
+            scaling = null;
+            return BlightboneEffect.BaseDamage(Main.LocalPlayer);
+        }
         public override void AddRecipes()
         {
             Recipe recipe = this.CreateRecipe();
@@ -79,7 +95,7 @@ namespace CSE.Content.SoA.Accessories.Enchantments
             recipe.AddIngredient<PumpkinAmulet>();
             recipe.AddIngredient<FeatherHairpin>();
             recipe.AddIngredient<PumpGlove>();
-            recipe.AddTile(26);
+            recipe.AddTile<EnchantedTreeSheet>();
             recipe.Register();
         }
     }

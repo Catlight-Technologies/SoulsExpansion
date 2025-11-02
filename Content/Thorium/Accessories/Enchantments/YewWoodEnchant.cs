@@ -9,7 +9,9 @@ using FargowiltasSouls;
 using CSE.Core;
 using CSE.Content.Thorium.Headers;
 using FargowiltasSouls.Core.Toggler;
-using CSE.Content.Thorium.Projectiles;
+using static CSE.Content.Thorium.Forces.VanaheimForce;
+using static CSE.Content.Thorium.Accessories.Souls.SoulOfYggdrasil;
+using Fargowiltas.Content.Items.Tiles;
 
 namespace CSE.Content.Thorium.Accessories.Enchantments
 {
@@ -39,6 +41,15 @@ namespace CSE.Content.Thorium.Accessories.Enchantments
             public override Header ToggleHeader => Header.GetHeader<VanaheimForceHeader>();
             public override int ToggleItemType => ModContent.ItemType<YewWoodEnchant>();
             public override bool ExtraAttackEffect => true;
+            public static int BaseDamage(Player player)
+            {
+                int dmg = 2;
+                if (player.HasEffect<VanaheimEffect>() && !player.HasEffect<YggdrasilEffect>())
+                    dmg = 10;
+                if (player.HasEffect<YggdrasilEffect>())
+                    dmg = 100;
+                return (int)(dmg * player.ActualClassDamage(DamageClass.Ranged));
+            }
         }
         public override void AddRecipes()
         {
@@ -52,8 +63,16 @@ namespace CSE.Content.Thorium.Accessories.Enchantments
             recipe.AddIngredient(ModContent.ItemType<YewWoodFlintlock>());
 
 
-            recipe.AddTile(TileID.DemonAltar);
+            recipe.AddTile<EnchantedTreeSheet>();
             recipe.Register();
+        }
+
+        public override int DamageTooltip(out DamageClass damageClass, out Color? tooltipColor, out int? scaling)
+        {
+            damageClass = DamageClass.Ranged;
+            tooltipColor = null;
+            scaling = null;
+            return YewWoodEffect.BaseDamage(Main.LocalPlayer);
         }
     }
 }

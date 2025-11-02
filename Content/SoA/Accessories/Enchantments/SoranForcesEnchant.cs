@@ -13,6 +13,7 @@ using FargowiltasSouls.Content.UI.Elements;
 using CSE.Core;
 using FargowiltasSouls.Core.Toggler;
 using CSE.Content.SoA.Buffs;
+using Fargowiltas.Content.Items.Tiles;
 
 namespace CSE.Content.SoA.Accessories.Enchantments
 {
@@ -115,7 +116,7 @@ namespace CSE.Content.SoA.Accessories.Enchantments
             recipe.AddIngredient<DolphinGun>();
             recipe.AddIngredient<LightningRifle>();
             recipe.AddIngredient<PGMUltimaRatioHecateII>();
-            recipe.AddTile(412);
+            recipe.AddTile<EnchantedTreeSheet>();
             recipe.Register();
         }
     }

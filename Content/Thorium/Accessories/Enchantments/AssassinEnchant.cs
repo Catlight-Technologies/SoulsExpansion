@@ -11,6 +11,7 @@ using CSE.Core;
 using FargowiltasSouls.Core.Toggler;
 using CSE.Content.Thorium.Headers;
 using ThoriumMod.Items.Donate;
+using Fargowiltas.Content.Items.Tiles;
 
 namespace CSE.Content.Thorium.Accessories.Enchantments
 {
@@ -103,7 +104,7 @@ namespace CSE.Content.Thorium.Accessories.Enchantments
             recipe.AddIngredient(ModContent.ItemType<TheBlackBow>());
             recipe.AddIngredient(ModContent.ItemType<WyrmDecimator>());
 
-            recipe.AddTile(TileID.LunarCraftingStation);
+            recipe.AddTile<EnchantedTreeSheet>();
             recipe.Register();
         }
     }

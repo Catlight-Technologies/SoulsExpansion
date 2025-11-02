@@ -10,6 +10,7 @@ using CSE.Core;
 using CSE.Content.Thorium.Headers;
 using FargowiltasSouls.Core.AccessoryEffectSystem;
 using FargowiltasSouls.Core.Toggler;
+using Fargowiltas.Content.Items.Tiles;
 
 namespace CSE.Content.Thorium.Accessories.Enchantments
 {
@@ -51,7 +52,7 @@ namespace CSE.Content.Thorium.Accessories.Enchantments
             recipe.AddIngredient(ModContent.ItemType<ChristmasCheer>());
 
 
-            recipe.AddTile(TileID.LunarCraftingStation);
+            recipe.AddTile<EnchantedTreeSheet>();
             recipe.Register();
         }
     }

@@ -14,6 +14,7 @@ using CSE.Content.SoA.Buffs;
 using CSE.Content.SoA.Headers;
 using FargowiltasSouls.Core.ModPlayers;
 using CSE.Content.SoA.Projectiles;
+using Fargowiltas.Content.Items.Tiles;
 
 namespace CSE.Content.SoA.Accessories.Enchantments
 {
@@ -113,7 +114,7 @@ namespace CSE.Content.SoA.Accessories.Enchantments
             recipe.AddIngredient<DreadfireBoots>();
             recipe.AddIngredient<PumpkinFlare>();
             recipe.AddIngredient<PumpkinCarver>();
-            recipe.AddTile(26);
+            recipe.AddTile<EnchantedTreeSheet>();
             recipe.Register();
         }
     }
