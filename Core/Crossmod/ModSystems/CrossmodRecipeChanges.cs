@@ -65,14 +65,29 @@ namespace CSE.Core.Crossmod.ModSystems
                     }
                 }
 
-                if (recipe.HasResult<TracersCelestial>())
-                {
-                    recipe.DisableRecipe();
-                }
+                //if (recipe.HasResult<TracersCelestial>())
+                //{
+                //    recipe.DisableRecipe();
+                //}
 
                 if (recipe.HasResult<VagabondsSoul>())
                 {
                     recipe.DisableRecipe();
+                }
+
+                if (recipe.HasResult<ShieldoftheHighRuler>())
+                {
+                    if (ModCompatibility.Redemption.Loaded)
+                    {
+                        recipe.RemoveIngredient(ItemID.EoCShield);
+                        recipe.AddIngredient(ModCompatibility.Redemption.Mod.Find<ModItem>("InfectionShield"));
+                    }
+                }
+
+                if (recipe.HasResult<SupersonicSoul>())
+                {
+                    recipe.RemoveIngredient(ItemID.EoCShield);
+                    recipe.AddIngredient<ShieldoftheHighRuler>();
                 }
 
                 if (recipe.HasIngredient<VagabondsSoul>())

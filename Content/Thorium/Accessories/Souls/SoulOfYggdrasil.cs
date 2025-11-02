@@ -11,6 +11,7 @@ using Fargowiltas.Content.Items.Tiles;
 using FargowiltasSouls.Content.Items.Materials;
 using FargowiltasSouls.Core.AccessoryEffectSystem;
 using FargowiltasSouls.Core.Toggler;
+using CSE.Content.Thorium.CraftingStation;
 
 namespace CSE.Content.Thorium.Accessories.Souls
 {
@@ -87,8 +88,11 @@ namespace CSE.Content.Thorium.Accessories.Souls
                 recipe.AddIngredient(force);
 
             if (!ModCompatibility.Calamity.Loaded) { recipe.AddIngredient<AbomEnergy>(10); }
+            if (ModCompatibility.SacredTools.Loaded) { recipe.AddIngredient(ModCompatibility.SacredTools.Mod.Find<ModItem>("EmberOfOmen"), 5); }
+            if (ModCompatibility.Calamity.Loaded) { recipe.AddIngredient(ModCompatibility.Calamity.Mod.Find<ModItem>("ShadowspecBar"), 5); }
+            if (ModCompatibility.Calamity.Loaded) { recipe.AddIngredient(ModCompatibility.Calamity.Mod.Find<ModItem>("MiracleMatter")); }
 
-            recipe.AddTile<CrucibleCosmosSheet>();
+            recipe.AddTile<DreamersForgeTile>();
             recipe.Register();
         }
     }

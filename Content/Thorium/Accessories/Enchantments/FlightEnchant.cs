@@ -66,7 +66,7 @@ namespace CSE.Content.Thorium.Accessories.Enchantments
             public static int BaseDamage(Player player)
             {
                 int dmg = 15;
-                if (player.HasEffect<frostburnEffect>())
+                if (player.HasEffect<VanaheimEffect>())
                     dmg = 300;
                 return (int)(dmg * player.ActualClassDamage(DamageClass.Throwing));
             }

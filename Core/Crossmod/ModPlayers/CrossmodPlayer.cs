@@ -1,5 +1,6 @@
 ﻿using CalamityMod;
 using CalamityMod.Buffs.Summon;
+using FargowiltasSouls;
 using FargowiltasSouls.Content.Bosses.MutantBoss;
 using FargowiltasSouls.Content.Buffs.Boss;
 using Terraria;
@@ -18,6 +19,10 @@ namespace CSE.Core.Crossmod.ModPlayers
                 Player.buffImmune[ModContent.Find<ModBuff>("CalamityMod", "Enraged").Type] = true;
                 Player.buffImmune[ModContent.Find<ModBuff>("CalamityMod", "RageMode").Type] = true;
                 Player.buffImmune[ModContent.Find<ModBuff>("CalamityMod", "AdrenalineMode").Type] = true;
+            }
+            if (Player.HasBuff<MutantPresenceBuff>() && !NPC.AnyNPCs(ModContent.NPCType<MutantBoss>()))
+            {
+                Player.FargoSouls().MutantPresence = false;
             }
             if (Player.HasBuff<DemonshadeSetDevilBuff>())
             {

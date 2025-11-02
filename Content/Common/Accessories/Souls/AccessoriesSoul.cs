@@ -74,11 +74,11 @@ namespace CSE.Content.Common.Accessories.Souls
             //}
             if (ModCompatibility.SacredTools.Loaded)
             {
-                ModContent.Find<ModItem>(ModCompatibility.SacredTools.Mod.Name, "YataMirror").UpdateAccessory(player, false);
+                ModContent.Find<ModItem>(Mod.Name, "SoulOfCreations").UpdateAccessory(player, false);
             }
             if (ModCompatibility.Thorium.Loaded)
             {
-                ModContent.Find<ModItem>(Mod.Name, "MotDE").UpdateAccessory(player, false);
+                ModContent.Find<ModItem>(Mod.Name, "SoulOfRagnarok").UpdateAccessory(player, false);
             }
         }
 
@@ -105,7 +105,7 @@ namespace CSE.Content.Common.Accessories.Souls
             }
             if (ModCompatibility.Thorium.Loaded)
             {
-                recipe.AddIngredient(Mod.Find<ModItem>("MotDE"), 1);
+                recipe.AddIngredient(Mod.Find<ModItem>("SoulOfRagnarok"), 1);
             }
             //if (ModCompatibility.Homeward.Loaded)
             //{
@@ -117,7 +117,7 @@ namespace CSE.Content.Common.Accessories.Souls
             //}
             if (ModCompatibility.SacredTools.Loaded)
             {
-                recipe.AddIngredient(ModCompatibility.SacredTools.Mod.Find<ModItem>("YataMirror"), 1);
+                recipe.AddIngredient(Mod.Find<ModItem>("SoulOfCreations"), 1);
             }
 
             recipe.AddTile(ModContent.TileType<CrucibleCosmosSheet>());

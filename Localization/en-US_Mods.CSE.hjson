@@ -883,6 +883,11 @@ Items: {
 			'The true might of the 9 realms is yours!'
 			'''
 	}
+
+	SoulOfCreations: {
+		Tooltip: ""
+		DisplayName: Soul Of Creations
+	}
 }
 
 Projectiles: {

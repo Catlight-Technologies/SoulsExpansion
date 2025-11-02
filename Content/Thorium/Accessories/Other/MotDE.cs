@@ -37,10 +37,12 @@ namespace CSE.Content.Thorium.Accessories.Other
                 ModContent.GetInstance<TheOmegaCore>().UpdateAccessory(player, hideVisual);
 
             ModContent.GetInstance<TheRing>().UpdateAccessory(player, hideVisual);
+
             if (!player.FargoSouls().MutantPresence)
             {
                 ModContent.GetInstance<AbyssalShell>().UpdateAccessory(player, hideVisual);
             }
+
             player.GetDamage<GenericDamageClass>() += 0.04f;
         }
 
@@ -56,7 +58,7 @@ namespace CSE.Content.Thorium.Accessories.Other
             recipe.AddIngredient<TheRing>();
             //recipe.AddIngredient<TheShield>();
 
-            recipe.AddIngredient<AbomEnergy>(10);
+            //recipe.AddIngredient<AbomEnergy>(10);
 
             recipe.AddTile<CrucibleCosmosSheet>();
 

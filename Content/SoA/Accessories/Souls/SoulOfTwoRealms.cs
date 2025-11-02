@@ -83,6 +83,8 @@ namespace CSE.Content.SoA.Accessories.Souls
                 recipe.AddIngredient(force);
 
             if (!ModCompatibility.Calamity.Loaded) { recipe.AddIngredient<AbomEnergy>(10); }
+            if (ModCompatibility.Calamity.Loaded) { recipe.AddIngredient(ModCompatibility.Calamity.Mod.Find<ModItem>("ShadowspecBar"), 5); }
+            if (ModCompatibility.Calamity.Loaded) { recipe.AddIngredient(ModCompatibility.Calamity.Mod.Find<ModItem>("MiracleMatter")); }
 
             recipe.AddIngredient<EmberOfOmen>(5);
             recipe.AddTile<SyranCraftingStationTile>();

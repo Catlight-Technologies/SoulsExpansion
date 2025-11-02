@@ -3,6 +3,7 @@ using FargowiltasSouls.Content.Items.Accessories.Eternity;
 using FargowiltasSouls.Content.Items.Accessories.Forces;
 using FargowiltasSouls.Content.Items.Accessories.Souls;
 using FargowiltasSouls.Content.Items.Materials;
+using FargowiltasSouls.Content.Items.Summons;
 using SacredTools.Content.Items.Accessories;
 using SacredTools.Content.Items.Accessories.Sigils;
 using SacredTools.Content.Items.Accessories.Wings;
@@ -111,11 +112,6 @@ namespace CSE.Core.SoA.ModSystems
                 }
                 #endregion
 
-                if (recipe.HasResult<CosmoForce>() && !recipe.HasIngredient<LuminousEnergy>())
-                {
-                    recipe.AddIngredient<LuminousEnergy>(5);
-                }
-
                 if (recipe.HasResult<VoidSpurs>())
                 {
                     if (ModCompatibility.Thorium.Loaded)
@@ -143,6 +139,11 @@ namespace CSE.Core.SoA.ModSystems
                     }
                 }
 
+                if (recipe.HasResult<AbominationnVoodooDoll>())
+                {
+                    recipe.AddIngredient<EmberOfOmen>(5);
+                }
+
                 if (recipe.HasResult<RoyalRunners>())
                 {
                     if (ModCompatibility.Calamity.Loaded)
@@ -162,10 +163,14 @@ namespace CSE.Core.SoA.ModSystems
                     recipe.AddIngredient<AbomEnergy>(5);
                 }
 
-                if (recipe.createItem.ModItem is BaseForce)
+                if (recipe.createItem.ModItem is BaseForce || recipe.HasResult<SigilOfChampions>())
                 {
                     if (!recipe.HasIngredient<TraceOfChaos>())
                         recipe.AddIngredient<TraceOfChaos>(4);
+                    //if (recipe.HasResult<CosmoForce>() && !recipe.HasIngredient<LuminousEnergy>())
+                    //{
+                    //    recipe.AddIngredient<LuminousEnergy>(5);
+                    //}
                 }
 
                 if (recipe.HasResult<UniverseSoul>() || recipe.HasResult<TerrariaSoul>() || recipe.HasResult<MasochistSoul>() || recipe.HasResult<DimensionSoul>())

@@ -1,6 +1,7 @@
 using Fargowiltas.Content.Items.Tiles;
 using FargowiltasSouls.Content.Items.Accessories.Forces;
 using FargowiltasSouls.Content.Items.Accessories.Souls;
+using FargowiltasSouls.Content.Items.Summons;
 using Redemption.Items.Accessories.HM;
 using Redemption.Items.Accessories.PostML;
 using Redemption.Items.Materials.PostML;
@@ -36,7 +37,7 @@ namespace CSE.Core.MoR.ModSystems
             for (int i = 0; i < Recipe.numRecipes; i++)
             {
                 Recipe recipe = Main.recipe[i];
-                if (recipe.createItem.ModItem is BaseForce)
+                if (recipe.createItem.ModItem is BaseForce || recipe.HasResult<SigilOfChampions>())
                 {
                     if (!recipe.HasIngredient<RoboBrain>())
                         recipe.AddIngredient<RoboBrain>();
@@ -92,8 +93,11 @@ namespace CSE.Core.MoR.ModSystems
                 }
                 if (recipe.HasResult<SupersonicSoul>())
                 {
-                    recipe.RemoveIngredient(ItemID.EoCShield);
-                    recipe.AddIngredient<InfectionShield>();
+                    if (!ModCompatibility.Calamity.Loaded)
+                    {
+                        recipe.RemoveIngredient(ItemID.EoCShield);
+                        recipe.AddIngredient<InfectionShield>();
+                    }
                 }
                 #endregion
             }
