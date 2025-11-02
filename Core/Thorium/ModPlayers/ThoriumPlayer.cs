@@ -16,6 +16,7 @@ namespace CSE.Core.Thorium.ModPlayers
         public int ivoryFlameCD;
         public int infernoLordCD;
         public int tideDaggerCD;
+        public int yewWoodCD;
         public override void ResetEffects()
         {
             if(ivoryFlameCD > 0)
@@ -24,6 +25,8 @@ namespace CSE.Core.Thorium.ModPlayers
                 infernoLordCD--;
             if (tideDaggerCD > 0)
                 tideDaggerCD--;
+            if (yewWoodCD > 0)
+                yewWoodCD--;
         }
 
         public override void PostUpdateEquips()

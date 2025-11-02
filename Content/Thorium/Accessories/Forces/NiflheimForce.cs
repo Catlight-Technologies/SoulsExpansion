@@ -1,8 +1,11 @@
 ﻿using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
 using FargowiltasSouls.Content.Items.Accessories.Forces;
 using CSE.Core;
+using FargowiltasSouls.Core.AccessoryEffectSystem;
+using FargowiltasSouls.Core.Toggler;
+using CSE.Content.Thorium.Accessories.Enchantments;
+using static CSE.Content.Thorium.Accessories.Enchantments.CoralEnchant;
 
 namespace CSE.Content.Thorium.Forces
 {
@@ -10,32 +13,42 @@ namespace CSE.Content.Thorium.Forces
     [JITWhenModsEnabled(ModCompatibility.Thorium.Name)]
     public class NiflheimForce : BaseForce
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
-            Item.width = 20;
-            Item.height = 20;
-            Item.accessory = true;
-            ItemID.Sets.ItemNoGravity[Item.type] = true;
-            Item.rare = 11;
-            Item.value = 600000;
+            base.SetStaticDefaults();
+            Enchants[Type] =
+            [
+                ModContent.ItemType<CoralEnchant>(),
+                //ModContent.ItemType<CryomancerEnchant>(),
+                //ModContent.ItemType<NagaskinEnchant>(),
+                //ModContent.ItemType<TideHunterEnchant>(),
+                //ModContent.ItemType<WhisperingEnchant>()
+            ];
         }
 
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
+            player.AddEffect<NiflheimEffect>(Item);
+
+            player.AddEffect<CoralEffect>(Item);
+            //player.AddEffect<CryomancerEffect>(Item);
+            //player.AddEffect<NagaskinEffect>(Item);
+            //player.AddEffect<TideHunterEffect>(Item);
+            //player.AddEffect<WhisperingEffect>(Item);
         }
 
-        //public override void AddRecipes()
-        //{
-        //    Recipe recipe = this.CreateRecipe();
+        public class NiflheimEffect : AccessoryEffect
+        {
+            public override Header ToggleHeader => null;
+        }
+        public override void AddRecipes()
+        {
+            Recipe recipe = CreateRecipe();
+            foreach (int ench in Enchants[Type])
+                recipe.AddIngredient(ench);
 
-        //    recipe.AddIngredient<ShootingStarEnchant>();
-        //    recipe.AddIngredient(null, "MaestroEnchant");
-        //    recipe.AddIngredient(null, "CrierEnchant");
-        //    recipe.AddIngredient(null, "OrnateEnchant");
-
-        //    recipe.AddTile<CrucibleCosmosSheet>();
-
-        //    recipe.Register();
-        //}
+            recipe.AddTile(ModContent.Find<ModTile>("Fargowiltas", "CrucibleCosmosSheet"));
+            recipe.Register();
+        }
     }
 }

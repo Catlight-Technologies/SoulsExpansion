@@ -40,6 +40,11 @@ namespace CSE.Core.Thorium.Globals
     public class ThoriumGlobalNPC : GlobalNPC
     {
         public override bool InstancePerEntity => true;
+
+        public bool isCutOpen;
+        public bool crying;
+
+        private Vector2 previousPosition;
         public override void ModifyShop(NPCShop shop)
         {
             if (shop.NpcType == NPCType<LumberJack>())
@@ -51,6 +56,34 @@ namespace CSE.Core.Thorium.Globals
             base.ModifyShop(shop);
         }
 
+        public override void ResetEffects(NPC npc)
+        {
+            isCutOpen = false;
+            crying = false;
+        }
+
+        public override void OnHitPlayer(NPC npc, Player target, Player.HurtInfo hurtInfo)
+        {
+            if (crying)
+            {
+                //how tf you can play so bad that your enemies cry hearing it
+                hurtInfo.Damage = (int)(hurtInfo.Damage * 0.9f);
+            }
+        }
+
+        public override void PostAI(NPC npc)
+        {
+            if (isCutOpen)
+            {
+                if (npc.position != previousPosition && npc.velocity != Vector2.Zero)
+                {
+                    npc.SimpleStrikeNPC(5, 0);
+
+                    Dust.NewDust(npc.position, npc.width, npc.height, DustID.Blood);
+                }
+                previousPosition = npc.position;
+            }
+        }
         public override void OnKill(NPC npc)
         {
             if (npc.lastInteraction >= 0)

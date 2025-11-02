@@ -3,6 +3,13 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using FargowiltasSouls.Content.Items.Accessories.Forces;
 using CSE.Core;
+using FargowiltasSouls.Core.AccessoryEffectSystem;
+using FargowiltasSouls.Core.Toggler;
+using CSE.Content.Thorium.Accessories.Enchantments;
+using static CSE.Content.Thorium.Accessories.Enchantments.FlightEnchant;
+using static CSE.Content.Thorium.Accessories.Enchantments.FungusEnchant;
+using static CSE.Content.Thorium.Accessories.Enchantments.YewWoodEnchant;
+using static CSE.Content.Thorium.Accessories.Enchantments.CrierEnchant;
 
 namespace CSE.Content.Thorium.Forces
 {
@@ -10,34 +17,46 @@ namespace CSE.Content.Thorium.Forces
     [JITWhenModsEnabled(ModCompatibility.Thorium.Name)]
     public class VanaheimForce : BaseForce
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
-            Item.width = 20;
-            Item.height = 20;
-            Item.accessory = true;
-            ItemID.Sets.ItemNoGravity[Item.type] = true;
-            Item.rare = 11;
-            Item.value = 600000;
+            base.SetStaticDefaults();
+            Enchants[Type] =
+            [
+                //ModContent.ItemType<BiotechEnchant>(),
+                //ModContent.ItemType<BloomingEnchant>(),
+                ModContent.ItemType<CrierEnchant>(),
+                ModContent.ItemType<FlightEnchant>(),
+                ModContent.ItemType<FungusEnchant>(),
+                //ModContent.ItemType<LifeBloomEnchant>(),
+                ModContent.ItemType<YewWoodEnchant>()
+            ];
         }
 
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
+            player.AddEffect<VanaheimEffect>(Item);
+
+            //player.AddEffect<BiotechEffect>(Item);
+            //player.AddEffect<BloomingEffect>(Item);
+            player.AddEffect<CrierEffect>(Item);
+            player.AddEffect<FlightEffect>(Item);
+            player.AddEffect<FungusEffect>(Item);
+            //player.AddEffect<LifeBloomEffect>(Item);
+            player.AddEffect<YewWoodEffect>(Item);
         }
 
-        //public override void AddRecipes()
-        //{
-        //    Recipe recipe = this.CreateRecipe();
+        public class VanaheimEffect : AccessoryEffect
+        {
+            public override Header ToggleHeader => null;
+        }
+        public override void AddRecipes()
+        {
+            Recipe recipe = CreateRecipe();
+            foreach (int ench in Enchants[Type])
+                recipe.AddIngredient(ench);
 
-        //    recipe.AddIngredient(ModContent.ItemType<BronzeEnchant>());
-        //    recipe.AddIngredient(ModContent.ItemType<DragonEnchant>());
-        //    recipe.AddIngredient(ModContent.ItemType<LichEnchant>());
-        //    recipe.AddIngredient(ModContent.ItemType<WhiteDwarfEnchant>());
-        //    recipe.AddIngredient(ModContent.ItemType<FlightEnchant>());
-        //    recipe.AddIngredient(ModContent.ItemType<FungusEnchant>());
-
-        //    recipe.AddTile<CrucibleCosmosSheet>();
-
-        //    recipe.Register();
-        //}
+            recipe.AddTile(ModContent.Find<ModTile>("Fargowiltas", "CrucibleCosmosSheet"));
+            recipe.Register();
+        }
     }
 }

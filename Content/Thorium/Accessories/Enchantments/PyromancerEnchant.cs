@@ -34,7 +34,7 @@ namespace CSE.Content.Thorium.Accessories.Enchantments
 
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
-            player.AddEffect<PyroEffect>(Item);
+            player.AddEffect<PyromancerEffect>(Item);
         }
 
         public override void AddRecipes()
@@ -51,7 +51,7 @@ namespace CSE.Content.Thorium.Accessories.Enchantments
             recipe.AddTile(TileID.LunarCraftingStation);
             recipe.Register();
         }
-        public class PyroEffect : AccessoryEffect
+        public class PyromancerEffect : AccessoryEffect
         {
             public override Header ToggleHeader => Header.GetHeader<AsgardForceHeader>();
             public override int ToggleItemType => ModContent.ItemType<PyromancerEnchant>();

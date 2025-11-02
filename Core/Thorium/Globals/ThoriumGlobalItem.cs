@@ -39,6 +39,11 @@ using CSE.Content.Common.Accessories.Souls;
 using ThoriumMod.Utilities;
 using Microsoft.Xna.Framework;
 using ThoriumMod.Items.BossThePrimordials.Slag;
+using Terraria.DataStructures;
+using CSE.Content.Thorium.Projectiles;
+using FargowiltasSouls;
+using static CSE.Content.Thorium.Accessories.Enchantments.YewWoodEnchant;
+using CSE.Core.Thorium.ModPlayers;
 
 namespace CSE.Core.Thorium.Globals
 {
@@ -218,6 +223,31 @@ namespace CSE.Core.Thorium.Globals
         {
             if (item.type == ItemType<OceansJudgement>())
                 velocity *= 1.5f;
+        }
+
+        public override bool Shoot(Item item, Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
+        {
+            if (player.GetModPlayer<ThoriumPlayer>().yewWoodCD < 0 && player.HasEffect<YewWoodEffect>())
+            {
+                Vector2 center = player.Center;
+                Vector2 vector = Vector2.Normalize(Main.MouseWorld - center);
+
+                if (Main.rand.Next(player.ForceEffect<YewWoodEffect>() ? 5 : 10) != 0)
+                {
+                    Projectile.NewProjectile(
+                        player.GetSource_FromThis(),
+                        player.Center,
+                        vector,
+                        ProjectileType<VileArrow>(),
+                        5,
+                        0f,
+                        player.whoAmI
+                    );
+                    //0.5 sec
+                    player.GetModPlayer<ThoriumPlayer>().yewWoodCD += 30;
+                }
+            }
+            return base.Shoot(item, player, source, position, velocity, type, damage, knockback);
         }
         public override void UpdateAccessory(Item item, Player player, bool hideVisual)
         {

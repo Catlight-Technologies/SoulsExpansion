@@ -18,7 +18,7 @@ namespace CSE.Content.Thorium.Accessories.Other
             Item.height = 20;
             Item.accessory = true;
             Item.value = 90000;
-            Item.rare = 11;
+            Item.rare = ItemRarityID.Green;
         }
 
         public override void UpdateAccessory(Player player, bool hideVisual)

@@ -90,6 +90,18 @@ namespace CSE.Core.Thorium.ModSystems
             // evil wings
             group = new RecipeGroup(() => Lang.misc[37] + " Evil Wings", ItemType<DragonWings>(), ItemType<FleshWings>());
             RecipeGroup.RegisterGroup("CSE:AnyEvilWings", group);
+            //jester mask
+            group = new RecipeGroup(() => Lang.misc[37] + " Evil Wood Tambourine", ItemType<EbonWoodTambourine>(), ItemType<ShadeWoodTambourine>());
+            RecipeGroup.RegisterGroup("CSE:AnyJesterMask", group);
+            //jester shirt
+            group = new RecipeGroup(() => Lang.misc[37] + " Jester Shirt", ItemType<JestersShirt>(), ItemType<JestersShirt2>());
+            RecipeGroup.RegisterGroup("CSE:AnyJesterShirt", group);
+            //jester legging
+            group = new RecipeGroup(() => Lang.misc[37] + " Jester Leggings", ItemType<JestersLeggings>(), ItemType<JestersLeggings2>());
+            RecipeGroup.RegisterGroup("CSE:AnyJesterLeggings", group);
+            //any letter
+            group = new RecipeGroup(() => Lang.misc[37] + " Fan Letter", ItemType<FanLetter>(), ItemType<FanLetter2>());
+            RecipeGroup.RegisterGroup("CSE:AnyLetter", group);
         }
 
         public override void AddRecipes()
@@ -289,7 +301,7 @@ namespace CSE.Core.Thorium.ModSystems
                 }
                 if (recipe.HasResult<FlightMasterySoul>() && !recipe.HasIngredient<TerrariumWings>())
                 {
-                    recipe.AddIngredient<FlightEnchant>();
+                    //recipe.AddIngredient<FlightEnchant>();
                     recipe.AddIngredient<TerrariumWings>();
                     recipe.AddRecipeGroup("CSE:AnyEvilWings");
                 }

@@ -3,6 +3,9 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using FargowiltasSouls.Content.Items.Accessories.Forces;
 using CSE.Core;
+using FargowiltasSouls.Core.AccessoryEffectSystem;
+using FargowiltasSouls.Core.Toggler;
+using static CSE.Content.Thorium.Accessories.Enchantments.EbonEnchant;
 
 namespace CSE.Content.Thorium.Forces
 {
@@ -10,33 +13,47 @@ namespace CSE.Content.Thorium.Forces
     [JITWhenModsEnabled(ModCompatibility.Thorium.Name)]
     public class HelheimForce : BaseForce
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
-            Item.width = 20;
-            Item.height = 20;
-            Item.accessory = true;
-            ItemID.Sets.ItemNoGravity[Item.type] = true;
-            Item.rare = 11;
-            Item.value = 600000;
+            base.SetStaticDefaults();
+            //Enchants[Type] =
+            //[
+            //    ModContent.ItemType<DemonbloodEnchant>(),
+            //    ModContent.ItemType<DreadEnchant>(),
+            //    ModContent.ItemType<LichEnchant>(),
+            //    ModContent.ItemType<ShadeEnchant>(),
+            //    ModContent.ItemType<SilkEnchant>(),
+            //    ModContent.ItemType<WarlockEnchant>(),
+            //    ModContent.ItemType<SpiritEnchant>()
+            //];
         }
 
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
+            player.AddEffect<HelheimEffect>(Item);
+
+            //player.AddEffect<DemonbloodEffect>(Item);
+            //player.AddEffect<DreadEffect>(Item);
+            //player.AddEffect<LichEffect>(Item);
+            //player.AddEffect<ShadeEffect>(Item);
+            //player.AddEffect<SilkEffect>(Item);
+            //player.AddEffect<WarlockEffect>(Item);
+            player.AddEffect<EbonEffect>(Item);
+            player.AddEffect<EbonEffectConversion>(Item);
+            //player.AddEffect<SpiritEffect>(Item);
         }
 
+        public class HelheimEffect : AccessoryEffect
+        {
+            public override Header ToggleHeader => null;
+        }
         //public override void AddRecipes()
         //{
-        //    Recipe recipe = this.CreateRecipe();
+        //    Recipe recipe = CreateRecipe();
+        //    foreach (int ench in Enchants[Type])
+        //        recipe.AddIngredient(ench);
 
-        //    recipe.AddIngredient(ModContent.ItemType<WarlockEnchant>());
-        //    recipe.AddIngredient(ModContent.ItemType<SilkEnchant>());
-        //    recipe.AddIngredient(ModContent.ItemType<DreadEnchant>());
-        //    recipe.AddIngredient(ModContent.ItemType<SpiritTrapperEnchant>());
-        //    recipe.AddIngredient(ModContent.ItemType<ShadeMasterEnchant>());
-        //    recipe.AddIngredient(ModContent.ItemType<DreamWeaverEnchant>());
-
-        //    recipe.AddTile<CrucibleCosmosSheet>();
-
+        //    recipe.AddTile(ModContent.Find<ModTile>("Fargowiltas", "CrucibleCosmosSheet"));
         //    recipe.Register();
         //}
     }

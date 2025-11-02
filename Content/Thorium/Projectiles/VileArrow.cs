@@ -1,0 +1,56 @@
+﻿using Microsoft.Xna.Framework;
+using Terraria.ID;
+using Terraria.ModLoader;
+using Terraria;
+using CSE.Core;
+
+namespace CSE.Content.Thorium.Projectiles
+{
+    [ExtendsFromMod(ModCompatibility.Thorium.Name)]
+    [JITWhenModsEnabled(ModCompatibility.Thorium.Name)]
+    public class VileArrow : ModProjectile
+    {
+        public override string Texture => "ThoriumMod/Items/Steel/SteelArrow";
+
+        public override void SetStaticDefaults()
+        {
+            ProjectileID.Sets.TrailCacheLength[Type] = 5;
+            ProjectileID.Sets.TrailingMode[Type] = 0;
+        }
+        public override void SetDefaults()
+        {
+            Projectile.width = 10;
+            Projectile.height = 10;
+            Projectile.friendly = true;
+            Projectile.DamageType = DamageClass.Generic;
+            Projectile.penetrate = -1; 
+            Projectile.timeLeft = 300;
+            Projectile.ignoreWater = true;
+            Projectile.tileCollide = false;
+            Projectile.extraUpdates = 1;
+            Projectile.usesLocalNPCImmunity = true;
+            Projectile.localNPCHitCooldown = 0;
+        }
+
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
+        {
+            target.immune[Projectile.owner] = 0;
+        }
+        public override void AI()
+        {
+            if (Main.rand.NextBool(3))
+            {
+                Dust.NewDust(
+                    Projectile.position,
+                    Projectile.width,
+                    Projectile.height,
+                    DustID.CorruptGibs,
+                    Projectile.velocity.X * 0.2f,
+                    Projectile.velocity.Y * 0.2f,
+                    100, default, 1.5f);
+            }
+
+            Projectile.rotation = Projectile.velocity.ToRotation() + MathHelper.PiOver2;
+        }
+    }
+}

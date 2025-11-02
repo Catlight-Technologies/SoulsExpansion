@@ -724,6 +724,87 @@ Items: {
 			'''
 	}
 
+	CoralEnchant: {
+		DisplayName: Coral Enchantment
+		Tooltip:
+			'''
+			Makes you count as submerged in water  
+			'For swimming with the fishes'
+			'''
+	}
+
+	JesterEnchant: {
+		DisplayName: Jester Enchantment
+		Tooltip:
+			'''
+			Every ten seconds, a bell will be rung over your head confusing all enemies nearby for 5 seconds 
+			Confusion will stun enemies that aren’t bosses
+			'Clowning around'
+			'''
+	}
+
+	CrierEnchant: {
+		DisplayName: Crier Enchantment
+		Tooltip:
+			'''
+			Attacking with a bard instrument has a 10% chance to inflict Crying debuff, decreasing their damage dealt by 10% for 3 seconds
+			'Nothing to cry about'
+			'''
+	}
+
+	DepthDiverEnchant: {
+		DisplayName: Depth Diver Enchantment
+		Tooltip:
+			'''
+			Gain buffs in water the lower you are:
+				From +1 hp/s, +2% damage increase, +2 defense in space
+				Up to +2 hp/s, +9% damage increase, +9 defense in underworld
+			Disables all eternity mode water debuffs
+			'Become a selfless protector'
+			'''
+	}
+
+	CyberPunkEnchant: {
+		DisplayName: Cyber Punk Enchantment
+		Tooltip:
+			'''
+			2 cybernetic orbs fly around you and protect from projectiles. 
+			Gives random level 3 empowerment when killed.
+			Each orb respawns after 1 minute. 
+			'Techno rave!'
+			'''
+	}
+
+	EbonEnchant: {
+		DisplayName: Ebon Enchantment
+		Tooltip:
+			'''
+			[c/65F527:Cleansing Mode:]
+			10% bonus healing, purification of blocks below you
+			[c/B027F5:Corrupting Mode:]
+			10% increase to radiant damage, infection of the blocks below you with the evil spawned in world
+			'Great for brooding'
+			'''
+	}
+
+	YewWoodEnchant: {
+		DisplayName: Yew Wood Enchantment
+		Tooltip:
+			'''
+			Rarely weapon projectiles will be accompanied with a vile arrow that pierces and ignores immunity frames
+			'This strange wood comes from a far away land'
+			'''
+	}
+
+	NobleEnchant: {
+		DisplayName: Noble Enchantment
+		Tooltip:
+			'''
+			Picking up coins grants you The Rich buff for 5 seconds, which increases your movement speed by 5% and increases your damage by 15%       
+			'Rich with culture'
+			'''
+	}
+
 	FungusEnchant: {
 		DisplayName: Fungus Enchantment
 		Tooltip:
@@ -796,7 +877,11 @@ Items: {
 
 	SoulOfYggdrasil: {
 		DisplayName: Soul Of Yggdrasil
-		Tooltip: ""
+		Tooltip:
+			'''
+			[i:CSE/AsgardForce][i:CSE/AlfheimForce][i:CSE/HelheimForce][i:CSE/JotunheimForce][i:CSE/MidgardForce][i:CSE/MuspelheimForce][i:CSE/NiflheimForce][i:CSE/SvartalfheimForce][i:CSE/VanaheimForce] Grants effects of all forcess
+			'The true might of the 9 realms is yours!'
+			'''
 	}
 }
 
@@ -816,6 +901,10 @@ Projectiles: {
 	SpaceJunkProj.DisplayName: Space Junk
 	MushroomProj.DisplayName: Mushroom Proj
 	FeatherProj.DisplayName: Feather Proj
+	VileArrow.DisplayName: Vile Arrow
+	PureFireballProj.DisplayName: Pure Fireball Proj
+	MinionBellProj.DisplayName: Minion Bell Proj
+	BellMinionPulse.DisplayName: Bell Minion Pulse
 }
 
 Buffs: {
@@ -857,6 +946,21 @@ Buffs: {
 	MushroomBuff: {
 		DisplayName: Mushroom Buff
 		Description: Mods.CSE.Buffs.MushroomBuff.Description
+	}
+
+	TheRichBuff: {
+		Description: Mods.CSE.Buffs.TheRichBuff.Description
+		DisplayName: The Rich Buff
+	}
+
+	CutOpenDebuff: {
+		Description: Mods.CSE.Buffs.CutOpenDebuff.Description
+		DisplayName: Cut Open Debuff
+	}
+
+	CryDebuff: {
+		Description: Mods.CSE.Buffs.CryDebuff.Description
+		DisplayName: Cry Debuff
 	}
 }
 

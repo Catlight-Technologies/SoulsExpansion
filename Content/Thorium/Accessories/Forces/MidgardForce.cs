@@ -3,6 +3,9 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using FargowiltasSouls.Content.Items.Accessories.Forces;
 using CSE.Core;
+using FargowiltasSouls.Core.AccessoryEffectSystem;
+using FargowiltasSouls.Core.Toggler;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace CSE.Content.Thorium.Forces
 {
@@ -10,32 +13,43 @@ namespace CSE.Content.Thorium.Forces
     [JITWhenModsEnabled(ModCompatibility.Thorium.Name)]
     public class MidgardForce : BaseForce
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
-            Item.width = 20;
-            Item.height = 20;
-            Item.accessory = true;
-            ItemID.Sets.ItemNoGravity[Item.type] = true;
-            Item.rare = 11;
-            Item.value = 600000;
+            base.SetStaticDefaults();
+            //Enchants[Type] =
+            //[
+            //    ModContent.ItemType<DurasteelEnchant>(),
+            //    ModContent.ItemType<IllumiteEnchant>(),
+            //    ModContent.ItemType<LodestoneEnchant>(),
+            //    ModContent.ItemType<TerrariumEnchant>(),
+            //    ModContent.ItemType<TitanicEnchant>(),
+            //    ModContent.ItemType<ValadiumEnchant>()
+            //];
         }
 
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
+            player.AddEffect<MidgardEffect>(Item);
+
+            //player.AddEffect<DurasteelEffect>(Item);
+            //player.AddEffect<IllumiteEffect>(Item);
+            //player.AddEffect<LodestoneEffect>(Item);
+            //player.AddEffect<TerrariumEffect>(Item);
+            //player.AddEffect<TitanicEffect>(Item);
+            //player.AddEffect<ValadiumEffect>(Item);
         }
 
+        public class MidgardEffect : AccessoryEffect
+        {
+            public override Header ToggleHeader => null;
+        }
         //public override void AddRecipes()
         //{
-        //    Recipe recipe = this.CreateRecipe();
+        //    Recipe recipe = CreateRecipe();
+        //    foreach (int ench in Enchants[Type])
+        //        recipe.AddIngredient(ench);
 
-        //    recipe.AddIngredient(null, "DurasteelEnchant");
-        //    recipe.AddIngredient(null, "LodestoneEnchant");
-        //    recipe.AddIngredient(null, "ValadiumEnchant");
-        //    recipe.AddIngredient(null, "IllumiteEnchant");
-        //    recipe.AddIngredient(null, "TerrariumEnchant");
-
-        //    recipe.AddTile<CrucibleCosmosSheet>();
-
+        //    recipe.AddTile(ModContent.Find<ModTile>("Fargowiltas", "CrucibleCosmosSheet"));
         //    recipe.Register();
         //}
     }

@@ -3,6 +3,14 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using FargowiltasSouls.Content.Items.Accessories.Souls;
 using CSE.Core;
+using System.Collections.Generic;
+using CSE.Content.Thorium.Forces;
+using FargowiltasSouls.Core.ModPlayers;
+using FargowiltasSouls;
+using Fargowiltas.Content.Items.Tiles;
+using FargowiltasSouls.Content.Items.Materials;
+using FargowiltasSouls.Core.AccessoryEffectSystem;
+using FargowiltasSouls.Core.Toggler;
 
 namespace CSE.Content.Thorium.Accessories.Souls
 {
@@ -10,6 +18,18 @@ namespace CSE.Content.Thorium.Accessories.Souls
     [JITWhenModsEnabled(ModCompatibility.Thorium.Name)]
     public class SoulOfYggdrasil : BaseSoul
     {
+        public static List<int> Forces =
+            [
+            ModContent.ItemType<AlfheimForce>(),
+            ModContent.ItemType<AsgardForce>(),
+            ModContent.ItemType<HelheimForce>(),
+            ModContent.ItemType<JotunheimForce>(),
+            ModContent.ItemType<MidgardForce>(),
+            ModContent.ItemType<MuspelheimForce>(),
+            ModContent.ItemType<NiflheimForce>(),
+            ModContent.ItemType<SvartalfheimForce>(),
+            ModContent.ItemType<VanaheimForce>()
+            ];
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
@@ -28,26 +48,48 @@ namespace CSE.Content.Thorium.Accessories.Souls
 
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
+            FargoSoulsPlayer modPlayer = player.FargoSouls();
+
+            foreach (int force in Forces)
+                modPlayer.ForceEffects.Add(force);
+
+
+            player.AddEffect<YggdrasilEffect>(Item);
+
+
+            ModContent.GetInstance<AlfheimForce>().UpdateAccessory(player, hideVisual);
+
+            ModContent.GetInstance<AsgardForce>().UpdateAccessory(player, hideVisual);
+
+            ModContent.GetInstance<HelheimForce>().UpdateAccessory(player, hideVisual);
+
+            ModContent.GetInstance<JotunheimForce>().UpdateAccessory(player, hideVisual);
+
+            ModContent.GetInstance<MidgardForce>().UpdateAccessory(player, hideVisual);
+
+            ModContent.GetInstance<MuspelheimForce>().UpdateAccessory(player, hideVisual);
+
+            ModContent.GetInstance<NiflheimForce>().UpdateAccessory(player, hideVisual);
+
+            ModContent.GetInstance<SvartalfheimForce>().UpdateAccessory(player, hideVisual);
+
+            ModContent.GetInstance<VanaheimForce>().UpdateAccessory(player, hideVisual);
         }
-        //public override void AddRecipes()
-        //{
-        //    Recipe recipe = this.CreateRecipe();
 
-        //    if (!ModCompatibility.Calamity.Loaded) { recipe.AddIngredient<AbomEnergy>(10); }
-        //    recipe.AddIngredient(null, "MuspelheimForce");
-        //    recipe.AddIngredient(null, "JotunheimForce");
-        //    recipe.AddIngredient(null, "AlfheimForce");
-        //    recipe.AddIngredient(null, "NiflheimForce");
-        //    recipe.AddIngredient(null, "SvartalfheimForce");
-        //    recipe.AddIngredient(null, "MidgardForce");
-        //    recipe.AddIngredient(null, "VanaheimForce");
-        //    recipe.AddIngredient(null, "HelheimForce");
-        //    recipe.AddIngredient(null, "AsgardForce");
-        //    recipe.AddIngredient(null, "MotDE");
+        public class YggdrasilEffect : AccessoryEffect
+        {
+            public override Header ToggleHeader => null;
+        }
+        public override void AddRecipes()
+        {
+            Recipe recipe = CreateRecipe();
+            foreach (int force in Forces)
+                recipe.AddIngredient(force);
 
-        //    recipe.AddTile<DreamersForgeTile>();
+            if (!ModCompatibility.Calamity.Loaded) { recipe.AddIngredient<AbomEnergy>(10); }
 
-        //    recipe.Register();
-        //}
+            recipe.AddTile<CrucibleCosmosSheet>();
+            recipe.Register();
+        }
     }
 }

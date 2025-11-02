@@ -22,6 +22,11 @@ namespace CSE.Content.Thorium.Projectiles
         public override void AI()
         {
             Lighting.AddLight(Projectile.Center, 0.2f, 0.2f, 0.8f);
+            Projectile.ai[1]++;
+            if (Projectile.ai[1] > 60) 
+            {
+                CSEUtils.HomeInOnNPC(Projectile, false, 9000, 7, 2);
+            }
         }
     }
 }
