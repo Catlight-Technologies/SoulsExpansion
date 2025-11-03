@@ -4,6 +4,7 @@ using Terraria.Audio;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
+using ThoriumMod.Items.ThrownItems;
 using ThoriumMod.Projectiles.Thrower;
 using ThoriumMod.Utilities;
 
@@ -34,7 +35,7 @@ namespace CSE.Core.Thorium.ModPlayers
             //temp solution until thrower rework
             if (WorldSavingSystem.EternityMode)
             {
-                Player.GetThoriumPlayer().throwerExhaustionMax *= 2;
+                Player.GetThoriumPlayer().throwerExhaustionMax += 2400;
             }
         }
         public override void OnHitNPCWithProj(Projectile proj, NPC target, NPC.HitInfo hit, int damageDone)

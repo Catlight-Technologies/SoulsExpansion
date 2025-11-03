@@ -4,9 +4,10 @@ EModeBalance: {
 	DamageDownGeneric: Damage decreased by {0}%
 	Homing: "[c/00A36C:Cross-mod Balance: ]Weapon projectiles home in on enemies"
 	Unnerf: "[c/00A36C:Cross-mod Balance: ]Reverted DLC nerf"
+	VelUP: "[c/00A36C:Cross-mod Balance: ]Increased velocity of weapon projectiles"
 	PostND: "[c/FF0000:Cross-mod Balance:] Can be only used after defeating the Nameless Deity"
 	PostMutant: "[c/FF0000:Cross-mod Balance:] Can be only used after defeating Mutant"
-	WhiteDwarfNerf: "[c/FF0000:Cross-mod Balance:] Ivory flare has 2 seconds cooldown and damage cap (3000 damage)"
+	WhiteDwarfNerf: "[c/FF0000:Cross-mod Balance:] Ivory flare has 1 seconds cooldown and damage cap (3000 damage)"
 	TideDaggersNerf: "[c/FF0000:Cross-mod Balance:] Reduced frequency and damage of shooting tide dagger"
 	InfernoNerf: "[c/FF0000:Cross-mod Balance:] Reduced density of bursts"
 	PostAbomSlot: "[c/FF0000:Cross-mod Balance:] Can only be used after defeating Abominationn"
@@ -161,6 +162,12 @@ Toggler: {
 	OgreSandalEffect: Ogre Sandal
 	//thorium Enchant
 	GeodeEffect: Ore Duplication
+	FlightEffect: Feathers On hit
+	DepthDiverEffect: Depth Stats
+	JesterEffect: Bell Minion
+	YewWood: Vile Arrow Support
+	EbonEffectConversion: Ebon Conversion
+	FungusEffect: Mushrooms On Kills
 	//HWJ
 	CommandersGauntletEffect: Gauntlet of Commander
 	GodlyTouchEffect: Divine Touch
@@ -887,6 +894,11 @@ Items: {
 	SoulOfCreations: {
 		Tooltip: ""
 		DisplayName: Soul Of Creations
+	}
+
+	SoulOfRagnarok: {
+		DisplayName: Soul Of Ragnarok
+		Tooltip: ""
 	}
 }
 

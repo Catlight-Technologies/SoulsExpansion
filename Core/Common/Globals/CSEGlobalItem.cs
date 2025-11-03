@@ -101,7 +101,7 @@ namespace CSE.Core.Common.Globals
         {
             if (item.type == ItemType<StyxChestplate>() && (ModCompatibility.Homeward.Loaded || ModCompatibility.SacredTools.Loaded || ModCompatibility.Calamity.Loaded || ModCompatibility.Homeward.Loaded))
             {
-                player.GetDamage<GenericDamageClass>() += 0.1f;
+                player.GetDamage<GenericDamageClass>() += 0.15f;
             }
             if (item.type == ItemType<StyxCrown>() && (ModCompatibility.Homeward.Loaded || ModCompatibility.SacredTools.Loaded || ModCompatibility.Calamity.Loaded))
             {

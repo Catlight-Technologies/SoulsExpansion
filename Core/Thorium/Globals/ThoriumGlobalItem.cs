@@ -130,6 +130,16 @@ namespace CSE.Core.Thorium.Globals
                 tooltips.Add(new TooltipLine(Mod, "BalanceUP", Language.GetTextValue($"{Language.GetText($"Mods.FargowiltasSouls.EModeBalance.SpearRework")}")));
             }
 
+            if (item.type == ItemType<OmniCannon>() ||
+                item.type == ItemType<OmniBow>() ||
+                item.type == ItemType<QuasarsFlare>() ||
+                item.type == ItemType<DeitysTrefork>() ||
+                item.type == ItemType<OceansJudgement>() ||
+                item.type == ItemType<TidalWave>())
+            {
+                tooltips.Add(new TooltipLine(Mod, "BalanceUP", Language.GetTextValue($"{Language.GetText($"Mods.CSE.EModeBalance.VelUP")}")));
+            }
+
             //if (item.type == ItemType<TerrariansLastKnife>())
             //{
             //    tooltips.Add(new TooltipLine(Mod, "BalanceUP", Language.GetTextValue($"{Language.GetText($"Mods.FargowiltasSouls.EModeBalance.ScalePositive").Format(30)}")));
@@ -170,16 +180,17 @@ namespace CSE.Core.Thorium.Globals
             // Melee
             //if (item.type == ItemType<TerrariansLastKnife>()) return 1.1f;
             if (item.type == ItemType<TerrariumSaber>()) return 1.2f;
-            if (item.type == ItemType<SevenSeasDevastator>()) return 1.3f;
-            if (item.type == ItemType<OceansJudgement>()) return 1.2f;
+            if (item.type == ItemType<SevenSeasDevastator>()) return 1.4f;
+            if (item.type == ItemType<OceansJudgement>()) return 1.1f;
 
             // Ranged
-            if (item.type == ItemType<TheJavelin>()) return 0.75f;
-            if (item.type == ItemType<OmniBow>()) return 1.3f;
+            if (item.type == ItemType<TheJavelin>()) return 0.7f;
+            if (item.type == ItemType<OmniBow>()) return 1.5f;
+            if (item.type == ItemType<OmniCannon>()) return 1.2f;
 
             // Thrower
             if (item.type == ItemType<TidalWave>()) return 1.3f;
-            if (item.type == ItemType<DeitysTrefork>()) return 0.9f;
+            if (item.type == ItemType<DeitysTrefork>()) return 0.8f;
 
             // Bard
             if (item.type == ItemType<Holophonor>()) return 1.2f;
@@ -219,12 +230,6 @@ namespace CSE.Core.Thorium.Globals
                 item.defense = 8;
             }
         }
-        public override void ModifyShootStats(Item item, Player player, ref Vector2 position, ref Vector2 velocity, ref int type, ref int damage, ref float knockBack)
-        {
-            if (item.type == ItemType<OceansJudgement>())
-                velocity *= 1.5f;
-        }
-
         public override bool Shoot(Item item, Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
             if (player.GetModPlayer<ThoriumPlayer>().yewWoodCD <= 0 && player.HasEffect<YewWoodEffect>())

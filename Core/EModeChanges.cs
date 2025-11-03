@@ -13,6 +13,7 @@ namespace CSE.Core
         Nerf,
         Unnerf,
         Buff,
-        Neutral
+        Neutral,
+        VelUP
     }
 }

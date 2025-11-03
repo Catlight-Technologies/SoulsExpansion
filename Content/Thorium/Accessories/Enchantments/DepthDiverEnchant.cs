@@ -44,13 +44,13 @@ namespace CSE.Content.Thorium.Accessories.Enchantments
 
             public override void PostUpdateMiscEffects(Player player)
             {
-                if (player.wet || player.ForceEffect<DepthDiverEffect>())
+                if (player.wet || player.ForceEffect<DepthDiverEffect>() || player.HasEffect<SvartalfheimEffect>())
                 {
                     float depthFactor = CalculateDepthFactor(player);
 
-                    player.lifeRegen += (int)(1 + (player.HasEffect<SvartalfheimEffect>() ? 2 : 1) * depthFactor);
-                    player.GetDamage(DamageClass.Generic) += (int)(0.02f + (player.HasEffect<SvartalfheimEffect>() ? 0.10 : 0.07) * depthFactor); 
-                    player.statDefense += (int)(2 + (player.HasEffect<SvartalfheimEffect>() ? 0.10 : 0.07) * depthFactor); 
+                    player.lifeRegen += (int)(1 + (player.HasEffect<SvartalfheimEffect>() ? 3 : 1) * depthFactor);
+                    player.GetDamage(DamageClass.Generic) += (int)(0.02f + (player.HasEffect<SvartalfheimEffect>() ? 0.14 : 0.07) * depthFactor); 
+                    player.statDefense += (int)(2 + (player.HasEffect<SvartalfheimEffect>() ? 0.14 : 0.07) * depthFactor); 
                 }
             }
 
