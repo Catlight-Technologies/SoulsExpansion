@@ -1,4 +1,8 @@
-﻿using CSE.Core.Common.ModSystems;
+﻿using CSE.Content.Thorium.Accessories.Souls;
+using CSE.Content.Thorium.Forces;
+using CSE.Content.Thorium.Materials;
+using CSE.Core.Common.ModSystems;
+using Fargowiltas;
 using FargowiltasSouls.Content.Items;
 using FargowiltasSouls.Content.Projectiles.Weapons;
 using System;
@@ -71,15 +75,24 @@ namespace CSE.Core.Thorium.ModSystems
         }
         public override void PostSetupContent()
         {
-            //FargoSets.Items.BuffStation[ItemType<ResilientCandle>()] = true;
-            //FargoSets.Items.BuffStation[ItemType<SpitefulCandle>()] = true;
-            //FargoSets.Items.BuffStation[ItemType<VigorousCandle>()] = true;
-            //FargoSets.Items.BuffStation[ItemType<WeightlessCandle>()] = true;
+            FargoSets.Items.DuplicatableItems.SetValue(FargoSets.Items.DupeType.NotDupableFromDupable, ItemType<DreamEssence>());
 
-            //FargoSets.Items..SetValue(FargoSets.Items.DupeType.Dupable, ItemType<GadgetCoat>());
+            FargoSets.Items.DuplicatableItems.SetValue(FargoSets.Items.DupeType.MaterialsDupable, ItemType<SoulOfYggdrasil>());
+            FargoSets.Items.DuplicatableItems.SetValue(FargoSets.Items.DupeType.MaterialsDupable, ItemType<SoulOfRagnarok>());
 
-            //FargoSets.Items.DuplicatableItems.SetValue(FargoSets.Items.DupeType.MaterialsDupable, sots.Find<ModItem>("SubspaceBoosters").Type);
-            //FargoSets.Items.DuplicatableItems.SetValue(FargoSets.Items.DupeType.MaterialsDupable, sots.Find<ModItem>("ChallengerRing").Type);
+            FargoSets.Items.DuplicatableItems.SetValue(FargoSets.Items.DupeType.MaterialsDupable, ItemType<AlfheimForce>());
+            FargoSets.Items.DuplicatableItems.SetValue(FargoSets.Items.DupeType.MaterialsDupable, ItemType<SvartalfheimForce>());
+            FargoSets.Items.DuplicatableItems.SetValue(FargoSets.Items.DupeType.MaterialsDupable, ItemType<VanaheimForce>());
+            FargoSets.Items.DuplicatableItems.SetValue(FargoSets.Items.DupeType.MaterialsDupable, ItemType<HelheimForce>());
+            FargoSets.Items.DuplicatableItems.SetValue(FargoSets.Items.DupeType.MaterialsDupable, ItemType<AsgardForce>());
+            FargoSets.Items.DuplicatableItems.SetValue(FargoSets.Items.DupeType.MaterialsDupable, ItemType<MidgardForce>());
+            FargoSets.Items.DuplicatableItems.SetValue(FargoSets.Items.DupeType.MaterialsDupable, ItemType<MuspelheimForce>());
+            FargoSets.Items.DuplicatableItems.SetValue(FargoSets.Items.DupeType.MaterialsDupable, ItemType<NiflheimForce>());
+
+
+            FargoSets.Items.BuffStation[ItemType<ConductorsStand>()] = true;
+            FargoSets.Items.BuffStation[ItemType<NinjaRack>()] = true;
+            FargoSets.Items.BuffStation[ItemType<Altar>()] = true;
 
             //CSE.AddNPC("Blacksmith", NPCType<Blacksmith>());
             //CSE.AddNPC("Cook", NPCType<Cook>());

@@ -80,7 +80,7 @@ ActiveSkills: {
 		Tooltip: Ssends out a homing martian probe that explodes into multiple damaging shrapnels
 	}
 
-	CosmicCommanderEffect: {
+	SoranForcesEffect: {
 		DisplayName: Sniper's state
 		Tooltip: Activate Sniper's State
 	}
@@ -605,7 +605,7 @@ Items: {
 
 	SoulOfTwoRealms: {
 		DisplayName: Soul of Two Realms
-		TooltipOld:
+		RuminateTooltip:
 			'''
 			[i:CSE/FrostburnForce] Blightbone support, frost explosions and flarium tornados on hit, relic boost
 			[i:CSE/SyranForce] Gain void lanterns ring that can spur gaysers, inflict enemies with Fear, Dreadfire aura
@@ -633,7 +633,7 @@ Items: {
 	}
 
 	MacroverseSoul: {
-		Tooltip: ""
+		Tooltip: "[i:FargowiltasSouls/TerrariaSoul] Effects of every enchantment and force"
 		DisplayName: Macroverse Soul
 
 		Extra: {
@@ -669,7 +669,7 @@ Items: {
 
 	AccessoriesSoul: {
 		DisplayName: Accessories Soul
-		Tooltip: ""
+		Tooltip: "[i:FargowiltasSouls/MasochistSoul] Effects of every Eternity and most of other accessories"
 
 		Extra: {
 			Effects: Grants following effects:

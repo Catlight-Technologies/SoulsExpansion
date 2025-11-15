@@ -9,6 +9,9 @@ using Terraria.ModLoader;
 using Terraria;
 using CSE.Core;
 using Microsoft.Xna.Framework;
+using System.Collections.Generic;
+using System.Linq;
+using Terraria.Localization;
 
 namespace CSE.Content.Common.Accessories.Souls
 {
@@ -38,23 +41,23 @@ namespace CSE.Content.Common.Accessories.Souls
             Item.accessory = true;
         }
 
-        public override bool PreDrawTooltipLine(DrawableTooltipLine line, ref int yOffset)
-        {
-            if ((line.Mod == "Terraria" && line.Name == "ItemName") || line.Name == "FlavorText")
-            {
-                Main.spriteBatch.End();
-                Main.spriteBatch.Begin(SpriteSortMode.Immediate, null, null, null, null, null, Main.UIScaleMatrix);
-                ManagedShader shader = ShaderManager.GetShader("FargowiltasSouls.Text");
-                shader.TrySetParameter("mainColor", new Color(42, 66, 99));
-                shader.TrySetParameter("secondaryColor", Main.DiscoColor);
-                shader.Apply("PulseUpwards");
-                Utils.DrawBorderString(Main.spriteBatch, line.Text, new Vector2(line.X, line.Y), Color.White, 1);
-                Main.spriteBatch.End();
-                Main.spriteBatch.Begin(SpriteSortMode.Deferred, null, null, null, null, null, Main.UIScaleMatrix);
-                return false;
-            }
-            return true;
-        }
+        //public override bool PreDrawTooltipLine(DrawableTooltipLine line, ref int yOffset)
+        //{
+        //    if ((line.Mod == "Terraria" && line.Name == "ItemName") || line.Name == "FlavorText")
+        //    {
+        //        Main.spriteBatch.End();
+        //        Main.spriteBatch.Begin(SpriteSortMode.Immediate, null, null, null, null, null, Main.UIScaleMatrix);
+        //        ManagedShader shader = ShaderManager.GetShader("FargowiltasSouls.Text");
+        //        shader.TrySetParameter("mainColor", new Color(42, 66, 99));
+        //        shader.TrySetParameter("secondaryColor", Main.DiscoColor);
+        //        shader.Apply("PulseUpwards");
+        //        Utils.DrawBorderString(Main.spriteBatch, line.Text, new Vector2(line.X, line.Y), Color.White, 1);
+        //        Main.spriteBatch.End();
+        //        Main.spriteBatch.Begin(SpriteSortMode.Deferred, null, null, null, null, null, Main.UIScaleMatrix);
+        //        return false;
+        //    }
+        //    return true;
+        //}
 
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
@@ -101,7 +104,7 @@ namespace CSE.Content.Common.Accessories.Souls
 
             //if (ModCompatibility.Crossmod.Loaded)
             //{
-            //    recipe.AddIngredient(Mod.Find<ModItem>("CalamitySoul"), 1);
+            //    recipe.AddIngredient(Mod.Find<ModItem>("SoulOfTyrant"), 1);
             //}
             if (ModCompatibility.Thorium.Loaded)
             {
@@ -122,6 +125,48 @@ namespace CSE.Content.Common.Accessories.Souls
 
             recipe.AddTile(ModContent.TileType<CrucibleCosmosSheet>());
             recipe.Register();
+        }
+
+        public override void SafeModifyTooltips(List<TooltipLine> tooltips)
+        {
+            var soulItems = new Dictionary<string, string>
+            {
+                { "SacredTools", "SoulOfTwoRealms" },
+                { "ThoriumMod", "SoulOfYggdrasil" }
+            };
+
+            int descriptionIndex = -1;
+            for (int i = 0; i < tooltips.Count; i++)
+            {
+                if (tooltips[i].Text.Contains("[i:FargowiltasSouls/TerrariaSoul]"))
+                {
+                    descriptionIndex = i;
+                    break;
+                }
+            }
+
+            if (descriptionIndex != -1)
+            {
+                string additionalIcons = "";
+
+                foreach (var soulItem in soulItems)
+                {
+                    string itemName = soulItem.Value;
+
+                    if (Mod.TryFind<ModItem>(itemName, out _))
+                    {
+                        additionalIcons += $"[i:CSE/{itemName}]";
+                    }
+                }
+
+                if (!string.IsNullOrEmpty(additionalIcons))
+                {
+                    tooltips[descriptionIndex].Text = tooltips[descriptionIndex].Text.Replace(
+                        "[i:FargowiltasSouls/TerrariaSoul]",
+                        additionalIcons + "[i:FargowiltasSouls/TerrariaSoul]"
+                    );
+                }
+            }
         }
     }
 }

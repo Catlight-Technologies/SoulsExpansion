@@ -1,9 +1,12 @@
-﻿using Redemption.NPCs.Bosses.ADD;
+﻿using Fargowiltas;
+using Redemption.Items.Materials.PostML;
+using Redemption.NPCs.Bosses.ADD;
 using Redemption.NPCs.Bosses.Neb;
 using Redemption.NPCs.Bosses.Neb.Clone;
 using Redemption.NPCs.Bosses.Neb.Phase2;
 using Redemption.NPCs.Bosses.Obliterator;
 using Redemption.NPCs.Bosses.PatientZero;
+using SacredTools.Content.Items.Materials;
 using System.Collections.Generic;
 using Terraria.ModLoader;
 using static CSE.Core.Common.Globals.CSEPointsBalanceNPC;
@@ -15,6 +18,10 @@ namespace CSE.Core.MoR.ModSystems
     [JITWhenModsEnabled(ModCompatibility.Redemption.Name)]
     public class MoRPostSetupContent : ModSystem
     {
+        public override void PostSetupContent()
+        {
+            FargoSets.Items.DuplicatableItems.SetValue(FargoSets.Items.DupeType.NotDupableFromDupable, ItemType<LifeFragment>());
+        }
         public override void Load()
         {
             //nebuleus 

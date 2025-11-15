@@ -28,6 +28,8 @@ using ThoriumMod.NPCs.BossThePrimordials;
 using SacredTools.NPCs.Boss.Erazor;
 using Fargowiltas;
 using SacredTools.Content.Items.Materials;
+using CSE.Content.SoA.Accessories.Souls;
+using CSE.Content.SoA.Accessories.Forces;
 
 namespace CSE.Core.SoA.ModSystems
 {
@@ -102,6 +104,15 @@ namespace CSE.Core.SoA.ModSystems
             //SwordGlobalItem.AllowedModdedSwords = SwordGlobalItem.AllowedModdedSwords.Union(SoASwordsToApplyRework).ToArray();
 
             FargoSets.Items.DuplicatableItems.SetValue(FargoSets.Items.DupeType.NotDupableFromDupable, ItemType<EmberOfOmen>());
+
+            FargoSets.Items.DuplicatableItems.SetValue(FargoSets.Items.DupeType.MaterialsDupable, ItemType<SoulOfTwoRealms>());
+            FargoSets.Items.DuplicatableItems.SetValue(FargoSets.Items.DupeType.MaterialsDupable, ItemType<SoulOfCreations>());
+
+            FargoSets.Items.DuplicatableItems.SetValue(FargoSets.Items.DupeType.MaterialsDupable, ItemType<GenerationsForce>());
+            FargoSets.Items.DuplicatableItems.SetValue(FargoSets.Items.DupeType.MaterialsDupable, ItemType<SoranForce>());
+            FargoSets.Items.DuplicatableItems.SetValue(FargoSets.Items.DupeType.MaterialsDupable, ItemType<SyranForce>());
+            FargoSets.Items.DuplicatableItems.SetValue(FargoSets.Items.DupeType.MaterialsDupable, ItemType<FoundationsForce>());
+            FargoSets.Items.DuplicatableItems.SetValue(FargoSets.Items.DupeType.MaterialsDupable, ItemType<FrostburnForce>());
         }
     }
 }

@@ -8,7 +8,10 @@ using Terraria.ModLoader;
 using Terraria;
 using CSE.Core;
 using Microsoft.Xna.Framework;
-using FargowiltasCrossmod.Content.Calamity.Items.Accessories;
+using System.Collections.Generic;
+using Terraria.Localization;
+using System.Linq;
+using System;
 
 namespace CSE.Content.Common.Accessories.Souls
 {
@@ -123,6 +126,48 @@ namespace CSE.Content.Common.Accessories.Souls
 
             recipe.AddTile(ModContent.TileType<CrucibleCosmosSheet>());
             recipe.Register();
+        }
+
+        public override void SafeModifyTooltips(List<TooltipLine> tooltips)
+        {
+            var soulItems = new Dictionary<string, string>
+            {
+                { "SacredTools", "SoulOfCreations" },
+                { "ThoriumMod", "SoulOfRagnarok" }
+            };
+
+            int descriptionIndex = -1;
+            for (int i = 0; i < tooltips.Count; i++)
+            {
+                if (tooltips[i].Text.Contains("[i:FargowiltasSouls/MasochistSoul]"))
+                {
+                    descriptionIndex = i;
+                    break;
+                }
+            }
+
+            if (descriptionIndex != -1)
+            {
+                string additionalIcons = "";
+
+                foreach (var soulItem in soulItems)
+                {
+                    string itemName = soulItem.Value;
+
+                    if (Mod.TryFind<ModItem>(itemName, out _))
+                    {
+                        additionalIcons += $"[i:CSE/{itemName}]";
+                    }
+                }
+
+                if (!string.IsNullOrEmpty(additionalIcons))
+                {
+                    tooltips[descriptionIndex].Text = tooltips[descriptionIndex].Text.Replace(
+                        "[i:FargowiltasSouls/MasochistSoul]",
+                        additionalIcons + "[i:FargowiltasSouls/MasochistSoul]"
+                    );
+                }
+            }
         }
     }
 }

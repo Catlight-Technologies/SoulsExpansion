@@ -13,6 +13,7 @@ using FargowiltasSouls.Core.Toggler;
 using CSE.Content.Thorium.Materials;
 using Fargowiltas.Content.Items.Tiles;
 using Microsoft.Xna.Framework;
+using Terraria.ID;
 
 namespace CSE.Content.Thorium.Accessories.Souls
 {
@@ -21,6 +22,19 @@ namespace CSE.Content.Thorium.Accessories.Souls
     public class GuardianAngelsSoul : BaseSoul
     {
         public static readonly Color ItemColor = new(128, 128, 0);
+
+        public override void SetStaticDefaults()
+        {
+            base.SetStaticDefaults();
+            Main.RegisterItemAnimation(Item.type, new DrawAnimationHorizontal(6, 8));
+            ItemID.Sets.AnimatesAsSoul[Item.type] = true;
+        }
+        public override void SetDefaults()
+        {
+            base.SetDefaults();
+            Item.width = 64;
+            Item.height = 66;
+        }
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
             ThoriumPlayer thoriumPlayer = player.GetModPlayer<ThoriumPlayer>();

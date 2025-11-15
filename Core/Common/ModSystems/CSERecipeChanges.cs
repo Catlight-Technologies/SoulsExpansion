@@ -1,3 +1,4 @@
+using CSE.Content.Common.Accessories.Other;
 using CSE.Content.Common.Accessories.Souls;
 using CSE.Content.Common.CraftingStation;
 using Fargowiltas.Content.Items.Tiles;
@@ -44,6 +45,11 @@ namespace CSE.Core.SoA.ModSystems
                     {
                         recipe.AddIngredient<OlympianSoul>();
                     }
+                }
+
+                if (recipe.HasResult(ModContent.ItemType<EternitySoul>()))
+                {
+                    recipe.AddIngredient<CyclonicFin>();
                 }
             }
         }

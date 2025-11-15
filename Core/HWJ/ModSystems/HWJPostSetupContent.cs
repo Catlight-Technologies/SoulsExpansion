@@ -18,6 +18,8 @@ using ContinentOfJourney.NPCs.Boss_SlimeGod;
 using ContinentOfJourney.NPCs.Boss_WorldsEndEverlastingFallingWhale;
 using ContinentOfJourney.NPCs.Boss_ScarabBelief;
 using ContinentOfJourney.NPCs.Trial;
+using Fargowiltas;
+using ContinentOfJourney.Items.Material;
 
 namespace CSE.Core.HWJ.ModSystems
 {
@@ -55,7 +57,7 @@ namespace CSE.Core.HWJ.ModSystems
         {
             SetFactory itemFactory = ItemID.Sets.Factory;
 
-            Items.ChampionTierFargoWeapon = itemFactory.CreateBoolSet(false,
+            Items.HWJFinalBarWeapon = itemFactory.CreateBoolSet(false,
                 ItemType<Blackout>(),
                 ItemType<Climax>(),
                 ItemType<CosmicBoardsword>(),
@@ -72,6 +74,8 @@ namespace CSE.Core.HWJ.ModSystems
                 ItemType<IncitingIncident>(),
                 ItemType<QuartzObliterator>()
             );
+
+            FargoSets.Items.DuplicatableItems.SetValue(FargoSets.Items.DupeType.NotDupableFromDupable, ItemType<EssenceofBright>());
         }
     }
 }
