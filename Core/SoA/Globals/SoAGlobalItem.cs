@@ -43,32 +43,39 @@ namespace CSE.Core.SoA.Globals
             if (item.type == ItemType<CeruleanCyclone>()) return ModCompatibility.Calamity.Loaded ? 1.3f : 1f;
             if (item.type == ItemType<BloodKunai>()) return ModCompatibility.Calamity.Loaded ? 1.3f : 1f;
 
-            if (item.type == ItemType<AsthralYoyo>()) return 0.7f; //60k dps on abom without nerf
+            if (item.type == ItemType<AsthralYoyo>()) return 0.7f; //>60k dps on abom without nerf
+            if (item.type == ItemType<AsthralPartisan>()) return 1.5f; //you cant even hit abom with it :sob:
             // Ranged
             if (item.type == ItemType<NeedlerRelic>()) return ModCompatibility.Calamity.Loaded ? 1.3f : 1f;
-            if (item.type == ItemType<Desperatio>()) return ModCompatibility.Calamity.Loaded ? 1.7f : 1f;
+            if (item.type == ItemType<Desperatio>()) return ModCompatibility.Calamity.Loaded ? 1.5f : 1f;
             if (item.type == ItemType<Malevolence>()) return ModCompatibility.Calamity.Loaded ? 1.3f : 1f;
             if (item.type == ItemType<QueenSwarm>()) return ModCompatibility.Calamity.Loaded ? 1.3f : 1f;
             if (item.type == ItemType<Avalanche>()) return ModCompatibility.Calamity.Loaded ? 1.3f : 1f;
             if (item.type == ItemType<Sharpshooter>()) return ModCompatibility.Calamity.Loaded ? 1.3f : 1f;
             if (item.type == ItemType<Gunblade>()) return ModCompatibility.Calamity.Loaded ? 1.3f : 1f;
+
+            if (item.type == ItemType<DyingBreath>()) return 1.2f;
             // Magic
-            if (item.type == ItemType<Tenebris>()) return ModCompatibility.Calamity.Loaded ? 1.0f : 0.8f;
+            if (item.type == ItemType<Tenebris>()) return ModCompatibility.Calamity.Loaded ? 1.0f : 0.7f;
             if (item.type == ItemType<PaleRuin>()) return ModCompatibility.Calamity.Loaded ? 1.3f : 1f;
             if (item.type == ItemType<LampOfCinders>()) return ModCompatibility.Calamity.Loaded ? 1.3f : 1f;
             if (item.type == ItemType<FatesLament>()) return ModCompatibility.Calamity.Loaded ? 1.3f : 1f;
             if (item.type == ItemType<MightyTorch>()) return ModCompatibility.Calamity.Loaded ? 1.3f : 1f;
 
             if (item.type == ItemType<LunaticBurstStaff>()) return 0.8f;
+            if (item.type == ItemType<AsthralStaff>()) return 1.1f;
+            if (item.type == ItemType<AsthralTome>()) return 1.1f;
             // Summoner
             if (item.type == ItemType<AshenWake>()) return ModCompatibility.Calamity.Loaded ? 1.3f : 1f;
-            if (item.type == ItemType<Malice>()) return ModCompatibility.Calamity.Loaded ? 2.1f : 1.5f;
+            if (item.type == ItemType<Malice>()) return ModCompatibility.Calamity.Loaded ? 2.2f : 1.5f;
             if (item.type == ItemType<MaxDesertStaff>()) return ModCompatibility.Calamity.Loaded ? 1.3f : 1f;
             // Thrower
             if (item.type == ItemType<RogueWave>()) return ModCompatibility.Calamity.Loaded ? 1.3f : 1f;
             if (item.type == ItemType<DimensionalCrusher>()) return ModCompatibility.Calamity.Loaded ? 1.3f : 1f;
             if (item.type == ItemType<BlindJusticeMK2>()) return ModCompatibility.Calamity.Loaded ? 1.3f : 1f;
             if (item.type == ItemType<Eschaton>()) return ModCompatibility.Calamity.Loaded ? 1.9f : 1.2f;
+
+            if (item.type == ItemType<LunaticsGamble>()) return 0.8f;
 
             return 1;
         }

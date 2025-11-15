@@ -7,6 +7,7 @@ using FargowiltasSouls.Content.Items.Armor.Styx;
 using FargowiltasSouls.Content.Items.Weapons.FinalUpgrades;
 using FargowiltasSouls.Content.Items.Weapons.SwarmDrops;
 using Microsoft.Xna.Framework;
+using SacredTools.Common.Types.Revenant;
 using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
@@ -77,6 +78,21 @@ namespace CSE.Core.Common.Globals
             }
         }
 
+        public override void ModifyWeaponDamage(Item item, Player player, ref StatModifier damage)
+        {
+            if (item.damage > 0)
+            {
+                //no cal inheritance because mutant enrages
+                if (item.damage < 100000 && item.damage > 10000 && !CSEUtils.IsModItem(item, "CalamityHunt") && !CSEUtils.IsModItem(item, "CalamityInheritance") && !CSEUtils.IsModItem(item, "SacredTools") && !CSEUtils.IsModItem(item, "FargowiltasSouls") && !CSEUtils.IsModItem(item, "ThoriumMod") && !CSEUtils.IsModItem(item, "CaamityMod"))
+                {
+                    damage *= 0.1f;
+                }
+                if (item.damage > 100000 && !CSEUtils.IsModItem(item, "CalamityHunt") && !CSEUtils.IsModItem(item, "CalamityInheritance") && !CSEUtils.IsModItem(item, "SacredTools") && !CSEUtils.IsModItem(item, "FargowiltasSouls") && !CSEUtils.IsModItem(item, "ThoriumMod") && !CSEUtils.IsModItem(item, "CaamityMod"))
+                {
+                    damage *= 0.05f;
+                }
+            }
+        }
         public override void UpdateAccessory(Item Item, Player player, bool hideVisual)
         {
             if (Item.type == ItemType<BerserkerSoul>())
@@ -101,15 +117,17 @@ namespace CSE.Core.Common.Globals
         {
             if (item.type == ItemType<StyxChestplate>() && (ModCompatibility.Homeward.Loaded || ModCompatibility.SacredTools.Loaded || ModCompatibility.Calamity.Loaded || ModCompatibility.Homeward.Loaded))
             {
-                player.GetDamage<GenericDamageClass>() += 0.15f;
+                player.GetDamage<GenericDamageClass>() += 0.05f;
             }
             if (item.type == ItemType<StyxCrown>() && (ModCompatibility.Homeward.Loaded || ModCompatibility.SacredTools.Loaded || ModCompatibility.Calamity.Loaded))
             {
                 player.GetDamage<GenericDamageClass>() += 0.05f;
+                player.GetCritChance<GenericDamageClass>() += 0.05f;
             }
             if (item.type == ItemType<StyxLeggings>() && (ModCompatibility.Homeward.Loaded || ModCompatibility.SacredTools.Loaded || ModCompatibility.Calamity.Loaded))
             {
                 player.GetDamage<GenericDamageClass>() += 0.05f;
+                player.GetCritChance<GenericDamageClass>() += 0.05f;
             }
         }
         public override void ModifyShootStats(Item item, Player player, ref Vector2 position, ref Vector2 velocity, ref int type, ref int damage, ref float knockBack)
@@ -125,11 +143,44 @@ namespace CSE.Core.Common.Globals
         }
         public override void ModifyTooltips(Item item, List<TooltipLine> tooltips)
         {
+            string BalanceLine = Language.GetTextValue($"Mods.CSE.EModeBalance.CrossBalance");
+            string BalanceDownLine = $"[c/FF0000:{BalanceLine}]";
+
+            if (item.damage < 100000 && item.damage > 10000 && !CSEUtils.IsModItem(item, "CalamityInheritance") && !CSEUtils.IsModItem(item, "SacredTools") && !CSEUtils.IsModItem(item, "FargowiltasSouls") && !CSEUtils.IsModItem(item, "ThoriumMod") && !CSEUtils.IsModItem(item, "CaamityMod"))
+            {
+                tooltips.Add(new TooltipLine(Mod, "DamageDown", $"{BalanceDownLine}" + Language.GetText($"Mods.CSE.EModeBalance.DamageDownGeneric").Format(90)));
+            }
+            if (item.damage > 100000 && !CSEUtils.IsModItem(item, "CalamityInheritance") && !CSEUtils.IsModItem(item, "SacredTools") && !CSEUtils.IsModItem(item, "FargowiltasSouls") && !CSEUtils.IsModItem(item, "ThoriumMod") && !CSEUtils.IsModItem(item, "CaamityMod"))
+            {
+                tooltips.Add(new TooltipLine(Mod, "DamageDown", $"{BalanceDownLine}" + Language.GetText($"Mods.CSE.EModeBalance.DamageDownGeneric").Format(95)));
+            }
+
             if (item.ModItem is BaseSoul)
             {
                 for (int i = 0; i < tooltips.Count; i++)
                 {
                     tooltips[i].Text = Regex.Replace(tooltips[i].Text, "22%", "25%", RegexOptions.IgnoreCase);
+                }
+            }
+            if (item.type == ItemType<StyxChestplate>() && (ModCompatibility.Homeward.Loaded || ModCompatibility.SacredTools.Loaded || ModCompatibility.Calamity.Loaded || ModCompatibility.Homeward.Loaded))
+            {
+                for (int i = 0; i < tooltips.Count; i++)
+                {
+                    tooltips[i].Text = Regex.Replace(tooltips[i].Text, "15%", "20%", RegexOptions.IgnoreCase);
+                }
+            }
+            if (item.type == ItemType<StyxLeggings>() && (ModCompatibility.Homeward.Loaded || ModCompatibility.SacredTools.Loaded || ModCompatibility.Calamity.Loaded))
+            {
+                for (int i = 0; i < tooltips.Count; i++)
+                {
+                    tooltips[i].Text = Regex.Replace(tooltips[i].Text, "10%", "15%", RegexOptions.IgnoreCase);
+                }
+            }
+            if (item.type == ItemType<StyxCrown>() && (ModCompatibility.Homeward.Loaded || ModCompatibility.SacredTools.Loaded || ModCompatibility.Calamity.Loaded))
+            {
+                for (int i = 0; i < tooltips.Count; i++)
+                {
+                    tooltips[i].Text = Regex.Replace(tooltips[i].Text, "10%", "15%", RegexOptions.IgnoreCase);
                 }
             }
 

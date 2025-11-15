@@ -30,8 +30,8 @@ namespace CSE.Content.SoA.Projectiles
         {
             Projectile.width = 2;
             Projectile.height = 2;
-            Projectile.friendly = false;
-            Projectile.hostile = true;
+            Projectile.friendly = true;
+            Projectile.hostile = false;
             Projectile.tileCollide = false;
             Projectile.penetrate = -1;
             Projectile.timeLeft = 600;

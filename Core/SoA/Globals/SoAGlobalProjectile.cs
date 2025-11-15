@@ -66,7 +66,7 @@ namespace CSE.Core.SoA.Globals
             if (projectile.type == ModContent.ProjectileType<MalevolenceGrenadeMode>())
                 projectile.damage = (int)(projectile.damage * 0.2f);
             if (projectile.type == ModContent.ProjectileType<DesperatioFlame>())
-                projectile.damage = (int)(projectile.damage * 0.7f);
+                projectile.damage = (int)(projectile.damage * 0.5f);
         }
         public override bool OnTileCollide(Projectile projectile, Vector2 oldVelocity)
         {

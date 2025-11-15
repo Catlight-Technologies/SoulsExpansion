@@ -6,13 +6,22 @@ using Redemption.Items.Accessories.HM;
 using Redemption.Items.Accessories.PostML;
 using Redemption.Items.Materials.PostML;
 using Redemption.Items.Materials.PreHM;
+using Redemption.Items.Usable;
+using Redemption.Items.Weapons.HM.Magic;
+using Redemption.Items.Weapons.HM.Melee;
+using Redemption.Items.Weapons.HM.Ranged;
 using Redemption.Items.Weapons.PostML.Magic;
 using Redemption.Items.Weapons.PostML.Melee;
 using Redemption.Items.Weapons.PostML.Ranged;
 using Redemption.Items.Weapons.PostML.Summon;
+using Redemption.Items.Weapons.PreHM.Magic;
+using Redemption.Items.Weapons.PreHM.Melee;
+using Redemption.Items.Weapons.PreHM.Ranged;
+using Redemption.Items.Weapons.PreHM.Summon;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using static Terraria.ModLoader.ModContent;
 
 namespace CSE.Core.MoR.ModSystems
 {
@@ -22,14 +31,66 @@ namespace CSE.Core.MoR.ModSystems
     {
         public override void AddRecipes()
         {
-            Recipe.Create(ModContent.ItemType<PureIronAlloy>())
+            Recipe.Create(ItemType<PureIronAlloy>())
                 .AddIngredient<DragonLeadAlloy>()
                 .AddTile<CrucibleCosmosSheet>()
                 .Register();
-            Recipe.Create(ModContent.ItemType<DragonLeadAlloy>())
+            Recipe.Create(ItemType<DragonLeadAlloy>())
                 .AddIngredient<PureIronAlloy>()
                 .AddTile<CrucibleCosmosSheet>()
                 .Register();
+
+            #region boss bags
+            CSEUtils.CreateBagRecipes(ItemType<ThornBag>(),
+            [
+                ItemType<AldersStaff>(),
+                ItemType<CursedGrassBlade>(),
+                ItemType<RootTendril>(),
+                ItemType<CursedThornBow>(),
+            ]);
+            CSEUtils.CreateBagRecipes(ItemType<ErhanBag>(),
+            [
+                ItemType<Bindeklinge>(),
+                ItemType<HolyBible>(),
+                ItemType<HallowedHandGrenade>(),
+            ]);
+            CSEUtils.CreateBagRecipes(ItemType<KeeperBag>(),
+            [
+                ItemType<SoulScepter>(),
+                ItemType<KeepersClaw>(),
+                ItemType<FanOShivs>(),
+            ]);
+            CSEUtils.CreateBagRecipes(ItemType<SoIBag>(),
+            [
+                ItemType<XenoXyston>(),
+                ItemType<CystlingSummon>(),
+                ItemType<ContagionSpreader>(),
+            ]);
+            CSEUtils.CreateBagRecipes(ItemType<SlayerBag>(),
+            [
+                ItemType<SlayerGun>(),
+                ItemType<Nanoswarmer>(),
+                ItemType<SlayerFist>(),
+            ]);
+            CSEUtils.CreateBagRecipes(ItemType<PZBag>(),
+            [
+                ItemType<PZGauntlet>(),
+                ItemType<SwarmerCannon>(),
+                ItemType<Petridish>(),
+                ItemType<PortableHoloProjector>(),
+            ]);
+            CSEUtils.CreateBagRecipes(ItemType<UkkoBag>(),
+            [
+                ItemType<Salamanisku>(),
+                ItemType<Ukonvasara>(),
+                ItemType<UkonRuno>(),
+            ]);
+            CSEUtils.CreateBagRecipes(ItemType<AkkaBag>(),
+            [
+                ItemType<PoemOfIlmatar>(),
+                ItemType<Pihlajasauva>(),
+            ]);
+            #endregion
         }
 
         public override void PostAddRecipes()
@@ -45,7 +106,7 @@ namespace CSE.Core.MoR.ModSystems
 
                 if (recipe.HasResult(ItemID.Zenith) && recipe.HasIngredient<LifeFragment>())
                 {
-                    recipe.RemoveIngredient(ModContent.ItemType<LifeFragment>());
+                    recipe.RemoveIngredient(ItemType<LifeFragment>());
                 }
 
                 if (!ModCompatibility.Calamity.Loaded)
@@ -62,34 +123,62 @@ namespace CSE.Core.MoR.ModSystems
                     if(!ModCompatibility.SacredTools.Loaded)
                         recipe.AddIngredient<MutagenMelee>();
 
-                    recipe.AddIngredient<PZGauntlet>();
+                    if (ModCompatibility.Calamity.Loaded)
+                    {
+                        recipe.AddIngredient<PZGauntlet>();
+                    }
+                    else
+                    {
+                        recipe.AddIngredient<PiercingNebulaWeapon>();
+                    }
                 }
                 if (recipe.HasResult<SnipersSoul>())
                 {
                     if (!ModCompatibility.SacredTools.Loaded)
                         recipe.AddIngredient<MutagenRanged>();
 
-                    recipe.AddIngredient<SwarmerCannon>();
+                    if (ModCompatibility.Calamity.Loaded)
+                    {
+                        recipe.AddIngredient<SwarmerCannon>();
+                    }
+                    else
+                    {
+                        recipe.AddIngredient<Twinklestar>();
+                    }
                 }
                 if (recipe.HasResult<ArchWizardsSoul>())
                 {
                     if (!ModCompatibility.SacredTools.Loaded)
                         recipe.AddIngredient<MutagenMagic>();
 
-                    recipe.AddIngredient<Petridish>();
+                    if (ModCompatibility.Calamity.Loaded)
+                    {
+                        recipe.AddIngredient<Petridish>();
+                    }
+                    else
+                    {
+                        recipe.AddIngredient<Constellations>();
+                    }
                 }
                 if (recipe.HasResult<ConjuristsSoul>())
                 {
                     if (!ModCompatibility.SacredTools.Loaded)
                         recipe.AddIngredient<MutagenSummon>();
 
-                    recipe.AddIngredient<PortableHoloProjector>();
+                    if (ModCompatibility.Calamity.Loaded)
+                    {
+                        recipe.AddIngredient<PortableHoloProjector>();
+                    }
+                    else
+                    {
+                        recipe.AddIngredient<CosmosChains>();
+                    }
                 }
 
                 if (recipe.HasResult<ColossusSoul>())
                 {
                     recipe.AddIngredient<HEVSuit>();
-                    recipe.AddIngredient<PocketShieldGenerator>();
+                    //recipe.AddIngredient<PocketShieldGenerator>();
                 }
                 if (recipe.HasResult<SupersonicSoul>())
                 {

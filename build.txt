@@ -1,5 +1,5 @@
 displayName = Starlight Souls Expansion
-author = CSE Dev Team
+author = StarlightCat, ma3allim
 version = 0.0.0.1
 homepage = https://discord.gg/frUcz2dQAy
 buildIgnore = *.csproj, *.user, obj\*, bin\*, .vs\*, .git\*, *.dll

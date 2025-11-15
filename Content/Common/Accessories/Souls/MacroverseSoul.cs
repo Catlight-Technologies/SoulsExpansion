@@ -33,7 +33,8 @@ namespace CSE.Content.Common.Accessories.Souls
         public override void SetDefaults()
         {
             Item.value = 2500000;
-            Item.rare = 11;
+            Item.rare = -12;
+            Item.expert = true;
             Item.accessory = true;
         }
 

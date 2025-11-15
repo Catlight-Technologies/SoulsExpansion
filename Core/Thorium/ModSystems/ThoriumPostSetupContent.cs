@@ -32,7 +32,7 @@ namespace CSE.Core.Thorium.ModSystems
                 {
                 new ModMultiplier { ModName = "CalamityMod", DamageMultiplier = 0.5f, HealthMultiplier = 2f },
                 new ModMultiplier { ModName = "SacredTools", DamageMultiplier = 0.1f, HealthMultiplier = 0.5f },
-                new ModMultiplier { ModName = "FargowiltasSouls", DamageMultiplier = 0.1f, HealthMultiplier = 2f },
+                new ModMultiplier { ModName = "FargowiltasSouls", DamageMultiplier = 0.1f, HealthMultiplier = 1.5f },
                 new ModMultiplier { ModName = "ContinentOfJourney", DamageMultiplier = 0.1f, HealthMultiplier = 0.5f }
                 }
             );
@@ -40,30 +40,30 @@ namespace CSE.Core.Thorium.ModSystems
                bossType: NPCType<Omnicide>(),
                affectingMods: new List<ModMultiplier>
                {
-                new ModMultiplier { ModName = "CalamityMod", DamageMultiplier = 0.5f, HealthMultiplier = 2f },
-                new ModMultiplier { ModName = "SacredTools", DamageMultiplier = 0.1f, HealthMultiplier = 0.5f },
-                new ModMultiplier { ModName = "FargowiltasSouls", DamageMultiplier = 0.1f, HealthMultiplier = 1.5f },
-                new ModMultiplier { ModName = "ContinentOfJourney", DamageMultiplier = 0.1f, HealthMultiplier = 0.5f }
+                new ModMultiplier { ModName = "CalamityMod", DamageMultiplier = 0.5f, HealthMultiplier = 1.5f },
+                new ModMultiplier { ModName = "SacredTools", DamageMultiplier = 0.1f, HealthMultiplier = 0.25f },
+                new ModMultiplier { ModName = "FargowiltasSouls", DamageMultiplier = 0.1f, HealthMultiplier = 1f },
+                new ModMultiplier { ModName = "ContinentOfJourney", DamageMultiplier = 0.1f, HealthMultiplier = 0.25f }
                }
             );
             AddBossConfig(
                bossType: NPCType<SlagFury>(),
                affectingMods: new List<ModMultiplier>
                {
-                new ModMultiplier { ModName = "CalamityMod", DamageMultiplier = 0.5f, HealthMultiplier = 2f },
-                new ModMultiplier { ModName = "SacredTools", DamageMultiplier = 0.1f, HealthMultiplier = 0.5f },
-                new ModMultiplier { ModName = "FargowiltasSouls", DamageMultiplier = 0.1f, HealthMultiplier = 1.5f },
-                new ModMultiplier { ModName = "ContinentOfJourney", DamageMultiplier = 0.1f, HealthMultiplier = 0.5f }
+                new ModMultiplier { ModName = "CalamityMod", DamageMultiplier = 0.5f, HealthMultiplier = 1.5f },
+                new ModMultiplier { ModName = "SacredTools", DamageMultiplier = 0.1f, HealthMultiplier = 0.25f },
+                new ModMultiplier { ModName = "FargowiltasSouls", DamageMultiplier = 0.1f, HealthMultiplier = 1f },
+                new ModMultiplier { ModName = "ContinentOfJourney", DamageMultiplier = 0.1f, HealthMultiplier = 0.25f }
                }
             );
             AddBossConfig(
                bossType: NPCType<Aquaius>(),
                affectingMods: new List<ModMultiplier>
                {
-                new ModMultiplier { ModName = "CalamityMod", DamageMultiplier = 0.5f, HealthMultiplier = 2f },
-                new ModMultiplier { ModName = "SacredTools", DamageMultiplier = 0.1f, HealthMultiplier = 0.5f },
-                new ModMultiplier { ModName = "FargowiltasSouls", DamageMultiplier = 0.1f, HealthMultiplier = 1.5f },
-                new ModMultiplier { ModName = "ContinentOfJourney", DamageMultiplier = 0.1f, HealthMultiplier = 0.5f }
+                new ModMultiplier { ModName = "CalamityMod", DamageMultiplier = 0.5f, HealthMultiplier = 1.5f },
+                new ModMultiplier { ModName = "SacredTools", DamageMultiplier = 0.1f, HealthMultiplier = 0.25f },
+                new ModMultiplier { ModName = "FargowiltasSouls", DamageMultiplier = 0.1f, HealthMultiplier = 1f },
+                new ModMultiplier { ModName = "ContinentOfJourney", DamageMultiplier = 0.1f, HealthMultiplier = 0.25f }
                }
             );
 

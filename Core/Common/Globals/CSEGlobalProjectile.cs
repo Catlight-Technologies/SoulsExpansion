@@ -1,5 +1,9 @@
+using FargowiltasSouls;
 using FargowiltasSouls.Content.Items.Weapons.FinalUpgrades;
+using FargowiltasSouls.Content.Projectiles.Eternity.Bosses.DukeFishron;
+using FargowiltasSouls.Core.Globals;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace CSE.Core.Common.Globals
@@ -19,6 +23,17 @@ namespace CSE.Core.Common.Globals
             }
 
             return base.PreAI(projectile);
+        }
+
+        public override void SetDefaults(Projectile entity)
+        {
+            //impossible pre mutant?
+            if ((entity.type == ModContent.ProjectileType<FishronRitual>() || entity.type == ModContent.ProjectileType<FishronRitual2>()) && FargoSoulsUtil.BossIsAlive(ref EModeGlobalNPC.fishBossEX, NPCID.DukeFishron))
+            {
+                entity.damage = 0;
+                entity.hostile = false;
+            }
+
         }
     }
 }

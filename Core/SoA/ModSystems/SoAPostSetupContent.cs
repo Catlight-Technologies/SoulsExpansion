@@ -26,6 +26,8 @@ using SacredTools.NPCs.Boss.Obelisk.Nihilus;
 using CSE.Core.Common.ModSystems;
 using ThoriumMod.NPCs.BossThePrimordials;
 using SacredTools.NPCs.Boss.Erazor;
+using Fargowiltas;
+using SacredTools.Content.Items.Materials;
 
 namespace CSE.Core.SoA.ModSystems
 {
@@ -41,7 +43,7 @@ namespace CSE.Core.SoA.ModSystems
                 bossType: NPCType<Nihilus>(),
                 affectingMods: new List<ModMultiplier>
                 {
-                new ModMultiplier { ModName = "CalamityMod", DamageMultiplier = 0.3f, HealthMultiplier = 1.5f },
+                new ModMultiplier { ModName = "CalamityMod", DamageMultiplier = 0.3f, HealthMultiplier = 1f },
                 new ModMultiplier { ModName = "ThoriumMod", DamageMultiplier = 0.1f, HealthMultiplier = 0.15f },
                 new ModMultiplier { ModName = "ContinentOfJourney", DamageMultiplier = 0.1f, HealthMultiplier = 0.2f }
                 }
@@ -50,7 +52,7 @@ namespace CSE.Core.SoA.ModSystems
                 bossType: NPCType<Nihilus2>(),
                 affectingMods: new List<ModMultiplier>
                 {
-                new ModMultiplier { ModName = "CalamityMod", DamageMultiplier = 0.3f, HealthMultiplier = 1.5f },
+                new ModMultiplier { ModName = "CalamityMod", DamageMultiplier = 0.3f, HealthMultiplier = 1f },
                 new ModMultiplier { ModName = "ThoriumMod", DamageMultiplier = 0.1f, HealthMultiplier = 0.15f },
                 new ModMultiplier { ModName = "ContinentOfJourney", DamageMultiplier = 0.1f, HealthMultiplier = 0.2f }
                 }
@@ -59,8 +61,8 @@ namespace CSE.Core.SoA.ModSystems
                 bossType: NPCType<NihilusLanternBig>(),
                 affectingMods: new List<ModMultiplier>
                 {
-                new ModMultiplier { ModName = "CalamityMod", DamageMultiplier = 0, HealthMultiplier = 2f },
-                new ModMultiplier { ModName = "ThoriumMod", DamageMultiplier = 0, HealthMultiplier = 0.2f },
+                new ModMultiplier { ModName = "CalamityMod", DamageMultiplier = 0, HealthMultiplier = 1f },
+                new ModMultiplier { ModName = "ThoriumMod", DamageMultiplier = 0, HealthMultiplier = 0.15f },
                 new ModMultiplier { ModName = "ContinentOfJourney", DamageMultiplier = 0, HealthMultiplier = 0.2f }
                 }
             );
@@ -68,14 +70,15 @@ namespace CSE.Core.SoA.ModSystems
                 bossType: NPCType<RelicShieldNihilus>(),
                 affectingMods: new List<ModMultiplier>
                 {
-                new ModMultiplier { ModName = "CalamityMod", DamageMultiplier = 0, HealthMultiplier = 2f },
-                new ModMultiplier { ModName = "ThoriumMod", DamageMultiplier = 0, HealthMultiplier = 0.2f },
+                new ModMultiplier { ModName = "CalamityMod", DamageMultiplier = 0, HealthMultiplier = 1f },
+                new ModMultiplier { ModName = "ThoriumMod", DamageMultiplier = 0, HealthMultiplier = 0.15f },
                 new ModMultiplier { ModName = "ContinentOfJourney", DamageMultiplier = 0, HealthMultiplier = 0.2f }
                 }
             );
 
             CSEPostSetupContent.changes.Add((NPCType<Nihilus2>(), 26.99f));
             CSEPostSetupContent.changes.Add((NPCType<ErazorBoss>(), 22.8f));
+
         }
         public override void PostSetupContent()
         {
@@ -97,6 +100,8 @@ namespace CSE.Core.SoA.ModSystems
             //ItemType<Yaldabaoth>(),ItemType<TruePandolarra>(),
             //ItemType<VenomiteSword>(),ItemType<HoariHemonga>(),];
             //SwordGlobalItem.AllowedModdedSwords = SwordGlobalItem.AllowedModdedSwords.Union(SoASwordsToApplyRework).ToArray();
+
+            FargoSets.Items.DuplicatableItems.SetValue(FargoSets.Items.DupeType.NotDupableFromDupable, ItemType<EmberOfOmen>());
         }
     }
 }

@@ -17,6 +17,7 @@ using FargowiltasSouls.Core.Toggler;
 using FargowiltasSouls.Core.Toggler.Content;
 using CSE.Content.Thorium.Materials;
 using ThoriumMod.Utilities;
+using ThoriumMod.Items.ThrownItems;
 
 namespace CSE.Content.Common.Accessories.Souls
 {
@@ -81,6 +82,7 @@ namespace CSE.Content.Common.Accessories.Souls
                 recipe.AddIngredient(ModContent.Find<ModItem>(ModCompatibility.Thorium.Name, "PlagueLordFlask"));
                 recipe.AddIngredient(ModContent.Find<ModItem>(ModCompatibility.Thorium.Name, "ThrowingGuideVolume3"));
                 recipe.AddIngredient(ModContent.Find<ModItem>(ModCompatibility.Thorium.Name, "TerrariumRippleKnife"));
+                recipe.AddIngredient(ModContent.Find<ModItem>(ModCompatibility.Thorium.Name, "MermaidCanteen"));
 
                 recipe.AddIngredient(ModContent.Find<ModItem>(ModCompatibility.Thorium.Name, "TerraKnife"));
                 recipe.AddIngredient(ModContent.Find<ModItem>(ModCompatibility.Thorium.Name, "AngelsEnd"));

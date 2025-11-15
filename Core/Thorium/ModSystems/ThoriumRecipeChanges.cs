@@ -228,6 +228,7 @@ namespace CSE.Core.Thorium.ModSystems
                 ItemType<DormantHammer>(),
             ]);
             #endregion
+
         }
         public override void PostAddRecipes()
         {
@@ -280,12 +281,12 @@ namespace CSE.Core.Thorium.ModSystems
                 }
                 if (recipe.HasResult<ColossusSoul>())
                 {
+                    recipe.RemoveIngredient(ItemID.AnkhShield);
                     recipe.AddIngredient<Phylactery>();
 
                     if (!ModCompatibility.Calamity.Loaded && !ModCompatibility.Homeward.Loaded && !ModCompatibility.SacredTools.Loaded)
                     {
                         recipe.RemoveIngredient(ItemType<Devilshield>());
-                        recipe.RemoveIngredient(ItemID.AnkhShield);
                         recipe.AddIngredient<TerrariumDefender>();
                     }
                 }

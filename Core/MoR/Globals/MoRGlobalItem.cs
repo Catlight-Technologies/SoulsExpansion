@@ -22,7 +22,7 @@ namespace CSE.Core.MoR.Globals
             if (item.type == ItemType<ColossusSoul>() || item.type == ItemType<DimensionSoul>() || item.type == ItemType<EternitySoul>())
             {
                 ModCompatibility.Redemption.Mod.Find<ModItem>("HEVSuit").UpdateAccessory(player, true);
-                player.AddEffect<PocketShieldGeneratorEffect>(item);
+                //player.AddEffect<PocketShieldGeneratorEffect>(item);
             }
         }
 
@@ -41,7 +41,7 @@ namespace CSE.Core.MoR.Globals
             if (item.type == ItemType<ColossusSoul>())
             {
                 tooltips.Insert(5, new TooltipLine(Mod, "mayo2", Language.GetTextValue("Mods.CSE.AddedEffects.RedColossus")));
-                tooltips.Insert(5, new TooltipLine(Mod, "mayo2", Language.GetTextValue("Mods.CSE.AddedEffects.RedColossus2")));
+               // tooltips.Insert(5, new TooltipLine(Mod, "mayo2", Language.GetTextValue("Mods.CSE.AddedEffects.RedColossus2")));
             }
         }
     }

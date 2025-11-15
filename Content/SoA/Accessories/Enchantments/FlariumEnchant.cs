@@ -51,9 +51,9 @@ namespace CSE.Content.SoA.Accessories.Enchantments
             {
                 int dmg = 100;
                 if (player.HasEffect<FrostburnEffect>() && !player.HasEffect<TwoRealmsEffect>())
-                    dmg = 150;
+                    dmg = 200;
                 if (player.HasEffect<TwoRealmsEffect>())
-                    dmg = 300;
+                    dmg = 1000;
                 return (int)(dmg * player.ActualClassDamage(DamageClass.Generic));
             }
         }

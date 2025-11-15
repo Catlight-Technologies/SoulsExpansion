@@ -6,6 +6,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria;
 using Microsoft.Xna.Framework;
+using Fargowiltas.Content.Items.Summons.SwarmSummons;
 
 namespace CSE.Content.Common.Summons
 {
@@ -35,11 +36,10 @@ namespace CSE.Content.Common.Summons
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe(1);
-            recipe.AddIngredient<TruffleWorm2>(10);
-            recipe.AddIngredient(ItemID.TruffleWorm, 10);
+            recipe.AddIngredient<OverloadFish>(10);
             recipe.AddIngredient(ItemID.ShrimpyTruffle);
+            //recipe.AddIngredient<EternalEnergy>(5); //no longer post mutant
             recipe.AddIngredient<AbomEnergy>(5);
-            //recipe.AddIngredient<EternalEnergy>(5);
             recipe.AddIngredient<DeviatingEnergy>(5);
             recipe.AddIngredient<Eridanium>(5);
             recipe.AddTile(ModContent.TileType<CrucibleCosmosSheet>());

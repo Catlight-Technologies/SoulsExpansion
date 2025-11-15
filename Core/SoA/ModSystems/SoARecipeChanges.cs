@@ -12,13 +12,17 @@ using SacredTools.Content.Items.Armor.Dragon;
 using SacredTools.Content.Items.Armor.Oblivion;
 using SacredTools.Content.Items.Materials;
 using SacredTools.Content.Items.Placeable.Obelisks;
+using SacredTools.Content.Items.Weapons.Asthraltite;
 using SacredTools.Content.Items.Weapons.Relic;
 using SacredTools.Items.Weapons;
 using SacredTools.Items.Weapons.Lunatic;
+using static Terraria.ModLoader.ModContent;
 using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
+using SacredTools.Content.Items.GrabBags.BossBags;
+using SacredTools.Content.Items.Weapons.Dreadfire;
 
 namespace CSE.Core.SoA.ModSystems
 {
@@ -28,12 +32,33 @@ namespace CSE.Core.SoA.ModSystems
     {
         public override void AddRecipeGroups()
         {
-            RecipeGroup rec = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " Asthral Helmet", ModContent.ItemType<AsthralMage>(), ModContent.ItemType<AsthralRanged>(), ModContent.ItemType<AsthralMelee>(), ModContent.ItemType<AsthralSummon>(), ModContent.ItemType<AsthraltiteHelmetRevenant>());
+            RecipeGroup rec = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " Asthral Helmet", ItemType<AsthralMage>(), ItemType<AsthralRanged>(), ItemType<AsthralMelee>(), ItemType<AsthralSummon>(), ItemType<AsthraltiteHelmetRevenant>());
             RecipeGroup.RegisterGroup("CSE:AsthralHelms", rec);
-            RecipeGroup rec2 = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " Flarium Helmet", ModContent.ItemType<FlariumCrown>(), ModContent.ItemType<FlariumMask>(), ModContent.ItemType<FlariumCowl>());
+            RecipeGroup rec2 = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " Flarium Helmet", ItemType<FlariumCrown>(), ItemType<FlariumMask>(), ItemType<FlariumCowl>());
             RecipeGroup.RegisterGroup("CSE:FlariumHelms", rec2);
-            RecipeGroup rec3 = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " Void Warden Chestplate", ModContent.ItemType<VoidChest>(), ModContent.ItemType<VoidChestOffense>());
+            RecipeGroup rec3 = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " Void Warden Chestplate", ItemType<VoidChest>(), ItemType<VoidChestOffense>());
             RecipeGroup.RegisterGroup("CSE:VoidWardenChest", rec3);
+        }
+
+        public override void AddRecipes()
+        {
+            #region boss bags
+            //oh yeah 2946934 useless materials instead of weapons dropping from bags
+            CSEUtils.CreateBagRecipes(ItemType<RalnekBag>(),
+            [
+                ItemType<SquashBall>(),
+                ItemType<PumpGlove>(),
+                ItemType<Dreadroot>(),
+            ]);
+            CSEUtils.CreateBagRecipes(ItemType<LostSiblingsBag>(),
+            [
+                ItemType<AsteroidShower>(),
+                ItemType<LightningRifle>(),
+                ItemType<CosmicCloudBracelet>(),
+                ItemType<BlindJustice>(),
+                ItemType<FaithsReward>(),
+            ]);
+            #endregion
         }
         public override void PostAddRecipes()
         {
@@ -51,14 +76,13 @@ namespace CSE.Core.SoA.ModSystems
                         recipe.AddIngredient<FloraFist>();
                     }
 
-                    recipe.AddIngredient<TrueMoonEdgedPandolarra>();
+                    recipe.AddIngredient<AsthralSaber>();
 
                     recipe.AddIngredient<SolarSigil>();
                 }
                 if (recipe.HasResult<SnipersSoul>())
                 {
-                    recipe.AddIngredient<DolphinGun>();
-                    recipe.RemoveIngredient(ItemID.Megashark);
+                    recipe.AddIngredient<Obtenebration>();
 
                     recipe.AddIngredient<VortexSigil>();
                 }
@@ -66,7 +90,7 @@ namespace CSE.Core.SoA.ModSystems
                 {
                     recipe.AddIngredient<NubasBlessing>();
 
-                    recipe.AddIngredient<LunaticBurstStaff>();
+                    recipe.AddIngredient<AsthralStaff>();
 
                     recipe.AddIngredient<NebulaSigil>();
                 }
@@ -79,7 +103,7 @@ namespace CSE.Core.SoA.ModSystems
                     recipe.RemoveRecipeGroup(RecipeGroup.recipeGroupIDs["FargowiltasSouls:AnySentryAccessory"]);
                     recipe.AddIngredient<StarstreamVeil>();
 
-                    recipe.AddIngredient<GalaxyScepter>();
+                    recipe.AddIngredient<GraspOfTheAncients>();
 
                     recipe.AddIngredient<StardustSigil>();
                 }
@@ -95,20 +119,26 @@ namespace CSE.Core.SoA.ModSystems
                     recipe.AddIngredient<HeartOfThePlough>();
                     if (!ModCompatibility.Homeward.Loaded)
                     {
-                        recipe.RemoveIngredient(ModContent.ItemType<AeolusBoots>());
+                        recipe.RemoveIngredient(ItemType<AeolusBoots>());
                         recipe.AddIngredient<VoidSpurs>();
                     }
                 }
                 if (recipe.HasResult<ColossusSoul>())
                 {
+                    recipe.RemoveIngredient(ItemID.AnkhShield);
                     recipe.AddIngredient<ReflectionShield>();
                 }
-                if (recipe.HasResult<FlightMasterySoul>() && !recipe.HasIngredient<GrandWings>())
+                if (recipe.HasResult<FlightMasterySoul>())
                 {
                     recipe.AddIngredient<GrandWings>();
                     recipe.AddIngredient<DespairBoosters>();
                     recipe.AddIngredient<AuroraWings>();
                     recipe.AddIngredient<FlariumWings>();
+
+                    if (!ModCompatibility.Calamity.Loaded)
+                    {
+                        recipe.AddIngredient<AsthraltiteWings>();
+                    }
                 }
                 #endregion
 
@@ -116,13 +146,13 @@ namespace CSE.Core.SoA.ModSystems
                 {
                     if (ModCompatibility.Thorium.Loaded)
                     {
-                        recipe.RemoveIngredient(ModContent.ItemType<RoyalRunners>());
-                        recipe.AddIngredient(ModContent.Find<ModItem>(ModCompatibility.Thorium.Name, "TerrariumParticleSprinters"));
+                        recipe.RemoveIngredient(ItemType<RoyalRunners>());
+                        recipe.AddIngredient(Find<ModItem>(ModCompatibility.Thorium.Name, "TerrariumParticleSprinters"));
                     }
                     else
                     {
                         recipe.AddIngredient<AeolusBoots>();
-                        recipe.RemoveIngredient(ModContent.ItemType<RoyalRunners>());
+                        recipe.RemoveIngredient(ItemType<RoyalRunners>());
                     }
                 }
 
@@ -131,11 +161,11 @@ namespace CSE.Core.SoA.ModSystems
                     recipe.AddIngredient<RoyalRunners>();
                     if (!ModCompatibility.Calamity.Loaded)
                     {
-                        recipe.RemoveIngredient(ModContent.ItemType<ZephyrBoots>());
+                        recipe.RemoveIngredient(ItemType<ZephyrBoots>());
                     }
                     else
                     {
-                        recipe.RemoveIngredient(ModContent.Find<ModItem>(ModCompatibility.Calamity.Name, "AngelTreads").Type);
+                        recipe.RemoveIngredient(Find<ModItem>(ModCompatibility.Calamity.Name, "AngelTreads").Type);
                     }
                 }
 
@@ -148,7 +178,7 @@ namespace CSE.Core.SoA.ModSystems
                 {
                     if (ModCompatibility.Calamity.Loaded)
                     {
-                        recipe.AddIngredient(ModContent.Find<ModItem>(ModCompatibility.Calamity.Name, "AngelTreads"));
+                        recipe.AddIngredient(Find<ModItem>(ModCompatibility.Calamity.Name, "AngelTreads"));
                         recipe.RemoveIngredient(ItemID.TerrasparkBoots);
                     }
                     else
@@ -185,12 +215,12 @@ namespace CSE.Core.SoA.ModSystems
                 {
                     if (ModCompatibility.Homeward.Loaded)
                     {
-                        recipe.AddIngredient(ModContent.Find<ModItem>(ModCompatibility.Homeward.Name, "AncientBlessing"));
+                        recipe.AddIngredient(Find<ModItem>(ModCompatibility.Homeward.Name, "AncientBlessing"));
                         recipe.RemoveIngredient(ItemID.CelestialShell);
                     }
                     if (ModCompatibility.Thorium.Loaded)
                     {
-                        recipe.AddIngredient(ModContent.Find<ModItem>(ModCompatibility.Thorium.Name, "TerrariumDefender"));
+                        recipe.AddIngredient(Find<ModItem>(ModCompatibility.Thorium.Name, "TerrariumDefender"));
                         recipe.RemoveIngredient(ItemID.AnkhShield);
                         recipe.RemoveIngredient(ItemID.PaladinsShield);
                     }
@@ -200,8 +230,8 @@ namespace CSE.Core.SoA.ModSystems
                 {
                     if (ModCompatibility.Homeward.Loaded)
                     {
-                        recipe.AddIngredient(ModContent.Find<ModItem>(ModCompatibility.Homeward.Name, "VanguardBreastpiece"));
-                        recipe.RemoveIngredient(ModContent.ItemType<CelestialShield>());
+                        recipe.AddIngredient(Find<ModItem>(ModCompatibility.Homeward.Name, "VanguardBreastpiece"));
+                        recipe.RemoveIngredient(ItemType<CelestialShield>());
                     }
                 }
 
@@ -220,7 +250,7 @@ namespace CSE.Core.SoA.ModSystems
                     }
                     else
                     {
-                        recipe.AddIngredient(ModContent.Find<ModItem>(ModCompatibility.Calamity.Name, "ShadowspecBar"), 5);
+                        recipe.AddIngredient(Find<ModItem>(ModCompatibility.Calamity.Name, "ShadowspecBar"), 5);
                     }
                 }
 
@@ -229,12 +259,12 @@ namespace CSE.Core.SoA.ModSystems
                     if (ModCompatibility.Redemption.Loaded)
                     {
                         recipe.RemoveIngredient(ItemID.SorcererEmblem);
-                        recipe.AddIngredient(ModContent.Find<ModItem>(ModCompatibility.Redemption.Name, "MutagenMagic"));
+                        recipe.AddIngredient(Find<ModItem>(ModCompatibility.Redemption.Name, "MutagenMagic"));
                     }
                     if (ModCompatibility.Homeward.Loaded)
                     {
                         recipe.RemoveIngredient(ItemID.SorcererEmblem);
-                        recipe.AddIngredient(ModContent.Find<ModItem>(ModCompatibility.Homeward.Name, "ArchmageBadge"));
+                        recipe.AddIngredient(Find<ModItem>(ModCompatibility.Homeward.Name, "ArchmageBadge"));
                     }
                 }
                 if (recipe.HasResult<SolarSigil>())
@@ -242,12 +272,12 @@ namespace CSE.Core.SoA.ModSystems
                     if (ModCompatibility.Redemption.Loaded)
                     {
                         recipe.RemoveIngredient(ItemID.WarriorEmblem);
-                        recipe.AddIngredient(ModContent.Find<ModItem>(ModCompatibility.Redemption.Name, "MutagenMelee"));
+                        recipe.AddIngredient(Find<ModItem>(ModCompatibility.Redemption.Name, "MutagenMelee"));
                     }
                     if (ModCompatibility.Homeward.Loaded)
                     {
                         recipe.RemoveIngredient(ItemID.SorcererEmblem);
-                        recipe.AddIngredient(ModContent.Find<ModItem>(ModCompatibility.Homeward.Name, "SwordmasterBadge"));
+                        recipe.AddIngredient(Find<ModItem>(ModCompatibility.Homeward.Name, "SwordmasterBadge"));
                     }
                 }
                 if (recipe.HasResult<StardustSigil>())
@@ -255,12 +285,12 @@ namespace CSE.Core.SoA.ModSystems
                     if (ModCompatibility.Redemption.Loaded)
                     {
                         recipe.RemoveIngredient(ItemID.SummonerEmblem);
-                        recipe.AddIngredient(ModContent.Find<ModItem>(ModCompatibility.Redemption.Name, "MutagenSummon"));
+                        recipe.AddIngredient(Find<ModItem>(ModCompatibility.Redemption.Name, "MutagenSummon"));
                     }
                     if (ModCompatibility.Homeward.Loaded)
                     {
                         recipe.RemoveIngredient(ItemID.SorcererEmblem);
-                        recipe.AddIngredient(ModContent.Find<ModItem>(ModCompatibility.Homeward.Name, "CounsellorBadge"));
+                        recipe.AddIngredient(Find<ModItem>(ModCompatibility.Homeward.Name, "CounsellorBadge"));
                     }
                 }
                 if (recipe.HasResult<VortexSigil>())
@@ -268,12 +298,12 @@ namespace CSE.Core.SoA.ModSystems
                     if (ModCompatibility.Redemption.Loaded)
                     {
                         recipe.RemoveIngredient(ItemID.SorcererEmblem);
-                        recipe.AddIngredient(ModContent.Find<ModItem>(ModCompatibility.Redemption.Name, "BullseyeBadge"));
+                        recipe.AddIngredient(Find<ModItem>(ModCompatibility.Redemption.Name, "MutagenRanged"));
                     }
                     if (ModCompatibility.Homeward.Loaded)
                     {
                         recipe.RemoveIngredient(ItemID.SorcererEmblem);
-                        recipe.AddIngredient(ModContent.Find<ModItem>(ModCompatibility.Homeward.Name, "SwordmasterBadge"));
+                        recipe.AddIngredient(Find<ModItem>(ModCompatibility.Homeward.Name, "SwordmasterBadge"));
                     }
                 }
 

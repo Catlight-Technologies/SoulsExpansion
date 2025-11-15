@@ -33,7 +33,7 @@ namespace CSE.Core.HWJ.ModSystems
                     }
                 }
 
-                if (recipe.HasResult(ItemID.LongRainbowTrailWings))
+                if (recipe.HasResult(ItemID.LongRainbowTrailWings) && recipe.HasIngredient<EssenceofBright>())
                 {
                     recipe.DisableRecipe();
                 }
@@ -87,7 +87,7 @@ namespace CSE.Core.HWJ.ModSystems
                     }
                 }
 
-                if (recipe.HasResult<FinalBar>())
+                if (recipe.HasResult<FinalBar>() && !ModCompatibility.Thorium.Loaded)
                 {
                     recipe.AddIngredient<Eridanium>();
                 }
@@ -112,6 +112,7 @@ namespace CSE.Core.HWJ.ModSystems
                     //flower replacement
                     recipe.RemoveIngredient(ItemID.ManaCloak);
                     recipe.RemoveIngredient(ItemID.MagnetFlower);
+                    recipe.RemoveIngredient(ItemID.ManaFlower);
                     recipe.RemoveIngredient(ItemID.ArcaneFlower);
 
                     recipe.RemoveRecipeGroup(RecipeGroup.recipeGroupIDs["FargowiltasSouls:AnyManaFlower"]);
@@ -169,10 +170,11 @@ namespace CSE.Core.HWJ.ModSystems
                     recipe.RemoveIngredient(ItemID.WingsStardust);
                     recipe.RemoveIngredient(ItemID.WingsSolar);
                     recipe.RemoveIngredient(ItemID.WingsVortex);
-                    recipe.RemoveIngredient(1131);
-                    recipe.RemoveIngredient(1871);
-                    recipe.RemoveIngredient(822);
-                    recipe.RemoveIngredient(821);
+
+                    recipe.RemoveIngredient(ItemID.FestiveWings);
+                    recipe.RemoveIngredient(ItemID.SpookyWings);
+                    recipe.RemoveIngredient(ItemID.FrozenWings);
+                    recipe.RemoveIngredient(ItemID.FlameWings);
                     recipe.AddIngredient<Altitude>();
                 }
                 if (recipe.HasResult<WorldShaperSoul>())
@@ -189,11 +191,15 @@ namespace CSE.Core.HWJ.ModSystems
                 }
                 if (recipe.HasResult<ColossusSoul>())
                 {
+                    recipe.RemoveIngredient(ItemID.AnkhShield);
                     recipe.AddIngredient<MasterShield>();
                     if (!ModCompatibility.SacredTools.Loaded)
                     {
-                        recipe.RemoveIngredient(ItemID.AnkhShield);
                         recipe.AddIngredient<VanguardBreastpiece>();
+                    }
+                    else
+                    {
+                        recipe.RemoveIngredient(ItemID.CharmofMyths);
                     }
                 }
                 if (recipe.HasResult<SupersonicSoul>())

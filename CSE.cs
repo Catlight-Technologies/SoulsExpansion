@@ -15,6 +15,8 @@ using Terraria.DataStructures;
 using FargowiltasSouls.Assets.Textures;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
+using Terraria.Graphics.Effects;
+using CSE.Content.Common.Sky;
 
 namespace CSE
 {
@@ -45,17 +47,29 @@ namespace CSE
                 anchorPosition.X += 30f;
             }
         }
+        
         public override void Load()
         {
             Instance = this;
+
+            foreach (Mod checkMod in ModLoader.Mods)
+            {
+                if (checkMod.Name == "ssm")
+                {
+                    throw new Exception("CSE Legacy and CSE cannot be loaded at the same time");
+                }
+            }
+
+            Fargowiltas.Fargowiltas.SoulsMods.Add(Instance.Name);
+
+            SkyManager.Instance["CSE:MutantEXBoss1"] = new MutantEXSkyP1();
+            SkyManager.Instance["CSE:MutantEXBoss"] = new MutantEXSky();
+            SkyManager.Instance["CSE:MutantEXBoss2"] = new MutantEXSky2();
 
             List<TitleLinkButton> titleLinks = CSETitleLinks;
             titleLinks.Add(MakeSimpleButton("TitleLinks.Discord", "https://discord.gg/frUcz2dQAy", 0));
             titleLinks.Add(MakeSimpleButton("TitleLinks.Wiki", "https://terrariamods.wiki.gg/wiki/Community_Souls_Expansion", 1));
             titleLinks.Add(MakeSimpleButton("Mods.FargowiltasSouls.UI.TitleLinks.Github", "https://github.com/Catlight-Technologies/SoulsExpansion", 3));
-
-            //FargowiltasSouls.BossChecklistValues["MutantBoss"] = int.MaxValue - 1;
-            //BossChecklistValues["AbomBoss"] = ModCompatibility.CatTech.Loaded ? 50 : 22.9f;
 
             LoadDetours();
         }

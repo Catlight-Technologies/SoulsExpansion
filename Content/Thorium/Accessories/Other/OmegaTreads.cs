@@ -19,7 +19,6 @@ namespace CSE.Content.Thorium.Accessories.Other
     [JITWhenModsEnabled(ModCompatibility.Thorium.Name)]
     public class OmegaTreads : ModItem
     {
-        public override string Texture => "ThoriumMod/Items/BossThePrimordials/TheOmegaCore";
         public override void SetDefaults()
         {
             Item.width = 20;

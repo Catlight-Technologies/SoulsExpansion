@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using Terraria.Localization;
 using NoxusBoss.Content.NPCs.Bosses.NamelessDeity;
 using NoxusBoss.Core.World.WorldSaving;
+using CalamityMod.Items.SummonItems;
 
 namespace CSE.Core.Crossmod.Globals
 {
@@ -21,10 +22,46 @@ namespace CSE.Core.Crossmod.Globals
                 player.GetDamage<ThrowingDamageClass>() += 0.03f;
             }
         }
+
+        public static float BalanceChange(Item entity)
+        {
+            if (ModLoader.HasMod("CalamityInheritance"))
+            {
+                if (CSESets.GetValue(CSESets.Items.AbomTierFargoWeapon, entity.type))
+                {
+                    return 5;
+                }
+                if (CSESets.GetValue(CSESets.Items.MutantTierFargoWeapon, entity.type))
+                {
+                    return 10;
+                }
+                if (CSESets.GetValue(CSESets.Items.SiblingsTierFargoWeapon, entity.type))
+                {
+                    return 10;
+                }
+            }
+            return 1;
+        }
+
+        public override void SetDefaults(Item item)
+        {
+            float balance = BalanceChange(item);
+            if (balance != 1)
+            {
+                if (item.damage > 0)
+                {
+                    item.damage = (int)(item.damage * balance);
+                }
+            }
+        }
         public override void ModifyTooltips(Item item, List<TooltipLine> tooltips)
         {
             if (ModLoader.HasMod("NoxusBoss"))
             {
+                if (item.type == ModContent.ItemType<Terminus>())
+                {
+                    tooltips.RemoveAll(line => line.Name == "PostMutant");
+                }
                 if (item.type == ModLoader.GetMod("NoxusBoss").Find<ModItem>("CheatPermissionSlip").Type)
                 {
                     tooltips.Add(new TooltipLine(Mod, "PostMutant", $"{Language.GetTextValue("Mods.CSE.EModeBalance.PostMutabt")}"));

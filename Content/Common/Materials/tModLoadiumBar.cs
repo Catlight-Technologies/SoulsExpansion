@@ -56,7 +56,7 @@ namespace CSE.Content.Common.Materials
             if (ModLoader.HasMod("NoxusBoss"))
             {
                 recipe.AddIngredient(ModLoader.GetMod("NoxusBoss").Find<ModItem>("MetallicChunk"), 1);
-                //recipe.AddIngredient<NDMaterialPlaceholder>(1);
+                recipe.AddIngredient(ModCompatibility.Calamity.Mod.Find<ModItem>("Rock"), 1);
             }
             if (ModCompatibility.Calamity.Loaded)
             {

@@ -12,7 +12,7 @@ EModeBalance: {
 	InfernoNerf: "[c/FF0000:Cross-mod Balance:] Reduced density of bursts"
 	PostAbomSlot: "[c/FF0000:Cross-mod Balance:] Can only be used after defeating Abominationn"
 	MalevolenceGrenadeNerf: "[c/FF0000:Cross-mod Balance:] Grenades deal 80% less damage"
-	DesperatioColumnNerf: "[c/FF0000:Cross-mod Balance:] Flame column deal 30% less damage"
+	DesperatioColumnNerf: "[c/FF0000:Cross-mod Balance:] Flame column deal 50% less damage"
 	HWJDefenseNerf1: "[c/FF0000:Cross-mod Balance:] Defense reduced by 50%"
 	HWJDefenseNerf2: "[c/FF0000:Cross-mod Balance:] Defense reduced by 33%"
 	HWJStunImmunity: "[c/FF0000:Cross-mod Balance:] Souls Mod bosses are not affected by exhaustion"
@@ -97,6 +97,9 @@ ActiveSkills: {
 }
 
 Toggler: {
+	//other
+	CuteFishronEXEffect: Cute Fishron Upgrade
+	SpectralFishEffect: Spectral Fishron Support
 	//soa Enchant
 	FrostburnForceHeader: Force of Frostburn
 	FoundationsForceHeader: Force of Foundations
@@ -119,12 +122,11 @@ Toggler: {
 	FallenPrinceEffect: Supernova on Death
 	SavingGraceEffect: Nebulous Flames
 	GravityEffect: Gravity Area
-	SupernovaEffect: Supernova On Death
 	QuasarEffect: WIP
 	BismuthEffect: Bismuth Crystal
 	DreadfireEffect: Dreadfire Aura
 	CairoCrusaderEffect: Eternal Oasis Minion
-	SpiritMediumEffect: WIP
+	SpiritsMediumEffect: WIP
 	//soa
 	LunarRingEffect: Lunar Ring
 	InfAmmoEffect: Double magazine
@@ -147,6 +149,7 @@ Toggler: {
 	PhylacteryEffect: Lich's Phylactery
 	TheOmegaCoreEffect: The Omega Core
 	CapeoftheSurvivorEffect: Cape of the Survivor
+	OmegaTreadsEffect: Dream Strides
 	PlasmaGeneratorEffect: Plasma Generator
 	InfernoLordsFocusEffect: Inferno Lord's Focus
 	AirWalkersEffect: Air Walkers
@@ -695,7 +698,7 @@ Items: {
 			[i:ThoriumMod/AirWalkers] Allows for walking and jumping on air for a few seconds 
 			[i:ThoriumMod/JetBoots] Allows for boosting forward while in mid air 4 times
 			[i:ThoriumMod/TravelersBoots] Dashes will reach their peak faster 
-			'The Cobblers Ultimate Shoe'
+			'Badly sewn together, still somehow works!'
 			'''
 	}
 
@@ -706,7 +709,7 @@ Items: {
 			25% increased thrower damage and 10% increased thrower critical chance
 			20% increased thrower projectile velocity
 			Consumable throwing items have 75% chance not to be consumed on use
-			''
+			'Strike with deadly precision'
 			'''
 	}
 
@@ -922,6 +925,69 @@ Projectiles: {
 	PureFireballProj.DisplayName: Pure Fireball Proj
 	MinionBellProj.DisplayName: Minion Bell Proj
 	BellMinionPulse.DisplayName: Bell Minion Pulse
+	MutantWofPart.DisplayName: Mutant Wof Part
+	MutantWofDeathray.DisplayName: Mutant Wof Deathray
+	MutantWallOfFlesh.DisplayName: Mutant Wall Of Flesh
+	MutantTyphoon.DisplayName: Mutant Typhoon
+	MutantTwin.DisplayName: Mutant Twin
+	MutantSword.DisplayName: Mutant Sword
+	MutantSpikevine.DisplayName: Mutant Spikevine
+	MutantSphereSmall.DisplayName: Mutant Sphere Small
+	MutantSphereRing.DisplayName: Mutant Sphere Ring
+	MutantSphereHelix.DisplayName: Mutant Sphere Helix
+	MutantSpearThrown.DisplayName: Mutant Spear Thrown
+	MutantSpearSpin.DisplayName: Mutant Spear Spin
+	MutantSpearMagical.DisplayName: Mutant Spear Magical
+	MutantSpearDash.DisplayName: Mutant Spear Dash
+	MutantSpearAim.DisplayName: Mutant Spear Aim
+	MutantSlimeSpike.DisplayName: Mutant Slime Spike
+	MutantSlimeRain.DisplayName: Mutant Slime Rain
+	MutantSlimeBall.DisplayName: Mutant Slime Ball
+	MutantShadowHand.DisplayName: Mutant Shadow Hand
+	MutantScythe2.DisplayName: Mutant Scythe2
+	MutantScythe1.DisplayName: Mutant Scythe1
+	MutantSansHead.DisplayName: Mutant Sans Head
+	MutantSansBeam.DisplayName: Mutant Sans Beam
+	MutantRitual5.DisplayName: Mutant Ritual5
+	MutantRitual4.DisplayName: Mutant Ritual4
+	MutantRitual3.DisplayName: Mutant Ritual3
+	MutantRitual2.DisplayName: Mutant Ritual2
+	MutantRitual.DisplayName: Mutant Ritual
+	MutantReticle2.DisplayName: Mutant Reticle2
+	MutantReticle.DisplayName: Mutant Reticle
+	MutantPillar.DisplayName: Mutant Pillar
+	MutantPenetratorNuke.DisplayName: Mutant Penetrator Nuke
+	MutantNukeBomb.DisplayName: Mutant Nuke Bomb
+	MutantNuke.DisplayName: Mutant Nuke
+	MutantMark2.DisplayName: Mutant Mark2
+	MutantMark1.DisplayName: Mutant Mark1
+	MutantIchor.DisplayName: Mutant Ichor
+	MutantHeal.DisplayName: Mutant Heal
+	MutantGuardian.DisplayName: Mutant Guardian
+	MutantGlowything.DisplayName: Mutant Glowything
+	MutantGiantDeathray2.DisplayName: Mutant Giant Deathray2
+	MutantFragment.DisplayName: Mutant Fragment
+	MutantFishronRitual.DisplayName: Mutant Fishron Ritual
+	MutantFishron.DisplayName: Mutant Fishron
+	MutantFancyMovementTell.DisplayName: Mutant Fancy Movement Tell
+	MutantEyeWavy.DisplayName: Mutant Eye Wavy
+	MutantEyeOfCthulhu.DisplayName: Mutant Eye Of Cthulhu
+	MutantEyeHoming.DisplayName: Mutant Eye Homing
+	MutantEye.DisplayName: Mutant Eye
+	MutantDestroyerTail.DisplayName: Mutant Destroyer Tail
+	MutantDestroyerHead.DisplayName: Mutant Destroyer Head
+	MutantDestroyerBody.DisplayName: Mutant Destroyer Body
+	MutantDeathraySmall.DisplayName: Mutant Deathray Small
+	MutantDeathrayAim.DisplayName: Mutant Deathray Aim
+	MutantDeathray3.DisplayName: Mutant Deathray3
+	MutantDeathray2.DisplayName: Mutant Deathray2
+	MutantDeathray1.DisplayName: Mutant Deathray1
+	MutantCursedFlame.DisplayName: Mutant Cursed Flame
+	MutantChain.DisplayName: Mutant Chain
+	MutantBossProjectile.DisplayName: Mutant Boss Projectile
+	MutantBombSmall.DisplayName: Mutant Bomb Small
+	MutantBomb.DisplayName: Mutant Bomb
+	MutantBigSting22.DisplayName: Mutant Big Sting22
 }
 
 Buffs: {
@@ -981,4 +1047,10 @@ Buffs: {
 	}
 }
 
+ModIconName: Starlight Souls Expansion
 Conditions.AbaddonDowned: Abaddon the Source of Affliction downed
+
+NPCs: {
+	MutantIllusion.DisplayName: Mutant Illusion
+	MutantEXBoss.DisplayName: Mutant EX
+}

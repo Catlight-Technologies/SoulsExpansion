@@ -86,7 +86,7 @@ namespace CSE.Content.SoA.Accessories.Enchantments
             recipe.AddIngredient<NubaRobe>();
             //recipe.AddIngredient<NubasBlessing>();
             recipe.AddIngredient<LunaticBurstStaff>();
-            recipe.AddIngredient<AsthralStaff>();
+            //recipe.AddIngredient<AsthralStaff>();
             recipe.AddTile<EnchantedTreeSheet>();
             recipe.Register();
         }
